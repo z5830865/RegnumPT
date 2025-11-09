@@ -1,0 +1,63 @@
+##ignore this file##
+**/Debug/ 
+**/Release/
+*/.vs/
+/.vs/
+*/bin/
+*/link/
+*/linker/
+.classpath
+.project
+.settings
+*.pch
+*.pchast
+ ##filter databfile¡¢sln file##
+*.mdb  
+*.ldb   
+*.d
+*.obj
+*.o
+*.tlog
+*.lastbuildstate
+*.idb
+*.pdb
+*~
+*.swp 
+*.res
+*.ipch
+##class file##
+*.com  
+*.class  
+*.dll  
+*.exe  
+*.o  
+*.so  
+# compression file
+*.7z  
+*.dmg  
+*.gz  
+*.iso  
+*.rar  
+*.tar  
+*.zip  
+*.via
+*.tmp
+*.err 
+*.log
+# OS generated files #  
+.DS_Store  
+.DS_Store?  
+._*  
+.Spotlight-V100  
+.Trashes  
+Icon?  
+ehthumbs.db  
+Thumbs.db  
+Client/stdafx.pch
+Server/stdafx.pch
+Client/Client.vcxproj
+Client/Client.vcxproj.filters
+Server/Server.vcxproj
+Server/Server.vcxproj.filters
+Client/Client.vcxproj.user
+Server/Server.vcxproj.user
