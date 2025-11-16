@@ -53,11 +53,7 @@
 Icon?  
 ehthumbs.db  
 Thumbs.db  
-Client/stdafx.pch
-Server/stdafx.pch
-Client/Client.vcxproj
-Client/Client.vcxproj.filters
-Server/Server.vcxproj
-Server/Server.vcxproj.filters
-Client/Client.vcxproj.user
-Server/Server.vcxproj.user
+/game/game/game.vcxproj
+/game/game/game.vcxproj.user
+/server/server/server.vcxproj
+/server/server/server.vcxproj.user
