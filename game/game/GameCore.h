@@ -91,6 +91,7 @@
 #include "CMountHandler.h"
 #include "CCharacterPvPModeHandler.h"
 #include "CActionBarHandler.h"
+#include "AutoGameHandler.h"
 
 #include "gamecharacterstatus.h"
 
@@ -375,6 +376,7 @@ public:
 	CMountHandler										* pcMountHandler = NULL;
 	CCharacterPvPModeHandler							* pcCharacterPvPModeHandler = NULL;
 	CActionBarHandler									* pcActionBarHandler = NULL;
+	CAutoGameHandler									* pcAutoGameHandler = NULL;
 
 	SkillManager 										* GetSkillManagerHandler() { return pcSkillManagerHandler; };
 	ChatGame 											* GetChatGameHandler() { return pcChatGameHandler; };

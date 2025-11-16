@@ -52,6 +52,7 @@
     <LibraryPath>$(SolutionDir)..\deps\Delta3d\Lib;$(DXSDK_DIR)LIB\x86;$(LibraryPath)</LibraryPath>
     <SourcePath>$(VC_SourcePath);$(SolutionDir)..\shared;$(SolutionDir)..\deps\Delta3d\Souce</SourcePath>
     <GenerateManifest>true</GenerateManifest>
+    <OutDir>E:\Dragons Online\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -118,7 +119,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <Optimization>Full</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SLAVE;_GAME;WIN32;NDEBUG;_WINDOWS;_USRDLL;GAME_EXPORTS;_DISABLE_VECTOR_ANNOTATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -138,7 +139,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <ModuleDefinitionFile>export.def</ModuleDefinitionFile>
@@ -237,6 +238,7 @@
     <ClInclude Include="AccountHandler.h" />
     <ClInclude Include="AnimationHandler.h" />
     <ClInclude Include="AntiCheat.h" />
+    <ClInclude Include="AutoGameHandler.h" />
     <ClInclude Include="BellatraGame.h" />
     <ClInclude Include="BellatraReward.h" />
     <ClInclude Include="BlessCastleHandler.h" />
@@ -695,6 +697,7 @@
     <ClCompile Include="AccountHandler.cpp" />
     <ClCompile Include="AnimationHandler.cpp" />
     <ClCompile Include="AntiCheat.cpp" />
+    <ClCompile Include="AutoGameHandler.cpp" />
     <ClCompile Include="BellatraGame.cpp" />
     <ClCompile Include="BellatraReward.cpp" />
     <ClCompile Include="BlessCastleHandler.cpp" />

@@ -946,6 +946,12 @@
     <Filter Include="Source Files\Engine\SMD">
       <UniqueIdentifier>{40044080-2dc4-491f-9e5a-8cda951b0573}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game\Controller\AutoGame">
+      <UniqueIdentifier>{83a6b836-1e3c-46a3-9e5e-9da70def6ece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Controller\AutoGame">
+      <UniqueIdentifier>{836b2c3e-b7f8-494b-bdc3-05d460e37ab9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WinDump.h">
@@ -1748,7 +1754,7 @@
     </ClInclude>
     <ClInclude Include="CImpulsionHandler.h">
       <Filter>Header Files\Game\Controller\Skill\Character\Mechanician</Filter>
-   </ClInclude>
+    </ClInclude>
     <ClInclude Include="MixGuildWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -2246,6 +2252,9 @@
     </ClInclude>
     <ClInclude Include="CCharacterSaveHandler.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoGameHandler.h">
+      <Filter>Header Files\Game\Controller\AutoGame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -3422,6 +3431,9 @@
     </ClCompile>
     <ClCompile Include="CCharacterSaveHandler.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoGameHandler.cpp">
+      <Filter>Source Files\Game\Controller\AutoGame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

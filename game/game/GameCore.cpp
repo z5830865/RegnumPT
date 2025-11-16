@@ -107,6 +107,7 @@ GameCore::GameCore()
 
 	pcCharacterPvPModeHandler			= new CCharacterPvPModeHandler();
 	pcActionBarHandler					= new CActionBarHandler();
+	pcAutoGameHandler					= new CAutoGameHandler();
 
 	UnitGame::CreateInstance();
 
@@ -411,6 +412,7 @@ GameCore::~GameCore()
 	pcMessageBalloon = NULL;
 
 	DELET( pcCrystalTowerHandler );
+	DELET( pcAutoGameHandler);
 
 	UnitGame::DeleteInstance();
 }
@@ -592,7 +594,8 @@ BOOL GameCore::OnKeyPress(CKeyboard * pcKeyboard)
 		return TRUE;
 	if ( pcActionBarHandler->OnKeyDown( pcKeyboard ) )
 		return TRUE;
-
+	if ( pcAutoGameHandler->OnKeyDown(pcKeyboard))
+		return TRUE;
 	return FALSE;
 }
 
@@ -967,6 +970,8 @@ void GameCore::Update( float fTime )
 		pcGlamorousBrushHandler->Update( (float)fTimeAdd );
 
 		pcMountHandler->Update( (float)fTimeAdd );
+
+		pcAutoGameHandler->AutoPlay(fdTime);
 
 		Game::FlushLoaders();
 

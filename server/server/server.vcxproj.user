@@ -6,8 +6,8 @@
     <LocalDebuggerCommand>E:\RptServer\Login Server\Server.exe</LocalDebuggerCommand>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LocalDebuggerCommand>E:\RptServer\Login Server\Server.exe</LocalDebuggerCommand>
-    <LocalDebuggerWorkingDirectory>E:\RptServer\Login Server</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerCommand>E:\RptServer\Game Server\Server.exe</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>E:\RptServer\Game Server</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

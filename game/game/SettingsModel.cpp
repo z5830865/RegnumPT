@@ -126,6 +126,21 @@ BOOL CSettingsModel::ReadSettings()
 		sSettingsData.bTargetHPPercent = cReader.ReadBool( "UI", "TargetHPPercent" );
 	}
 
+	// AutoPlay
+	{
+		sSettingsData.bUsePM = cReader.ReadBool("AutoPlay", "UsePM");
+		sSettingsData.bUseRightClick = cReader.ReadBool("AutoPlay", "UseRightClick");
+		sSettingsData.Life = cReader.ReadInt("AutoPlay", "Life");
+		sSettingsData.Mana = cReader.ReadInt("AutoPlay", "Mana");
+		sSettingsData.Stamina = cReader.ReadInt("AutoPlay", "Stamina");
+		for (int i = 0; i < 6; i++)
+		{
+			char buffer[16];
+			STRINGFORMAT(buffer, "Buff%d", i + 1);
+			sSettingsData.buff[i] = cReader.ReadInt("AutoPlay", buffer);
+		}
+	}
+
 	//Is First Read?
 	if ( !bFirstRead )
 	{

@@ -111,6 +111,13 @@ private:
 		BOOL											bTargetHPPercent;
 
 		BOOL											bShowConnectionData;
+
+		BOOL 											bUsePM;
+		int												buff[6];
+		BOOL 											bUseRightClick;
+		int 											Life;
+		int 											Mana;
+		int 											Stamina;
 	};
 	sSettings											sSettingsData;
 	sSettings											sOldSettingsData;

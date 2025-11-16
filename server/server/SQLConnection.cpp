@@ -323,7 +323,7 @@ void SQLConnection::Init( EDatabaseID eDatabaseID )
 		//STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "DESKTOP-R0EFKGJ", szDatabaseName, "sa", "pt123@" );
 		
 		//Test Pancake
-		STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "PT\\SQL09", szDatabaseName, "sa", "cazheroGB15" );
+		STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "127.0.0.1", szDatabaseName, "sa", "zhengjianman@163" );
 
 		//Test
 		//STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "WIN-IR6E1U9HDQH", szDatabaseName, "sa", "pt123@" );
@@ -343,7 +343,7 @@ void SQLConnection::Init( EDatabaseID eDatabaseID )
 	else
 	{
 		//Host Canada
-		STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "127.0.0.1", szDatabaseName, "sa", "zhengjianman@163" );
+		STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "127.0.0.1", szDatabaseName, "sa", "admin@666" );
 	}
 
 	memcpy( strconn, szStringConnectionSQL, 512 );
@@ -639,20 +639,14 @@ BOOL SQLConnection::BindParameterInput( int iPosition, EDatabaseDataType eDataTy
 
 			//Fuckin ugly code
 			{
-				BOOL bDateTimeMMDDYYYY = FALSE;
-
 				//Get Datetime Format from Windows
 				DWORD iBufferSize = 8192;
 				char szValue[255];
 				RegGetValue( HKEY_CURRENT_USER, "Control Panel\\International", "sShortDate", RRF_RT_ANY, NULL, (PVOID)&szValue, &iBufferSize );
 
-				//DateTime format its mm/dd/yyyy?
-				if ( szValue[0] == 'M' || szValue[0] == 'm' )
-					bDateTimeMMDDYYYY = TRUE;
-
 				//Format Date into String
 				char szDateTime[MAX_PATH] = { 0 };
-				STRINGFORMAT( szDateTime, "%02d/%02d/%04d %02d:%02d:%02d", bDateTimeMMDDYYYY ? sTimeStamp.month : sTimeStamp.day, bDateTimeMMDDYYYY ? sTimeStamp.day : sTimeStamp.month, sTimeStamp.year, sTimeStamp.hour, sTimeStamp.minute, sTimeStamp.second );
+				STRINGFORMAT( szDateTime, "%04d-%02d-%02d %02d:%02d:%02d", sTimeStamp.year, sTimeStamp.month, sTimeStamp.day, sTimeStamp.hour, sTimeStamp.minute, sTimeStamp.second );
 
 				std::string strDate( szDateTime );
 
