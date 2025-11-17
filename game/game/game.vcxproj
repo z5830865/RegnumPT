@@ -61,7 +61,7 @@
     <IncludePath>$(DXSDK_DIR)\Include;$(SolutionDir)..\deps\Delta3d\Source;$(SolutionDir)..\shared;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(DXSDK_DIR)\Lib\x86;$(SolutionDir)..\deps\Delta3d\Lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
     <SourcePath>$(SolutionDir)..\deps\Delta3d\Source;$(VC_SourcePath)</SourcePath>
-    <OutDir>E:\Dragons Online</OutDir>
+    <OutDir>D:\game\Dragons Online</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

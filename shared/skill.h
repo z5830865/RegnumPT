@@ -2197,241 +2197,242 @@ const Rectangle2D saSkillPage2Button[4]
 
 const Skill saSkill[MAX_SKILLS] = 
 {
-	{ "³ë¸Ö¾îÅÃ ", 0x11111111, "Skill_Normal" },
+	//Mechanician Skills - Tier 1
+	{ "基础攻击", 0x11111111, "Skill_Normal" },
 
 	//Mechanician Skills - Tier 1
-	{ "ÀÍ½ºÆ®¸²½¯µå", SKILLID_ExtremeShield, "TM10 Ex_shield", "Mc1_E_SHIELD.tga" },
-	{ "¸ÞÄ«´Ð¹ü", SKILLID_MechanicBomb, "TM12 M_bomb" },
-	{ "ÇÇÁöÄÃ ¾÷¼Ù", SKILLID_PoisonAttribute, "TM14 P_attribute" },
-	{ "Æ÷ÀÌÁð ¾îÆ®¸®ºäÆ®", SKILLID_PhysicalAbsorb, "TM17 Ph_absorb", "Mc1_P_ABSORB.tga" },
+	{ "极光护盾", SKILLID_ExtremeShield, "TM10 Ex_shield", "Mc1_E_SHIELD.tga" },
+	{ "机械榴弹", SKILLID_MechanicBomb, "TM12 M_bomb" },
+	{ "毒之防御", SKILLID_PoisonAttribute, "TM14 P_attribute" },
+	{ "灵光护体", SKILLID_PhysicalAbsorb, "TM17 Ph_absorb", "Mc1_P_ABSORB.tga" },
 
 	//Tier 2
-	{ "¶ó¿îµå ÀÓÆåÆ®", SKILLID_GreatSmash, "TM20 G_Smash" },
-	{ "¸Æ½Ã¸¶ÀÌÁî ", SKILLID_Maximize, "TM23 Maximize", "Mc2_MAXIMIZE.tga" },
-	{ "¿ÀÅä¸ÞÀÌ¼Ç", SKILLID_Automation, "TM26 Automation", "Mc2_AUTOMATION.tga" },
-	{ "½ºÆÄÅ©", SKILLID_Spark, "TM30 Spark" },
+	{ "破碎巨击", SKILLID_GreatSmash, "TM20 G_Smash" },
+	{ "改良专家", SKILLID_Maximize, "TM23 Maximize", "Mc2_MAXIMIZE.tga" },
+	{ "灵光飞扬", SKILLID_Automation, "TM26 Automation", "Mc2_AUTOMATION.tga" },
+	{ "火花电场", SKILLID_Spark, "TM30 Spark" },
 
 	//Tier 3
-	{ "¸ÞÅ» ¾Æ¸Ó", SKILLID_MetalArmor, "TM40 M_Armor", "Mc3_M_ARMOR.tga" },
-	{ "±×·£µå ½º¸Þ½¬", SKILLID_GrandSmash, "TM43 Grand_Smash" },
-	{ "¸ÞÄ«´Ð ¿þÆÝ", SKILLID_MechanicWeaponMastery, "TM44 M_Weapon" },
-	{ "½ºÆÄÆ® ½¯µå", SKILLID_SparkShield, "TM50 S_Shield", "Mc3_S_SHIELD.tga" },
+	{ "金属重甲", SKILLID_MetalArmor, "TM40 M_Armor", "Mc3_M_ARMOR.tga" },
+	{ "星光灭绝", SKILLID_GrandSmash, "TM43 Grand_Smash" },
+	{ "优化专家", SKILLID_MechanicWeaponMastery, "TM44 M_Weapon" },
+	{ "防御电波", SKILLID_SparkShield, "TM50 S_Shield", "Mc3_S_SHIELD.tga" },
 
 	//Tier 4
-	{ "ÀÓÇÃ·¹ÀÌ¼Ç", SKILLID_Impulsion, "TM60 Impulsion" },
-	{ "ÄÄÇÃ·¹ÀÌ¼Ç", SKILLID_Compulsion, "TM63 Compulsion", "Mc4_COMPULSION.tga" },
-	{ "¸Þ³×Æ½ ÇÇ¾î", SKILLID_MagneticSphere, "TM66 M_Sphere", "Mc4_M_SPHERE.tga" },
-	{ "¸ÞÅ» °ñ·½", SKILLID_MetalGolem, "TM70 M_Golem", "Mc4_M_GOLEM.tga" },
+	{ "雷霆冲击", SKILLID_Impulsion, "TM60 Impulsion" },
+	{ "威慑怒吼", SKILLID_Compulsion, "TM63 Compulsion", "Mc4_COMPULSION.tga" },
+	{ "磁性球体", SKILLID_MagneticSphere, "TM66 M_Sphere", "Mc4_M_SPHERE.tga" },
+	{ "终极机械", SKILLID_MetalGolem, "TM70 M_Golem", "Mc4_M_GOLEM.tga" },
 
 	//Tier 5
-	{ "·Ñ¸µ ½º¸Å½¬", SKILLID_Rupture, "TM100 Rupture" },
-	{ "ÆÄ¿ö ÀÎÇÚ½º", SKILLID_MagneticDischarge, "TM103 Magnetic_Discharge" },
-	{ "ÇÏÀÌÆÛ ¼Ò´Ð", SKILLID_HardeningShield, "TM106 Hardening_Shield" },
-	{ "·£µå ¸¶ÀÌ´×", SKILLID_ParasitShot, "TM110 Parasit_Shot" },
+	{ "jx51", SKILLID_Rupture, "TM100 Rupture" },
+	{ "jx52", SKILLID_MagneticDischarge, "TM103 Magnetic_Discharge" },
+	{ "jx53", SKILLID_HardeningShield, "TM106 Hardening_Shield" },
+	{ "jx54", SKILLID_ParasitShot, "TM110 Parasit_Shot" },
 
 	//Fighter Skills - Tier 1
-	{ "¹èÆ² ¸¶½ºÅÍ¸®", SKILLID_MeleeMastery, "TF10 M_mastery" },
-	{ "ÆÄÀÌÅÍ ¾îÆ®¸®ºäÆ®", SKILLID_FireAttribute, "TF12 F_attribute" },
-	{ "·¹ÀÌºù", SKILLID_Raving, "TF14 raving" },
-	{ "ÀÓÆÑÆ®", SKILLID_Impact, "TF17 impact" },
+	{ "格斗之术", SKILLID_MeleeMastery, "TF10 M_mastery" },
+	{ "炎之抗御", SKILLID_FireAttribute, "TF12 F_attribute" },
+	{ "绝地暴走", SKILLID_Raving, "TF14 raving" },
+	{ "精准之击", SKILLID_Impact, "TF17 impact" },
 
 	//Tier 2
-	{ "Æ®¸®ÇÃ ÀÓÆÑÆ®", SKILLID_TripleImpact, "TF20 T_Impact" },
-	{ "ºÎ·çÆ² ½ºÀ®", SKILLID_BrutalSwing, "TF23 B_Swing" },
-	{ "·Î¾î", SKILLID_Roar, "TF26 Roar" },
-	{ "·¹ÀÌÁö¿Àºê Á¦Å©¶÷", SKILLID_RageofZecram, "TF30 R_Zecram" },
+	{ "威力冲击", SKILLID_TripleImpact, "TF20 T_Impact" },
+	{ "致命回旋", SKILLID_BrutalSwing, "TF23 B_Swing" },
+	{ "极地怒吼", SKILLID_Roar, "TF26 Roar" },
+	{ "战神之怒", SKILLID_RageofZecram, "TF30 R_Zecram" },
 
 	//Tier 3
-	{ "ÄÁ¼¾Æ®·¹ÀÌ¼Ç", SKILLID_Concentration, "TF40 Concentration", "Ft3_CONCENTRATION.tga" },
-	{ "¾îº¥Â¡ Å©·¡½¬", SKILLID_AvengingCrash, "TF43 A_Crash" },
-	{ "½ºÀ§ÇÁ¿¢½º", SKILLID_SwiftAxe, "TF46 S_Axe", "Ft3_S_AXE.tga" },
-	{ "º» Å©·¡½¬", SKILLID_BoneCrash, "TF50 B_Crash" },
+	{ "会心一击", SKILLID_Concentration, "TF40 Concentration", "Ft3_CONCENTRATION.tga" },
+	{ "复仇连击", SKILLID_AvengingCrash, "TF43 A_Crash" },
+	{ "刺杀之斧", SKILLID_SwiftAxe, "TF46 S_Axe", "Ft3_S_AXE.tga" },
+	{ "挫骨扬灰", SKILLID_BoneCrash, "TF50 B_Crash" },
 
 	//Tier 4
-	{ "µð½ºÅä¸®¾î", SKILLID_Destroyer, "TF60 Destoryer" },
-	{ "¹ö¼­Ä¿", SKILLID_Berserker, "TF63 Berserker", "Ft4_BERSERKER.tga" },
-	{ "½ÎÀÌÅ¬·Ð ½ºÆÄÀÌÅ©", SKILLID_CycloneStrike, "TF66 C_Strike" },
-	{ "ºÎ½ºÆ® Çï½º", SKILLID_BoostHealth, "TF70 B_Health" },
+	{ "破坏连击", SKILLID_Destroyer, "TF60 Destoryer" },
+	{ "狂暴战士", SKILLID_Berserker, "TF63 Berserker", "Ft4_BERSERKER.tga" },
+	{ "飓风袭击", SKILLID_CycloneStrike, "TF66 C_Strike" },
+	{ "健康专家", SKILLID_BoostHealth, "TF70 B_Health" },
 
 	//Tier 5
-	{ "´Ù¿î Èý", SKILLID_SurvivalInstinct, "TF100 Survival_Instinct" },
-	{ "ÆÄ¿ö ´ë½Ã", SKILLID_SeismicImpact, "TF103 Sesmic_Impact" },
-	{ "¸ðÅ» ºí·Î¿ì", SKILLID_RuthlessofZecram, "TF106 Ruthless_Zecram" },
-	{ "ºí·¯µð ¹ö¼­Ä¿", SKILLID_WhirlwindFS01, "TF110 Whirlwind" },
+	{ "WS51", SKILLID_SurvivalInstinct, "TF100 Survival_Instinct" },
+	{ "WS52", SKILLID_SeismicImpact, "TF103 Sesmic_Impact" },
+	{ "WS53", SKILLID_RuthlessofZecram, "TF106 Ruthless_Zecram" },
+	{ "WS54", SKILLID_WhirlwindFS01, "TF110 Whirlwind" },
 
 	//Pikeman Skills - Tier 1
-	{ "ÆÄÀÌÅ©À©µå", SKILLID_PikeWind, "TP10 P_wind" },
-	{ "¾ÆÀÌ½º ¾îÆ®¸®ºäÆ®", SKILLID_IceAttribute, "TP12 I_attribute" },
-	{ "Å©¸®Æ¼ÄÃ Èý", SKILLID_CriticalHit, "TP14 Cri_hit" },
-	{ "Á¡ÇÎÅ©·¡½¬", SKILLID_JumpingCrash, "TP17 J_Crash" },
+	{ "龙卷枪风", SKILLID_PikeWind, "TP10 P_wind" },
+	{ "寒之抗御", SKILLID_IceAttribute, "TP12 I_attribute" },
+	{ "致命打击", SKILLID_CriticalHit, "TP14 Cri_hit" },
+	{ "霹雳一击", SKILLID_JumpingCrash, "TP17 J_Crash" },
 
 	//Tier 2
-	{ "±×¶ó¿îµåÆÄÀÌÅ©", SKILLID_GroundPike, "TP20 G_Pike" },
-	{ "Åä³×ÀÌµµ", SKILLID_Tornado, "TP23 Tornado" },
-	{ "¿þÆÝµðÆæ½º¸¶½ºÅÍ¸®", SKILLID_WeaponDefenseMastery, "TP26 W_D_Mastery" },
-	{ "ÀÍ½ºÆæ¼Ç", SKILLID_Expansion, "TP30 Expasion" },
+	{ "大地之枪", SKILLID_GroundPike, "TP20 G_Pike" },
+	{ "枪之飓风", SKILLID_Tornado, "TP23 Tornado" },
+	{ "格挡专家", SKILLID_WeaponDefenseMastery, "TP26 W_D_Mastery" },
+	{ "无限力枪", SKILLID_Expansion, "TP30 Expasion" },
 
 	//Tier 3
-	{ "º£³ð ½ºÇÇ¾î", SKILLID_VenomSpear, "TP40 V_Spear" },
-	{ "ºí·¹ÀÌµå¿Àºêºí·¹ÀÌÁî", SKILLID_Vanish, "TP43 Vanish", "Pk3_VANISH.tga" },
-	{ "»þÇÁ¸¶½ºÅÍ¸®", SKILLID_CriticalMastery, "TP46 C_Mastery" },
-	{ "Ã¼ÀÎ·£½º", SKILLID_ChainLance, "TP50 C_Lance" },
+	{ "灵蛇标枪", SKILLID_VenomSpear, "TP40 V_Spear" },
+	{ "隐身刺杀", SKILLID_Vanish, "TP43 Vanish", "Pk3_VANISH.tga" },
+	{ "致命掌控", SKILLID_CriticalMastery, "TP46 C_Mastery" },
+	{ "链枪骑兵", SKILLID_ChainLance, "TP50 C_Lance" },
 
 	//Tier 4
-	{ "¾î½Ø½Å ¾ÆÀÌ", SKILLID_AssassinsEye, "TP60 A_Eye", "Pk4_A_EYE.tga" },
-	{ "Â÷Â¡ ½ºÆ®¶óÀÌÅ©", SKILLID_ChargingStrike, "TP63 C_Strike" },
-	{ "º£ÀÌ±×", SKILLID_Vague, "TP66 Vague", "Pk4_VAGUE.tga" },
-	{ "»õµÍ¿ì ¸¶½ºÅÍ", SKILLID_ShadowMaster, "TP70 S_Master" },
+	{ "暗杀之眼", SKILLID_AssassinsEye, "TP60 A_Eye", "Pk4_A_EYE.tga" },
+	{ "转换打击", SKILLID_ChargingStrike, "TP63 C_Strike" },
+	{ "影遁躲避", SKILLID_Vague, "TP66 Vague", "Pk4_VAGUE.tga" },
+	{ "影子大师", SKILLID_ShadowMaster, "TP70 S_Master" },
 
 	//Tier 5
-	{ "´í½Ì ¸®ÆÛ", SKILLID_RingofSpears, "TP100 Ring_Spears" },
-	{ "ÆÄÀÌ³Î ½ºÇÇ¾î", SKILLID_LastBreath, "TP103 Focus" },
-	{ "¿¥ÇÃ¸®ÆÄÀÌµå", SKILLID_DeathMaster, "TP106 Death_Master" },
-	{ "»çÀÌµå ½ºÇÉ ¾îÅÃ", SKILLID_Twister, "TP110 Twister" },
+	{ "QB51", SKILLID_RingofSpears, "TP100 Ring_Spears" },
+	{ "QB52", SKILLID_LastBreath, "TP103 Focus" },
+	{ "QB53", SKILLID_DeathMaster, "TP106 Death_Master" },
+	{ "QB54", SKILLID_Twister, "TP110 Twister" },
 
 	//Archer Skills - Tier 1
-	{ "½ºÄ«¿ô È£Å©", SKILLID_ScoutHawk, "TA10 S_hawk", "Ac1_S_HAWK.tga" },
-	{ "½´ÆÃ ¸¶½ºÅÍ¸®", SKILLID_ShootingMastery, "TA12 S_mastery" },
-	{ "À©µå ¾Ö·Î¿ì", SKILLID_WindArrow, "TA14 W_arrow" },
-	{ "ÆÛÆåÆ® ¿¡ÀÓ", SKILLID_PerfectAim, "TA17 P_aim" },
+	{ "侦察之鹰", SKILLID_ScoutHawk, "TA10 S_hawk", "Ac1_S_HAWK.tga" },
+	{ "强力之箭", SKILLID_ShootingMastery, "TA12 S_mastery" },
+	{ "疾风之箭", SKILLID_WindArrow, "TA14 W_arrow" },
+	{ "夺命之箭", SKILLID_PerfectAim, "TA17 P_aim" },
 
 	//Tier 2
-	{ "µð¿Â½º ¾ÆÀÌ", SKILLID_DionsEye, "TA20 D_Eye" },
-	{ "ÆÈÄÜ", SKILLID_Falcon, "TA23 Falcon", "Ac2_FALCON.tga" },
-	{ "¾Ö·Î¿ì ¿Àºê·¹ÀÌÁö", SKILLID_ArrowofRage, "TA26 A_Rage" },
-	{ "¾Æ¹ß¶õÃ¼", SKILLID_Avalanche, "TA30 Avalanchie" },
+	{ "射神之眼", SKILLID_DionsEye, "TA20 D_Eye" },
+	{ "灵魂之鹰", SKILLID_Falcon, "TA23 Falcon", "Ac2_FALCON.tga" },
+	{ "狂暴火箭", SKILLID_ArrowofRage, "TA26 A_Rage" },
+	{ "雪崩之箭", SKILLID_Avalanche, "TA30 Avalanchie" },
 
 	//Tier 3
-	{ "¿¤·¹¸àÅ»¼¦", SKILLID_ElementalShot, "TA40 E_Shot" },
-	{ "°ñµçÆÈÄÜ", SKILLID_GoldenFalcon, "TA43 G_Falcon", "Ac3_G_FALCON.tga" },
-	{ "¹ü ¼¦", SKILLID_BombShot, "TA46 B_Shot" },
-	{ "ÆÛÆ÷·¹ÀÌ¼Ç", SKILLID_Perforation, "TA50 Perforation" },
+	{ "元素攻击", SKILLID_ElementalShot, "TA40 E_Shot" },
+	{ "黄金猎鹰", SKILLID_GoldenFalcon, "TA43 G_Falcon", "Ac3_G_FALCON.tga" },
+	{ "致命射击", SKILLID_BombShot, "TA46 B_Shot" },
+	{ "穿透之箭", SKILLID_Perforation, "TA50 Perforation" },
 
 	//Tier 4
-	{ "¸®ÄÝ ¿ï¹ö¸°", SKILLID_RecallWolverine, "TA60 R_Wolverin", "Ac4_R_WOLVERIN.tga" },
-	{ "ÀÌº£ÀÌ¼Ç ¸¶½ºÅÍ¸®", SKILLID_EvasionMastery, "TA63 E_Mastery" },
-	{ "ÇÇ´Ð½º ¼¦", SKILLID_PhoenixShot, "TA66 P_Shot" },
-	{ "Æ÷½º ¿Àºê ³»Ãò·²", SKILLID_ForceofNature, "TA70 F_O_Nature", "Ac4_F_O_NATURE.tga" },
+	{ "召唤魔狼", SKILLID_RecallWolverine, "TA60 R_Wolverin", "Ac4_R_WOLVERIN.tga" },
+	{ "躲避大师", SKILLID_EvasionMastery, "TA63 E_Mastery" },
+	{ "火翼射击", SKILLID_PhoenixShot, "TA66 P_Shot" },
+	{ "自然之力", SKILLID_ForceofNature, "TA70 F_O_Nature", "Ac4_F_O_NATURE.tga" },
 
 	//Tier 5
-	{ "½ã´õ·çÇÁ", SKILLID_LethalSight, "TA100 Lethal_Sight" },
-	{ "ÀÌº£ÀÌµå¼¦", SKILLID_FierceWind, "TA103 Fierce_Wind" },
-	{ "³×ÀÌÃÄ ½ºÇÃ·¡½¬", SKILLID_EntalingRoots, "TA106 Entailing_Roots" },
-	{ "¼­Å¬Æ®·¦", SKILLID_Bombardment, "TA110 Bombardment" },
+	{ "GJS51", SKILLID_LethalSight, "TA100 Lethal_Sight" },
+	{ "GJS52", SKILLID_FierceWind, "TA103 Fierce_Wind" },
+	{ "GJS53", SKILLID_EntalingRoots, "TA106 Entailing_Roots" },
+	{ "GJS54", SKILLID_Bombardment, "TA110 Bombardment" },
 
-	//Assassin Skills - Tier 1
-	{ "½ºÆÃ°Å", SKILLID_Stinger, "TA10 Stingger" },
-	{ "·¯´× Èý", SKILLID_RunningHit, "TA12 R_Hit" },
-	{ "µà¾ó¼Òµå ¸¶½ºÅÍ¸®", SKILLID_DualWieldMastery, "TA14 D_Mastery" },
-	{ "À§½ºÇÁ", SKILLID_Wisp, "TA17 Wisp", "As1_WISP.tga" },
+	//刺客 - Tier 1
+	{ "突袭刺击", SKILLID_Stinger, "TA10 Stingger" },
+	{ "侧翻闪击", SKILLID_RunningHit, "TA12 R_Hit" },
+	{ "精通匕首", SKILLID_DualWieldMastery, "TA14 D_Mastery" },
+	{ "弱点牵制", SKILLID_Wisp, "TA17 Wisp", "As1_WISP.tga" },
 
 	//Tier 2
-	{ "º£³ð ½ð", SKILLID_VenomThorn, "TA20 V_Throne" },
-	{ "¾Ë¶ó½º", SKILLID_Alas, "TA23 Alas", "As2_ALAS.tga" },
+	{ "毒牙连击", SKILLID_VenomThorn, "TA20 V_Throne" },
+	{ "天使之翼", SKILLID_Alas, "TA23 Alas", "As2_ALAS.tga" },
 	{ "¼Ò¿ï ¼îÅ©", SKILLID_SoulShock, "TA26 S_Shock" },
 	{ "¾îÅÃ ¸¶½ºÅÍ¸®", SKILLID_AttackMastery, "TA30 A_Mastery" },
 
 	//Tier 3
-	{ "¼Ò¾î ¼Òµå", SKILLID_SoreBlade, "TA40 S_Sword" },
-	{ "ºñÆ® ¾÷", SKILLID_GustSlash, "TA43 B_Up" },
-	{ "ÀÎÆä½º", SKILLID_Inpes, "TA46 Inpes", "As3_INPES.tga" },
-	{ "ºí¶óÀÎµå", SKILLID_Blind, "TA50 Blind", "As3_BLIND.tga" },
-	
+	{ "灵魂震撼", SKILLID_SoreBlade, "TA40 S_Sword" },
+	{ "刺杀大师", SKILLID_GustSlash, "TA43 B_Up" },
+	{ "飞舞之剑", SKILLID_Inpes, "TA46 Inpes", "As3_INPES.tga" },
+	{ "旋风连击", SKILLID_Blind, "TA50 Blind", "As3_BLIND.tga" },
+
 	//Tier 4
-	{ "ÇÁ·Î½ºÆ® À©µå", SKILLID_FrostWind, "TA60 F_Wind" },
-	{ "ÆäÀÌÆ² ¸¶½ºÅÍ¸®", SKILLID_FatalMastery, "TA63 F_Mastery" },
-	{ "Æú·çÆ¼µå", SKILLID_Polluted, "TA66 Polluted" },
-	{ "ÆäÀÌ½ºÆÃ ½¦µµ¿ì", SKILLID_NinjaShadow, "TA70 P_Shadow" },
+	{ "敏捷大师", SKILLID_FrostWind, "TA60 F_Wind" },
+	{ "暗影刺杀", SKILLID_FatalMastery, "TA63 F_Mastery" },
+	{ "霜冻之刃", SKILLID_Polluted, "TA66 Polluted" },
+	{ "致命精通", SKILLID_NinjaShadow, "TA70 P_Shadow" },
 
 	//Tier 5
-	{ "½¦µµ¿ì ¹ü", SKILLID_ShadowBlink, "TS80 J_Bomb" },
-	{ "¶óÀÌÂ¡ ½½·¡½¬", SKILLID_KissViper, "TS83 R_Slash" },
-	{ "¹ÙÀÌ¿Ã·±½º ½ºÅÇ", SKILLID_ViolentStub, "TS86 V_Stab" },
-	{ "½ºÅè", SKILLID_ShadowStorm, "TS90 Storm" },
+	{ "CIKE51", SKILLID_ShadowBlink, "TS80 J_Bomb" },
+	{ "CIKE52", SKILLID_KissViper, "TS83 R_Slash" },
+	{ "CIKE53", SKILLID_ViolentStub, "TS86 V_Stab" },
+	{ "CIKE54", SKILLID_ShadowStorm, "TS90 Storm" },
 
-	//Knight Skills - Tier 1
-	{ "½º¿ö½ººí·¹½ºÆ®", SKILLID_SwordBlast, "MN10 S_Blast" },
-	{ "È¦¸® ¹Ùµð", SKILLID_HolyBody, "MN12 H_Body", "Kt1_H_BODY.tga" },
-	{ "ÇÇÁöÄÃÆ®·¹ÀÌ´×", SKILLID_PhysicalTraining, "MN14 P_Traning" },
-	{ "´õºí Å©·¡½¬", SKILLID_DoubleCrash, "MN17 D_Crash" },
+	//游侠 - Tier 1
+	{ "剑气爆发", SKILLID_SwordBlast, "MN10 S_Blast" },
+	{ "圣光护体", SKILLID_HolyBody, "MN12 H_Body", "Kt1_H_BODY.tga" },
+	{ "超能体训", SKILLID_PhysicalTraining, "MN14 P_Traning" },
+	{ "双重爆击", SKILLID_DoubleCrash, "MN17 D_Crash" },
 
 	//Tier 2
-	{ "È¦¸® ¹ë·¯", SKILLID_HolyValor, "MN20 H_Valor", "Kt2_H_VALOR.tga" },
-	{ "ºê·£µð½¬", SKILLID_Brandish, "MN23 Brandish" },
-	{ "ÇÇ¾î½Ì", SKILLID_Piercing, "MN26 Piercing" },
-	{ "µå·¹½ºÆ½ ½ºÇÇ¸´", SKILLID_DrasticSpirit, "MN30 D_Spirit", "Kt2_D_SPIRIT.tga" },
+	{ "神圣勇气", SKILLID_HolyValor, "MN20 H_Valor", "Kt2_H_VALOR.tga" },
+	{ "狂躁挥舞", SKILLID_Brandish, "MN23 Brandish" },
+	{ "强龙啸天", SKILLID_Piercing, "MN26 Piercing" },
+	{ "天佑神铠", SKILLID_DrasticSpirit, "MN30 D_Spirit", "Kt2_D_SPIRIT.tga" },
 
 	//Tier 3
-	{ "ÇÁ·¹ÀÓ ºê·£µð½¬", SKILLID_SwordMastery, "MN40 S_Mastery" },
-	{ "µð¹ÙÀÎÀÎÈ¦·¹ÀÌ¼Ç", SKILLID_DivineShield, "MN43 D_Inhalation", "Kt3_D_INHALATION.tga" },
-	{ "È¦¸®ÀÎÄµÅ×ÀÌ¼Ç", SKILLID_HolyIncantation, "MN46 H_Incantation" },
-	{ "±×·£µå Å©·Î½º", SKILLID_GrandCross, "MN50 G_Cross" },
+	{ "刀剑专精", SKILLID_SwordMastery, "MN40 S_Mastery" },
+	{ "圣灵之吸", SKILLID_DivineShield, "MN43 D_Inhalation", "Kt3_D_INHALATION.tga" },
+	{ "迷惑之咒", SKILLID_HolyIncantation, "MN46 H_Incantation" },
+	{ "圣光十字", SKILLID_GrandCross, "MN50 G_Cross" },
 
 	//Tier 4
-	{ "½º¿öµå ¿Àºê Àú½ºÆ½½º", SKILLID_SwordofJustice, "MN60 S_O_Justice" },
-	{ "°«µé¸® ½¯µå", SKILLID_GodlyShield, "MN63 G_Shield", "Kt4_G_SHIELD.tga" },
-	{ "°« ºí·¹½º", SKILLID_GodsBlessing, "MN66 G_Bless", "Kt4_G_BLESS.tga" },
-	{ "µð¹ÙÀÎ ÇÇ¾î½Ì", SKILLID_DivinePiercing, "MN70 D_Piercing" },
+	{ "神圣刺骨", SKILLID_SwordofJustice, "MN60 S_O_Justice" },
+	{ "敬神之盾", SKILLID_GodlyShield, "MN63 G_Shield", "Kt4_G_SHIELD.tga" },
+	{ "上帝祝福", SKILLID_GodsBlessing, "MN66 G_Bless", "Kt4_G_BLESS.tga" },
+	{ "裁决之剑", SKILLID_DivinePiercing, "MN70 D_Piercing" },
 
 	//Tier 5
-	{ "¼Ò¿ï ºê·¹ÀÌÄ¿", SKILLID_HolyConviction, "MN100 Holy_Conviction" },
-	{ "Å©·¹¼¾Æ® ¹®", SKILLID_WhirlWind, "MN103 Divine_Inquisiton" },
-	{ "¼¼ÀÎÆ® ºí·¹ÀÌµå", SKILLID_GloriousShield, "MN106 Glorious_Shield" },
-	{ "È¦¸® º£³×µñ", SKILLID_DivineCross, "MN110 Divine_Cross" },
+	{ "YX51", SKILLID_HolyConviction, "MN100 Holy_Conviction" },
+	{ "YX52", SKILLID_WhirlWind, "MN103 Divine_Inquisiton" },
+	{ "YX53", SKILLID_GloriousShield, "MN106 Glorious_Shield" },
+	{ "YX54", SKILLID_DivineCross, "MN110 Divine_Cross" },
 
-	//Atalanta Skills - Tier 1
-	{ "½¯µå ½ºÆ®¶óÀÌÅ©", SKILLID_ShieldStrike, "MA10 S_Strike" },
-	{ "ÆÄ¸®³ª ", SKILLID_Farina, "MA12 Farina" },
-	{ "µå·ÎÀ×¸¶½ºÅÍ¸®", SKILLID_ThrowingMaster, "MA14 T_Mastery" },
-	{ "ºñ°Å ½ºÇÇ¾î", SKILLID_BiggerSpear, "MA17 V_Spear" },
+	//魔枪手 - Tier 1
+	{ "美杜莎盾", SKILLID_ShieldStrike, "MA10 S_Strike" },
+	{ "含沙射影", SKILLID_Farina, "MA12 Farina" },
+	{ "魔力神枪", SKILLID_ThrowingMaster, "MA14 T_Mastery" },
+	{ "精神之枪", SKILLID_BiggerSpear, "MA17 V_Spear" },
 
 	//Tier 2
-	{ "À©µð", SKILLID_Windy, "MA20 Windy", "At2_WINDY.tga" },
-	{ "Æ®À§½ºÆ® Àçºí¸°", SKILLID_TwistJavelin, "MA23 T_Javelin" },
-	{ "¼Ò¿ï ½âÄ¿", SKILLID_SoulSucker, "MA26 S_Sucker" },
-	{ "ÆÄÀÌ¾î Àçºí¸°", SKILLID_FireJavelin, "MA30 F_Javelin" },
+	{ "追命劲风", SKILLID_Windy, "MA20 Windy", "At2_WINDY.tga" },
+	{ "螺旋飞标", SKILLID_TwistJavelin, "MA23 T_Javelin" },
+	{ "灵魂吞噬", SKILLID_SoulSucker, "MA26 S_Sucker" },
+	{ "火焰烈枪", SKILLID_FireJavelin, "MA30 F_Javelin" },
 
 	//Tier 3
-	{ "½ºÇÃ¸´ ÀÚº§¸°", SKILLID_SplitJavelin, "MA40 Split_Javelin" },
-	{ "Æ®¶óÀÌ¾öÇÁ¿Àºê¹ßÇÒ¶ó", SKILLID_TriumphofJavelin, "MA43 T_Of_Valhalla", "At3_T_O_VALHALLA.tga" },
-	{ "¶óÀÌÆ®´×Àçºí¸°", SKILLID_LightningJavelin, "MA46 L_Javelin" },
-	{ "½ºÅè Àçºí¸°", SKILLID_StormJavelin, "MA50 Storm_Javelin" },
+	{ "追风之枪", SKILLID_SplitJavelin, "MA40 Split_Javelin" },
+	{ "战栗咆哮", SKILLID_TriumphofJavelin, "MA43 T_Of_Valhalla", "At3_T_O_VALHALLA.tga" },
+	{ "光猎之枪", SKILLID_LightningJavelin, "MA46 L_Javelin" },
+	{ "暴风狂标", SKILLID_StormJavelin, "MA50 Storm_Javelin" },
 
 	//Tier 4
-	{ "Çï ¿Àºê ¹ßÇÒ¶ó", SKILLID_HallofValhalla, "MA60 H_O_Valhalla", "At4_H_O_VALHALLA.tga" },
-	{ "¿¢½º ¶óÁö", SKILLID_ExtremeRage, "MA63 X_Rage" },
-	{ "ÇÁ·Î½ºÆ® Àçºí¸°", SKILLID_FrostJavelin, "MA66 F_Javelin", "At4_F_JAVELIN.tga" },
-	{ "º¥Ã¾", SKILLID_Vengeance, "MA70 Vengeance" },
+	{ "哈拉之光", SKILLID_HallofValhalla, "MA60 H_O_Valhalla", "At4_H_O_VALHALLA.tga" },
+	{ "十字怒刺", SKILLID_ExtremeRage, "MA63 X_Rage" },
+	{ "霜冻标枪", SKILLID_FrostJavelin, "MA66 F_Javelin", "At4_F_JAVELIN.tga" },
+	{ "复仇连击", SKILLID_Vengeance, "MA70 Vengeance" },
 
 	//Tier 5
-	{ "¼­¸Õ ¾Æ¸£Äí´Ù", SKILLID_SummonTiger, "MA100 S_Tiger" },
-	{ "Å»¶ó¸®¾Æ", SKILLID_GoldenApple, "MA103 Golden_Apple" },
-	{ "°¶·°½Ã Äò", SKILLID_PlagueJavelin, "MA106 Plague_Javelin" },
-	{ "½º´ÏÇÇ ÇÇ¾î", SKILLID_ComboJavelin, "MA110 Combo_Javelin" },
+	{ "MQ51", SKILLID_SummonTiger, "MA100 S_Tiger" },
+	{ "MQ52", SKILLID_GoldenApple, "MA103 Golden_Apple" },
+	{ "MQ53", SKILLID_PlagueJavelin, "MA106 Plague_Javelin" },
+	{ "MQ54", SKILLID_ComboJavelin, "MA110 Combo_Javelin" },
 
-	//Priestess Skills - Tier 1
-	{ "Èú¸µ", SKILLID_Healing, "MP10 Healing" },
-	{ "È¦¸®º¼Æ® ", SKILLID_HolyBolt, "MP12 HolyBolt" },
-	{ "¸ÖÆ¼½ºÆÄÅ©", SKILLID_MultiSpark, "MP14 M_Spark" },
-	{ "È¦¸®¸¶ÀÎµå", SKILLID_HolyMind, "MP17 HolyMind" },
+	//祭司 - Tier 1
+	{ "治愈之术", SKILLID_Healing, "MP10 Healing" },
+	{ "圣光攻击", SKILLID_HolyBolt, "MP12 HolyBolt" },
+	{ "光芒四射", SKILLID_MultiSpark, "MP14 M_Spark" },
+	{ "意念之术", SKILLID_HolyMind, "MP17 HolyMind" },
 
 	//Tier 2
-	{ "¸ÞµðÅ×ÀÌ¼Ç", SKILLID_Meditation, "MP20 Meditation" },
-	{ "µð¹ÙÀÎ¶óÀÌÆ®´×", SKILLID_DivineLightning, "MP23 D_Lightning" },
-	{ "È¦¸® ¸®ÇÃ·º¼Ç", SKILLID_HolyReflection, "MP26 H_Reflection", "Pr2_H_REFLECTION.tga" },
-	{ "±×·¹ÀÌÆ® Èú¸µ", SKILLID_GrandHealing, "MP30 G_Healing" },
+	{ "曙光耀灵", SKILLID_Meditation, "MP20 Meditation" },
+	{ "神之雷电", SKILLID_DivineLightning, "MP23 D_Lightning" },
+	{ "灵魔之御", SKILLID_HolyReflection, "MP26 H_Reflection", "Pr2_H_REFLECTION.tga" },
+	{ "圣洁之光", SKILLID_GrandHealing, "MP30 G_Healing" },
 
 	//Tier 3
-	{ "ºñ°Å º¼", SKILLID_VigorBall, "MP40 V_Ball" },
-	{ "¸®Àú·º¼Ç", SKILLID_Resurrection, "MP43 Resurrection" },
-	{ "ÀÍ½ºÆÃ¼Ç", SKILLID_Extinction, "MP46 Extinction" },
-	{ "¹öÃò¾ó ¶óÀÌÇÁ", SKILLID_VirtualLife, "MP50 V_Life", "Pr3_V_LIFE.tga" },
+	{ "火影双重", SKILLID_VigorBall, "MP40 V_Ball" },
+	{ "起死回生", SKILLID_Resurrection, "MP43 Resurrection" },
+	{ "死亡凋零", SKILLID_Extinction, "MP46 Extinction" },
+	{ "神圣之光", SKILLID_VirtualLife, "MP50 V_Life", "Pr3_V_LIFE.tga" },
 
 	//Tier 4
-	{ "±Û·¡¼Å ½ºÆÄÀÌÅ©", SKILLID_GlacialSpike, "MP60 G_Spike" },
-	{ "¸®Á¦³Ê·¹ÀÌ¼Ç ÇÊµå", SKILLID_RegenerationField, "MP63 R_Field", "Pr4_R_FIELD.tga" },
-	{ "Ã¼ÀÎ ¶óÀÌÆ®´×", SKILLID_ChainLightning, "MP66 C_Lightning" },
-	{ "¼­¸Õ ¹«½ºÆç", SKILLID_SummonMuspell, "MP70 S_Muspell", "Pr4_S_MUSPELL.tga" },
+	{ "冰霜长矛", SKILLID_GlacialSpike, "MP60 G_Spike" },
+	{ "再生领域", SKILLID_RegenerationField, "MP63 R_Field", "Pr4_R_FIELD.tga" },
+	{ "环形闪电", SKILLID_ChainLightning, "MP66 C_Lightning" },
+	{ "召唤符咒", SKILLID_SummonMuspell, "MP70 S_Muspell", "Pr4_S_MUSPELL.tga" },
 
 	//Tier 5
 	{ "½ºÇÇ¸´ ÀÓÆÑÆ®", SKILLID_IceElemental, "MP100 Ice_Elemental" },
@@ -2439,29 +2440,29 @@ const Skill saSkill[MAX_SKILLS] =
 	{ "¼­¸Õ ¶ó¹Ì¿¤", SKILLID_HeavenlyLight, "MP106 Heavenly_Light" },
 	{ "ºí·¹½Ì Å©¸®½´³ª", SKILLID_Consecration, "MP110 Consecration" },
 
-	//Magician Skills - Tier 1
-	{ "¾î°í´Ï", SKILLID_Agony, "MM10 Agony" },
-	{ "ÆÄÀÌ¾îº¼Æ® ", SKILLID_FireBolt, "MM12 FireBolt" },
-	{ "Á¦´Ï¾²", SKILLID_Zenith, "MM14 Zenith", "Mg1_ZENITH.tga" },
-	{ "ÆÄÀÌ¾îº¼", SKILLID_FireBall, "MM17 FireBall" },
+	//魔法师 - Tier 1
+	{ "魔力转化", SKILLID_Agony, "MM10 Agony" },
+	{ "火箭之术", SKILLID_FireBolt, "MM12 FireBolt" },
+	{ "颠峰之术", SKILLID_Zenith, "MM14 Zenith", "Mg1_ZENITH.tga" },
+	{ "火球之术", SKILLID_FireBall, "MM17 FireBall" },
 
 	//Tier 2
-	{ "¸ÇÅ» ¸¶½ºÅÍ¸®", SKILLID_MentalMastery, "MM20 M_Mastery" },
-	{ "ÄÝ·ë¿Àºê¿öÅÍ", SKILLID_Watornado, "MM23 Watornado" },
-	{ "ÀÎÃ¦Æ® ¿þÆù", SKILLID_EnchantWeapon, "MM26 E_Weapon", "Mg2_E_WEAPON.tga" },
-	{ "µ¥µå·¹ÀÌ", SKILLID_DeathRay, "MM30 D_Ray" },
+	{ "控制意念", SKILLID_MentalMastery, "MM20 M_Mastery" },
+	{ "海龙长啸", SKILLID_Watornado, "MM23 Watornado" },
+	{ "神通加持", SKILLID_EnchantWeapon, "MM26 E_Weapon", "Mg2_E_WEAPON.tga" },
+	{ "冥亡之光", SKILLID_DeathRay, "MM30 D_Ray" },
 
 	//Tier 3
-	{ "¿¡³ÊÁö ½¯µå", SKILLID_EnergyShield, "MM40 E_Shield", "Mg3_E_SHIELD.tga" },
-	{ "´ÙÀÌ¾Æ½ºÆ®·ÎÇÇÁò", SKILLID_Diastrophism, "MM43 Diastrophism" },
-	{ "½ºÇÇ¸´ ¿¤·¹¸àÅ»", SKILLID_SpiritElemental, "MM46 S_Elemental", "Mg3_S_ELEMENTAL.tga" },
-	{ "´í½Ì½º¿öµå", SKILLID_DancingSword, "MM50 D_Sword", "Mg3_D_SWORD.tga" },
+	{ "魔法守护", SKILLID_EnergyShield, "MM40 E_Shield", "Mg3_E_SHIELD.tga" },
+	{ "地动山摇", SKILLID_Diastrophism, "MM43 Diastrophism" },
+	{ "魂之召唤", SKILLID_SpiritElemental, "MM46 S_Elemental", "Mg3_S_ELEMENTAL.tga" },
+	{ "刀光剑影", SKILLID_DancingSword, "MM50 D_Sword", "Mg3_D_SWORD.tga" },
 
 	//Tier 4
-	{ "ÆÄÀÌ¾î ¿¤·¹¸àÅ»", SKILLID_FireElemental, "MM60 F_Elemental", "Mg4_F_ELEMENTAL.tga" },
-	{ "ÇÃ¶óÀÓ ¿þÀÌºê", SKILLID_FlameWave, "MM63 F_Wave" },
-	{ "µð½ºÆ®·Ï¼Ç", SKILLID_Distortion, "MM66 Distortion", "Mg4_DISTORTION.tga" },
-	{ "¸ÞÅ×¿À", SKILLID_Meteorite, "MM70 Meteo" },
+	{ "火焰元素", SKILLID_FireElemental, "MM60 F_Elemental", "Mg4_F_ELEMENTAL.tga" },
+	{ "火焰波动", SKILLID_FlameWave, "MM63 F_Wave" },
+	{ "空间扭曲", SKILLID_Distortion, "MM66 Distortion", "Mg4_DISTORTION.tga" },
+	{ "陨石召唤", SKILLID_Meteorite, "MM70 Meteo" },
 
 	//Tier 5
 	{ "ÇÁ¸®¸¶ ÀÌ±×´Ï½º", SKILLID_WizardTrance, "MM100 WizardTrance" },
@@ -2469,14 +2470,14 @@ const Skill saSkill[MAX_SKILLS] =
 	{ "ºñ½º Å×´©½º", SKILLID_RedRay, "MM106 RedRay" },
 	{ "½áµå ¾Æ´Ï¸¶", SKILLID_Cataclysm, "MM110 Cataclysm" },
 
-	//Shaman Skills - Tier 1
+	//萨满 - Tier 1
 	{ "´ÙÅ© º¼Æ®", SKILLID_DarkBolt, "MS10 Darkbolt" },
 	{ "´ÙÅ© ¿þÀÌºê", SKILLID_DarkWave, "MS12 Darkwave" },
 	{ "Ä¿½º ·¹ÀÌÁö", SKILLID_Inertia, "MS14 Curselazy" },
 	{ "ÀÌ³Ê ÇÇ½º", SKILLID_InnerPeace, "MS17 I_peace" },
 
 	//Tier 2
-	{ "½ºÇÇ¸®Ãò¾ó ÇÃ·¹¾î", SKILLID_SpiritualFlare, "MS20 S_Flare" },
+	{ "½ºÇÇ¸®Ãò¾ó", SKILLID_SpiritualFlare, "MS20 S_Flare" },
 	{ "¼Ò¿ï ¸Å³ÊÅ¬", SKILLID_SpiritualManacle, "MS23 S_Manacle" },
 	{ "Ã¼ÀÌ½Ì ÇåÆ®", SKILLID_ChasingHunt, "MS26 C_Hunt" },
 	{ "¾îµåº¥Æ®:¹Ì°¥", SKILLID_AdventMigal, "MS30 A_Migal", "Sh2_A_MIGAL.tga" },
@@ -2488,16 +2489,16 @@ const Skill saSkill[MAX_SKILLS] =
 	{ "½ºÅ©·¡Ä¡", SKILLID_Scratch, "MS50 Scratch" },
 
 	//Tier 4
-	{ "¸®ÄÝ ºí·¯µð³ªÀÌÆ®", SKILLID_RecallHestian, "MS60 R_Knight", "Sh4_R_KNIGHT.tga" },
+	{ "¸®ÄÝ ºí·", SKILLID_RecallHestian, "MS60 R_Knight", "Sh4_R_KNIGHT.tga" },
 	{ "ÀúÁö¸ÕÆ®", SKILLID_Judgement, "MS63 Judge" },
-	{ "¾îµåº¥Æ®:¹Ìµå¶õ´Ù", SKILLID_AdventMidranda, "MS66 A_Midranda", "Sh4_A_MIDRANDA.tga" },
+	{ "¾îµåº¥Æ®:", SKILLID_AdventMidranda, "MS66 A_Midranda", "Sh4_A_MIDRANDA.tga" },
 	{ "¸ð´× ¿Àºê ÇÁ·¹ÀÌ", SKILLID_MourningPray, "MS70 M_pray" },
 
 	//Tier 5
 	{ "Å©¸®µå", SKILLID_Creed, "MS80 Creed", "Sh5_CREED.tga" },
-	{ "ÇÁ·¹½º ¿Àºê µ¥ÀÌ¾îÆ¼", SKILLID_PressDeity, "MS83 P_Deity" },
+	{ "ÇÁ·¹½º ¿Àºê ", SKILLID_PressDeity, "MS83 P_Deity" },
 	{ "°í½ºÆ¼ ³×ÀÏ", SKILLID_PhantomNail, "MS86 G_Nail" },
-	{ "ÇÏÀÌ ¸®Á¦³×·¹ÀÌ¼Ç", SKILLID_OccultLife, "MS90 H_Regene" },
+	{ "ÇÏÀÌ ¸®Á¦³×", SKILLID_OccultLife, "MS90 H_Regene" },
 
 	//Other Skills
 	{ "Èí¼ö·Â »ó½Â", SKILLID_AbsorptionOfGlory, "", "wa1-1.tga" },
@@ -2505,7 +2506,7 @@ const Skill saSkill[MAX_SKILLS] =
 	{ "È¸ÇÇÀ² »ó½Â", SKILLID_EvasionAdaption, "", "wa1-2.tga" },
 	{ "¾ÆÅ¸³ª½Ã¾Æ", SKILLID_Atanasia, "", "S_Ath.tga" },
 	{ "µ¥µé¸® ¿¡Áö", SKILLID_DeadlyEdge, "", "S_Dea.tga" },
-	{ "¾îº£ÀÏ ¿Àºê ÀÌº£ÀÌµå", SKILLID_AvailofEvasion, "", "S_Eva.tga" },
+	{ "¾îº£ÀÏ ¿À", SKILLID_AvailofEvasion, "", "S_Eva.tga" },
 	{ "µðÆÄÀÌ¾ð½º ½ºÅæ", SKILLID_DefianceStoneA, "", "F_C_M.tga" },
 	{ "µðÆÄÀÌ¾ð½º ½ºÅæ", SKILLID_DefianceStoneB, "", "I_C_M.tga" },
 	{ "µðÆÄÀÌ¾ð½º ½ºÅæ", SKILLID_DefianceStoneC, "", "L_C_M.tga" },
