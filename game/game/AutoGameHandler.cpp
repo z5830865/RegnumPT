@@ -100,10 +100,11 @@ void CAutoGameHandler::AutoPlay(double fTime)
 			UNITDATA->iPotionStatus = POTIONSTATUS_HP;
 			CharacterGame::ResetPotionGraph(POTIONSTATUS_HP - 1);
 		}
-		usePotionDelay = updateTime + 20.0;
+		usePotionDelay = updateTime + 500.0;
 	}
 
-	if (INVENTORYITEMS[INVENTORYITEMSLOT[ITEMSLOT_PotionOne - 1].iItemIndex - 1].iPotionCount < 3)
+	auto potionOne = &INVENTORYITEMS[INVENTORYITEMSLOT[ITEMSLOT_PotionOne - 1].iItemIndex - 1];
+	if (potionOne->iPotionCount < 3)
 	{
 		for (int i = 0; i < INVENTORY_DATACOUNT; i++)
 		{
@@ -111,7 +112,6 @@ void CAutoGameHandler::AutoPlay(double fTime)
 			auto pcItemData = INVENTORYITEMS + i;
 			if (pcItemData->bValid)
 			{
-				auto potionOne = &INVENTORYITEMS[INVENTORYITEMSLOT[ITEMSLOT_PotionOne - 1].iItemIndex - 1];
 				//Using Item?
 				if (!pcItemData->iItemSlot && pcItemData->sBaseItemID.ToItemID() == potionOne->sBaseItemID.ToItemID() && (pcItemData->sItem.bCanNotUse == FALSE))
 				{
@@ -144,7 +144,7 @@ void CAutoGameHandler::AutoPlay(double fTime)
 			UNITDATA->iPotionStatus = POTIONSTATUS_MP;
 			CharacterGame::ResetPotionGraph(POTIONSTATUS_MP - 1);
 		}
-		usePotionDelay = updateTime + 20.0;
+		usePotionDelay = updateTime + 500.0;
 	}
 
 	if (INVENTORYITEMS[INVENTORYITEMSLOT[ITEMSLOT_PotionTwo - 1].iItemIndex - 1].iPotionCount < 3)
@@ -188,7 +188,7 @@ void CAutoGameHandler::AutoPlay(double fTime)
 			UNITDATA->iPotionStatus = POTIONSTATUS_SP;
 			CharacterGame::ResetPotionGraph(POTIONSTATUS_SP - 1);
 		}
-		usePotionDelay = updateTime + 20.0;
+		usePotionDelay = updateTime + 500.0;
 	}
 
 	if (INVENTORYITEMS[INVENTORYITEMSLOT[ITEMSLOT_PotionThree - 1].iItemIndex - 1].iPotionCount < 3)

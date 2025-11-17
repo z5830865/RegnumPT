@@ -4,7 +4,7 @@
 
 //#define _USE_URHO3D_
 
-#define _ANTICHEAT_OFF_
+//#define _ANTICHEAT_OFF_
 
 //#define _ANIM
 
