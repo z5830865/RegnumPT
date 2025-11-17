@@ -451,11 +451,11 @@ LRESULT CGameWindow::WndProc( UINT uMsg, WPARAM wParam, LPARAM lParam )
 
 
 		case WM_LBUTTONDOWN:
-			if ( GetForegroundWindow() != hWnd )
+			/*if ( GetForegroundWindow() != hWnd )
 				return 0;
 
 			if ( bMouseInsideWindow == false )
-				return 0;
+				return 0;*/
 
 			if ( MOUSEHANDLER->OnMouseClickHandler( uMsg ) )
 				return 0;
@@ -464,11 +464,11 @@ LRESULT CGameWindow::WndProc( UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_LBUTTONUP:
-			if ( GetForegroundWindow() != hWnd )
+			/*if ( GetForegroundWindow() != hWnd )
 				return 0;
 
 			if ( bMouseInsideWindow == false )
-				return 0;
+				return 0;*/
 
 			if ( MOUSEHANDLER->OnMouseClickHandler( uMsg ) )
 				return 0;
@@ -477,11 +477,11 @@ LRESULT CGameWindow::WndProc( UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_RBUTTONDOWN:
-			if ( GetForegroundWindow() != hWnd )
+			/*if ( GetForegroundWindow() != hWnd )
 				return 0;
 
 			if ( bMouseInsideWindow == false )
-				return 0;
+				return 0;*/
 
 			if ( MOUSEHANDLER->OnMouseClickHandler( uMsg ) )
 				return 0;
@@ -490,11 +490,11 @@ LRESULT CGameWindow::WndProc( UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_RBUTTONUP:
-			if ( GetForegroundWindow() != hWnd )
+			/*if ( GetForegroundWindow() != hWnd )
 				return 0;
 
 			if ( bMouseInsideWindow == false )
-				return 0;
+				return 0;*/
 
 			if ( MOUSEHANDLER->OnMouseClickHandler( uMsg ) )
 				return 0;

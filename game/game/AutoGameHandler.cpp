@@ -246,17 +246,13 @@ void CAutoGameHandler::AutoPlay(double fTime)
 		MOUSEHANDLER->OnMouseMoveHandler(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y);
 		if (SETTINGSHANDLER->GetModel()->GetSettings().bUseRightClick)
 		{
-			//Skill* psSkill = SKILLMANAGERHANDLER->GetSkillByIndex(0);
-			SKILLMANAGERHANDLER->OpenPlaySkill(SKILL_RIGHTSIDE);
-			/*SendMessage(GAMEWINDOW->GetWindowHandle(), WM_RBUTTONDOWN, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
-			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_RBUTTONUP, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));*/
+			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_RBUTTONDOWN, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
+			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_RBUTTONUP, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
 		}
 		else
 		{
-			//Skill* psSkill = SKILLMANAGERHANDLER->GetSkillByIndex(0);
-			SKILLMANAGERHANDLER->OpenPlaySkill(SKILL_LEFTSIDE);
-			/*SendMessage(GAMEWINDOW->GetWindowHandle(), WM_LBUTTONDOWN, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
-			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_LBUTTONUP, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));*/
+			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_LBUTTONDOWN, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
+			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_LBUTTONUP, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
 		}
 		if ( AttackMonster && oldLife != AttackMonster->sCharacterData.sHP.sCur)
 		{
