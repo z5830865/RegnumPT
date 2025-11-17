@@ -85,6 +85,11 @@ void CAutoGameHandler::AutoPlay(double fTime)
 {
 	if (!active)
 		return;
+	playTime += static_cast<float>(fTime);
+	if (playTime < updateTime) 
+	{
+		return;
+	}
 	if (CHARACTERGAME->GetCurrentHP() < SETTINGSHANDLER->GetModel()->GetSettings().Life && usePotionDelay < fTime)
 	{
 		ITEMDATA_USED_ITEM = &INVENTORYITEMS[INVENTORYITEMSLOT[ITEMSLOT_PotionOne - 1].iItemIndex - 1];
@@ -237,24 +242,34 @@ void CAutoGameHandler::AutoPlay(double fTime)
 		}
 	}
 	
-	if (NULL != AttackMonster && AttackMonster->sCharacterData.iType & CHARACTERTYPE_Monster && AttackMonster->sCharacterData.sHP.sCur > 0 && AttackMonster->sCharacterData.iLevel > 0 && AttackMonster->sRenderPoint.x > 150 && AttackMonster->sRenderPoint.x < (UNITDATA->sRenderPoint.x * 2 - 150) && AttackMonster->sRenderPoint.y > 100 && AttackMonster->sRenderPoint.y < (UNITDATA->sRenderPoint.y * 2 - 100))
+	if (NULL != AttackMonster && AttackMonster->bRendered && AttackMonster->sCharacterData.iType & CHARACTERTYPE_Monster && AttackMonster->sCharacterData.sHP.sCur > 0 && AttackMonster->sCharacterData.iLevel > 0 && AttackMonster->sRenderPoint.x > 150 && AttackMonster->sRenderPoint.x < (UNITDATA->sRenderPoint.x * 2 - 150) && AttackMonster->sRenderPoint.y > 100 && AttackMonster->sRenderPoint.y < (UNITDATA->sRenderPoint.y * 2 - 100))
 	{
-		if (UNITDATA_SELECTED && UNITDATA_SELECTED->sCharacterData.iType & CHARACTERTYPE_Monster)
+		if (UNITDATA_SELECTED && UNITDATA_SELECTED->sCharacterData.iType & CHARACTERTYPE_Monster && AttackMonster != UNITDATA_SELECTED)
 		{
 			AttackMonster = UNITDATA_SELECTED;
+			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_MOUSEMOVE, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
 		}
-		MOUSEHANDLER->OnMouseMoveHandler(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y);
+		else if (!UNITDATA_SELECTED || !(UNITDATA_SELECTED->sCharacterData.iType & CHARACTERTYPE_Monster))
+		{
+			AttackMonster = NULL;
+			return;
+		}
+		
 		if (SETTINGSHANDLER->GetModel()->GetSettings().bUseRightClick)
 		{
 			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_RBUTTONDOWN, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
+			updateTime = playTime + 20.0f;
 			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_RBUTTONUP, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
+			updateTime = playTime + 20.0f;
 		}
 		else
 		{
 			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_LBUTTONDOWN, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
+			updateTime = playTime + 20.0f;
 			SendMessage(GAMEWINDOW->GetWindowHandle(), WM_LBUTTONUP, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
+			updateTime = playTime + 20.0f;
 		}
-		if ( AttackMonster && oldLife != AttackMonster->sCharacterData.sHP.sCur)
+		if ( AttackMonster && oldLife && AttackMonster->sCharacterData.sHP.sCur && oldLife != AttackMonster->sCharacterData.sHP.sCur)
 		{
 			oldLife = AttackMonster->sCharacterData.sHP.sCur;
 			areaCount = 0;
@@ -276,7 +291,7 @@ void CAutoGameHandler::AutoPlay(double fTime)
 		for (UINT i = 0; i < MAX_UNITS; i++)
 		{
 			AttackMonster = &pcaUnitData[i];
-			if (AttackMonster->bVisible && strlen(AttackMonster->sCharacterData.szName) && AttackMonster->sCharacterData.iType & CHARACTERTYPE_Monster && AttackMonster->sCharacterData.sHP.sCur > 0 && AttackMonster->sCharacterData.iLevel > 0 && AttackMonster->sRenderPoint.x > 150 && AttackMonster->sRenderPoint.x < (UNITDATA->sRenderPoint.x * 2 - 150) && AttackMonster->sRenderPoint.y > 100 && AttackMonster->sRenderPoint.y < (UNITDATA->sRenderPoint.y * 2 - 100))
+			if (AttackMonster->bRendered && strlen(AttackMonster->sCharacterData.szName) && AttackMonster->sCharacterData.iType & CHARACTERTYPE_Monster && AttackMonster->sCharacterData.sHP.sCur > 0 && AttackMonster->sCharacterData.iLevel > 0 && AttackMonster->sRenderPoint.x > 150 && AttackMonster->sRenderPoint.x < (UNITDATA->sRenderPoint.x * 2 - 150) && AttackMonster->sRenderPoint.y > 100 && AttackMonster->sRenderPoint.y < (UNITDATA->sRenderPoint.y * 2 - 100))
 			{
 				int xsub = max(UNITDATA->sRenderPoint.x, AttackMonster->sRenderPoint.x) - min(UNITDATA->sRenderPoint.x, AttackMonster->sRenderPoint.x);
 				if (minPos > xsub)
@@ -286,12 +301,8 @@ void CAutoGameHandler::AutoPlay(double fTime)
 				int ysub = max(UNITDATA->sRenderPoint.y, AttackMonster->sRenderPoint.y) - min(UNITDATA->sRenderPoint.y, AttackMonster->sRenderPoint.y);
 				if (xsub < attackArea && ysub < attackArea)
 				{
-					MOUSEHANDLER->OnMouseMoveHandler(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y);
-					if (NULL != UNITDATA_SELECTED && UNITDATA_SELECTED->sCharacterData.iType & CHARACTERTYPE_Monster)
-					{
-						AttackMonster = UNITDATA_SELECTED;
-						break;
-					}
+					SendMessage(GAMEWINDOW->GetWindowHandle(), WM_MOUSEMOVE, 0, MAKELPARAM(AttackMonster->sRenderPoint.x, AttackMonster->sRenderPoint.y));
+					updateTime = playTime + 100.0f;
 					break;
 				}
 			}

@@ -913,6 +913,7 @@ void GameCore::Update( float fTime )
 
 		pcActionBarHandler->Update( (float)fTimeAdd );
 
+		pcAutoGameHandler->AutoPlay( (float)fTimeAdd );
 
 		pcParticleOldHandler->Update( fTime );
 
@@ -970,8 +971,6 @@ void GameCore::Update( float fTime )
 		pcGlamorousBrushHandler->Update( (float)fTimeAdd );
 
 		pcMountHandler->Update( (float)fTimeAdd );
-
-		pcAutoGameHandler->AutoPlay(fdTime);
 
 		Game::FlushLoaders();
 

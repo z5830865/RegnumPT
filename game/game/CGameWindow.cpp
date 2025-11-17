@@ -298,7 +298,7 @@ BOOL CGameWindow::Run()
 
 			SetIME( false );
 
-			Sleep( iWindowInactiveFrameSleepTime );
+			//Sleep( iWindowInactiveFrameSleepTime );
 		}
 		else
 			SetIME( true );
