@@ -215,22 +215,26 @@ void CAutoGameHandler::AutoPlay(double fTime)
 		}
 	}
 
-	for (auto& skill : buffList)
+	if (useSkillDelay < updateTime) 
 	{
-		Skill* psSkill = TIMERSKILLHANDLER->FindSkillTimer(skill.iID);
-		if (!psSkill)
+		for (auto& skill : buffList)
 		{
-			if (SKILLMANAGERHANDLER->CanUseSkill(&skill))
+			Skill* psSkill = TIMERSKILLHANDLER->FindSkillTimer(skill.iID);
+			if (!psSkill)
 			{
-				Skill sSkill;
-				ZeroMemory(&sSkill, sizeof(sSkill));
-				sSkill.iID = skill.iID;
-				sSkill.iUseTime = skill.iUseTime;
-				sSkill.iLevel = skill.iLevel;
-				sSkill.MatIcon = skill.MatIcon;
-				TIMERSKILLHANDLER->AddSkillTimer(&sSkill);
+				if (SKILLMANAGERHANDLER->CanUseSkill(&skill))
+				{
+					Skill sSkill;
+					ZeroMemory(&sSkill, sizeof(sSkill));
+					sSkill.iID = skill.iID;
+					sSkill.iUseTime = skill.iUseTime;
+					sSkill.iLevel = skill.iLevel;
+					sSkill.MatIcon = skill.MatIcon;
+					TIMERSKILLHANDLER->AddSkillTimer(&sSkill);
 
-				CGameCharacterStatus::GetInstance()->UpdateCharacterStatusItem();
+					CGameCharacterStatus::GetInstance()->UpdateCharacterStatusItem();
+					useSkillDelay = updateTime + 2000.0f;
+				}
 			}
 		}
 	}

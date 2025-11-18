@@ -33,7 +33,7 @@ void CharacterGame::OnCharacterUpdateData()
 {
 	//T5
 	SetFSP( 0 );
-	if ( CQUESTGAME->GetQuestInstance()->IsDoneQuest( QUESTID_T5QuestArena ) )
+	//if ( CQUESTGAME->GetQuestInstance()->IsDoneQuest( QUESTID_T5QuestArena ) )
 	{
 		int iPoints = 0;
 

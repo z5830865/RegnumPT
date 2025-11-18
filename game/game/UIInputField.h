@@ -39,7 +39,7 @@ public:
 	void									SetGroup( std::shared_ptr<class Group> pGroup ) { pGroupMain = pGroup; };
 	void									SetFont( const char * pszFont, int iHeight, int iWidth, BOOL bItalic, BOOL bBold, DWORD dwColor );
 	void									SetText( std::string strText ) { this->strText = strText; };
-	void									SetAllowedCharacters( std::string str ) { strAllowed = str; bAllowedRule = TRUE; };
+	void									SetAllowedCharacters( std::string str ) { strAllowed = str; bAllowedRule = FALSE; };
 	BOOL									IsSelected() { return bSelect; };
 	void									SetSelected(BOOL b) { bSelect = b; if(pGroupMain && b)pGroupMain->SetIndexObject(GetID()); };
 	void									SetSelectedAlways( BOOL b ) { SetSelected( b ); bSelectedAlways = b; }

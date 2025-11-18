@@ -1029,7 +1029,7 @@ void CharacterServer::CharacterCreate( UserData * pcUserData, PacketCreateCharac
 		STRINGFORMAT( szDataPath, "Data\\Character\\%s.chr", psPacket->szCharname );
 		psPacket->iCode = FALSE;
 
-		for ( int i = 0; i < lstrlenA( psPacket->szCharname ); i++ )
+		/*for ( int i = 0; i < lstrlenA( psPacket->szCharname ); i++ )
 		{
 			bool bFound = false;
 			for ( int j = 0; j < STRLEN( ALLOWED_CHARS_NICK ); j++ )
@@ -1046,7 +1046,7 @@ void CharacterServer::CharacterCreate( UserData * pcUserData, PacketCreateCharac
 				SENDPACKET( USERDATATOUSER( pcUserData ), psPacket );
 				return;
 			}
-		}
+		}*/
 
 		BOOL bContinue		= TRUE;
 		BOOL bFileExists	= FILEEXIST( szDataPath );
