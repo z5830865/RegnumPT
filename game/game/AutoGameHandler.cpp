@@ -116,19 +116,15 @@ void CAutoGameHandler::AutoPlay(double fTime)
 				//Using Item?
 				if (!pcItemData->iItemSlot && pcItemData->sBaseItemID.ToItemID() == potionOne->sBaseItemID.ToItemID() && (pcItemData->sItem.bCanNotUse == FALSE))
 				{
-					int TempPotionCount = pcItemData->sItem.iPotionCount;
-					for (int p = 0; p < TempPotionCount; p++)
+					int replenish = potionSpace - potionOne->sItem.iPotionCount;
+					if (replenish > pcItemData->sItem.iPotionCount)
+						replenish = pcItemData->sItem.iPotionCount;
+					pcItemData->sItem.iPotionCount -= replenish;
+					potionOne->sItem.iPotionCount += replenish;
+					if (pcItemData->sItem.iPotionCount <= 0)
 					{
-						if (potionSpace > potionOne->sItem.iPotionCount)
-						{
-							potionOne->sItem.iPotionCount++;
-							pcItemData->sItem.iPotionCount--;
-							if (pcItemData->sItem.iPotionCount <= 0)
-							{
-								ITEMHANDLER->DeleteItem(pcItemData);
-								break;
-							}
-						}
+						ITEMHANDLER->DeleteItem(pcItemData);
+						break;
 					}
 					ITEMHANDLER->ResetInventoryItemChecksum();
 				}
@@ -161,19 +157,15 @@ void CAutoGameHandler::AutoPlay(double fTime)
 				//Using Item?
 				if (!pcItemData->iItemSlot && pcItemData->sBaseItemID.ToItemID() == potionTwo->sBaseItemID.ToItemID() && (pcItemData->sItem.bCanNotUse == FALSE))
 				{
-					int TempPotionCount = pcItemData->sItem.iPotionCount;
-					for (int p = 0; p < TempPotionCount; p++)
+					int replenish = potionSpace - potionTwo->sItem.iPotionCount;
+					if (replenish > pcItemData->sItem.iPotionCount)
+						replenish = pcItemData->sItem.iPotionCount;
+					pcItemData->sItem.iPotionCount -= replenish;
+					potionTwo->sItem.iPotionCount += replenish;
+					if (pcItemData->sItem.iPotionCount <= 0)
 					{
-						if (potionSpace > potionTwo->sItem.iPotionCount)
-						{
-							potionTwo->sItem.iPotionCount++;
-							pcItemData->sItem.iPotionCount--;
-							if (pcItemData->sItem.iPotionCount <= 0)
-							{
-								ITEMHANDLER->DeleteItem(pcItemData);
-								break;
-							}
-						}
+						ITEMHANDLER->DeleteItem(pcItemData);
+						break;
 					}
 					ITEMHANDLER->ResetInventoryItemChecksum();
 				}
@@ -207,19 +199,15 @@ void CAutoGameHandler::AutoPlay(double fTime)
 				//Using Item?
 				if (!pcItemData->iItemSlot && pcItemData->sBaseItemID.ToItemID() == potionThree->sBaseItemID.ToItemID() && (pcItemData->sItem.bCanNotUse == FALSE))
 				{
-					int TempPotionCount = pcItemData->sItem.iPotionCount;
-					for (int p = 0; p < TempPotionCount; p++)
+					int replenish = potionSpace - potionThree->sItem.iPotionCount;
+					if (replenish > pcItemData->sItem.iPotionCount)
+						replenish = pcItemData->sItem.iPotionCount;
+					pcItemData->sItem.iPotionCount -= replenish;
+					potionThree->sItem.iPotionCount += replenish;
+					if (pcItemData->sItem.iPotionCount <= 0)
 					{
-						if (potionSpace > potionThree->sItem.iPotionCount)
-						{
-							potionThree->sItem.iPotionCount++;
-							pcItemData->sItem.iPotionCount--;
-							if (pcItemData->sItem.iPotionCount <= 0)
-							{
-								ITEMHANDLER->DeleteItem(pcItemData);
-								break;
-							}
-						}
+						ITEMHANDLER->DeleteItem(pcItemData);
+						break;
 					}
 					ITEMHANDLER->ResetInventoryItemChecksum();
 				}
