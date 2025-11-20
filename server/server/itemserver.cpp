@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "itemserver.h"
 
 DWORD pTableNewItem = 0;
@@ -950,7 +950,7 @@ int ItemServer::GetAgingType( UserData * pcUserData )
 			{
 				if ( *(int*)0x789066C != 2 ) // if dont have CopperOre
 				{
-					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s broke '%s' going to +%d! Better luck next time!",  pcUserData->sCharacterData.szName, (char *)0x0786B854, iAgingLevel );
+					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph>  %s 锻造 %s 到 +%d!时碎掉了, 下次洗洗手吧!",  pcUserData->sCharacterData.szName, (char *)0x0786B854, iAgingLevel );
 					AGEHANDLER->OnBrokeItemHandler( USERDATATOUSER( pcUserData ), pItem );
 
 					return -1;
@@ -969,7 +969,7 @@ int ItemServer::GetAgingType( UserData * pcUserData )
 				if ( (iAgingLevel + 1) <= iAgeTotal )
 				{
 					if ( ((iAgingLevel + 1) >= 18) || ((iAgingLevel) >= 18) )
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s aged %s to +%d successfully! Congratz!", pcUserData->sCharacterData.szName, (char *)0x0786B854, iAgingLevel );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s 已成功将 %s 锻造到 +%d !强无敌!", pcUserData->sCharacterData.szName, (char *)0x0786B854, iAgingLevel );
 
 					ITEMSERVER->SaveItemData( pItem );
 					ITEMSERVER->UpdateIntegrity( pItem, -1 );
@@ -979,7 +979,7 @@ int ItemServer::GetAgingType( UserData * pcUserData )
 				else
 				{
 					if ( (iAgingLevel) >= 18 )
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s aged %s to +%d successfully! Congratz!", pcUserData->sCharacterData.szName, (char *)0x0786B854, iAgingLevel );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s 已成功将 %s 锻造到 +%d !强无敌!", pcUserData->sCharacterData.szName, (char *)0x0786B854, iAgingLevel );
 
 					ITEMSERVER->SaveItemData( pItem );
 					ITEMSERVER->UpdateIntegrity( pItem, -1 );
@@ -990,7 +990,7 @@ int ItemServer::GetAgingType( UserData * pcUserData )
 
 			//Just increase +1
 			if ( (iAgingLevel) >= 18 )
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s aged %s to +%d successfully! Congratz!", pcUserData->sCharacterData.szName, (char *)0x0786B854, iAgingLevel );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s 已成功将 %s 锻造到 +%d !强无敌!", pcUserData->sCharacterData.szName, (char *)0x0786B854, iAgingLevel );
 		
 			//Update Item Integrity
 			ITEMSERVER->UpdateIntegrity( pItem, -1 );
@@ -2482,13 +2482,13 @@ case ITEMID_DOUBLETALE:
                 ITEMSERVER->SendItemData(pcUserData, &sItem);
                 
                 // Notificar al usuario via ChatBox
-                CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> Congratulations! You hit the jackpot and won %s!", szItemName);
+                CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> 恭喜你!你中大奖了 %s!", szItemName);
                 
                 // Notificar al usuario con MessageBox
-                CHATSERVER->SendChatMessageBox(pcUser, "Congratulations! You hit the jackpot and won %s!", szItemName);
+                CHATSERVER->SendChatMessageBox(pcUser, "恭喜你!你中大奖了 %s!", szItemName);
                 
                 // Notificar a todos los usuarios en línea
-                CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "Jackpot> Congratulations to %s for winning %s!", 
+                CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "Jackpot> 祝贺 %s 赢得了 %s!", 
                                           CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), szItemName);
             }
         }
@@ -2497,27 +2497,27 @@ case ITEMID_DOUBLETALE:
         COINSHOPHANDLER->AddCoin(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName, DOUBLETALE_WIN_AMOUNT);
         
         // Notificar al usuario via ChatBox
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> Congratulations! You win %s TALE!", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> 祝贺你赢得了 %s TALE!", 
                                FormatNumber(DOUBLETALE_WIN_AMOUNT));
         
         // Notificar al usuario de su balance actual
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "You now have %s TALE.", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "你现在拥有 %s TALE.", 
                                FormatNumber(COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName)));
         
         // Registrar en la base de datos
         COINSHOPHANDLER->SQLCoinBettingReward(pcUser->pcUserData->pcSocketData->szIP, 
                                               pcUser->pcUserData->szAccountName, 
                                               CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
-                                              "In-Game Betting: Double TALE Rewards", 
+                                              "In-Game Betting: 双倍 TALE 奖励", 
                                               (int*)DOUBLETALE_WIN_AMOUNT, 
                                               (int*)COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName));
         
         // Notificar al usuario con MessageBox
-        CHATSERVER->SendChatMessageBox(pcUser, "Congratulations! You win %s TALE!", 
+        CHATSERVER->SendChatMessageBox(pcUser, "祝贺你 赢得了 %s TALE!", 
                                        FormatNumber(DOUBLETALE_WIN_AMOUNT));
         
         // Notificar a todos los usuarios en línea
-        CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "BettingSystem> Congratulations to %s for winning %s TALE with Double TALE!", 
+        CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "BettingSystem> 祝贺 %s 赢得了双倍的 %s !", 
                                  CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
                                  FormatNumber(DOUBLETALE_WIN_AMOUNT));
     }
@@ -2541,19 +2541,19 @@ case ITEMID_DOUBLETALE:
                               FormatNumber(DOUBLETALE_BET_AMOUNT));
         
         // Notificar al usuario de su balance actual
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "You have %s TALE left in your account.", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "你失去了 %s TALE.", 
                               FormatNumber(COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName)));
         
         // Registrar en la base de datos
         COINSHOPHANDLER->SQLCoinBettingFee(pcUser->pcUserData->pcSocketData->szIP, 
                                           pcUser->pcUserData->szAccountName, 
                                           CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
-                                          "In-Game Betting: Lost from Double TALE", 
+                                          "In-Game Betting: 失去了双倍TALE", 
                                           (int*)DOUBLETALE_BET_AMOUNT, 
                                           (int*)COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName));
         
         // Notificar al usuario con MessageBox
-        CHATSERVER->SendChatMessageBox(pcUser, "Sorry! You lose %s TALE with Double TALE!", 
+        CHATSERVER->SendChatMessageBox(pcUser, "抱歉! 你失去了双倍 %s TALE !", 
                                       FormatNumber(DOUBLETALE_BET_AMOUNT));
     }
     
@@ -2636,13 +2636,13 @@ case ITEMID_TRIPLETALE:
                 ITEMSERVER->SendItemData(pcUserData, &sItem);
                 
                 // Notificar al usuario via ChatBox
-                CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> JACKPOT! You hit the Triple TALE jackpot and won %s!", szItemName);
+                CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> JACKPOT! 你赢得了三倍奖励 %s!", szItemName);
                 
                 // Notificar al usuario con MessageBox
-                CHATSERVER->SendChatMessageBox(pcUser, "JACKPOT! You hit the Triple TALE jackpot and won %s!", szItemName);
+                CHATSERVER->SendChatMessageBox(pcUser, "JACKPOT! 你赢得了三倍奖励 %s!", szItemName);
                 
                 // Notificar a todos los usuarios en línea
-                CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "TRIPLE JACKPOT> Congratulations to %s for winning %s!", 
+                CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "TRIPLE JACKPOT> 祝贺 %s 赢得了 %s!", 
                                           CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), szItemName);
             }
         }
@@ -2653,27 +2653,27 @@ case ITEMID_TRIPLETALE:
 // CONTINUACIÓN DEL CASE ITEMID_TRIPLETALE
 
         // Notificar al usuario via ChatBox
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> Congratulations! You win %s TALE with Triple TALE!", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> 祝贺你赢得了三倍奖励 %s !", 
                                FormatNumber(TRIPLETALE_WIN_AMOUNT));
         
         // Notificar al usuario de su balance actual
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "You now have %s TALE.", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "你现在拥有了 %s TALE.", 
                                FormatNumber(COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName)));
         
         // Registrar en la base de datos
         COINSHOPHANDLER->SQLCoinBettingReward(pcUser->pcUserData->pcSocketData->szIP, 
                                               pcUser->pcUserData->szAccountName, 
                                               CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
-                                              "In-Game Betting: Triple TALE Rewards", 
+                                              "In-Game Betting:三倍 TALE 奖励", 
                                               (int*)TRIPLETALE_WIN_AMOUNT, 
                                               (int*)COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName));
         
         // Notificar al usuario con MessageBox
-        CHATSERVER->SendChatMessageBox(pcUser, "Congratulations! You win %s TALE with Triple TALE!", 
+        CHATSERVER->SendChatMessageBox(pcUser, "祝贺你赢得了三倍奖励 %s !", 
                                        FormatNumber(TRIPLETALE_WIN_AMOUNT));
         
         // Notificar a todos los usuarios en línea
-        CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "BettingSystem> Congratulations to %s for winning %s TALE with Triple TALE!", 
+        CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "BettingSystem> 祝贺 %s 赢得了三倍奖励 %s !", 
                                  CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
                                  FormatNumber(TRIPLETALE_WIN_AMOUNT));
     }
@@ -2697,19 +2697,19 @@ case ITEMID_TRIPLETALE:
                               FormatNumber(TRIPLETALE_BET_AMOUNT));
         
         // Notificar al usuario de su balance actual
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "You have %s TALE left in your account.", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "你失去了 %s TALE .", 
                               FormatNumber(COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName)));
         
         // Registrar en la base de datos
         COINSHOPHANDLER->SQLCoinBettingFee(pcUser->pcUserData->pcSocketData->szIP, 
                                           pcUser->pcUserData->szAccountName, 
                                           CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
-                                          "In-Game Betting: Lost from Triple TALE", 
+                                          "In-Game Betting: 失去三倍TALE", 
                                           (int*)TRIPLETALE_BET_AMOUNT, 
                                           (int*)COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName));
         
         // Notificar al usuario con MessageBox
-        CHATSERVER->SendChatMessageBox(pcUser, "Sorry! You lose %s TALE with Triple TALE!", 
+        CHATSERVER->SendChatMessageBox(pcUser, "抱歉! 你失去了三倍 %s TALE!", 
                                       FormatNumber(TRIPLETALE_BET_AMOUNT));
     }
     
@@ -2792,13 +2792,13 @@ case ITEMID_TIMESTENTALE:
                 ITEMSERVER->SendItemData(pcUserData, &sItem);
                 
                 // Notificar al usuario via ChatBox
-                CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> MEGA JACKPOT! You hit the Times Ten TALE jackpot and won %s!", szItemName);
+                CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> 百万大奖! 你赢得了十倍奖励 %s!", szItemName);
                 
                 // Notificar al usuario con MessageBox
-                CHATSERVER->SendChatMessageBox(pcUser, "MEGA JACKPOT! You hit the Times Ten TALE jackpot and won %s!", szItemName);
+                CHATSERVER->SendChatMessageBox(pcUser, "百万大奖! 你赢得了十倍奖励 %s!", szItemName);
                 
                 // Notificar a todos los usuarios en línea
-                CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "MEGA JACKPOT> Congratulations to %s for winning %s with Times Ten TALE!", 
+                CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "MEGA JACKPOT> 恭喜 %s 赢得了十倍奖励 %s !", 
                                           CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), szItemName);
             }
         }
@@ -2807,27 +2807,27 @@ case ITEMID_TIMESTENTALE:
         COINSHOPHANDLER->AddCoin(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName, TIMESTENTALE_WIN_AMOUNT);
         
         // Notificar al usuario via ChatBox
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> INCREDIBLE! You win %s TALE with Times Ten TALE!", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> 难以置信! 你赢得了十倍奖励 %s !", 
                                FormatNumber(TIMESTENTALE_WIN_AMOUNT));
         
         // Notificar al usuario de su balance actual
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "You now have %s TALE.", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "你现在拥有了 %s TALE.", 
                                FormatNumber(COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName)));
         
         // Registrar en la base de datos
         COINSHOPHANDLER->SQLCoinBettingReward(pcUser->pcUserData->pcSocketData->szIP, 
                                               pcUser->pcUserData->szAccountName, 
                                               CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
-                                              "In-Game Betting: Times Ten TALE Rewards", 
+                                              "游戏押注: 十倍奖励", 
                                               (int*)TIMESTENTALE_WIN_AMOUNT, 
                                               (int*)COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName));
         
         // Notificar al usuario con MessageBox
-        CHATSERVER->SendChatMessageBox(pcUser, "INCREDIBLE! You win %s TALE with Times Ten TALE!", 
+        CHATSERVER->SendChatMessageBox(pcUser, "难以置信! 你赢得了十倍奖励 %s!", 
                                        FormatNumber(TIMESTENTALE_WIN_AMOUNT));
         
         // Notificar a todos los usuarios en línea
-        CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "BettingSystem> INCREDIBLE! %s just won %s TALE with Times Ten TALE!", 
+        CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "BettingSystem> 难以置信! %s 刚刚赢得了十倍 %s !", 
                                  CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
                                  FormatNumber(TIMESTENTALE_WIN_AMOUNT));
     }
@@ -2855,29 +2855,29 @@ case ITEMID_TIMESTENTALE:
         COINSHOPHANDLER->UseCoin(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName, TIMESTENTALE_BET_AMOUNT);
         
         // Notificar al usuario via ChatBox
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> Sorry! You lose %s TALE on Times Ten TALE!", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "> 抱歉! 你输掉了你的十倍 %s TALE !", 
                               FormatNumber(TIMESTENTALE_BET_AMOUNT));
         
         // Notificar al usuario de su balance actual
-        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "You have %s TALE left in your account.", 
+        CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Notice, "你失去了 %s TALE .", 
                               FormatNumber(COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName)));
         
         // Registrar en la base de datos
         COINSHOPHANDLER->SQLCoinBettingFee(pcUser->pcUserData->pcSocketData->szIP, 
                                           pcUser->pcUserData->szAccountName, 
                                           CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
-                                          "In-Game Betting: Lost from Times Ten TALE", 
+                                          "游戏押注: 你失去了十倍的 TALE", 
                                           (int*)TIMESTENTALE_BET_AMOUNT, 
                                           (int*)COINSHOPHANDLER->GetCoinAmount(COINSHOPHANDLER->GetCoinShop(), pcUserData->szAccountName));
         
         // Notificar al usuario con MessageBox
-        CHATSERVER->SendChatMessageBox(pcUser, "Sorry! You lose %s TALE with Times Ten TALE!", 
+        CHATSERVER->SendChatMessageBox(pcUser, "抱歉! 你输掉了你的十倍 %s TALE!", 
                                       FormatNumber(TIMESTENTALE_BET_AMOUNT));
                                       
         // También notificar globalmente las grandes pérdidas para generar más interés
         if (TIMESTENTALE_BET_AMOUNT >= 500) // 500M o más
         {
-            CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "BettingSystem> %s tried to win big with Times Ten TALE but lost %s TALE!", 
+            CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "BettingSystem> %s 想要赢一把大的 但是他输掉了 %s TALE!", 
                                     CHARACTERSERVER->GetCharacterName(pcUser->pcUserData), 
                                     FormatNumber(TIMESTENTALE_BET_AMOUNT));
         }
@@ -3013,7 +3013,7 @@ BOOL ItemServer::OnMixingItem( User * pcUser, struct PacketMixServer * psPacket 
 				psPacket->iResult = 0;
 				SENDPACKET( USERDATATOUSER(pcUserData), psPacket );
 
-				CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "You must use 2 spec stones to respec!" );
+				CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "你必须使用 2 颗spec 石替换!" );
 
 				return FALSE;
 			}
@@ -3170,7 +3170,7 @@ BOOL ItemServer::OnMixingItem( User * pcUser, struct PacketMixServer * psPacket 
 			psPacket->iResult = 0;
 			SENDPACKET( USERDATATOUSER( pcUserData ), psPacket );
 
-			CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "You must use 2 spec stones to respec!" );
+			CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "你必须使用 2 颗spec 石替换!" );
 
 			return FALSE;
 		}
@@ -3559,7 +3559,7 @@ void ItemServer::HandlePacket( User * pcUser, PacketGetItem * psPacket )
 	//Is Shared Account?
 	if ( pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyPickupAndDropItems ) )
 	{
-		CHATSERVER->SendChatMessageBox( pcUser, "You can't Pickup Items, because you're logged in with the Share PW!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "你不能拾取装备,因为你登录的是共享PW!" );
 		return;
 	}
 
@@ -3771,7 +3771,7 @@ BOOL ItemServer::OpenItemBox( User * pcUser, PacketNPCItemBox * psPacket )
 	{
 		if ( pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyOpenItemBox ) )
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "You can't open Distributor, because you're logged in with the Share PW!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你不能打开装备发放员, 因为你登录的是共享PW!" );
 			return FALSE;
 		}
 
@@ -5147,14 +5147,14 @@ void ItemServer::HandlePacket( User * pcUser, PacketRequestBeginnerItemsTimer * 
 			CreatePremium( pcUser->pcUserData, ITEMID_STMBooster, ITEMTIMERTYPE_STMBooster, ITEMTIMERTIME_6H);
 			CreatePremium( pcUser->pcUserData, ITEMID_MPBooster, ITEMTIMERTYPE_MPBooster, ITEMTIMERTIME_6H);
 
-			CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "Regnum> new player %s boosted to 70!", pcUser->pcUserData->sCharacterData.szName);
-			CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Whisper, "Guide: You can now train your skills at 0 cost at your skillmaster.");
-			CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Whisper, "Guide: As level 70 you can start by questing in Cursed Temple 1");
+			CHATSERVER->SendChatAllEx(CHATCOLOR_Global, "Regnum> 新玩家 %s 提升到了70级!", pcUser->pcUserData->sCharacterData.szName);
+			CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Whisper, "指南: 你现在可以在你的技能大师那里学习你的技能.");
+			CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Whisper, "指南: 70级时，你可以从诅咒神庙1开始任务");
 
-			LOGSERVER->OnLogEx( pcUser, ACCLOGID_CharacterItemTimerBeginner, "Character[%s] Received the Beginners Buff", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+			LOGSERVER->OnLogEx( pcUser, ACCLOGID_CharacterItemTimerBeginner, "角色[%s] 获得了初学者增益", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 		}
 		else
-			CHATSERVER->SendChatMessageBox( pcUser, "You already have an activated item" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你已经激活了这件装备" );
 
 		//Add level
 		if ( pcUser->pcUserData->sCharacterData.iLevel < 69 )
@@ -5165,11 +5165,11 @@ void ItemServer::HandlePacket( User * pcUser, PacketRequestBeginnerItemsTimer * 
 		SENDPACKETBLANK(pcUser, PKTHDR_Save);
 	}
 	else
-		CHATSERVER->SendChatMessageBox( pcUser, "You must be lv.1~%d to get the beginner's buff", MAX_LEVEL_BEGINNERSBUFF );
+		CHATSERVER->SendChatMessageBox( pcUser, "你只能在lv.1~%d级的时候才能获得初学者增益", MAX_LEVEL_BEGINNERSBUFF );
 #endif
 
 #ifndef BOOSTEVENT
-	CHATSERVER->SendChatMessageBox(pcUser, "Boost event is currently not active.");
+	CHATSERVER->SendChatMessageBox(pcUser, "Boost活动当前未激活.");
 #endif // !BOOSTEVENT
 
 }
@@ -5182,10 +5182,10 @@ void ItemServer::HandlePacket( User * pcUser, PacketRequestChemistItemTimer * ps
 	{
 		CreatePremium( pcUser->pcUserData, ITEMID_ChemistHat, ITEMTIMERTYPE_ChemistHat, ITEMTIMERTIME_12H );
 
-		LOGSERVER->OnLogEx( pcUser, ACCLOGID_CharacterItemTimerChemist, "Character[%s] Received the Chemist Buff", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+		LOGSERVER->OnLogEx( pcUser, ACCLOGID_CharacterItemTimerChemist, "玩家[%s] 获得了化学家Buff", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 	}
 	else
-		CHATSERVER->SendChatMessageBox( pcUser, "You already have activated the item" );
+		CHATSERVER->SendChatMessageBox( pcUser, "您已经激活了该项Buff" );
 }
 
 void ItemServer::UpdateQueueRecovery()
@@ -5236,7 +5236,7 @@ void ItemServer::CheckItemRecovery( User * pcUser )
 		ps->bLoaded = FALSE;
 		ps->iID		= -1;
 
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "ItemServer> Recovered!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "ItemServer> 恢复!" );
 	}
 }
 
@@ -5245,7 +5245,7 @@ void ItemServer::AddItemRecovery( User * pcUser, const char * pszCode )
 	LoadItemDataHandler * ps = ItemServer::psRecoveryQueue;
 	if ( ps->bLoaded == FALSE )
 	{
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "ItemServer> Recovering..." );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "ItemServer>恢复..." );
 		STRINGCOPY( ps->szCode, pszCode );
 		if ( (ps->szCode[0] == '@') && (STRLEN(pszCode) > 2) )
 			STRINGCOPY( ps->szCode, pszCode + 1 );
@@ -5253,7 +5253,7 @@ void ItemServer::AddItemRecovery( User * pcUser, const char * pszCode )
 		ps->iID		= pcUser->GetID();
 	}
 	else
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "ItemServer> Wait for previous recovery queue..." );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "ItemServer> 等待上一个恢复队列..." );
 }
 
 bool ItemServer::IsItemTimerFreezedMap( EMapID iMapID, EItemTimerType iType )

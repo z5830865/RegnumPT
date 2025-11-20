@@ -498,23 +498,23 @@ void ServerCommand::OnActivateGameMaster( UserData * pcUserData )
 		if ( iGameMasterType && ( iGameMasterLevel > GAMELEVEL_One ) )
 		{
 			pcUserData->iGameLevel = (EGameLevel)iGameMasterLevel;
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> GM Level Sync [%d] Activated!", pcUserData->iGameLevel );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> GM 等级 [%d] 已激活!", pcUserData->iGameLevel );
 		}
 		else if ( STRINGCOMPARE( szMacAddr, pcUser->pData.szMacAddr ) )
 		{
 			pcUserData->iGameLevel = GAMELEVEL_Four;
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You are Admin (O_o)!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你是管理员 (O_o)!" );
 		}
 		else if ( ACCOUNTSERVER->IsAdminMacAddress( pcUser->pData.szMacAddr, pcUser->pData.uSerialHD ) )
 		{
 			pcUserData->iGameLevel = GAMELEVEL_Four;
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> GM Level Sync [%d] Activated!", pcUserData->iGameLevel );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> GM 等级 [%d]已激活!", pcUserData->iGameLevel );
 		}
 
 		if ( ACCOUNTSERVER->IsAdminDeveloper( pcUser->pData.szMacAddr, pcUser->pData.uSerialHD ) )
 		{
 			pcUserData->iGameLevel = GAMELEVEL_Five;
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You are Admin Developer (O_o)!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你是游戏开发管理者 (O_o)!" );
 		}
 
 		NETSERVER->SendGameMaster( pcUserData );
@@ -543,7 +543,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( atoi( szCommandParam1 ) == 4 )
 			{
 				QUESTSERVER->SkipTier5Quests( pcUser );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成!" );
 			}
 		}
 		return TRUE;
@@ -551,18 +551,18 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 	if ( iLen = COMMAND( "/UpdateQuestActiveEvent", pszBuff ) )
 	{
 		QUESTSERVER->UpdateQuestActiveMonsterKill();
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成!" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/SpawnXmasTree", pszBuff ) )
 	{
 		XMASTREEHANDLER->SpawnTree( pcUser->iCharacterID, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), pcUser->GetMapID(), pcUserData->sPosition.iX, pcUserData->sPosition.iZ, TRUE );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> XmasTree" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 圣诞树" );
 	}
 	if ( iLen = COMMAND( "/SimulatePersonalShop", pszBuff ) )
 	{
 		PERSONALSHOPHANDLER->GetPersonalShopOfflineHandler()->SimulateUser( pcUser );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成" );
 	}
 	if ( iLen = COMMAND( "/UpdateMapCoordinates", pszBuff ) )
 	{
@@ -574,14 +574,14 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 				WRITEERR( "%d, %s, %d, %d, %d, %d", i, MAPNAME(i), pcMap->pcStage->iNorth >> 8, pcMap->pcStage->iSouth >> 8, pcMap->pcStage->iEast >> 8, pcMap->pcStage->iWest >> 8 );
 			}
 		}
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成!" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/GhostCastleTest", pszBuff ) )
 	{
 		ACTIONFIELDHANDLER->RequestTest( pcUser );
 
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Test Ghost Castle!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 测试幽灵城堡!" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/!PacketLoginChecksum", pszBuff ) )
@@ -595,7 +595,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 				ENABLE_PACKET_LOGIN_CHECKSUM_BAN = FALSE;
 		}
 
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Packet Login Checksum is %s!", ENABLE_PACKET_LOGIN_CHECKSUM_BAN ? "ON" : "OFF" );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 登录校验 %s!", ENABLE_PACKET_LOGIN_CHECKSUM_BAN ? "ON" : "OFF" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/HandleGuard", pszBuff ) )
@@ -609,7 +609,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 				BAN_HANDLE_GUARD_IDLE = FALSE;
 		}
 
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Handle Guard Checker is %s!", BAN_HANDLE_GUARD_IDLE ? "ON" : "OFF" );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 手柄检查 %s!", BAN_HANDLE_GUARD_IDLE ? "ON" : "OFF" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/!SetActionField", pszBuff ) )
@@ -623,7 +623,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 				SetActionFieldEvent( FALSE );
 		}
 
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Action Field is %s!", EVENT_ACTIONFIELD ? "ON" : "OFF" );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 行动领域 %s!", EVENT_ACTIONFIELD ? "ON" : "OFF" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/SetToggleSocketFull", pszBuff ) )
@@ -680,7 +680,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 	if ( iLen = COMMAND( "/!viewsocket", pszBuff ) )
 	{
 		ServerCore::UpdateCharacterItemsLevelAll();
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成!" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/LeakMonsterTest", pszBuff ) )
@@ -742,13 +742,13 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 					sPacket.iZ = (-4795702);
 					sPacket.iStage = MAPID_RicartenTown;
 					SENDPACKET( USERDATATOUSER(&USERSDATA[i]), &sPacket );
-					CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Moved %s to Ricarten!", CHARACTERSERVER->GetCharacterName( &USERSDATA[i] ) );
+					CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 移动 %s 去里查登!", CHARACTERSERVER->GetCharacterName( &USERSDATA[i] ) );
 					break;
 				}
 			}
 		}
 		else
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Use: /warp <nick>" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 玩家: /warp <nick>" );
 
 		return TRUE;
 	}
@@ -769,12 +769,12 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 				if ( STRINGCOMPAREI( szCommandParam1, "true" ) )
 				{
 					SetAgingEvent( TRUE, EVENT_AGINGREDUCEFAIL );
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Aging Free Event ON!" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 无老化事件 ON!" );
 				}
 				else if ( STRINGCOMPAREI( szCommandParam1, "false" ) )
 				{
 					SetAgingEvent( FALSE, EVENT_AGINGREDUCEFAIL );
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Aging Free Event OFF!" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 无老化事件 OFF!" );
 				}
 				else
 					CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Use: /!event_agingfree <true|false> [%s]", EVENT_AGINGFREE ? "On" : "Off" );
@@ -811,12 +811,12 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( STRINGCOMPAREI( szCommandParam1, "true" ) )
 			{
 				SetHalloweenEvent( TRUE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Halloween Event ON!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 万圣节活动 开启!" );
 			}
 			else if ( STRINGCOMPAREI( szCommandParam1, "false" ) )
 			{
 				SetHalloweenEvent( FALSE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Halloween Event OFF!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 万圣节活动 关闭!" );
 			}
 			else
 				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Use: /!event_Halloween <true|false> [%s]", EVENT_HALLOWEEN ? "On" : "Off" );
@@ -833,12 +833,12 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( STRINGCOMPAREI( szCommandParam1, "true" ) )
 			{
 				SetHalloweenEvent( TRUE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Halloween Event ON!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 万圣节活动 开启!" );
 			}
 			else if ( STRINGCOMPAREI( szCommandParam1, "false" ) )
 			{
 				SetHalloweenEvent( FALSE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Halloween Event OFF!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 万圣节活动 关闭!" );
 			}
 			else
 				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Use: /event_Halloween <true|false> [%s]", EVENT_HALLOWEEN ? "On" : "Off" );
@@ -855,7 +855,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( (atoi( szCommandParam1 ) >= 0) && (atoi( szCommandParam1 ) <= 1000) )
 			{
 				RATE_HALLOWEEN = atoi( szCommandParam1 );
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Halloween Rate [%d]", RATE_HALLOWEEN );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, ">万圣节概率 [%d]", RATE_HALLOWEEN );
 			}
 		}
 		else
@@ -870,12 +870,12 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( STRINGCOMPAREI( szCommandParam1, "true" ) )
 			{
 				SetMoriphEvent( TRUE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Wanted Moriph Event ON!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 莫莉活动事件 开!" );
 			}
 			else if ( STRINGCOMPAREI( szCommandParam1, "false" ) )
 			{
 				SetMoriphEvent( FALSE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Wanted Moriph Event OFF!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 莫莉活动事件 关!" );
 			}
 			else
 				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Use: /event_WantedMoriph <true|false> [%s]", EVENT_WANTEDMORIPH ? "On" : "Off" );
@@ -893,12 +893,12 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( STRINGCOMPAREI( szCommandParam1, "true" ) )
 			{
 				SetWolfEvent( TRUE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Wanted Wolf Event ON!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, ">狼王事件 开启!" );
 			}
 			else if ( STRINGCOMPAREI( szCommandParam1, "false" ) )
 			{
 				SetWolfEvent( FALSE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Wanted Wolf Event OFF!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 狼王事件 关闭!" );
 			}
 			else
 				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Use: /event_WantedWolf <true|false> [%s]", EVENT_WANTEDWOLF ? "On" : "Off" );
@@ -926,7 +926,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 	if ( iLen = COMMAND( "/!ReloadSkillTable", pszBuff ) )
 	{
 		CSkillServerHandler::Load();
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, ">完成!" );
 		return TRUE;
 	}
 
@@ -937,7 +937,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( auto pcUserEnter = USERDATATOUSER( USERDATABYNAME( szCommandParam1 ) ) )
 			{
 				BATTLEROYALEHANDLER->HandlePacket( pcUserEnter, &PacketBattleRoyaleRequest( -1, atoi( szCommandParam2 ), FALSE ) );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成!" );
 			}
 		}
 	}
@@ -947,16 +947,16 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 		if ( GetParameterString( pszBuff, 1, szCommandParam1 ) )
 		{
 			if ( BATTLEROYALEHANDLER->AddInstanceTimeSeconds( pcUser, atoi( szCommandParam1 ) ) )
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成!" );
 			else
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Error! You aren't at an instance!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 错误! You aren't at an instance!" );
 		}
 	}
 
 	if ( COMMAND( "/!ReloadTimeBroyale", pszBuff ) || COMMAND( "/ReloadTimeBroyale", pszBuff ) )
 	{
 		BATTLEROYALEHANDLER->Load();
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成!" );
 	}
 
 	if ( iLen = COMMAND( "/BotCreate", pszBuff ) )
@@ -965,8 +965,8 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 		{
 			if ( BOTSERVER->CreateBot( szCommandParam1, pcUserData->sPosition.iX, pcUserData->sPosition.iY, pcUserData->sPosition.iZ ) )
 			{
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Created Bot %s", szCommandParam1 );
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Coordinates [X: %d Y: %d Z: %d]", pcUserData->sPosition.iX, pcUserData->sPosition.iY, pcUserData->sPosition.iZ );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 创建机器人 %s", szCommandParam1 );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 坐标 [X: %d Y: %d Z: %d]", pcUserData->sPosition.iX, pcUserData->sPosition.iY, pcUserData->sPosition.iZ );
 			}
 		}
 		return TRUE;
@@ -1119,7 +1119,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 
 					CALL_WITH_ARG2( 0x0056A260, (DWORD)pcUserData, (DWORD)&s );
 
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Edited!!" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, ">已编辑!!" );
 				}
 			}
 		}
@@ -1156,10 +1156,10 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( iClanID != 0 )
 			{
 				BLESSCASTLESERVER->NetSendBlessCastleOwnerClanID( iClanID );
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> New BC Owner: %d", iClanID );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 新的公会会长: %d", iClanID );
 			}
 			else
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Invalid Clan ID" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 无效的公会 ID" );
 		}
 		return TRUE;
 	}
@@ -1180,14 +1180,14 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 				SENDPACKET( USERDATATOUSER(&USERSDATA[i]), &sPacket );
 			}
 		}
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> All Users Warped to Ricarten Town!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 所有玩家Warped里查登城!" );
 		return TRUE;
 	}
 
 	if ( COMMAND( "/QuestArenaT5", pszBuff ) )
 	{
 		QUESTARENAHANDLER->EnterArenaT5Quest( USERDATATOUSER( pcUserData ) );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> T5 Quest Arena" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> T5任务竞技场" );
 		return TRUE;
 	}
 
@@ -1196,20 +1196,20 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 		User * pcUser = USERDATATOUSER( pcUserData );
 		pcUser->uQuestT5ID = QUESTID_CryMeARiver;
 		pcUser->sQuestT5ProgressValue[0] = 0;
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> T5 Quest Cry me a River!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> T5任务让我悲伤成河!" );
 		return TRUE;
 	}
 
 	if ( COMMAND( "/QuestT5TestID", pszBuff ) )
 	{
 		User * pcUser = USERDATATOUSER( pcUserData );
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> T5 Quest [%d][%d][%d]", pcUser->uQuestT5ID, pcUser->sQuestT5ProgressValue[0], pcUser->sQuestT5ProgressValue[1] );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> T5任务 [%d][%d][%d]", pcUser->uQuestT5ID, pcUser->sQuestT5ProgressValue[0], pcUser->sQuestT5ProgressValue[1] );
 		return TRUE;
 	}
 	if ( COMMAND( "/!QuestT5TestID", pszBuff ) )
 	{
 		User * pcUser = USERDATATOUSER( pcUserData );
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> T5 Quest [%d][%d][%d]", pcUser->uQuestT5ID, pcUser->sQuestT5ProgressValue[0], pcUser->sQuestT5ProgressValue[1] );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> T5任务 [%d][%d][%d]", pcUser->uQuestT5ID, pcUser->sQuestT5ProgressValue[0], pcUser->sQuestT5ProgressValue[1] );
 		return TRUE;
 	}
 
@@ -1223,9 +1223,9 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			MONSTERHORDEHANDLER->UpdateStatus( FALSE );
 
 			if ( auto pc = MONSTERHORDEHANDLER->GetInstance( atoi( szCommandParam1 ) ) )
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Horde %s[%d] updated!", pc->GetName().c_str(), pc->GetID() );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 部落 %s[%d] 已更新!", pc->GetName().c_str(), pc->GetID() );
 			else
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Horde ID[%d] doesn't exist!", atoi( szCommandParam1 ) );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 部落 ID[%d] 不存在!", atoi( szCommandParam1 ) );
 		}
 		else
 		{
@@ -1233,7 +1233,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 
 			MONSTERHORDEHANDLER->UpdateStatus( FALSE );
 
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Hordes updated!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 部落已更新!" );
 		}
 		return TRUE;
 	}
@@ -1244,15 +1244,15 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 		{
 			if ( auto pc = MONSTERHORDEHANDLER->GetInstance( atoi( szCommandParam1 ) ) )
 			{
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Horde %s[%d] disabled!", pc->GetName().c_str(), pc->GetID() );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 部落 %s[%d] 已禁用!", pc->GetName().c_str(), pc->GetID() );
 
 				MONSTERHORDEHANDLER->DisableInstance( pc->GetID() );
 			}
 			else
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Horde ID[%d] doesn't exist!", atoi( szCommandParam1 ) );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 部落 ID[%d] 不存在!", atoi( szCommandParam1 ) );
 		}
 		else
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You must provide a valid Horde ID!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你必须提供一个有效的部落 ID!" );
 
 		return TRUE;
 	}
@@ -1265,29 +1265,29 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( STRINGCOMPAREI( "true", szCommandParam1 ) )
 			{
 				FREE_TRADECHAT = TRUE;
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Free Trade Chat On!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 自由交易聊天开启!" );
 			}
 			else if ( STRINGCOMPAREI( "false", szCommandParam1 ) )
 			{
 				FREE_TRADECHAT = FALSE;
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Free Trade Chat Off!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 自由交易聊天关闭!" );
 			}
 			else
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Use: /!tradechat_free <true|false>" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 使用: /!tradechat_free <true|false>" );
 		}
 		else
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Use: /!tradechat_free <true|false> [%s]", FREE_TRADECHAT ? "On" : "Off" );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 使用: /!tradechat_free <true|false> [%s]", FREE_TRADECHAT ? "On" : "Off" );
 	}
 
 	if ( iLen = COMMAND( "/!wholoves", pszBuff ) )
 	{
-		CHATSERVER->SendChatAll( CHATCOLOR_Global, "Server> Who Love me? *_*" );
+		CHATSERVER->SendChatAll( CHATCOLOR_Global, "Server> 有人爱我吗? *_*" );
 		for ( int i = 0; i < PLAYERS_MAX; i++ )
 		{
 			User * pcU = USERDATATOUSER( &USERSDATA[i] );
 			if ( USERSDATA[i].pcSocketData && USERSDATA[i].iGameLevel == GAMELEVEL_None && pcU && pcU->bNetServer == FALSE )
 			{
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Trade, "[%c]%s: P> I love you, %s <3!", GSERVER->GetServerName( USERSDATA[i].bServerIndexID )[0], CHARACTERSERVER->GetCharacterName( &USERSDATA[i] ), GAME_NAME );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Trade, "[%c]%s: P> 我爱你, %s <3!", GSERVER->GetServerName( USERSDATA[i].bServerIndexID )[0], CHARACTERSERVER->GetCharacterName( &USERSDATA[i] ), GAME_NAME );
 			}
 		}
 		return TRUE;
@@ -1295,7 +1295,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 	if ( COMMAND( "/NetServerDC", pszBuff ) || COMMAND( "/!NetServerDC", pszBuff ) )
 	{
 		NETSERVER->DisconnectAll();
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> [%s] Net Servers Disconnected!", GAME_SERVER ? "Game Server" : "Login Server" );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> [%s] 网络服务器断开连接!", GAME_SERVER ? "Game Server" : "Login Server" );
 		return TRUE;
 	}
     if ( iLen = COMMAND( "/testmsgbox", pszBuff ) )
@@ -1306,7 +1306,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
     if ( iLen = COMMAND( "/!UpdateEventMessages", pszBuff ) )
     {
         EVENTSERVER->SendUpdateEventMessages();
-        CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Done!" );
+        CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 完成!" );
         return TRUE;
     }
     if ( iLen = COMMAND( "/PvPHandler", pszBuff ) )
@@ -1381,7 +1381,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 					pcDB->Close();
 				}
 				CHARACTERSERVER->GiveEXP( USERDATATOUSER( pcUserData ), iExp - iExpOld );
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> New Level Exp (%I64d)[%d]", iExp, atoi( szCommandParam1 ) );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, ">新等级Exp (%I64d)[%d]", iExp, atoi( szCommandParam1 ) );
 			}
 			else
 				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Level must be major than your level!" );
@@ -1396,7 +1396,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			*(UINT*)0x7AC9D28 = 0;
 			*(UINT*)0x7AC9D2C = 0;
 			TerminateThread( (HANDLE)*(UINT*)0x7AC9F98, 0 );
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Server Shutdown> Shutdown Cancelled!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Server Shutdown> 关闭取消!" );
 		}
 	}
 	if ( iLen = COMMAND( "/set_spawn", pszBuff ) )
@@ -1445,14 +1445,14 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 		{
 			SetVersion( atoi( szCommandParam1 ) );
 			NETSERVER->SendVersion( atoi( szCommandParam1 ) );
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> New Version %d!", SERVER_VERSION );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 新版本 %d!", SERVER_VERSION );
 		}
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/!ReloadCoinShop", pszBuff ) )
 	{
 		COINSHOPHANDLER->ReloadCoinShops();
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Coin Shop Reloaded!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 金币商已重新加载!" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/tempitemget", pszBuff ) )
@@ -1469,7 +1469,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 		ITEMSERVER->ValidateItem( &pcUser->sTempItem.sItem );
 		ITEMSERVER->SendItemData( pcUserData, &pcUser->sTempItem.sItem.sItem );
 		ZeroMemory( &pcUser->sTempItem, sizeof( PacketItemData ) );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Item Sent!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, ">装备发送!" );
 		return TRUE;
 	}
 	if ( iLen = COMMAND( "/tempitem_dmg", pszBuff ) )
@@ -1480,7 +1480,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			GetParameterString( pszBuff, 2, szCommandParam2 );
 			pcUser->sTempItem.sItem.sItem.sDamage.sMin = atoi( szCommandParam1 );
 			pcUser->sTempItem.sItem.sItem.sDamage.sMax = atoi( szCommandParam2 );
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> New Damage ( %d-%d )", pcUser->sTempItem.sItem.sItem.sDamage.sMin, pcUser->sTempItem.sItem.sItem.sDamage.sMax );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 新伤害 ( %d-%d )", pcUser->sTempItem.sItem.sItem.sDamage.sMin, pcUser->sTempItem.sItem.sItem.sDamage.sMax );
 		}
 		return TRUE;
 	}
@@ -2013,19 +2013,19 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			{
 				EVENT_REDUCE_DAMAGEMON		= TRUE;
 				EVENT_REDUCE_DAMAGEMON_LIVE = TRUE;
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Reduce Damage Monster Event is ON!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 减少怪物伤害事件开启!" );
 			}
 			else if ( STRINGCOMPAREI( "false", szCommandParam1 ) )
 			{
 				EVENT_REDUCE_DAMAGEMON		= FALSE;
 				EVENT_REDUCE_DAMAGEMON_LIVE = FALSE;
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Reduce Damage Monster Event is OFF!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 减少怪物伤害事件关闭!" );
 			}
 			else
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Use: /event_reducemondmg <true|false>" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 使用: /event_reducemondmg <true|false>" );
 		}
 		else
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Use: /event_reducemondmg <true|false> [%s]", EVENT_REDUCE_DAMAGEMON ? "ON" : "OFF" );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 使用: /event_reducemondmg <true|false> [%s]", EVENT_REDUCE_DAMAGEMON ? "ON" : "OFF" );
 	}
 	if ( COMMAND( "/SuperPowerEvent", pszBuff ) )
 	{
@@ -2035,7 +2035,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( iSuperPower >= 0 )
 				EVENT_SUPERPOWER = iSuperPower;
 
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Super power event: %d%%!", iSuperPower );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 超级力量事件: %d%%!", iSuperPower );
 		}
 	}
 	if ( COMMAND( "/serverfps", pszBuff ) )
@@ -2123,13 +2123,13 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			else if ( iExp < 0 )
 				iExp = 0;
 
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> EXP Event: %d%% -> %d%%", *(int*)0x0084601C, iExp );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, ">经验活动: %d%% -> %d%%", *(int*)0x0084601C, iExp );
 			*(int*)(0x0084601C)		= iExp;
 
 			NETSERVER->SendEXPEventLogin( iExp );
 		}
 		else
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> EXP Event: %d%%", *(int*)(0x0084601C) );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, ">经验活动: %d%%", *(int*)(0x0084601C) );
 	}
 	if ( COMMAND( "/PVPMap", pszBuff ) )
 	{
@@ -2138,13 +2138,13 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			int iMap = atoi( szCommandParam1 );
 
 			if ( iMap != -1 )
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> PVP Map: %d", iMap );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, ">PVP地图: %d", iMap );
 			else
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> PVP Map is disabled!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> PVP地图禁用!" );
 			*(int*)(0x0084831C) = iMap;
 		}
 		else
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> EXP Event: %d%%", *(int*)(0x0084601C) );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, ">经验活动: %d%%", *(int*)(0x0084601C) );
 	}
 	if ( COMMAND( "/EventBC", pszBuff ) )
 	{
@@ -2153,57 +2153,57 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			int i = atoi( szCommandParam1 );
 
 			if ( i != -1 )
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Siege War Mode: %d", i );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 攻城战模式: %d", i );
 
 			BLESSCASTLESERVER->SetSiegeWarMode( (ESiegeWarMode)i );
 		}
 		else
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> EXP Event: %d%%", *(int*)(0x0084601C) );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 经验活动: %d%%", *(int*)(0x0084601C) );
 	}
 	if ( MAPSDATA[MAPID_BlessCastle].iState )
 	{
 		if ( COMMAND( "/StartSiegeWar", pszBuff ) )
 		{
 			BLESSCASTLESERVER->Start();
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Started!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 开始!" );
 		}
 		if ( COMMAND( "/EndSiegeWar", pszBuff ) )
 		{
 			BLESSCASTLESERVER->ResetUserScore();
 			BLESSCASTLESERVER->End( FALSE );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Ended!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 结束!" );
 		}
 		if ( COMMAND( "/EndWinSiegeWar", pszBuff ) )
 		{
 			BLESSCASTLESERVER->psBlessCastleStatusData->dwBattleOverTime = TICKCOUNT;
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Ended!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 结束!" );
 		}
 		if ( COMMAND( "/EasySiegeWar", pszBuff ) )
 		{
 			BLESSCASTLESERVER->EasySiegeWar();
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Easy Siege War!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 简单攻城战!" );
 		}
 		if ( COMMAND( "/TestSiegeWarCMD1", pszBuff ) )
 		{
 			BLESSCASTLESERVER->SpeedUpDeathTimer();
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> TESTED!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 测试!" );
 		}
 		if ( COMMAND( "/TestSiegeWarCMD2", pszBuff ) )
 		{
 			BLESSCASTLESERVER->RemoveTimeAlive();
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> TESTED 2!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, ">测试2!" );
 		}
 		if ( COMMAND( "/KillUnitsSiegeWar", pszBuff ) )
 		{
 			BLESSCASTLESERVER->EasySiegeWar();
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Easy Siege War!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 简单攻城战!" );
 		}
 	}
 
 	if ( COMMAND( "/!ClearTickRO", pszBuff ) )
 	{
 		EVENTSERVER->ClearTickOnlineReward();
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Reward Online: Cleaned!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, ">在线奖励:已清理!" );
 	}
 
 	if ( COMMAND( "/!SetTickDR", pszBuff ) )
@@ -2213,7 +2213,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			int iHour = atoi( szCommandParam1 );
 
 			EVENTSERVER->SetDailyReward( iHour );
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Daily Reward: New Time Hour[%d]!", iHour );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 每日奖励: 新时间[%d]!", iHour );
 		}
 		else
 			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Usage: /!SetTickDR <hour>" );
@@ -2222,7 +2222,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 	if ( COMMAND( "/!ClearTickXmas", pszBuff ) )
 	{
 		EVENTSERVER->ClearTickOnlineRewardXmas();
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Reward Online Xmas: Cleaned!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 圣诞节在线奖励: 已清理!" );
 	}
 
 	if ( COMMAND( "/ActivePartyInfo", pszBuff ) )
@@ -2237,7 +2237,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 	if ( COMMAND( "/debugmon", pszBuff ) )
 	{
 		bTestDebugDamageUnit = bTestDebugDamageUnit ? FALSE : TRUE;
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Test Debug Damage Monster[%s]", bTestDebugDamageUnit ? "ON" : "OFF" );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 调试怪物伤害[%s]", bTestDebugDamageUnit ? "ON" : "OFF" );
 	}
 
 	if ( COMMAND( "/DDoSDC", pszBuff ) )
@@ -2246,7 +2246,7 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 		for ( int i = 0; i < 11; i++ )
 			SOCKETSERVER->AddDisconnectedUser( StringIPToNumberIPV4( szCommandParam1 ) );
 
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Test DDoS!" );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 测试DDoS!" );
 	}
 
 	if ( COMMAND( "/setbosstime", pszBuff ) )
@@ -2273,12 +2273,12 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			if ( STRINGCOMPAREI( "true", szCommandParam1 ) )
 			{
 				EVENT_BELLATRA = 2;
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Bellatra Event is enabled!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Bellatra活动启用!" );
 			}
 			else if ( STRINGCOMPAREI( "false", szCommandParam1 ) )
 			{
 				EVENT_BELLATRA = 0;
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Bellatra Event is disabled!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Bellatra活动关闭!" );
 			}
 			else
 				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Use: /sod_enable <true|false>" );
@@ -2295,13 +2295,13 @@ BOOL ServerCommand::OnGameMasterAdminCommand( UserData * pcUserData, const char 
 			{
 				(*(int*)0x00845FF8) = 2;
 				(*(int*)0x07AC9D50) = 1;
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Crystal Event is enabled!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 水晶活动启用!" );
 			}
 			else if ( STRINGCOMPAREI( "false", szCommandParam1 ) )
 			{
 				(*(int*)0x00845FF8) = 0;
 				(*(int*)0x07AC9D50) = 0;
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Crystal Event is disabled!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 水晶活动关闭!" );
 			}
 			else
 				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Use: /event_crystal <true|false>" );
@@ -2798,11 +2798,11 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 
 		if ( iSeconds > 0 )
 		{
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Notice> Server Announcement!" );
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Notice> Maintenance is starting now!" );
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Notice> Check our Discord for more information!" );
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Notice> Please disconnect from the server!" );
-			CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Notice> Enjoy %s!", GAME_NAME );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Notice> 服务器公告!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Notice> 服务器即将维护!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Notice> 查看公告获取更多信息!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Notice> 请断开服务器连接!" );
+			CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Notice> 我没有跟你开玩笑! %s!", GAME_NAME );
 
 			GSERVER->StartMaintenanceCountdown( iSeconds );
 		}
@@ -2818,14 +2818,14 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 				SERVER->SetMaintenance( FALSE );
 		}
 
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Maintenance Flag is %s!", SERVER->GetMaintenance() ? "ON" : "OFF" );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 维护标签 %s!", SERVER->GetMaintenance() ? "ON" : "OFF" );
 	}
 
 	if ( COMMAND( "/!StopMaintenance", pszBuff ) || COMMAND( "/StopMaintenance", pszBuff ) )
 	{
 		GSERVER->StopMaintenanceCountdown();
 
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Maintenance Countdown stopped!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 维护倒计时停止!" );
 	}
 
 	if ( iLen = COMMAND( "/!HWCombination", pszBuff ) )
@@ -2843,13 +2843,13 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 		if ( GetParameterString( pszBuff, 1, szCommandParam1 ) )
 		{
 			HALLOWEENHANDLER->ClearTickItem();
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Done!" );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 完成!" );
 		}
 	}
 
 	if ( iLen = COMMAND( "/!kickall", pszBuff ) )
 	{
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Kicking...!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 踢...!" );
 		for ( int i = 0; i < PLAYERS_MAX; i++ )
 		{
 			User * pcU = USERDATATOUSER( &USERSDATA[i] );
@@ -2859,7 +2859,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 				WNDPROC_SOCKETCLOSE( SOCKETSERVER->GetHWND(), USERSDATA[i].pcSocketData );
 			}
 		}
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> All Kicked!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 全部踢掉了!" );
 	}
 
 	if ( iLen = COMMAND( "/SetPos", pszBuff ) )
@@ -2905,12 +2905,12 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 			if ( STRINGCOMPAREI( "true", szCommandParam1 ) )
 			{
 				FURYARENAHANDLER->SetEnable( TRUE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> The Grand Fury is enabled!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 真狮王事件启用!" );
 			}
 			else if ( STRINGCOMPAREI( "false", szCommandParam1 ) )
 			{
 				FURYARENAHANDLER->SetEnable( FALSE );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> The Grand Fury is disabled!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 真狮王事件禁用!" );
 			}
 			else
 				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Use: /gf_enable <true|false>" );
@@ -2924,10 +2924,10 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 		if ( !FURYARENAHANDLER->IsStarted() )
 		{
 			FURYARENAHANDLER->StartEvent();
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> The Grand Fury is started!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 真狮王活动已经开始!" );
 		}
 		else
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> The Grand Fury is already started!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 真狮王活动已经开始!" );
 	}
 
 	if ( iLen = COMMAND( "/gf_end", pszBuff ) )
@@ -2935,10 +2935,10 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 		if ( FURYARENAHANDLER->IsStarted() )
 		{
 			FURYARENAHANDLER->EndEvent();
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> The Grand Fury is ended!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 真狮王活动已经结束!" );
 		}
 		else
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> The Grand Fury is already ended!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 真狮王活动已经结束!" );
 	}
 
 	if ( iLen = COMMAND( "/gf_call", pszBuff ) )
@@ -2997,7 +2997,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 		{
 			if ( FURYARENAHANDLER->SetTimeMinion( atoi( szCommandParam1 ) ) )
 			{
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> The Grand Fury Time Minion: %d", atoi( szCommandParam1 ) );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 真狮王仆从: %d", atoi( szCommandParam1 ) );
 			}
 		}
 		else
@@ -3010,7 +3010,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 		{
 			if ( FURYARENAHANDLER->SetBoss( szCommandParam1 ) )
 			{
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> The Grand Fury Boss: %s", szCommandParam1 );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 真狮王Boss: %s", szCommandParam1 );
 			}
 		}
 		else
@@ -3023,7 +3023,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 		{
 			if ( FURYARENAHANDLER->SetMinion(szCommandParam1) )
 			{
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> The Grand Fury Minion: %s", szCommandParam1 );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 真狮王仆从: %s", szCommandParam1 );
 			}
 		}
 		else
@@ -3036,7 +3036,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 		{
 			if ( FURYARENAHANDLER->SetMonsterEvent(szCommandParam1) )
 			{
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> The Grand Fury Monster Event: %s", szCommandParam1 );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 真狮王怪物事件: %s", szCommandParam1 );
 			}
 		}
 		else
@@ -3353,7 +3353,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 			// Is more than 30000 or minor than 0?
 			if ( sEnemyHP < 0 )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> No more than 30k HP or minor than 0!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 不超过30k HP或小于0 HP!" );
 				return TRUE;
 			}
 
@@ -3388,7 +3388,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 			// Is more than 30000 or minor than 0?
 			if ( sEnemyAbs < 0 )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> No more than 30k Abs or minor than 0!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 不超过30k ab或小于0!" );
 				return TRUE;
 			}
 
@@ -3423,7 +3423,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 			// Is more than 30000 or minor than 0?
 			if ( sDamageMin < 0 || sDamageMax < 0 )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> No more than 30k HP or minor than 0!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 不超过30k HP或小于0 HP!" );
 				return TRUE;
 			}
 
@@ -3482,12 +3482,12 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 		{
 			if ( STRINGCOMPAREI( "true", szCommandParam1 ) )
 			{
-				CHATSERVER->SendChat( pcUser, EChatColor::CHATCOLOR_Error, "> Event Girl Free: ON!" );
+				CHATSERVER->SendChat( pcUser, EChatColor::CHATCOLOR_Error, "> 活动女孩免费: 开启!" );
 				FREE_EVENTGIRL = TRUE;
 			}
 			else if ( STRINGCOMPAREI( "false", szCommandParam1 ) )
 			{
-				CHATSERVER->SendChat( pcUser, EChatColor::CHATCOLOR_Error, "> Event Girl Free: OFF!" );
+				CHATSERVER->SendChat( pcUser, EChatColor::CHATCOLOR_Error, "> 活动女孩免费: 关闭!" );
 				FREE_EVENTGIRL = FALSE;
 			}
 			else
@@ -3684,7 +3684,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 	if ( iLen = COMMAND( "/!ResetPVPRank", pszBuff ) )
 	{
 		PVPSERVER->ResetTick();
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> PvP Rank resetted!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> PvP等级重置!" );
 	}
 
 	if ( COMMAND( "/mon", pszBuff ) || COMMAND( "/monster", pszBuff ) )
@@ -3764,7 +3764,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 			// Is minor than 0?
 			if ( iDefense < 0 )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> No minor than 0!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 不小于0!" );
 				return TRUE;
 			}
 
@@ -3775,7 +3775,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 				int iOldDefense = pcUnitData->sCharacterData.iDefenseRating;
 				pcUnitData->sCharacterData.iDefenseRating = iDefense;
 
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> '%s' Defense ( %d -> %d )!", pcUnitData->sCharacterData.szName, iOldDefense, iDefense );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> '%s' 防御 ( %d -> %d )!", pcUnitData->sCharacterData.szName, iOldDefense, iDefense );
 			}
 		}
 		return TRUE;
@@ -3796,7 +3796,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 			// Is minor than 0?
 			if ( iLevel < 0 )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> No minor than 0!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 不小于0!" );
 				return TRUE;
 			}
 
@@ -3807,7 +3807,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 				int iOldLevel = pcUnitData->sCharacterData.iLevel;
 				pcUnitData->sCharacterData.iLevel = iLevel;
 
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> '%s' Level ( %d -> %d )!", pcUnitData->sCharacterData.szName, iOldLevel, iLevel );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> '%s' 等级 ( %d -> %d )!", pcUnitData->sCharacterData.szName, iOldLevel, iLevel );
 			}
 		}
 		return TRUE;
@@ -3828,7 +3828,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 			// Is minor than 0?
 			if ( iExperience < 0 )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> No minor than 0!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 不小于0!" );
 				return TRUE;
 			}
 
@@ -3841,7 +3841,7 @@ BOOL ServerCommand::OnGameMasterEventCommand( UserData * pcUserData, const char 
 				typedef void( __cdecl *t_SetExpUnitFunc )( CharacterData * pMonster, INT64 iExp );
 				t_SetExpUnitFunc SetExpUnitFunc = ( t_SetExpUnitFunc )0x08B815CC;
 				SetExpUnitFunc( &pcUnitData->sCharacterData, iExperience );
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> '%s' Experience ( %lld -> %lld )!", pcUnitData->sCharacterData.szName, iOldExperience, iExperience );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> '%s' 经验 ( %lld -> %lld )!", pcUnitData->sCharacterData.szName, iOldExperience, iExperience );
 			}
 		}
 		return TRUE;
@@ -4084,7 +4084,7 @@ BOOL ServerCommand::OnPlayerCommand( UserData * pcUserData, const char * pszBuff
 				if( ud )
 					CHATSERVER->SendWhisper( pcUser, USERDATATOUSER( ud ), &pszBuff[lstrlenA( szCommandParam1 ) + 2] );
 				else
-					CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s is offline or not found!", szCommandParam1 );
+					CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s 已经离线或者没找到!", szCommandParam1 );
 			}
 		}
 	}

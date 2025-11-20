@@ -55,28 +55,28 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketRequestParty * psPacket )
 			//Request Party to myself
 			if( pcUser == pcTargetUser )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You can't sent a Party Request to yourself" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你不能给自己发送队伍申请" );
 				return;
 			}
 
 			//In Battle Royale
 			if ( pcUser->bInBattleRoyale )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You can't sent a Party Request while you are at Battle Royale" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你不能在Battle Royale中发送队伍申请" );
 				return;
 			}
 
 			//In Battle Royale
 			if ( pcTargetUser->bInBattleRoyale )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You can't sent a Party Request while friend is at Battle Royale" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, ">你不能在Battle Royale给好友发送队伍申请" );
 				return;
 			}
 
 			//Party disabled on User
 			if( pcTargetUser->pcUserData->bDisabledParty )
 			{
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s has disabled party.", pcTargetUser->pcUserData->sCharacterData.szName );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s 禁用组队.", pcTargetUser->pcUserData->sCharacterData.szName );
 				return;
 			}
 
@@ -127,7 +127,7 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketRequestParty * psPacket )
 							psPacket->eState = PARTYSTATE_FullParty;
 							ProcessPacket( pcUser, psPacket );
 
-							CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Party is currently Full!" );
+							CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 队伍已经满了!" );
 							return;
 						}
 						else if( pcTargetUser->psParty == pcUser->psParty )
@@ -135,7 +135,7 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketRequestParty * psPacket )
 							psPacket->eState = PARTYSTATE_AlreadyParty;
 							ProcessPacket( pcUser, psPacket );
 
-							CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s is already in a Party!", pcTargetUser->pcUserData->sCharacterData.szName );
+							CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s 已经在一个队伍中!", pcTargetUser->pcUserData->sCharacterData.szName );
 						}
 						else
 						{
@@ -144,7 +144,7 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketRequestParty * psPacket )
 							STRINGCOPY( psPacket->szCharacterName, pcUser->pcUserData->sCharacterData.szName );
 							ProcessPacket( pcTargetUser, psPacket );
 
-							CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Sent Party Request to %s!", pcTargetUser->pcUserData->sCharacterData.szName );
+							CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 给%s发送组队申请!", pcTargetUser->pcUserData->sCharacterData.szName );
 						}
 					}
 					else
@@ -152,7 +152,7 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketRequestParty * psPacket )
 						psPacket->eState = PARTYSTATE_AlreadyParty;
 						ProcessPacket( pcUser, psPacket );
 
-						CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s is already in a Party!", pcTargetUser->pcUserData->sCharacterData.szName );
+						CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s 已经在一个队伍中!", pcTargetUser->pcUserData->sCharacterData.szName );
 						return;
 					}
 				}
@@ -164,7 +164,7 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketRequestParty * psPacket )
 				STRINGCOPY( psPacket->szCharacterName, pcUser->pcUserData->sCharacterData.szName );
 				ProcessPacket( pcTargetUser, psPacket );
 
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Sent Party Request to %s!", pcTargetUser->pcUserData->sCharacterData.szName );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 给%s!发送组队申请!", pcTargetUser->pcUserData->sCharacterData.szName );
 			}
 		}
 	}
@@ -260,17 +260,17 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketRequestRaid * psPacket )
 					STRINGCOPY( psPacket->szCharacterName, pcUser->pcUserData->sCharacterData.szName );
 					ProcessPacket( pcTargetUser, psPacket );
 
-					CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Sent Raid request to %s!", pcTargetUser->pcUserData->sCharacterData.szName );
+					CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 给%s!发送阵列申请", pcTargetUser->pcUserData->sCharacterData.szName );
 				}
 				else
 				{
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Raid is currently Full!" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 阵列当前已满!" );
 					return;
 				}
 			}
 			else
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Raid must be formed between party leaders!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 阵列必须由队长发出申请!" );
 				return;
 			}
 		}
@@ -303,7 +303,7 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketPartyCore * psPacket )
 			pcOtherUser->pcUserData->iMapID == MAPID_QuestArena || pcOtherUser->pcUserData->iMapID == MAPID_T5QuestArena || pcOtherUser->pcUserData->iMapID == MAPID_BlessCastle ||
 			pcOtherUser->pcUserData->iMapID == MAPID_OldRuinen2 || pcOtherUser->pcUserData->iMapID == MAPID_RoyalDesert )
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "You cannot teleport to player" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你不能传送到玩家" );
 			return;
 		}
 
@@ -314,7 +314,7 @@ void CPartyHandler::HandlePacket( User * pcUser, PacketPartyCore * psPacket )
 			{
 				if ( pcUser->pcUserData->sCharacterData.iLevel < pcMap->pcBaseMap->iLevel )
 				{
-					CHATSERVER->SendChatMessageBox( pcUser, "Level does not match" );
+					CHATSERVER->SendChatMessageBox( pcUser, "级别不匹配" );
 					return;
 				}
 
@@ -663,7 +663,7 @@ BOOL CPartyHandler::JoinParty( User * pcUser, PartyInfo * psParty )
 	{
 		if( psParty->iMembersCount >= MAX_PARTY_MEMBERS )
 		{
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Party is currently Full!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 队伍已经满了!" );
 			return FALSE;
 		}
 
@@ -677,7 +677,7 @@ BOOL CPartyHandler::JoinParty( User * pcUser, PartyInfo * psParty )
 		//Update Party
 		UpdateParty( psParty );
 
-		SendChatParty( pcUser, FormatString("> %s has joined the Party!", pcUser->pcUserData->sCharacterData.szName), CHATCOLOR_Error );
+		SendChatParty( pcUser, FormatString("> %s加入了队伍!", pcUser->pcUserData->sCharacterData.szName), CHATCOLOR_Error );
 	}
 
 	return TRUE;
@@ -969,7 +969,7 @@ void CPartyHandler::UpdateParty( PartyInfo * psParty, bool bUpdateToRaid )
 				{
 					//Party it's over?
 					if( psParty->iMembersCount == 0 )
-						CHATSERVER->SendChat( u, CHATCOLOR_Error, "> Party has been disbanded." );
+						CHATSERVER->SendChat( u, CHATCOLOR_Error, "> 队伍已经解散." );
 
 					ProcessPacket( u, &sPacket );
 				}

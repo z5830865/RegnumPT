@@ -211,14 +211,14 @@ BOOL CBattleRoyaleHandler::AddUser( User * pcUser, int iBattleID )
 						}
 						else
 						{
-							CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "BattleRoyale> Maximum number of players have been reached!" );
-							CHATSERVER->SendChatMessageBox( pcUser, "Maximum number of players have been reached!" );
+							CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "BattleRoyale> 已达到最大玩家数!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "已达到最大玩家数!" );
 						}
 					}
 					else
 					{
-						CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "BattleRoyale> You can't enter due level requirements (%d-%d)", sRequiredLevel.iMin, sRequiredLevel.iMax );
-						CHATSERVER->SendChatMessageBox( pcUser, "You can't enter due level requirements (%d-%d)", sRequiredLevel.iMin, sRequiredLevel.iMax );
+						CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "BattleRoyale> 你没有达到相应的等级要求 (%d-%d)", sRequiredLevel.iMin, sRequiredLevel.iMax );
+						CHATSERVER->SendChatMessageBox( pcUser, "你没有达到相应的等级要求 (%d-%d)", sRequiredLevel.iMin, sRequiredLevel.iMax );
 					}
 				}
 				break;
@@ -426,7 +426,7 @@ void CBattleRoyaleHandler::HandlePacket( User * pcUser, PacketBattleRoyaleReques
 			//User already on Party?
 			if ( pcUser->bParty )
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You are in a party! Please, leave it before BattleRoyale!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你已经在队伍里面!请先退出队伍!" );
 
 				bCanEnter = false;
 			}
@@ -441,7 +441,7 @@ void CBattleRoyaleHandler::HandlePacket( User * pcUser, PacketBattleRoyaleReques
 					if (pc->pcUserData->pcSocketData
 						&& pc->pcUserData->pcSocketData->lIP == pcUser->pcUserData->pcSocketData->lIP)
 					{
-						CHATSERVER->SendChat(pcUser, CHATCOLOR_Error, "BattleRoyale> Only one person per network can connect!");
+						CHATSERVER->SendChat(pcUser, CHATCOLOR_Error, "BattleRoyale> 同一网络下只有一位玩家可以进入!");
 
 						bCanEnter = true;
 						break;
@@ -451,7 +451,7 @@ void CBattleRoyaleHandler::HandlePacket( User * pcUser, PacketBattleRoyaleReques
 					{
 						if ( STRINGCOMPARE( pc->szHardwareID, pcUser->szHardwareID ) )
 						{
-							CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "BattleRoyale> Players must be on different computers!" );
+							CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "BattleRoyale>玩家必须来自不同的电脑!" );
 
 							bCanEnter = true;
 							break;
@@ -531,12 +531,12 @@ void CBattleRoyaleHandler::HandlePacket( User * pcUser, PacketBattleRoyaleReques
 								SQLUpdateUserReceivedReward( iBattleID, iInstanceID, pcUser->iCharacterID, sDate );
 
 								//Log
-								LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_BattleRoyaleReceivedItem, "Character[%s] Received BattleRoyale Reward Item[%s] Quantity[%d]",
+								LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_BattleRoyaleReceivedItem, "玩家[%s] 获得了 BattleRoyale 奖励 Item[%s] Quantity[%d]",
 														CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), psReward->szItemCode, psReward->iQuantity );
 
 								//Notify
-								CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "BattleRoyale> You received %s!", psReward->szName );
-								CHATSERVER->SendChatMessageBox( pcUser, "You received %s!", psReward->szName );
+								CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "BattleRoyale> 你获得了 %s!", psReward->szName );
+								CHATSERVER->SendChatMessageBox( pcUser, "你获得了 %s!", psReward->szName );
 
 								if ( iBattleID == BATTLEROYALE_Normal || iBattleID == BATTLEROYALE_NormalLow )
 								{
@@ -962,12 +962,12 @@ BOOL CBattleRoyaleHandler::OnNPCClick( User * pcUser, Unit * pcUnit )
 		}
 		else
 		{
-			std::string strBanned = FormatString( "You have been banned from Battle Royale until %02d-%02d-%04d %02d:%02d",
+			std::string strBanned = FormatString( "你已经被禁止参加直到 %02d-%02d-%04d %02d:%02d",
 				sUnbanDate.wDay, sUnbanDate.wMonth, sUnbanDate.wYear, sUnbanDate.wHour, sUnbanDate.wMinute );
 
 			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "> %s", strBanned.c_str() );
 			if ( szReason[0] != 0 )
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "> Reason: %s", szReason );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "> 原因: %s", szReason );
 			
 			CHATSERVER->SendChatMessageBox( pcUser, "%s", strBanned.c_str() );
 		}
@@ -1880,7 +1880,7 @@ BOOL CBattleRoyaleHandler::OnGasKilled(User* pcUser)
 					psPlayer->eState = PLAYERSTATE_Dead;
 					psPlayer->iTimeDeath = pcInstance->GetState().iTimeUpdate;
 
-					SendChat(pcInstance, CHATCOLOR_Notice, FormatString("BattleRoyale> %s killed!",
+					SendChat(pcInstance, CHATCOLOR_Notice, FormatString("BattleRoyale> %s 被击倒了!",
 						CHARACTERSERVER->GetCharacterName(pcUser->pcUserData)));
 
 					PacketBattleRoyaleUpdate sPacket;
@@ -1942,7 +1942,7 @@ BOOL CBattleRoyaleHandler::OnUserKilled(User* pcKiller, User* pcVictim)
 						// Remove the user after they are killed by another user
 						pcInstance->RemoveUser(pcVictim, false);
 
-						SendChat(pcInstance, CHATCOLOR_Notice, FormatString("BattleRoyale> %s killed %s!",
+						SendChat(pcInstance, CHATCOLOR_Notice, FormatString("BattleRoyale> %s 杀死了 %s!",
 							CHARACTERSERVER->GetCharacterName(pcKiller->pcUserData), CHARACTERSERVER->GetCharacterName(pcVictim->pcUserData)));
 
 						PacketBattleRoyaleUpdate sPacket;
@@ -1970,7 +1970,7 @@ BOOL CBattleRoyaleHandler::OnDisconnected( User * pcUser )
 		{
 			if ( auto pcInstance = GetInstance( pcUser ) )
 			{
-				SendChat( pcInstance, CHATCOLOR_Notice, FormatString( "BattleRoyale> %s disconnected!", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) ) );
+				SendChat( pcInstance, CHATCOLOR_Notice, FormatString( "BattleRoyale> %s 断开连接!", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) ) );
 
 				return pcInstance->RemoveUser( pcUser, true ) ? TRUE : FALSE;
 			}
@@ -2014,7 +2014,7 @@ BOOL CBattleRoyaleHandler::OnUserMapChanged( User * pcUser, EMapID eMapID )
 			{
 				if ( (pcUser->GetMapID() == pcInstance->GetBattleRoyale()->GetMapID()) && (eMapID != pcInstance->GetBattleRoyale()->GetMapID()) )
 				{
-					SendChat( pcInstance, CHATCOLOR_Notice, FormatString( "BattleRoyale> %s kicked!", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) ) );
+					SendChat( pcInstance, CHATCOLOR_Notice, FormatString( "BattleRoyale> %s 被踢出!", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) ) );
 
 					pcInstance->RemoveUser( pcUser );
 				}
@@ -2167,7 +2167,7 @@ void CBattleRoyaleHandler::UpdateBattleTime()
 							pcInstance->GetState().iMeteoriteTime = pcInstance->GetState().iTimeUpdate + TIME_BATTLEROYALE_METEORITE;
 							pcInstance->GetState().sMeteoritePosition = sPosition;
 
-							SendChat( pcInstance, CHATCOLOR_Global, FormatString( "BattleRoyale> Meteorite: X[%d] Z[%d]!", sPosition.iX >> 8, sPosition.iZ >> 8 ), true );
+							SendChat( pcInstance, CHATCOLOR_Global, FormatString( "BattleRoyale> 陨石: X[%d] Z[%d]!", sPosition.iX >> 8, sPosition.iZ >> 8 ), true );
 						}
 					}
 				}
@@ -2379,7 +2379,7 @@ void CBattleRoyaleHandler::UpdateEventTimer()
 
 				vInstances.push_back( pcInstance );
 
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> %s is open at %s!", pcBattleRoyale->GetName().c_str(), GetMapName( pcBattleRoyale->GetMapID() ) );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> %s 打开了 %s!", pcBattleRoyale->GetName().c_str(), GetMapName( pcBattleRoyale->GetMapID() ) );
 
 				pcBattleRoyale->SetAnnouncement( ANNOUNCEMENTTYPE_5Minutes );
 
@@ -2387,12 +2387,12 @@ void CBattleRoyaleHandler::UpdateEventTimer()
 			}
 			else if ( pcBattleRoyale->IsTime( psServerTime->wDayOfWeek, psServerTime->wHour, psServerTime->wMinute, 10 ) && (pcBattleRoyale->GetAnnouncement() != ANNOUNCEMENTTYPE_10Minutes) )
 			{
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> %s at %s in 10 minutes!", pcBattleRoyale->GetName().c_str(), GetMapName( pcBattleRoyale->GetMapID() ) );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> %s at %s 10分钟后!", pcBattleRoyale->GetName().c_str(), GetMapName( pcBattleRoyale->GetMapID() ) );
 				pcBattleRoyale->SetAnnouncement( ANNOUNCEMENTTYPE_10Minutes );
 			}
 			else if ( pcBattleRoyale->IsTime( psServerTime->wDayOfWeek, psServerTime->wHour, psServerTime->wMinute, 15 ) && (pcBattleRoyale->GetAnnouncement() != ANNOUNCEMENTTYPE_15Minutes) )
 			{
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> %s at %s in 15 minutes!", pcBattleRoyale->GetName().c_str(), GetMapName( pcBattleRoyale->GetMapID() ) );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> %s at %s 15分钟后!", pcBattleRoyale->GetName().c_str(), GetMapName( pcBattleRoyale->GetMapID() ) );
 				pcBattleRoyale->SetAnnouncement( ANNOUNCEMENTTYPE_15Minutes );
 			}
 		}
@@ -2611,7 +2611,7 @@ void CBattleRoyaleHandler::StartBattle( CBattleRoyaleInstance * pcInstance )
 			bStart = false;
 
 			//Announcement
-			SendChat( pcInstance, CHATCOLOR_Global, FormatString( "BattleRoyale> %s drops started!", pcInstance->GetBattleRoyale()->GetName().c_str() ) );
+			SendChat( pcInstance, CHATCOLOR_Global, FormatString( "BattleRoyale> %s 物品开始掉落!", pcInstance->GetBattleRoyale()->GetName().c_str() ) );
 
 			//Drop Items
 			DropItemOnSpawns( pcInstance );
@@ -2635,8 +2635,8 @@ void CBattleRoyaleHandler::StartBattle( CBattleRoyaleInstance * pcInstance )
 		pcInstance->GetState().iTimeUpdate = 0;
 
 		//Announcement
-		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "BattleRoyale> %s started!", pcInstance->GetBattleRoyale()->GetName().c_str() ) );
-		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "BattleRoyale> Gas: X[%d] Z[%d]!", pcInstance->GetState().sPosition.iX >> 8, pcInstance->GetState().sPosition.iZ >> 8 ), true );
+		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "BattleRoyale> %s 开始!", pcInstance->GetBattleRoyale()->GetName().c_str() ) );
+		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "BattleRoyale> 毒气: X[%d] Z[%d]!", pcInstance->GetState().sPosition.iX >> 8, pcInstance->GetState().sPosition.iZ >> 8 ), true );
 
 		//Drop Items
 		DropItemOnSpawns( pcInstance );
@@ -2655,7 +2655,7 @@ void CBattleRoyaleHandler::EndBattle( CBattleRoyaleInstance * pcInstance, bool b
 
 	auto pcBattleRoyale = pcInstance->GetBattleRoyale();
 
-	CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> %s ended!", pcBattleRoyale->GetName().c_str() );
+	CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> %s 结束了!", pcBattleRoyale->GetName().c_str() );
 	
 	int iCharacterWinnerID = -1;
 
@@ -2706,7 +2706,7 @@ void CBattleRoyaleHandler::EndBattle( CBattleRoyaleInstance * pcInstance, bool b
 						eTeamID = pcInstance->GetPlayers()[0]->eTeamID;
 						iCharacterWinnerID = pcWinner->iCharacterID;
 
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> Winner: %s team!", BroyaleTeamToString( eTeamID ).c_str() );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> 获胜者: %s 队伍!", BroyaleTeamToString( eTeamID ).c_str() );
 
 						SQLWinBattle( pcInstance->GetID(), iCharacterWinnerID );
 
@@ -2726,7 +2726,7 @@ void CBattleRoyaleHandler::EndBattle( CBattleRoyaleInstance * pcInstance, bool b
 
 						iCharacterWinnerID = -1;
 
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> Winner: %s team!", BroyaleTeamToString( eTeamID ).c_str() );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> 获胜者: %s 队伍!", BroyaleTeamToString( eTeamID ).c_str() );
 
 						UpdateRewards( eTeamID, iCharacterWinnerID );
 					}
@@ -2740,7 +2740,7 @@ void CBattleRoyaleHandler::EndBattle( CBattleRoyaleInstance * pcInstance, bool b
 			User * pcWinner = USERDATATOUSER( USERDATABYID( pcInstance->GetPlayers()[0]->iID ) );
 			if ( pcWinner )
 			{
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> Winner: %s!", CHARACTERSERVER->GetCharacterName( pcWinner->pcUserData ) );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> 获胜者: %s!", CHARACTERSERVER->GetCharacterName( pcWinner->pcUserData ) );
 
 				eTeamID = pcInstance->GetPlayers()[0]->eTeamID;
 				iCharacterWinnerID = pcWinner->iCharacterID;
@@ -2785,7 +2785,7 @@ void CBattleRoyaleHandler::EndBattle( CBattleRoyaleInstance * pcInstance, bool b
 
 					if ( (sTeamWinner.eTeamID != PLAYERTEAM_None) && (sTeamWinner.iCount > 0) )
 					{
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> Winner: %s team!", BroyaleTeamToString( sTeamWinner.eTeamID ).c_str() );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BattleRoyale> 获胜者: %s 队伍!", BroyaleTeamToString( sTeamWinner.eTeamID ).c_str() );
 						UpdateRewards( sTeamWinner.eTeamID, iCharacterWinnerID );
 
 						iCharacterWinnerID = 0;
@@ -2799,7 +2799,7 @@ void CBattleRoyaleHandler::EndBattle( CBattleRoyaleInstance * pcInstance, bool b
 	
 	if ( (pcBattleRoyale->IsTeamRoyal() == false) )
  		if ( iCharacterWinnerID == -1 )
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "BattleRoyale> No winner at this time!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "BattleRoyale> 这次没有获胜者!" );
 
 	pcInstance->GetState().eGameState = GAMESTATE_End;
 
@@ -2858,7 +2858,7 @@ void CBattleRoyaleHandler::RequestBattleList( User * pcUser )
 {
     if ( SERVER_CODE > 1 )
     {
-        CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "BattleRoyale> Battle Royale is closed on this server!" );
+        CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "BattleRoyale> Battle Royale 已经关闭!" );
         return;
     }
 
@@ -3178,12 +3178,12 @@ void CBattleRoyaleHandler::SendEXPPrizeGold( User * pcUser, EBattleRoyaleID iBat
 		SQLUpdateUserReceivedReward( iBattleID, iInstanceID, pcUser->iCharacterID, sDate );
 
 		//Log
-		LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_BattleRoyaleReceivedItem, "Character[%s] Received BattleRoyale Reward EXP[%s]",
+		LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_BattleRoyaleReceivedItem, "玩家[%s] 获得了 BattleRoyale 奖励 EXP[%s]",
 								CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), FormatNumber( iEXP ) );
 
 		//Notify
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "BattleRoyale> You received %s EXP!", FormatNumber( iEXP ) );
-		CHATSERVER->SendChatMessageBox( pcUser, "You received %s EXP!", FormatNumber( iEXP ) );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "BattleRoyale> 你获得了 %s EXP!", FormatNumber( iEXP ) );
+		CHATSERVER->SendChatMessageBox( pcUser, "你获得了 %s EXP!", FormatNumber( iEXP ) );
 	}
 	else
 	{
@@ -3201,12 +3201,12 @@ void CBattleRoyaleHandler::SendEXPPrizeGold( User * pcUser, EBattleRoyaleID iBat
 		SQLUpdateUserReceivedReward( iBattleID, iInstanceID, pcUser->iCharacterID, sDate );
 
 		//Log
-		LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_BattleRoyaleReceivedItem, "Character[%s] Received BattleRoyale Reward Gold[%s]",
+		LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_BattleRoyaleReceivedItem, "玩家[%s] 获得了 BattleRoyale 奖励 金币[%s]",
 								CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), FormatNumber( iGold ) );
 
 		//Notify
-		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "BattleRoyale> You received %s gp!", FormatNumber( iGold ) );
-		CHATSERVER->SendChatMessageBox( pcUser, "You received %s gp!", FormatNumber( iGold ) );
+		CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "BattleRoyale> 你获得了 %s 金币!", FormatNumber( iGold ) );
+		CHATSERVER->SendChatMessageBox( pcUser, "你获得了 %s 金币!", FormatNumber( iGold ) );
 	}
 }
 

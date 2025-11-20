@@ -144,7 +144,7 @@ void CChristmasTreeHandler::Update()
 				//Update Items
 				SQLUpdateGiftStatus( TRUE );
 
-				CHATSERVER->SendChatAll( CHATCOLOR_Global, "Xmas> All received gifts are available! Visit Nataly to get yours!" );
+				CHATSERVER->SendChatAll( CHATCOLOR_Global, "Xmas> 所有的奖品都已下发! 访问Nataly获取你的奖品!" );
 			}
 
 			if ( GAME_SERVER )
@@ -174,21 +174,21 @@ void CChristmasTreeHandler::OpenTree( User * pcUser, Unit * pcUnit )
 						ProcessPacket( pcUser, &PacketXmasTreeOpen( pcUnit->iCharacterXmasTreeID ^ CRC_XMASTREE_ITEMCHECKSUM, pcUnit->pcUnitData->sCharacterData.XmasTree.szCharacterNameOwner ) );
 					else
 					{
-						CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You cannot send gift to yourself!" );
-						CHATSERVER->SendChatMessageBox( pcUser, "You cannot send gift to yourself!" );
+						CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你不能给自己赠送礼物!" );
+						CHATSERVER->SendChatMessageBox( pcUser, "你不能给自己赠送礼物!" );
 					}
 				}
 			}
 			else
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You cannot send more gifts to this friend today!" );
-				CHATSERVER->SendChatMessageBox( pcUser, "You cannot send more gifts to this friend today!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你今天不能再给这位好友赠送更多礼物了!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你今天不能再给这位好友赠送更多礼物了!" );
 			}
 		}
 		else
 		{
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You cannot open your Xmas Tree!" );
-			CHATSERVER->SendChatMessageBox( pcUser, "You cannot open your Xmas Tree!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你不能打开你的圣诞树!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你不能打开你的圣诞树!" );
 		}
 	}
 }

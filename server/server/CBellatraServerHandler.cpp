@@ -1316,10 +1316,10 @@ BOOL CBellatraServerHandler::OnNPCClick( User * pcUser, Unit * pcUnit )
 							bSend = true;
 						else
 						{
-							CHATSERVER->SendChatMessageBox( pcUser, "You can't enter due level requirements (%d-%d)", MIN_LEVEL_BELLATRA_BEGINNER, MAX_LEVEL_BELLATRA_BEGINNER );
-							CHATSERVER->SendChatMessageBox( pcUser, "Please, visit the same NPC on Navisko Town!" );
-							CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> You can't enter due level requirements (%d-%d)", MIN_LEVEL_BELLATRA_BEGINNER, MAX_LEVEL_BELLATRA_BEGINNER );
-							CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "Please, visit this NPC on Navisko Town!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你没有达到相应的等级要求(%d-%d)", MIN_LEVEL_BELLATRA_BEGINNER, MAX_LEVEL_BELLATRA_BEGINNER );
+							CHATSERVER->SendChatMessageBox( pcUser, "请访问内维斯克镇的同一个NPC!" );
+							CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> 你没有达到相应的等级要求(%d-%d)", MIN_LEVEL_BELLATRA_BEGINNER, MAX_LEVEL_BELLATRA_BEGINNER );
+							CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "请访问内维斯克镇的同一个NPC!" );
 						}
 					}
 					else if ( pcUser->GetMapID() == MAPID_NaviskoTown )
@@ -1328,10 +1328,10 @@ BOOL CBellatraServerHandler::OnNPCClick( User * pcUser, Unit * pcUnit )
 							bSend = true;
 						else
 						{
-							CHATSERVER->SendChatMessageBox( pcUser, "You can't enter due level requirements (%d+)", MIN_LEVEL_BELLATRA_RANKED );
-							CHATSERVER->SendChatMessageBox( pcUser, "Please, visit the same NPC on Ricarten Town!" );
-							CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> You can't enter due level requirements (%d+)", MIN_LEVEL_BELLATRA_RANKED );
-							CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "Bellatra> Please, visit this NPC on Ricarten Town!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你没有达到相应的等级要求(%d+)", MIN_LEVEL_BELLATRA_RANKED );
+							CHATSERVER->SendChatMessageBox( pcUser, "请访问里查登镇的同一个NPC!" );
+							CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> 你没有达到相应的等级要求(%d+)", MIN_LEVEL_BELLATRA_RANKED );
+							CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "Bellatra> 请访问里查登镇的同一个NPC!" );
 						}
 					}
 
@@ -1411,9 +1411,9 @@ void CBellatraServerHandler::HandleScore( CBellatraInstance * pcInstance )
 		{
 			if ( sClanTopScore.iClanID != sClanTopScoreOld.iClanID )
 			{
-				CHATSERVER->SendChatAll( CHATCOLOR_Global, "Bellatra> New Top Clan!" );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Bellatra> Clan: %s", sClanTopScore.szName );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Bellatra> Score: %s", FormatNumber( sClanTopScore.iScore ) );
+				CHATSERVER->SendChatAll( CHATCOLOR_Global, "Bellatra> 新的最强公会!" );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Bellatra> 公会: %s", sClanTopScore.szName );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Bellatra> 分数: %s", FormatNumber( sClanTopScore.iScore ) );
 
 				pcDB = SQLCONNECTION( DATABASEID_ClanDB );
 				if ( pcDB->Open() )
@@ -2225,8 +2225,8 @@ void CBellatraServerHandler::SendGold( CBellatraInstance * pcInstance, User * pc
 		ProcessPacket( pcUser, &s );
 	}
 
-	CHATSERVER->SendChatMessageBox( pcUser, "You won %s gp!", FormatNumber( iGold ) );
-	CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> You won %s gp!", FormatNumber( iGold ) );
+	CHATSERVER->SendChatMessageBox( pcUser, "你赢得了 %s 金币!", FormatNumber( iGold ) );
+	CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> 你赢得了 %s 金币!", FormatNumber( iGold ) );
 
 	NETSERVER->SendBellatraGiveGold( pcUser, iGold );
 }

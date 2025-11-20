@@ -215,14 +215,14 @@ void PvPServer::HandlePvPBuffers( bool bNotifyReset, bool bAddBuff )
 					pszClass = "Shaman";
 
 				if ( bAddBuff )
-					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "PvP> Top Rank %s: %s", pszClass, s.szCharacterName[i] );
+					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "PvP> 最高等级 %s: %s", pszClass, s.szCharacterName[i] );
 			}
 		}
 
 		ResetPvPBuffer();
 
 		if ( bNotifyReset )
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "PvP> Rank Resetted!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "PvP> 等级重置!" );
 
 		if ( bAddBuff )
 		{

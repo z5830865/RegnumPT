@@ -224,7 +224,7 @@ void CMonsterHordeHandler::UpdateStatus( BOOL bKillUnits )
 		{
 			if ( pcInstance->IsHour( GetServerTime()->wHour ) == false )
 			{
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Horde> %s event ended!", pcInstance->GetName().c_str() );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Horde> %s 活动结束!", pcInstance->GetName().c_str() );
 
 				pcInstance->SetActive( FALSE );
 
@@ -239,7 +239,7 @@ void CMonsterHordeHandler::UpdateStatus( BOOL bKillUnits )
 		{
 			if ( pcInstance->IsHour( GetServerTime()->wHour ) )
 			{
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Horde> %s event started!", pcInstance->GetName().c_str() );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Horde> %s 活动开始!", pcInstance->GetName().c_str() );
 
 				pcInstance->SetActive( TRUE );
 			}

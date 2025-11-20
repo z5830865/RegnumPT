@@ -304,7 +304,7 @@ BOOL PacketServer::AnalyzePacket( User * pcUser, PacketReceiving * p )
 		case PKTHDR_DisableGM:
 			pcUserData->iGameLevel = GAMELEVEL_None;
 			NETSERVER->SendGameMaster( pcUserData );
-			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> GM Disabled!" );
+			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> GM 禁用!" );
 			break;
 
 		case PKTHDR_DeleteFlagPoint:
@@ -316,7 +316,7 @@ BOOL PacketServer::AnalyzePacket( User * pcUser, PacketReceiving * p )
 			{
 				// Set Temp Item
 				CopyMemory( &pcUser->sTempItem, ((PacketItemData*)psPacket), sizeof( PacketItemData ) );
-				CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Error, "> Item Temp Getted!" );
+				CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Error, "> 装备临时获取!" );
 			}
 			break;
 

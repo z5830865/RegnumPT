@@ -891,19 +891,19 @@ void NetServer::OnReceiveClient( UserData * pcUserDataServer, void * pPacket )
 
 				//Share PW
 				if ( pcUser->eAccountShare != ACCOUNTSHARE_None )
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> You're logged in with the Share PW!" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 你已使用共享PW登录!" );
 
 				if ( pcUserData->iGameLevel > GAMELEVEL_None )
 				{
 					if( pcUserData->iGameLevel >= GAMELEVEL_Five )
-						CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> You are Admin Developer (O_o)!" );
+						CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> 你是管理开发人员 (O_o)!" );
 					else
-						CHATSERVER->SendChatEx( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> GM Level Sync [%d] Activated!", pcUserData->iGameLevel );
+						CHATSERVER->SendChatEx( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> GM等级同步[%d] 已激活!", pcUserData->iGameLevel );
 
 					if ( (pcUserData->iGameLevel >= GAMELEVEL_Three) && (((PacketNetGetGameMaster *)pPacket)->bFirst) )
 					{
 						pcUserData->bCloak = TRUE;
-						CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> Hidden (GM)!" );
+						CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> 隐藏 (GM)!" );
 					}
 				}
 			}

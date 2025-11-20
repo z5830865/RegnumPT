@@ -51,12 +51,12 @@ int CAssassin::RecvSkillSingleTarget( UserData * pcUserData, UnitData * pcUnitDa
 				if ( pcUnitData->sCharacterData.iMonsterType == MONSTERTYPE_Mutant )
 				{
 					psPacket->iDamage += ( ( psPacket->iDamage * 30 ) / 100 );
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> +30%% Mutant" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> +30%% ±‰“Ï" );
 				}
 				else if ( pcUnitData->sCharacterData.iMonsterType == MONSTERTYPE_Normal )
 				{
 					psPacket->iDamage += ( ( psPacket->iDamage * 30 ) / 100 );
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> +30%% Normal" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> +30%% ∆’Õ®" );
 				}
 			}
 

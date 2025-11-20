@@ -71,11 +71,11 @@ void CBlessCastleHandler::UpdateSiegeWar()
 
 			if ( (ps->wDayOfWeek == 0) && (sLastDay != ps->wDay) )
 			{
-				CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Siege War Crown resetted!" );
+				CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle>攻城战王冠重置!" );
 				if ( BLESSCASTLESERVER->GetSiegeWarMode() == SIEGEWARMODE_TheConquest )
-					CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Mode: The Conquest!" );
+					CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 模式：征服!" );
 				else if ( BLESSCASTLESERVER->GetSiegeWarMode() == SIEGEWARMODE_TheMassacre )
-					CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Mode: The Massacre!" );
+					CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 模式：大屠杀!" );
 
 				BlessCastleStatusData * psBC = BLESSCASTLESERVER->psBlessCastleStatusData;
 
@@ -108,7 +108,7 @@ void CBlessCastleHandler::UpdateSiegeWar()
 					if ( BLESSCASTLESERVER->GetSiegeWarMode() != SIEGEWARMODE_TheMassacre )
 					{
 						if ( iTowers == 6 )
-							CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Siege War has entered Phase 2!" );
+							CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 攻城战已经进入第二阶段!" );
 						pcUnitDataDoor	= NULL;
 						bCastleDoor		= FALSE;
 						iPhaseID		= 2;
@@ -119,20 +119,20 @@ void CBlessCastleHandler::UpdateSiegeWar()
 				{
 					if ( iTowers == 4 && !bPhase3 )
 					{
-						CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Siege War has entered Phase 3!" );
+						CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 攻城战已经进入第三阶段!" );
 						bPhase3		= TRUE;
 						iPhaseID	= 3;
 					}
 					else if ( iTowers == 2 && !bPhase4 )
 					{
-						CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Siege War has entered Phase 4!" );
+						CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 攻城战已经进入第四阶段!" );
 						bPhase4		= TRUE;
 						iPhaseID	= 4;
 
 					}
 					else if ( iTowers == 0 )
 					{
-						CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Siege War has entered the Final Phase!" );
+						CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 攻城战已经进入最终阶段!" );
 						bTowers		= FALSE;
 						iPhaseID	= 5;
 					}

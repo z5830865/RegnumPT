@@ -370,10 +370,10 @@ void ChatServer::SendWhisper( User * pcUserSender, User * pcUserReceiver, const 
 			}
 		}
 		else
-			CHATSERVER->SendChatEx( pcUserSender, CHATCOLOR_Error, "%s disabled private message!", CHARACTERSERVER->GetCharacterName( pcUserReceiver->pcUserData ) );
+			CHATSERVER->SendChatEx( pcUserSender, CHATCOLOR_Error, "%s 禁用私聊!", CHARACTERSERVER->GetCharacterName( pcUserReceiver->pcUserData ) );
 	}
 	else
-		CHATSERVER->SendChatEx( pcUserSender, CHATCOLOR_Error, "%s is online at %s%s", CHARACTERSERVER->GetCharacterName( pcUserReceiver->pcUserData ), GSERVER->GetServerName( pcUserReceiver->pcUserData->bServerIndexID ), pcUserReceiver->pcUserData->bDisabledWhisper ? "(No Whisper)" : "" );
+		CHATSERVER->SendChatEx( pcUserSender, CHATCOLOR_Error, "%s 已经在 %s%s 上线", CHARACTERSERVER->GetCharacterName( pcUserReceiver->pcUserData ), GSERVER->GetServerName( pcUserReceiver->pcUserData->bServerIndexID ), pcUserReceiver->pcUserData->bDisabledWhisper ? "(No Whisper)" : "" );
 }
 
 void ChatServer::SendWhisperItemLink( User * pcUserSender, User * pcUserReceiver, PacketItemLinkChat * psPacket )
@@ -403,7 +403,7 @@ void ChatServer::SendWhisperItemLink( User * pcUserSender, User * pcUserReceiver
 		}
 	}
 	else
-		CHATSERVER->SendChatEx( pcUserSender, CHATCOLOR_Error, "%s disabled private message!", CHARACTERSERVER->GetCharacterName( pcUserReceiver->pcUserData ) );
+		CHATSERVER->SendChatEx( pcUserSender, CHATCOLOR_Error, "%s 禁用私信!", CHARACTERSERVER->GetCharacterName( pcUserReceiver->pcUserData ) );
 }
 
 void ChatServer::HandlePacket( User * pcUser, PacketItemLinkChat * psPacket )
@@ -418,7 +418,7 @@ void ChatServer::HandlePacket( User * pcUser, PacketItemLinkChat * psPacket )
 		if ( pcUserReceiver )
 			SendWhisperItemLink( pcUser, pcUserReceiver, psPacket );
 		else
-			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s is offline or not found!", psPacket->szCharacterName );
+			CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> %s 已经离线或者没找到!", psPacket->szCharacterName );
 	}
 	else
 	{
@@ -574,7 +574,7 @@ BOOL ChatServer::CanSendMessage( User * pcUser, std::string strMessage, int iCha
 	{
 		if ( pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyUseTradeChat ) )
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "You can't use Trade Chat, because you're logged in with the Share PW!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你不能使用交易频道, 因为你登录的是共享PW!" );
 			return FALSE;
 		}
 	}
@@ -582,7 +582,7 @@ BOOL ChatServer::CanSendMessage( User * pcUser, std::string strMessage, int iCha
 	{
 		if ( pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyChat ) )
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "You can't use Personal Chat, because you're logged in with the Share PW!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你不能使用私聊频道, 因为你登录的是共享PW!" );
 			return FALSE;
 		}
 	}

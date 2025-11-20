@@ -68,12 +68,12 @@ void CQuestArenaHandler::UpdateQuestT5Users()
                                     psItemD->bExclusive            = TRUE;
                                     psItemD->dwEndTime            = TICKCOUNT + (10 * 60 * 1000);
 
-                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Oh the death of my boy" );
-                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Oh the death of my girls" );
-                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Oh the death of my husband" );
-                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> One day you all shall pay" );
-                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> So now I cry until the world gets filled with water" );
-                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> And then you willl all drown in my sorrow" );
+                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 噢，我儿子的死" );
+                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 噢，我女儿的死" );
+                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 噢，我丈夫的死" );
+                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 总有一天你们会付出代价的" );
+                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 所以现在我要将世界淹没在我的泪水下!" );
+                                    CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 然后你们都会淹没在我的悲伤中" );
 
                                     pcUser->dwTimeT5QuestArenaSpawnUpdate = TICKCOUNT + (10 * 60 * 1000);
                                 }
@@ -380,8 +380,8 @@ BOOL CQuestArenaHandler::EnterArenaT5Quest( User * pcUser )
 
 		CHARACTERSERVER->SetPositionWarp( pcUser->pcUserData, QUESTT5ARENA_X_, QUESTT5ARENA_Z_, MAPID_T5QuestArena );
 
-		CHATSERVER->SendChatMessageBox( pcUser, "The battle will start in 20 seconds!" );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> The battle will start in 20 seconds!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "战斗将会在20秒后开始!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 战斗将会在20秒后开始!" );
 
 		//Process
 		PacketQuestArenaTier5 s;
@@ -568,8 +568,8 @@ BOOL CQuestArenaHandler::OnUnitKilled( UserData * pcUserData, UnitData * pcUnitD
 
 				CHARACTERSERVER->SetPositionWarp( pcUser->pcUserData, QUESTT5ARENA_X_LEAVE, QUESTT5ARENA_Z_LEAVE, MAPID_RicartenTown );
 
-				CHATSERVER->SendChatMessageBox( pcUser, "You Failed on Tier 5 Quest!" );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> You Failed on Tier 5 Quest!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "第5层任务失败!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 第5层任务失败!" );
 
 
 				KillUnitsUserT5Quest( pcUser );
@@ -596,8 +596,8 @@ BOOL CQuestArenaHandler::OnUnitKilled( UnitData * pcUnitData )
 
 			CHARACTERSERVER->SetPositionWarp( pcUser->pcUserData, QUESTT5ARENA_X_LEAVE, QUESTT5ARENA_Z_LEAVE, MAPID_RicartenTown );
 
-			CHATSERVER->SendChatMessageBox( pcUser, "You Failed on Tier 5 Quest!" );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> You Failed on Tier 5 Quest!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "第5层任务失败!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 第5层任务失败!" );
 
 			//Process
 			PacketQuestArenaTier5 s1;

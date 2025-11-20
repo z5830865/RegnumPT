@@ -198,7 +198,7 @@ void CHalloweenHandler::SetCombinationID( int iID )
 			dwRuneInfernal[2] = ITEMID_ToiletPaper;
 		}
 		if ( EVENT_HALLOWEEN )
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Halloween> Rune Combination Changed!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Halloween> 符文组合已改变!" );
 	}
 }
 
@@ -237,7 +237,7 @@ void CHalloweenHandler::Tick()
 					if ( psItemD )
 					{
 						MAPSERVER->SendItemStageNearUsers( pcMap, psItemD );
-						CHATSERVER->SendChatAllUsersInStage( MAPID_RicartenTown, CHATCOLOR_Global, "Halloween Soul> The item from darkness!" );
+						CHATSERVER->SendChatAllUsersInStage( MAPID_RicartenTown, CHATCOLOR_Global, "Halloween Soul> 来自黑暗的物品!" );
 					}
 				}
 			}

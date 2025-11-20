@@ -328,8 +328,8 @@ void CFollowUnitHandler::OnItemTimerEnd( User * pcUser )
 
 		DELET( psCaravanData );
 
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Caravan time has ended!" );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Items has been sent to distributor!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Caravan活动已经结束了!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 装备已经发放至装备发放员!" );
 
 		pcUser->pcCaravan->pcUnitData->Free();
 

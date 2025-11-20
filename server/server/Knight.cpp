@@ -123,7 +123,7 @@ int CKnight::RecvSkillSingleTarget( UserData * pcUserData, UnitData * pcUnitData
 						if ( pcUnitDataIncantaten && pcUnitDataIncantaten->sCharacterData.iOwnerID == pcUserData->iID && pcUnitDataIncantaten->sCharacterData.sHP.sCur != 0 &&
 							pcUnitDataIncantaten->sHolyIncantation.sMax > 0 )
 						{
-							CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "You can't enchant more than one monster!" );
+							CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "你不能对多个怪物释放魔法!" );
 							return 0;
 						}
 					}

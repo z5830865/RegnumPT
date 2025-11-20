@@ -1879,7 +1879,7 @@ void CManufactureHandler::SetHalloweenCombination( int iID )
 		}
 
 		if ( EVENT_HALLOWEEN )
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Halloween> Rune Combination Changed!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "Halloween> 符文组合已改变!" );
 	}
 }
 

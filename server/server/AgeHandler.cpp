@@ -591,7 +591,7 @@ int CAgeHandler::AgingChanceHandler( User * pcUser )
 
 		//Going to 18+? Send announcement to users
 		if ( iAgingLevel >= 18 )
-			CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s aged %s to +%d successfully! Congratz!", pcUser->pcUserData->sCharacterData.szName, GetItem()->szItemName, iAgingLevel );
+			CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s 已成功将 %s 锻造到 +%d !强无敌!", pcUser->pcUserData->sCharacterData.szName, GetItem()->szItemName, iAgingLevel );
 
 		//Update item integrity
 		ITEMSERVER->UpdateIntegrity( GetItem(), -1 );
@@ -713,7 +713,7 @@ int CAgeHandler::AgingChanceHandler( User * pcUser )
 						iAgingLevel++;
 
 						//Send announcement to users and add item to recovery shop
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s broke %s going to +%d! Better luck next time!", pcUser->pcUserData->sCharacterData.szName, GetItem()->szItemName, iAgingLevel );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s 锻造 %s 到 +%d!时碎掉了, 下次洗洗手吧!", pcUser->pcUserData->sCharacterData.szName, GetItem()->szItemName, iAgingLevel );
 						AGEHANDLER->OnBrokeItemHandler( pcUser, GetItem() );
 
 						iResult = -1;
@@ -725,7 +725,7 @@ int CAgeHandler::AgingChanceHandler( User * pcUser )
 		}
 
 		if ( iResult == 0 )
-			CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s fail %s going to +%d! Better luck next time!", pcUser->pcUserData->sCharacterData.szName, GetItem()->szItemName, iAgingLevel );
+			CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Arcane Moriph> %s 锻造 %s 到 +%d!时失败了, 下次洗洗手吧!", pcUser->pcUserData->sCharacterData.szName, GetItem()->szItemName, iAgingLevel );
 
 	}
 

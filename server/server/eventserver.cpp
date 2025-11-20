@@ -38,7 +38,7 @@ void CEventServer::GiveFriendGifts()
 
 	vAccounts.clear();
 
-	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Santa Clause> Friendship Xmas Gifts has been sent, visit Item Distributor to get yours!" );
+	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Santa Clause> 友谊圣诞礼物已发送, 访问装备发放员去领取你的礼物!" );
 }
 
 void CEventServer::GiveRudolphPrizes()
@@ -65,8 +65,8 @@ void CEventServer::GiveRudolphPrizes()
 
 	vXmasEventRudolph.clear();
 
-	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Santa Clause> Ho Ho Ho!!" );
-	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Santa Clause> New presents under the Xmas Tree, visit Item Distributor to get yours!" );
+	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Santa Clause> 哇咔咔!!" );
+	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Santa Clause> 圣诞树下的新礼物，访问物品发放员获得您的礼物!" );
 }
 
 void CEventServer::HandlePacket( UserData * pcUserData, PacketNPCEasterEgg * psPacket )
@@ -76,8 +76,8 @@ void CEventServer::HandlePacket( UserData * pcUserData, PacketNPCEasterEgg * psP
 		case PacketNPCEasterEgg::ACTION_None:
 
 			//Welcome Message when open NPC...
-			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), EChatColor::CHATCOLOR_Global, "> Easter Event:" );
-			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), EChatColor::CHATCOLOR_Global, "> Welcome, let's get some prizes? ^^'" );
+			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), EChatColor::CHATCOLOR_Global, "> 复活节活动:" );
+			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), EChatColor::CHATCOLOR_Global, "> 欢迎，让我们去搞点礼物? ^^'" );
 
 			break;
 		case PacketNPCEasterEgg::ACTION_GetReward:
@@ -141,12 +141,12 @@ void CEventServer::HandlePacket( UserData * pcUserData, PacketNPCEasterEgg * psP
 							ITEMSERVER->AddItemOpenBox( pcUserData, ps->szCode, 0, ps->iQuantity );
 						
 							//Log it...
-							LOGSERVER->OnLogItemEx( USERDATATOUSER( pcUserData ), ITEMLOGID_RewardEasterGet, "Character[%s] Received Easter Reward ([%s][%08X] Count[%d])",
+							LOGSERVER->OnLogItemEx( USERDATATOUSER( pcUserData ), ITEMLOGID_RewardEasterGet, "玩家[%s] 获得了 复活节礼物 ([%s][%08X] 数量[%d])",
 								CHARACTERSERVER->GetCharacterName(pcUserData), szItemName, pcItemData->sBaseItemID.ToItemID(), ps->iQuantity );
 
 							//Send Message
-							CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "Check Item Distributor to get your reward!" );
-							CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), EChatColor::CHATCOLOR_Global, "> Check Item Distributor to get your reward!" );
+							CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "检查装备发放员去获取你的奖励!" );
+							CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), EChatColor::CHATCOLOR_Global, "> 检查装备发放员去获取你的奖励!" );
 						}
 					}
 				}
@@ -184,8 +184,8 @@ void CEventServer::HandlePacket( UserData * pcUserData, PacketNPCRudolphXmas * p
 
 			vXmasEventRudolph.push_back( new PrizeEventRudolphUser( uRewardCounter, (EItemID)psPacket->iItemID, pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUserData ), pcUserData->pcSocketData->szIP ) );
 
-			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Global, "Rudolph> Gift Box received! Wait for Santa Clause!" );
-			CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "Gift Box received! Wait for Santa Clause!" );
+			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Global, "Rudolph> 获得礼物盒子! 等着圣诞老人!" );
+			CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "获得礼物盒子! 等着圣诞老人!" );
 		}
 	}
 }
@@ -257,11 +257,11 @@ void CEventServer::HandlePacket( User * pcUser, PacketNPCCarnival * psPacket )
 							}
 
 							//Send Message
-							CHATSERVER->SendChatMessageBox( pcUser, "Check Item Distributor to get your reward!" );
-							CHATSERVER->SendChat( pcUser, EChatColor::CHATCOLOR_Global, "> Check Item Distributor to get your reward!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "检查装备发放员以获取你的奖励!" );
+							CHATSERVER->SendChat( pcUser, EChatColor::CHATCOLOR_Global, "> 检查装备发放员以获取你的奖励!" );
 
 							//Log it...
-							LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_RewardCarnivalPuzzleReceive, "Character[%s] Received Carnival Puzzle Reward ([%s][0x%08X] Count[%d])",
+							LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_RewardCarnivalPuzzleReceive, "玩家[%s] 获得了 狂欢节拼图奖励 ([%s][0x%08X] 数量[%d])",
 													CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), szItemName, pcItemData->sBaseItemID.ToItemID(), ps->iQuantity );
 
 							psPacket->bDeleteItems = true;
@@ -563,7 +563,7 @@ void CEventServer::SetPrizeOnlineReward()
 				ITEMSERVER->AddItemOpenBox( pcUser->pcUserData, p->szCode, 0, p->iQuantity );
 				if ( ITEMSERVER->FindItemName( p->szCode, szItemName ) )
 					SQLOnlineRewardLog( pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), szItemName, p->iQuantity, false );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "OnlineReward> %s won this time!", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "OnlineReward> %s 赢得了这次比赛!", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 			}
 		}
 	}
@@ -594,7 +594,7 @@ void CEventServer::SetPrizeDailyReward()
 				if ( ITEMSERVER->FindItemName( p->szCode, szItemName ) )
 					SQLOnlineRewardLog( pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), szItemName, p->iQuantity, true );
 
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "DailyReward> %s won this time!", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "DailyReward> %s 赢得了这次比赛!", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 			}
 		}
 	}

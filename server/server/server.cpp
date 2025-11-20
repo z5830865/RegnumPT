@@ -446,7 +446,7 @@ void Server::StopMaintenanceCountdown()
 {
 	bMaintenanceCountdown = false;
 
-	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Maintenance Countdown Cancelled" );
+	CHATSERVER->SendChatAll( CHATCOLOR_Global, "维修倒计时取消" );
 
 	SERVER->SetMaintenance( FALSE );
 }

@@ -139,28 +139,28 @@ BOOL QuestServer::SQLHaveQuest( User * pcUser, int iQuestID, BOOL bStart )
 						if ( dwTime >= (60 * 60 * 24) )
 							iRet = 3;
 						else if ( bStart )
-							CHATSERVER->SendChatMessageBox( pcUser, "You need to wait 24 hours before doing this quest again!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你需要等待24小时才能再次执行这个任务!" );
 					}
 					else if ( iType == QUESTTYPE_DailyMidNight )
 					{
 						if ( ps->wDay != s.wDay || ps->wMonth != s.wMonth )
 							iRet = 3;
 						else if ( bStart )
-							CHATSERVER->SendChatMessageBox( pcUser, "You need to wait next day before doing this quest again!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你需要等到第二天才能再次执行这个任务!" );
 					}
 					else if ( iType == QUESTTYPE_DailyWeek )
 					{
 						if ( dwTime >= (60 * 60 * 24 * 7) )
 							iRet = 3;
 						else if ( bStart )
-							CHATSERVER->SendChatMessageBox( pcUser, "You need to wait one week before doing this quest again!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你需要等到下星期才能再次执行这个任务!" );
 					}
 					else if ( iType == QUESTTYPE_DailyMonth )
 					{
 						if ( dwTime >= (60 * 60 * 24 * 30) )
 							iRet = 3;
 						else if ( bStart )
-							CHATSERVER->SendChatMessageBox( pcUser, "You need to wait one month before doing this quest again!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你需要等到下个月才能再次执行这个任务!" );
 					}
 					else if ( iType == QUESTTYPE_Repeatable )
 					{
@@ -175,7 +175,7 @@ BOOL QuestServer::SQLHaveQuest( User * pcUser, int iQuestID, BOOL bStart )
 						}
 
 						if ( bStart && (iRet != 3) )
-							CHATSERVER->SendChatMessageBox( pcUser, "You need to wait next weekend before doing this quest again!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你需要等到下个周末才能再次执行这个任务!" );
 					}
 					else if ( iType == QUESTTYPE_WeekendDaily )
 					{
@@ -186,7 +186,7 @@ BOOL QuestServer::SQLHaveQuest( User * pcUser, int iQuestID, BOOL bStart )
 						}
 
 						if ( bStart && (iRet != 3) )
-							CHATSERVER->SendChatMessageBox( pcUser, "You need to wait 24 hours on this weekend before doing this quest again!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你需要在这个周末等待24小时才能再次执行这个任务!" );
 					}
 					else if ( iType == QUESTTYPE_WeekendDailyMidNight )
 					{
@@ -197,7 +197,7 @@ BOOL QuestServer::SQLHaveQuest( User * pcUser, int iQuestID, BOOL bStart )
 						}
 
 						if ( bStart && (iRet != 3) )
-							CHATSERVER->SendChatMessageBox( pcUser, "You need to wait next day on this weekend before doing this quest again!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你需要等到这个周末的第二天再做这个任务!" );
 					}
 					else if ( iType == QUESTTYPE_WeekendRepeatable )
 					{
@@ -221,7 +221,7 @@ BOOL QuestServer::SQLHaveQuest( User * pcUser, int iQuestID, BOOL bStart )
 						}
 
 						if ( bStart && (iRet != 3) )
-							CHATSERVER->SendChatMessageBox( pcUser, "You need to wait next friday before doing this quest again!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "你需要等到下周五再做这个任务!" );
 					}
 
 				}
@@ -381,9 +381,9 @@ BOOL QuestServer::SQLCanGetQuest( User * pcUser, int iQuestID, BOOL bStart )
 			if ( bStart )
 			{
 				if ( sData.iMaxLevel > 0 )
-					CHATSERVER->SendChatMessageBox( pcUser, "You must be level %d-%d to get this quest!", sData.iMinLevel, sData.iMaxLevel );
+					CHATSERVER->SendChatMessageBox( pcUser, "你必须达到 %d-%d 级才能接取这个任务!", sData.iMinLevel, sData.iMaxLevel );
 				else
-					CHATSERVER->SendChatMessageBox( pcUser, "You must be level %d to get this quest!", sData.iMinLevel );
+					CHATSERVER->SendChatMessageBox( pcUser, "你必须达到 %d 级才能接取这个任务!", sData.iMinLevel );
 			}
 
 			bRet = FALSE;
@@ -1758,9 +1758,9 @@ void QuestServer::HandlePacket( User * pcUser, PacketQuestNPCFinish * psPacket )
 											else
 											{
 												if ( psPacket->bHaveSpace == FALSE )
-													CHATSERVER->SendChatMessageBox( pcUser, "Not enough space in inventory" );
+													CHATSERVER->SendChatMessageBox( pcUser, "库存空间不足" );
 												else
-													CHATSERVER->SendChatMessageBox( pcUser, "Weight limit exceeded" );
+													CHATSERVER->SendChatMessageBox( pcUser, "超过重量限制" );
 
 												bCanFinish = FALSE;
 
@@ -1806,9 +1806,9 @@ void QuestServer::HandlePacket( User * pcUser, PacketQuestNPCFinish * psPacket )
 									else
 									{
 										if ( psPacket->bHaveSpace == FALSE )
-											CHATSERVER->SendChatMessageBox( pcUser, "Not enough space in inventory" );
+											CHATSERVER->SendChatMessageBox( pcUser, "库存空间不足" );
 										else
-											CHATSERVER->SendChatMessageBox( pcUser, "Weight limit exceeded" );
+											CHATSERVER->SendChatMessageBox( pcUser, "超过重量限制" );
 
 										psPacket->iID = -1;
 										SENDPACKET( pcUser, psPacket );
@@ -1900,28 +1900,28 @@ void QuestServer::HandlePacket( User * pcUser, PacketQuestNPCFinish * psPacket )
 							if ( iType == QUESTREWARDTYPE_Gold )
 							{
 								CHARACTERSERVER->GiveGOLD( pcUser, iValue );
-								CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> Reward: %s gp!", FormatNumber( iValue ) );
+								CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Error, "> 奖励: %s 金币!", FormatNumber( iValue ) );
 							}
 
 							if ( iType == QUESTREWARDTYPE_EXPPotBuff )
 							{
 								ITEMSERVER->CreatePremium( pcUser->pcUserData, ITEMID_ExpUp24H, ITEMTIMERTYPE_ExpUp, (iValue * 60) );
-								CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Reward: EXP Potion!" );
+								CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 奖励: EXP 药水!" );
 							}
 							if ( iType == QUESTREWARDTYPE_ThirdEyeBuff )
 							{
 								ITEMSERVER->CreatePremium( pcUser->pcUserData, ITEMID_ThirdEye24H, ITEMTIMERTYPE_ThirdEye, (iValue * 60) );
-								CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Reward: Third Eye!" );
+								CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 奖励: 第三只眼!" );
 							}
 							if ( iType == QUESTREWARDTYPE_HPUpBuff )
 							{
 								ITEMSERVER->CreatePremium( pcUser->pcUserData, ITEMID_HPUp12H, ITEMTIMERTYPE_HPUp, (iValue * 60) );
-								CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Reward: Vampire Teeth!" );
+								CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 奖励: 吸血鬼的牙齿!" );
 							}
 							if ( iType == QUESTREWARDTYPE_MPUpBuff )
 							{
 								ITEMSERVER->CreatePremium( pcUser->pcUserData, ITEMID_MPUp12H, ITEMTIMERTYPE_MPUp, (iValue * 60) );
-								CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Reward: Mana Aura!" );
+								CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 奖励: 魔法战斗药水!" );
 							}
 						}
 					}
@@ -2532,8 +2532,8 @@ BOOL QuestServer::SkipQuestDance( User * pcUser )
 	}
 	else
 	{
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> You already have the dance!" );
-		CHATSERVER->SendChatMessageBox( pcUser, "You already have the dance!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 你已经有舞会了!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "你已经有舞会了!" );
 	}
 
 	return bRet;

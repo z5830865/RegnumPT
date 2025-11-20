@@ -360,15 +360,15 @@ void CActionFieldHandler::UpdatePrizes( CActionFieldInstance * pcInstance )
 				//Add Item
 				ITEMSERVER->AddItemOpenBox( pcUser->pcUserData->szAccountName, psChest->szItemCode, 0, 1 );
 
-				LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldChestReceived, "Character[%s] Received Action Field Chest Item[%s] Quantity[%d]",
+				LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldChestReceived, "玩家[%s] 收到了活动地图宝箱 Item[%s] 数量[%d]",
 					CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), psChest->szItemCode, 1 );
 
 				//Dance
 				SENDPACKETBLANK( pcUser, PKTHDR_PacketFun );
 
 				//Notify User
-				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "%s> You won a chest item! Check the Item Distributor!", pcActionField->GetName() );
-				CHATSERVER->SendChatMessageBox( pcUser, "You won a chest item! Check the Item Distributor!" );
+				CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "%s> 你获得了一个装备宝箱! 检查装备发放员!", pcActionField->GetName() );
+				CHATSERVER->SendChatMessageBox( pcUser, "你获得了一个装备宝箱! 检查装备发放员!" );
 
 				ActionFieldUser sUserAC;
 				sUserAC.iID = pcUser->GetID();
@@ -443,11 +443,11 @@ void CActionFieldHandler::UpdatePrizes( CActionFieldInstance * pcInstance )
 								CHARACTERSERVER->GiveEXP( pcUser, iEXP );
 
 								//Notfy User
-								CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "%s> You received %s EXP!", pcActionField->GetName(), FormatNumber( iEXP ) );
-								CHATSERVER->SendChatMessageBox( pcUser, "You received %s EXP!", FormatNumber( iEXP ) );
+								CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "%s> 你获得了 %s 经验值!", pcActionField->GetName(), FormatNumber( iEXP ) );
+								CHATSERVER->SendChatMessageBox( pcUser, "你获得了 %s 经验值!", FormatNumber( iEXP ) );
 
 								//Log
-								LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldRewardEXP, "Character[%s] Received Action Field EXP[%s]",
+								LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldRewardEXP, "玩家[%s] 活动地图经验值[%s]",
 														CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), FormatNumber( iEXP ) );
 							}
 							else
@@ -459,11 +459,11 @@ void CActionFieldHandler::UpdatePrizes( CActionFieldInstance * pcInstance )
 								NETSERVER->SendBellatraGiveGold( pcUser, iGold );
 
 								//Notfy User
-								CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "%s> You received %s gp!", pcActionField->GetName(), FormatNumber( iGold ) );
-								CHATSERVER->SendChatMessageBox( pcUser, "You received %s gp!", FormatNumber( iGold ) );
+								CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "%s> 你获得了 %s 金币!", pcActionField->GetName(), FormatNumber( iGold ) );
+								CHATSERVER->SendChatMessageBox( pcUser, "你获得了 %s 金币!", FormatNumber( iGold ) );
 
 								//Log
-								LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldRewardGold, "Character[%s] Received Action Field Gold[%s]",
+								LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldRewardGold, "玩家[%s] 获得了活动金币[%s]",
 														CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), FormatNumber( iGold ) );
 							}
 							break;
@@ -796,7 +796,7 @@ bool CActionFieldHandler::CanEnter(User* pcUser, EActionFieldModeID iModeID)
 	{
 		if (pcUser->GetGameLevel() < GAMELEVEL_Two)
 		{
-			CHATSERVER->SendChat(pcUser, CHATCOLOR_Global, "ActionField> Event is off!");
+			CHATSERVER->SendChat(pcUser, CHATCOLOR_Global, "ActionField> 活动结束!");
 			return false;
 		}
 	}
@@ -824,14 +824,14 @@ bool CActionFieldHandler::CanEnter(User* pcUser, EActionFieldModeID iModeID)
 		if (bHaveLevel == FALSE)
 		{
 			//Notify user
-			CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Error, "> All players must be level %d-%d!",
+			CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Error, "> 所有玩家的等级必须达到 %d-%d!",
 				pcActionField->GetSettings().sRequiredLevel.iMin, pcActionField->GetSettings().sRequiredLevel.iMax);
 		}
 		//Don't reach the users needed?
 		else if (((int)vUsers.size() < pcActionField->GetSettings().sRequiredUsers.iMin) || ((int)vUsers.size() > pcActionField->GetSettings().sRequiredUsers.iMax))
 		{
 			//Notify user
-			CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Error, "> You need %d-%d players to participate, you have %d player%s.",
+			CHATSERVER->SendChatEx(pcUser, CHATCOLOR_Error, "> 你需要 %d-%d 玩家 共同参与, 你还需要 %d 玩家%s.",
 				pcActionField->GetSettings().sRequiredUsers.iMin, pcActionField->GetSettings().sRequiredUsers.iMax,
 				vUsers.size(), vUsers.size() > 1 ? "s" : "");
 		}
@@ -851,8 +851,8 @@ bool CActionFieldHandler::CanEnter(User* pcUser, EActionFieldModeID iModeID)
 					if (iSavedInstances >= pcActionField->GetSettings().iInstanceDayLimit)
 					{
 						//Notify users
-						CHATSERVER->SendChat(pcPartyUser, CHATCOLOR_Error, "> You already participate of the event today!");
-						PARTYHANDLER->SendChatParty(pcUser, FormatString("%s already participate of the event today!", pcPartyUser->pcUserData->sCharacterData.szName), CHATCOLOR_Error, true);
+						CHATSERVER->SendChat(pcPartyUser, CHATCOLOR_Error, "> 你已经参加了今天的活动!");
+						PARTYHANDLER->SendChatParty(pcUser, FormatString("%s 你已经参加了今天的活动!", pcPartyUser->pcUserData->sCharacterData.szName), CHATCOLOR_Error, true);
 
 						bRet = false;
 						break;
@@ -863,8 +863,8 @@ bool CActionFieldHandler::CanEnter(User* pcUser, EActionFieldModeID iModeID)
 				if (ROOMINSTANCEHANDLER->GetRoomUnitID(pcPartyUser->GetID()))
 				{
 					//Notify user
-					CHATSERVER->SendChatEx(pcPartyUser, CHATCOLOR_Error, "> You already have a %s session!", pcActionField->GetName());
-					PARTYHANDLER->SendChatParty(pcUser, FormatString("%s already have a %s session!", pcPartyUser->pcUserData->sCharacterData.szName, pcActionField->GetName()), CHATCOLOR_Error, true);
+					CHATSERVER->SendChatEx(pcPartyUser, CHATCOLOR_Error, ">你已经获得了 %s 会话!", pcActionField->GetName());
+					PARTYHANDLER->SendChatParty(pcUser, FormatString("%s 已经获得了 a %s 会话!", pcPartyUser->pcUserData->sCharacterData.szName, pcActionField->GetName()), CHATCOLOR_Error, true);
 
 					bRet = false;
 					break;
@@ -876,8 +876,8 @@ bool CActionFieldHandler::CanEnter(User* pcUser, EActionFieldModeID iModeID)
 					if (HaveChestItemBox(pcPartyUser, psChest->eItemID))
 					{
 						//Notify user
-						CHATSERVER->SendChatEx(pcPartyUser, CHATCOLOR_Error, "> You have more than %d Chest Box on Item Distributor!", MAX_CHEST_ITEMBOX);
-						PARTYHANDLER->SendChatParty(pcUser, FormatString("%s have more than %d Chest Box on Item Distributor!", pcPartyUser->pcUserData->sCharacterData.szName, MAX_CHEST_ITEMBOX), CHATCOLOR_Error, true);
+						CHATSERVER->SendChatEx(pcPartyUser, CHATCOLOR_Error, "> 你在物品分配员那里有超过 %d 盒子!", MAX_CHEST_ITEMBOX);
+						PARTYHANDLER->SendChatParty(pcUser, FormatString("%s 你在物品分配员那里有超过 %d 盒子!", pcPartyUser->pcUserData->sCharacterData.szName, MAX_CHEST_ITEMBOX), CHATCOLOR_Error, true);
 
 						bRet = false;
 						break;
@@ -898,7 +898,7 @@ bool CActionFieldHandler::CanEnter(User* pcUser, EActionFieldModeID iModeID)
 
 								// If count exceeds 2 (indicating more than 2 users from the same HWID), disallow
 								if (sameHwIdCount > 2) {
-									CHATSERVER->SendChat(pcPartyUser, CHATCOLOR_Error, "> More than two players from the same computer are not allowed!");
+									CHATSERVER->SendChat(pcPartyUser, CHATCOLOR_Error, "> 同一台电脑不允许有两个以上的选手参赛!");
 
 									bContinue = FALSE;
 									break;
@@ -918,7 +918,7 @@ bool CActionFieldHandler::CanEnter(User* pcUser, EActionFieldModeID iModeID)
 			//Leader?
 			if (pcUser->bParty && pcUser->psParty && pcUser->psParty->pcLeader != pcUser)
 			{
-				CHATSERVER->SendChat(pcUser, CHATCOLOR_Error, "> You must be a party leader to invite others players!");
+				CHATSERVER->SendChat(pcUser, CHATCOLOR_Error, "> 你必须是组队队长才能邀请其他玩家!");
 				bRet = false;
 			}
 
@@ -1570,8 +1570,8 @@ void CActionFieldHandler::HandlePacket( User * pcUser, PacketActionFieldExchange
 			//Not the same required count? Invalidate...
 			if ( psPacket->iItemCount != psChest->iRequiredItemCount )
 			{
-				CHATSERVER->SendChatMessageBox( pcUser, "You need %d %s!", psChest->iRequiredItemCount, pcItemData->szBaseName );
-				CHATSERVER->SendChatEx( pcUser, EChatColor::CHATCOLOR_Global, "> You need %d %s!", psChest->iRequiredItemCount, pcItemData->szBaseName );
+				CHATSERVER->SendChatMessageBox( pcUser, "你需要 %d %s!", psChest->iRequiredItemCount, pcItemData->szBaseName );
+				CHATSERVER->SendChatEx( pcUser, EChatColor::CHATCOLOR_Global, "> 你需要 %d %s!", psChest->iRequiredItemCount, pcItemData->szBaseName );
 
 				bValid = FALSE;
 			}
@@ -1640,7 +1640,7 @@ void CActionFieldHandler::HandlePacket( User * pcUser, PacketActionFieldExchange
 									ITEMSERVER->AddItemOpenBox( pcUser->pcUserData, psReward->szItemCode, 0, psReward->iQuantity );
 									
 									//Log
-									LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldRewardReceived, "Character[%s] Received Action Field Reward Item[%s] Quantity[%d]",
+									LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldRewardReceived, "角色[%s] 接收到了 行动领域奖励 装备[%s] 数量[%d]",
 										CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), psReward->szItemCode, psReward->iQuantity );
 
 									SQLRewardLog( pcActionField->GetModeID(), psChest->iID, pcUser, psReward );
@@ -1661,7 +1661,7 @@ void CActionFieldHandler::HandlePacket( User * pcUser, PacketActionFieldExchange
 									ITEMSERVER->AddItemOpenBox( pcUser->pcUserData, psReward->szItemCode, 0, psReward->iQuantity );
 
 									//Log
-									LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldRewardReceived, "Character[%s] Received Action Field Reward Item[%s] Quantity[%d]",
+									LOGSERVER->OnLogItemEx( pcUser, ITEMLOGID_ActionFieldRewardReceived, "角色[%s] 接收到了 行动领域奖励 装备[%s] 数量[%d]",
 										CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), psReward->szItemCode, psReward->iQuantity );
 
 									SQLRewardLog( pcActionField->GetModeID(), psChest->iID, pcUser, psReward );
@@ -1669,8 +1669,8 @@ void CActionFieldHandler::HandlePacket( User * pcUser, PacketActionFieldExchange
 							}
 
 							//Send Message
-							CHATSERVER->SendChatMessageBox( pcUser, "Check Item Distributor to get your reward!" );
-							CHATSERVER->SendChat( pcUser, EChatColor::CHATCOLOR_Global, "> Check Item Distributor to get your reward!" );
+							CHATSERVER->SendChatMessageBox( pcUser, "去找物品发放员收取你的奖励!" );
+							CHATSERVER->SendChat( pcUser, EChatColor::CHATCOLOR_Global, "> 去找物品发放员收取你的奖励!" );
 
 							psPacket->bSuccess = TRUE;
 						}
@@ -1700,7 +1700,7 @@ void CActionFieldHandler::HandleNetPacket( PacketNetActionFieldRequest * psPacke
 				if ( auto pcUserError = USERDATATOUSER( USERDATABYID( psPacket->iUserErrorID ) ) )
 				{
 					//Notify users
-					PARTYHANDLER->SendChatParty( pcUser, FormatString( "%s doesn't have an Event Pass item to attend again!", pcUserError->pcUserData->sCharacterData.szName ), CHATCOLOR_Error, true );
+					PARTYHANDLER->SendChatParty( pcUser, FormatString( "%s 没有要再次参加的活动通行证!", pcUserError->pcUserData->sCharacterData.szName ), CHATCOLOR_Error, true );
 				}
 			}
 		}
@@ -1810,7 +1810,7 @@ void CActionFieldHandler::OnDisconnectedUser( User * pcUser )
 		//LeaveUsers( pcInstance );
 
 		//Send Message
-		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "%s> %s was disconnected from the room!", pcInstance->GetActionField()->GetName(),
+		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "%s> %s 与房间断开了连接!", pcInstance->GetActionField()->GetName(),
 			CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) ) );
 		
 		//Remove User
@@ -1838,7 +1838,7 @@ void CActionFieldHandler::OnEnterParty( User * pcUser )
 		//LeaveUsers( pcInstance );
 
 		//Send Message
-		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "%s> %s has entered in the party while event is running!", pcInstance->GetActionField()->GetName(),
+		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "%s> %s 在活动开始已经加入了队伍!", pcInstance->GetActionField()->GetName(),
 			CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) ) );
 
 		//Delete
@@ -1859,7 +1859,7 @@ void CActionFieldHandler::OnLeaveParty( User * pcUser )
 		//LeaveUsers( pcInstance );
 
 		//Send Message
-		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "%s> %s has left the party!", pcInstance->GetActionField()->GetName(),
+		SendChat( pcInstance, CHATCOLOR_Global, FormatString( "%s> %s 已经离开了队伍!", pcInstance->GetActionField()->GetName(),
 			CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) ) );
 
 		//Remove User
@@ -1894,7 +1894,7 @@ void CActionFieldHandler::OnLeaveMap( User * pcUser, int iMapID )
 				//LeaveUsers( pcInstance );
 
 				//Send Message
-				SendChat( pcInstance, CHATCOLOR_Global, FormatString( "%s> %s has left the map!", pcInstance->GetActionField()->GetName(),
+				SendChat( pcInstance, CHATCOLOR_Global, FormatString( "%s> %s 已经离开了当前地图!", pcInstance->GetActionField()->GetName(),
 					CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) ) );
 
 				//Remove User
