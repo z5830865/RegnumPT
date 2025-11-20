@@ -909,11 +909,11 @@ bool CGameCharacterStatus::AddSkillStatus( CharacterDataLocal & sCharacterDataLo
 						{
 							int iDamageBoost = psSkill->PlusState[0];
 
-							psDamageFake->iMin += (UNITDATA->sCharacterData.iMinDamage * iaMechT23DamageBoost[psSkill->iLevel - 1]) / 100;
-							psDamageFake->iMax += (UNITDATA->sCharacterData.iMaxDamage * iaMechT23DamageBoost[psSkill->iLevel - 1]) / 100;
+							psDamageFake->iMin += (UNITDATA->sCharacterData.iMinDamage * iaMechanicianT23DamageBoost[psSkill->iLevel - 1]) / 100;
+							psDamageFake->iMax += (UNITDATA->sCharacterData.iMaxDamage * iaMechanicianT23DamageBoost[psSkill->iLevel - 1]) / 100;
 
 							if ( (CHARACTERGAME->GetCurrentMP() > 0) && (CHARACTERGAME->GetCurrentSP() > 0) )
-								sCharacterDataLocal.iAttackSpeedAdd += iaMechT23AtkSpeed[psSkill->iLevel - 1];
+								sCharacterDataLocal.iAttackSpeedAdd += (iaMechanicianT23AddAttackSpeed)[psSkill->iLevel - 1];
 
 							if ( CGameCharacterStatus::UPDATE_BUFFSKILLS )
 								PROCESSSKILLBUFFEX( SKILLPLAYID_T23, psSkill->iLevel );
@@ -973,7 +973,7 @@ bool CGameCharacterStatus::AddSkillStatus( CharacterDataLocal & sCharacterDataLo
 						if ( CGameCharacterStatus::UPDATE_BUFFSKILLS )
 							PROCESSSKILLBUFFEX( SKILLPLAYID_T22, psSkill->iLevel );
 
-						sCharacterDataLocal.iDefenseSkills += (int)(((float)sCharacterDataLocal.iTempDefense * (float)iaMechT31DefenseRtg[psSkill->iLevel - 1]) / 100.0f);
+						sCharacterDataLocal.iDefenseSkills += (int)(((float)sCharacterDataLocal.iTempDefense * (float)iaMechanicianT31ArmorDefenseRatingBoost[psSkill->iLevel - 1]) / 100.0f);
 					}
 				}
 				break;
@@ -1246,7 +1246,7 @@ bool CGameCharacterStatus::AddSkillStatus( CharacterDataLocal & sCharacterDataLo
 					break;
 
 				case SKILLID_PoisonAttribute:
-					iaResistance[5] = ((int *)0x00992850)[psSkill->iLevel - 1];
+					iaResistance[5] = ((int*)0x00992850)[psSkill->iLevel - 1];
 					break;
 
 				case SKILLID_IceAttribute:

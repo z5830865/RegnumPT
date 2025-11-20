@@ -402,7 +402,7 @@ BOOL SkillManager::CanUseSkill( Skill * psSkill )
 
 	if( SKILLDATAHANDLER->IsSkillLocked( psSkill->iID ) )
 	{
-		TITLEBOX( "技能被锁定!" );
+		TITLEBOX( "技能锁定!" );
 		return FALSE;
 	}
 
@@ -1296,22 +1296,6 @@ BOOL SkillManager::EventSkillMonster( UnitData * pcUnitData )
 				bRet = TRUE;
 			}
 			break;
-/*		case MONSTEREFFECTID_Aragonian:
-			if ( pcUnitData->pcTarget && pcUnitData->psModelAnimation && (pcUnitData->psModelAnimation->uaValue[0] == 'J') )
-			{
-			//	PARTICLE->StartEffectParticleSkill( "AragonianFlameWave", pcUnitData->pcTarget );
-				PARTICLE->StartEffectParticleSkill( "AragonianSkill1", pcUnitData->pcTarget );	
-//				PARTICLE->StartEffectParticleSkill( "AragonianSkill2", pcUnitData->pcTarget );				
-				bRet = TRUE;
-			}
-			else if ( pcUnitData->pcTarget && pcUnitData->psModelAnimation && (pcUnitData->psModelAnimation->uaValue[0] == 'J') )
-			{
-			//	PARTICLE->StartEffectParticleSkill( "AragonianFlameWave", pcUnitData->pcTarget );
-			//	PARTICLE->StartEffectParticleSkill( "AragonianSkill1", pcUnitData->pcTarget );	
-				PARTICLE->StartEffectParticleSkill( "AragonianSkill2", pcUnitData->pcTarget );				
-				bRet = TRUE;
-			}			
-			break;*/
 			
        case MONSTEREFFECTID_Aragonian:
            if (pcUnitData->pcTarget && pcUnitData->psModelAnimation) {
@@ -2364,8 +2348,8 @@ BOOL SkillManager::OnMouseClick( class CMouse * pcMouse )
 		{
 			// Show Box to accept the quest
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "你确定吗?" );
-			MESSAGEBOX->SetDescription( "你是否要取消Orb之力?" );
+			MESSAGEBOX->SetTitle( "你确定?" );
+			MESSAGEBOX->SetDescription( "要取消力量石?" );
 			MESSAGEBOX->SetEvent( std::bind( &SkillManager::CancelForceOrb, this, *(int*)(0x0367DE8C) - 1 ) );
 			MESSAGEBOX->Show();
 
@@ -2375,8 +2359,8 @@ BOOL SkillManager::OnMouseClick( class CMouse * pcMouse )
 		{
 			// Show Box to accept the quest
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "你确定吗?" );
-			MESSAGEBOX->SetDescription( "你是否要取消当前任务?" );
+			MESSAGEBOX->SetTitle( "你确定?" );
+			MESSAGEBOX->SetDescription( "要取消进行中的任务吗?" );
 			MESSAGEBOX->SetEvent( std::bind( &CQuestGame::HandleCancelQuest, CQUESTGAME, sTempSkillTimerData[iID].iID, sTempSkillTimerData[iID].PlusState[4] ) );
 			MESSAGEBOX->Show();
 
@@ -2386,8 +2370,8 @@ BOOL SkillManager::OnMouseClick( class CMouse * pcMouse )
 		if ( SKILLINFOBOX->IsCancelableSkill( (ESkillID)sTempSkillTimerData[iID].iID ) )
 		{
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "你确定吗?" );
-			MESSAGEBOX->SetDescription( "您想取消技能吗?" );
+			MESSAGEBOX->SetTitle( "你确定?" );
+			MESSAGEBOX->SetDescription( "要取消这个技能?" );
 			MESSAGEBOX->SetEvent( std::bind( &SkillManager::CancelSkill, SKILLMANAGERHANDLER, sTempSkillTimerData[iID].iID ) );
 			MESSAGEBOX->Show();
 			return TRUE;
@@ -2799,7 +2783,7 @@ BOOL SkillManager::OnBuySkill()
 			{
 				if( SKILLDATAHANDLER->IsSkillLocked( CURRENTSKILL->iID ) )
 				{
-					TITLEBOX( "技能被锁定!" );
+					TITLEBOX( "技能锁定!" );
 					return TRUE;
 				}
 			}
@@ -2851,10 +2835,10 @@ BOOL SkillManager::OnBuySkill()
 					SAVE;
 				}
 				else
-					TITLEBOX( "金币不足" );
+					TITLEBOX( "金钱不足" );
 			}
 			else
-				TITLEBOX( "没有足够的Regnum技能点" );
+				TITLEBOX( "技能点不足" );
 
 			return TRUE;
 		}
@@ -3099,7 +3083,7 @@ BOOL SkillManager::OnRankUPButtonClick( int iX, int iY )
 
 							CHARACTERGAME->ResetHead( TRUE );
 
-							TITLEBOX( "你的排名上升了!" );
+							TITLEBOX( "转职成功!" );
 						}
 						else if ( UNITDATA->sCharacterData.iRank == CHARACTERRANK_Rank4 )
 						{

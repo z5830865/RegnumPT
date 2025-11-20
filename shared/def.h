@@ -1,6 +1,6 @@
 #pragma once
 
-#define GAME_NAME			"AlliancE.Web"
+#define GAME_NAME			"¾«Áé"
 
 #define FPS					70
 const double MS_PER_FRAME = (1000.0f / ((double)FPS));
