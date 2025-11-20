@@ -54,7 +54,7 @@ void CMessageBox::SetAutoClose( int iDuration )
 	auto pTextAutoClose = pWindow1->GetElement<UI::Text>( TEXTID_AutoClose );
 	if( pTextAutoClose )
 	{
-		pTextAutoClose->SetTextEx( "Automatically closes in %d sec...", iElapsedTime );
+		pTextAutoClose->SetTextEx( "将在%d 秒后自动关闭...", iElapsedTime );
 		pTextAutoClose->Show();
 	}
 
@@ -677,7 +677,7 @@ void CMessageBox::Init()
 		
 		UI::Text_ptr pTextLabel = std::make_shared<UI::Text>( Rectangle2D( 118, 72, 150, 18 ) );
 		pTextLabel->SetFont( "Arial", 16, 0, FALSE, FALSE, D3DCOLOR_XRGB( 228, 218, 212 ) );
-		pTextLabel->SetText( "Quantity:" );
+		pTextLabel->SetText( "数量:" );
 		pTextLabel->SetHorizontalAlign( ALIGN_Left );
 		pWindow1PersonalShopBuyer->AddElement( pTextLabel );
 
@@ -809,7 +809,7 @@ void CMessageBox::Update()
 
 		auto pTextAutoClose = pWindow1->GetElement<UI::Text>( TEXTID_AutoClose );
 		if( pTextAutoClose )
-			pTextAutoClose->SetTextEx( "Automatically closes in %d sec...", iElapsedTime );
+			pTextAutoClose->SetTextEx( "将在 %d 秒后自动关闭...", iElapsedTime );
 
 		if( iElapsedTime <= 0 )
 			OnNoButtonClick( UIEventArgs{} );

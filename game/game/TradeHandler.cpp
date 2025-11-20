@@ -234,7 +234,7 @@ void CTradeHandler::HandlePacket( PacketTradeCoinSet * psPacket )
 	{
 		SetCheckTradeButton( FALSE );
 
-		TITLEBOX( "Trade Partner has changed the Credit Amount" );
+		TITLEBOX( "交易伙伴更改了数量" );
 	}
 
 	iUnitCoins = psPacket->iCoins;
@@ -347,21 +347,21 @@ void CTradeHandler::OnButtonCoinClick( UIEventArgs e )
 {
 	if ( ACCOUNTHANDLER->IsAccountShareDenied( ACCOUNTSHARE_DenyTradeCoins ) )
 	{
-		TITLEBOX( AY_OBFUSCATE( "You can't Trade Coins, because you're logged in with the Share PW!" ) );
+		TITLEBOX( AY_OBFUSCATE( "你不能交易积分, 因为你登录的是共享PW!" ) );
 		return;
 	}
 
 	if ( TRADE_ACCEPT == FALSE )
 	{
 		INPUTBOX->SetNumberType( 0, iMaxCoins, TRUE );
-		INPUTBOX->SetDescription( "How many credits do you wanna trade?" );
-		INPUTBOX->SetTitle( "TRADE CREDITS" );
+		INPUTBOX->SetDescription( "你想要交易多少积分?" );
+		INPUTBOX->SetTitle( "交易积分" );
 		INPUTBOX->SetValue( (char*)FormatNumber( iSelfCoins ) );
 		INPUTBOX->SetEvent( std::bind( &CTradeHandler::OnInputCoinClick, this, std::placeholders::_1 ) );
 		INPUTBOX->Show();
 	}
 	else
-		TITLEBOX( "You already accepted the Trade!" );
+		TITLEBOX( "你已经接受了此次交易!" );
 }
 
 void CTradeHandler::OnInputCoinClick( UIEventArgs e )

@@ -444,13 +444,13 @@ BOOL CGameInventory::GetInventoryItem( int iX, int iY, int iPickup )
 						{
 							if ( UNITDATA->sCharacterData.sWeight.sCur > UNITDATA->sCharacterData.sWeight.sMax )
 							{
-								TITLEBOX( AY_OBFUSCATE( "You're overweight!" ) );
+								TITLEBOX( AY_OBFUSCATE( "你已经超过重量限制!" ) );
 								return FALSE;
 							}
 
 							if ( ACCOUNTHANDLER->IsAccountShareDenied( ACCOUNTSHARE_DenyGrabEquipment ) && (GM_MODE == FALSE) )
 							{
-								TITLEBOX( AY_OBFUSCATE( "You can't Grab Equipments, because you're logged in with the Share PW!" ) );
+								TITLEBOX( AY_OBFUSCATE( "你不能拿起这件装备, 因为你登录的账号是共享PW!" ) );
 								return FALSE;
 							}
 						}

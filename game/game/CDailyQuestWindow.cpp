@@ -20,7 +20,7 @@ void DailyQuestWindow::OnSelect80A(UIEventArgs eArgs)
 	// Level?
 	if ( UNITDATA->sCharacterData.iLevel < 80 )
 	{
-		TITLEBOX( "You must be level %d!", 80 );
+		TITLEBOX( "你必须达到 %d!级", 80 );
 		return;
 	}
 	
@@ -34,7 +34,7 @@ void DailyQuestWindow::OnSelect85A(UIEventArgs eArgs)
 	// Level?
 	if ( UNITDATA->sCharacterData.iLevel < 85 )
 	{
-		TITLEBOX( "You must be level %d!", 85 );
+		TITLEBOX( "你必须达到 %d!级!", 85 );
 		return;
 	}
 
@@ -48,7 +48,7 @@ void DailyQuestWindow::OnSelect90A(UIEventArgs eArgs)
 	// Level?
 	if ( UNITDATA->sCharacterData.iLevel < 90 )
 	{
-		TITLEBOX( "You must be level %d!", 90 );
+		TITLEBOX( "你必须达到 %d!级!", 90 );
 		return;
 	}
 
@@ -62,7 +62,7 @@ void DailyQuestWindow::OnSelect95A(UIEventArgs eArgs)
 	// Level?
 	if ( UNITDATA->sCharacterData.iLevel < 95 )
 	{
-		TITLEBOX( "You must be level %d!", 95 );
+		TITLEBOX( "你必须达到 %d!级", 95 );
 		return;
 	}
 
@@ -76,7 +76,7 @@ void DailyQuestWindow::OnSelect100A(UIEventArgs eArgs)
 	// Level?
 	if ( UNITDATA->sCharacterData.iLevel < 100 )
 	{
-		TITLEBOX( "You must be level %d!", 100 );
+		TITLEBOX( "你必须达到 %d!级", 100 );
 		return;
 	}
 
@@ -90,7 +90,7 @@ void DailyQuestWindow::OnSelect105A( UIEventArgs eArgs )
 	// Level?
 	if ( UNITDATA->sCharacterData.iLevel < 105 )
 	{
-		TITLEBOX( "You must be level %d!", 105 );
+		TITLEBOX( "你必须达到 %d!级", 105 );
 		return;
 	}
 	// Open Second window
@@ -103,7 +103,7 @@ void DailyQuestWindow::OnSelect110A(UIEventArgs eArgs)
 	// Level?
 	if ( UNITDATA->sCharacterData.iLevel < 110 )
 	{
-		TITLEBOX( "You must be level %d!", 110 );
+		TITLEBOX( "你必须达到 %d!级!", 110 );
 		return;
 	}
 
@@ -117,7 +117,7 @@ void DailyQuestWindow::OnSelect115A(UIEventArgs eArgs)
 	// Level?
 	if ( UNITDATA->sCharacterData.iLevel < 115 )
 	{
-		TITLEBOX( "You must be level %d!", 115 );
+		TITLEBOX( "你必须达到 %d!级!", 115 );
 		return;
 	}
 	// Open Second window
@@ -443,7 +443,7 @@ void DailyQuestWindow::BuildWindow1()
 	int iY = 170;
 	UI::Text_ptr pTextQuest80A = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 17 ) );
 	pTextQuest80A->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest80A->SetText( "The Babel's Army ( Req. Level 80 )" );
+	pTextQuest80A->SetText( "巴别塔的军队( 需要等级Level 80 )" );
 	pTextQuest80A->SetEvent( UI::Event::Build( std::bind( &DailyQuestWindow::OnSelect80A, this, std::placeholders::_1 ) ) );
 	pTextQuest80A->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pWindow1->AddElement( pTextQuest80A );
@@ -451,7 +451,7 @@ void DailyQuestWindow::BuildWindow1()
 	iY += 20;
 	UI::Text_ptr pTextQuest85A = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 17 ) );
 	pTextQuest85A->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest85A->SetText( "The Second Army ( Req. Level 85 )" );
+	pTextQuest85A->SetText( "第二支军队 (需要等级Level 85 )" );
 	pTextQuest85A->SetEvent( UI::Event::Build( std::bind( &DailyQuestWindow::OnSelect85A, this, std::placeholders::_1 ) ) );
 	pTextQuest85A->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pWindow1->AddElement( pTextQuest85A );
@@ -459,7 +459,7 @@ void DailyQuestWindow::BuildWindow1()
 	iY += 20;
 	UI::Text_ptr pTextQuest90A = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 17 ) );
 	pTextQuest90A->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest90A->SetText( "Help Andrei ( Req. Level 90 )" );
+	pTextQuest90A->SetText( "帮助安德烈 ( 需要等级Level 90 )" );
 	pTextQuest90A->SetEvent( UI::Event::Build( std::bind( &DailyQuestWindow::OnSelect90A, this, std::placeholders::_1 ) ) );
 	pTextQuest90A->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pWindow1->AddElement( pTextQuest90A );
@@ -467,7 +467,7 @@ void DailyQuestWindow::BuildWindow1()
 	iY += 20;
 	UI::Text_ptr pTextQuest95A = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 17 ) );
 	pTextQuest95A->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest95A->SetText( "The Bosses Army ( Req. Level 95 )" );
+	pTextQuest95A->SetText( "BOSS军团(需要等级Level 95 )" );
 	pTextQuest95A->SetEvent( UI::Event::Build( std::bind( &DailyQuestWindow::OnSelect95A, this, std::placeholders::_1 ) ) );
 	pTextQuest95A->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pWindow1->AddElement( pTextQuest95A );
@@ -475,7 +475,7 @@ void DailyQuestWindow::BuildWindow1()
 	iY += 20;
 	UI::Text_ptr pTextQuest100A = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 17 ) );
 	pTextQuest100A->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest100A->SetText( "The New Island ( Req. Level 100 )" );
+	pTextQuest100A->SetText( "新的岛屿( 需要等级Level 100 )" );
 	pTextQuest100A->SetEvent( UI::Event::Build( std::bind( &DailyQuestWindow::OnSelect100A, this, std::placeholders::_1 ) ) );
 	pTextQuest100A->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pWindow1->AddElement( pTextQuest100A );
@@ -483,7 +483,7 @@ void DailyQuestWindow::BuildWindow1()
 	iY += 20;
 	UI::Text_ptr pTextQuest105A = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 17 ) );
 	pTextQuest105A->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest105A->SetText( "The Lost Temple ( Req. Level 105 )" );
+	pTextQuest105A->SetText( "迷失岛屿( 需要等级Level 105 )" );
 	pTextQuest105A->SetEvent( UI::Event::Build( std::bind( &DailyQuestWindow::OnSelect105A, this, std::placeholders::_1 ) ) );
 	pTextQuest105A->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pWindow1->AddElement( pTextQuest105A );
@@ -491,7 +491,7 @@ void DailyQuestWindow::BuildWindow1()
 	iY += 20;
 	UI::Text_ptr pTextQuest110A = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 17 ) );
 	pTextQuest110A->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest110A->SetText( "Help Muriel ( Req. Level 110 )" );
+	pTextQuest110A->SetText( "帮助穆里尔 (需要等级Level 110 )" );
 	pTextQuest110A->SetEvent( UI::Event::Build( std::bind( &DailyQuestWindow::OnSelect110A, this, std::placeholders::_1 ) ) );
 	pTextQuest110A->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pWindow1->AddElement( pTextQuest110A );
@@ -499,7 +499,7 @@ void DailyQuestWindow::BuildWindow1()
 	iY += 20;
 	UI::Text_ptr pTextQuest115A = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 17 ) );
 	pTextQuest115A->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest115A->SetText( "The Gorgonyte Menace ( Req. Level 115 )" );
+	pTextQuest115A->SetText( "金玉石的威胁 ( 需要等级Level 115 )" );
 	pTextQuest115A->SetEvent( UI::Event::Build( std::bind( &DailyQuestWindow::OnSelect115A, this, std::placeholders::_1 ) ) );
 	pTextQuest115A->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pWindow1->AddElement( pTextQuest115A );

@@ -47,7 +47,7 @@ void CChristmasGiftWindowHandler::Open( int iItemCount )
 		{
 			pWindow->GetElement<UI::Window>( WINDOW_ReceiveEmpty )->Hide();
 			pWindow->GetElement<UI::Window>( WINDOW_ReceiveItems )->Show();
-			pWindow->GetElement<UI::Window>( WINDOW_ReceiveItems )->GetElement<UI::Text>( TEXT_Sender )->SetTextEx( "You have %d gift%s to open!", iItemCount, iItemCount > 1 ? "s" : "" );
+			pWindow->GetElement<UI::Window>( WINDOW_ReceiveItems )->GetElement<UI::Text>( TEXT_Sender )->SetTextEx( "你有 %d 礼物%s 等待打开!", iItemCount, iItemCount > 1 ? "s" : "" );
 		}
 		else
 		{
@@ -115,7 +115,7 @@ void CChristmasGiftWindowHandler::BuildWindow()
 	//Header Text
 	UI::Text_ptr pTextHeader = std::make_shared<UI::Text>( Rectangle2D( 30, 40, 300, 18 ) );
 	pTextHeader->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextHeader->SetText( "Hold on, let me see if I have anything in your name." );
+	pTextHeader->SetText( "等一下,让我看看有没有你名下的东西." );
 	pWindow->AddElement( pTextHeader );
 
 	//Empty
@@ -125,7 +125,7 @@ void CChristmasGiftWindowHandler::BuildWindow()
 
 		UI::Text_ptr pTextEmpty = std::make_shared<UI::Text>( Rectangle2D( 30, 58, 304, 80 ) );
 		pTextEmpty->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-		pTextEmpty->SetText( "Hmm... guess not. Yeah, there's nothing for you here at the moment.\n\nFeel free to come back later and I will check again." );
+		pTextEmpty->SetText( "嗯..我想没有.... 是的，这里现在没有你要的东西.\n\n请稍后再来，我再检查一下." );
 		pTextEmpty->SetMultiLine( TRUE );
 		pTextEmpty->SetWordWrap( TRUE );
 		pWindowReceiveEmpty->AddElement( pTextEmpty );
@@ -188,14 +188,14 @@ void CChristmasGiftWindowHandler::OnButtonAcceptClick( UIEventArgs eArgs )
 	if ( (dwUpdateTimeClose + MAX_TIMEXMAS_WAITRESPONSE) < TICKCOUNT )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Open Box" );
-		MESSAGEBOX->SetDescription( "Do you want to open the gift box?" );
+		MESSAGEBOX->SetTitle( "打开盒子" );
+		MESSAGEBOX->SetDescription( "你想要打开这个礼盒吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CChristmasGiftWindowHandler::OnAcceptReceiveGift, this, std::placeholders::_1 ) );
 		MESSAGEBOX->SetAutoClose( 10 );
 		MESSAGEBOX->Show();
 	}
 	else
-		TITLEBOX( "Still in progress..." );
+		TITLEBOX( "进行中..." );
 }
 
 void CChristmasGiftWindowHandler::OnButtonCloseClick( UIEventArgs eArgs )
@@ -203,7 +203,7 @@ void CChristmasGiftWindowHandler::OnButtonCloseClick( UIEventArgs eArgs )
 	if ( (dwUpdateTimeClose + MAX_TIMEXMAS_WAITRESPONSE) < TICKCOUNT )
 		Close();
 	else
-		TITLEBOX( "Still in progress..." );
+		TITLEBOX( "进行中..." );
 }
 
 void CChristmasGiftWindowHandler::OnAcceptReceiveGift( UIEventArgs eArgs )
@@ -220,5 +220,5 @@ void CChristmasGiftWindowHandler::OnAcceptReceiveGift( UIEventArgs eArgs )
 		}
 	}
 	else
-		TITLEBOX( "Still in progress..." );
+		TITLEBOX( "进行中..." );
 }

@@ -18,7 +18,7 @@ void CBellatraReward::OnButtonOKClick( UIEventArgs e )
 	}
 	else
 	{
-		TITLEBOX( "You need 15 Brilliant Stones to get reward!" );
+		TITLEBOX( "你需要15个Brilliant石才能获得奖励!" );
 	}
 
 	pWindow->Hide();

@@ -46,12 +46,12 @@ void CAgingWindow::Render()
 				iChance = 0;
 
 			char szChanceFail[32] = { 0 };
-			STRINGFORMAT( szChanceFail, "Fail Chance: %d%%", iChance );
+			STRINGFORMAT( szChanceFail, "剩余机会: %d%%", iChance );
 			pTextFailChance->SetText( szChanceFail );
 		}
 		else
 		{
-			pTextFailChance->SetText( "Fail Chance: 0%" );
+			pTextFailChance->SetText( "剩余机会: 0%" );
 			iAging = -1;
 		}
 	}

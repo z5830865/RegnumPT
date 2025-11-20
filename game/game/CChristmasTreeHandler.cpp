@@ -58,21 +58,21 @@ void CChristmasTreeHandler::HandlePacket( PacketXmasTreeResponse * psPacket )
 {
 	if ( psPacket->iResult == 1 )
 	{
-		ChatGame::AddChatBoxText( "Xmas Tree> Gift(s) sent successful!", CHATCOLOR_Global );
-		TITLEBOX( "Gift(s) sent successful!" );
+		ChatGame::AddChatBoxText( "Xmas Tree> 礼物赠送成功!", CHATCOLOR_Global );
+		TITLEBOX( "礼物赠送成功!" );
 		GetWindow()->Close();
 		GetWindow()->ResetTimeWait();
 	}
 	else if ( psPacket->iResult == 2 )
 	{
-		ChatGame::AddChatBoxText( "Nataly> The gift(s) has been sent to Item Distributor!", CHATCOLOR_Global );
-		TITLEBOX( "The gift(s) has been sent to Item Distributor!" );
+		ChatGame::AddChatBoxText( "Nataly> 礼物已经发送到装备发放员!", CHATCOLOR_Global );
+		TITLEBOX( "礼物已经发送到装备发放员!" );
 		GetWindowGift()->Close();
 		GetWindowGift()->ResetTimeWait();
 	}
 	else
 	{
-		ChatGame::AddChatBoxText( "> Unknown error occured!" );
+		ChatGame::AddChatBoxText( "> 未知错误!" );
 		GetWindow()->Close();
 		GetWindow()->ResetTimeWait();
 		GetWindowGift()->Close();

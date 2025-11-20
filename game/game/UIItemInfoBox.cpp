@@ -3852,33 +3852,33 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 			{
 				case GEMITEM_Topaz:
 					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 255, 220, 0 ) );
-					paSocketText[i][0]->SetText( "Topaz Gem" );
+					paSocketText[i][0]->SetText( "黄水晶宝石" );
 
-					paSocketText[i][1]->AppendText( " Talent" );
+					paSocketText[i][1]->AppendText( " 传送" );
 				break;
 				case GEMITEM_Aquamarine:
 					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 0, 150, 255 ) );
-					paSocketText[i][0]->SetText( "Aquamarine Gem" );
+					paSocketText[i][0]->SetText( "绿玉宝石" );
 
-					paSocketText[i][1]->AppendText( " Spirit" );
+					paSocketText[i][1]->AppendText( " 精神" );
 				break;
 				case GEMITEM_Ruby:
 					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 180, 25, 25 ) );
-					paSocketText[i][0]->SetText( "Ruby Gem" );
+					paSocketText[i][0]->SetText( "红宝石" );
 
-					paSocketText[i][1]->AppendText( " Strenght" );
+					paSocketText[i][1]->AppendText( " 力量" );
 				break;
 				case GEMITEM_Amethyst:
 					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 150, 5, 235 ) );
-					paSocketText[i][0]->SetText( "Amethyst Gem" );
+					paSocketText[i][0]->SetText( "紫水晶宝石" );
 
-					paSocketText[i][1]->AppendText( " Health" );
+					paSocketText[i][1]->AppendText( " 体质" );
 				break;
 				case GEMITEM_Emerald:
 					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 0, 170, 10 ) );
-					paSocketText[i][0]->SetText( "Emerald Gem" );
+					paSocketText[i][0]->SetText( "祖母绿宝石" );
 
-					paSocketText[i][1]->AppendText( " Agility" );
+					paSocketText[i][1]->AppendText( " 敏捷" );
 				break;
 			}
 		}

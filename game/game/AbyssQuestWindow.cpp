@@ -127,7 +127,7 @@ void CAbyssQuestWindow::BuildWindow()
 	//Label Select
 	UI::Text_ptr pTextQuestLabel = std::make_shared<UI::Text>( Rectangle2D( 26, 200, 200, 20 ) );
 	pTextQuestLabel->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextQuestLabel->SetText( "Please select a quest below for more information:" );
+	pTextQuestLabel->SetText( "请选择下面的任务以获取更多信息:" );
 	pWindow1->AddElement( pTextQuestLabel );
 
 	int iY = 225;
@@ -135,7 +135,7 @@ void CAbyssQuestWindow::BuildWindow()
 	//Label Quest 1
 	UI::Text_ptr pTextQuest1 = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 20 ) );
 	pTextQuest1->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest1->SetText( "The Elite of Fear" );
+	pTextQuest1->SetText( "恐惧的精英" );
 	pTextQuest1->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pTextQuest1->SetEvent( UI::Event::Build( std::bind( &CAbyssQuestWindow::OnButtonOpenQuestWindow, this, WINDOW_Quest1, std::placeholders::_1 ) ) );
 	pWindow1->AddElement( pTextQuest1 );
@@ -144,7 +144,7 @@ void CAbyssQuestWindow::BuildWindow()
 	iY += 20;
 	UI::Text_ptr pTextQuest2 = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 20 ) );
 	pTextQuest2->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest2->SetText( "The Return of Mutants" );
+	pTextQuest2->SetText( "变种人的回归" );
 	pTextQuest2->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pTextQuest2->SetEvent( UI::Event::Build( std::bind( &CAbyssQuestWindow::OnButtonOpenQuestWindow, this, WINDOW_Quest2, std::placeholders::_1 ) ) );
 	pWindow1->AddElement( pTextQuest2 );
@@ -153,7 +153,7 @@ void CAbyssQuestWindow::BuildWindow()
 	iY += 20;
 	UI::Text_ptr pTextQuest3 = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 20 ) );
 	pTextQuest3->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest3->SetText( "The Abyss Hunter" );
+	pTextQuest3->SetText( "深渊猎人" );
 	pTextQuest3->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pTextQuest3->SetEvent( UI::Event::Build( std::bind( &CAbyssQuestWindow::OnButtonOpenQuestWindow, this, WINDOW_Quest3, std::placeholders::_1 ) ) );
 	pWindow1->AddElement( pTextQuest3 );
@@ -162,7 +162,7 @@ void CAbyssQuestWindow::BuildWindow()
 	iY += 20;
 	UI::Text_ptr pTextQuest4 = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 20 ) );
 	pTextQuest4->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest4->SetText( "A Test of Loneliness" );
+	pTextQuest4->SetText( "孤独的试炼" );
 	pTextQuest4->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pTextQuest4->SetEvent( UI::Event::Build( std::bind( &CAbyssQuestWindow::OnButtonOpenQuestWindow, this, WINDOW_Quest4, std::placeholders::_1 ) ) );
 	pWindow1->AddElement( pTextQuest4 );
@@ -171,7 +171,7 @@ void CAbyssQuestWindow::BuildWindow()
 	iY += 20;
 	UI::Text_ptr pTextQuest5 = std::make_shared<UI::Text>( Rectangle2D( 44, iY, 200, 20 ) );
 	pTextQuest5->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextQuest5->SetText( "Under the Abyss" );
+	pTextQuest5->SetText( "深渊之下" );
 	pTextQuest5->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
 	pTextQuest5->SetEvent( UI::Event::Build( std::bind( &CAbyssQuestWindow::OnButtonOpenQuestWindow, this, WINDOW_Quest5, std::placeholders::_1 ) ) );
 	pWindow1->AddElement( pTextQuest5 );
@@ -320,19 +320,19 @@ void CAbyssQuestWindow::OnButtonOpenQuestWindow( int iID, UIEventArgs e )
 	{
 		if ( UNITDATA->sCharacterData.iLevel < 125 )
 		{
-			TITLEBOX( "You must be level %d!", 125 );
+			TITLEBOX( "你必须达到 %d!级", 125 );
 			return;
 		}
 	}
 	else if ( UNITDATA->sCharacterData.iLevel < 125 )
 	{
-		TITLEBOX( "You must be level %d!", 125 );
+		TITLEBOX( "你必须达到 %d!级!", 125 );
 		return;
 	}
 
 	if ( IsActiveQuests() )
 	{
-		TITLEBOX( "You already are in quest!" );
+		TITLEBOX( "你已经接取了该任务!" );
 		return;
 	}
 
@@ -387,7 +387,7 @@ void CAbyssQuestWindow::OnClickOK( UIEventArgs e )
 		SHOWRIGHTNPCBOX;
 		pWindow2->Hide();
 
-		TITLEBOX( "You already have this quest!" );
+		TITLEBOX( "你已经接取了这个任务!" );
 
 		return;
 	}
@@ -396,8 +396,8 @@ void CAbyssQuestWindow::OnClickOK( UIEventArgs e )
 	{
 		// Show Box to accept the quest
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Quest" );
-		MESSAGEBOX->SetDescription( "Do you want to get the The Elite of Fear quest?" );
+		MESSAGEBOX->SetTitle( "任务" );
+		MESSAGEBOX->SetDescription( "你想要接取 恐惧精英 任务吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CAbyssQuestWindow::OnClickYesBox, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
@@ -406,8 +406,8 @@ void CAbyssQuestWindow::OnClickOK( UIEventArgs e )
 	{
 		// Show Box to accept the quest
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Quest" );
-		MESSAGEBOX->SetDescription( "Do you want to get the The Return of Mutants quest?" );
+		MESSAGEBOX->SetTitle( "任务" );
+		MESSAGEBOX->SetDescription( "你想要接取 变种人的回归 任务吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CAbyssQuestWindow::OnClickYesBox, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
@@ -417,8 +417,8 @@ void CAbyssQuestWindow::OnClickOK( UIEventArgs e )
 	{
 		// Show Box to accept the quest
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Quest" );
-		MESSAGEBOX->SetDescription( "Do you want to get the The Abyss Hunter quest?" );
+		MESSAGEBOX->SetTitle( "任务" );
+		MESSAGEBOX->SetDescription( "你想要接取 深渊猎人 任务吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CAbyssQuestWindow::OnClickYesBox, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
@@ -427,8 +427,8 @@ void CAbyssQuestWindow::OnClickOK( UIEventArgs e )
 	{
 		// Show Box to accept the quest
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Quest" );
-		MESSAGEBOX->SetDescription( "Do you want to get the A Test of Loneliness quest?" );
+		MESSAGEBOX->SetTitle( "任务" );
+		MESSAGEBOX->SetDescription( "你想要接取 孤独的试炼 任务吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CAbyssQuestWindow::OnClickYesBox, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
@@ -437,8 +437,8 @@ void CAbyssQuestWindow::OnClickOK( UIEventArgs e )
 	{
 		// Show Box to accept the quest
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Quest" );
-		MESSAGEBOX->SetDescription( "Do you want to get the Under the Abyss quest?" );
+		MESSAGEBOX->SetTitle( "任务" );
+		MESSAGEBOX->SetDescription( "你想要接取 深渊之下 任务吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CAbyssQuestWindow::OnClickYesBox, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}

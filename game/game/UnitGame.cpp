@@ -12,7 +12,7 @@ Unit  UnitGame::cViewUnit;
 float fSZHPBar = 15.0f;
 
 extern BOOL __cdecl AnimateMeshTreeNew( PTMesh * pcMesh, int iFrame, int iAX, int iAY, int iAZ );
-// 玩家/怪物列表
+
 UnitGame::UnitGame()
 {
 	pcaUnitData = (UnitData*)0x0D16888;

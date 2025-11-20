@@ -78,8 +78,8 @@ BOOL CLoginScreen::Init()
 	if( RESOLUTION_WIDTH < 1024 && RESOLUTION_HEIGHT < 768 )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_OkCancel );
-		MESSAGEBOX->SetTitle( "Warning" );
-		MESSAGEBOX->SetDescription( "Deprecated resolution! We will update your resolution." );
+		MESSAGEBOX->SetTitle( "警告" );
+		MESSAGEBOX->SetDescription( "弃用分辨率! We will update your resolution." );
 		MESSAGEBOX->SetEvent( std::bind( &CLoginScreen::OnUpdateResolution, this ) );
 		MESSAGEBOX->Show();
 	}
@@ -89,7 +89,7 @@ BOOL CLoginScreen::Init()
 		int iY = 10;
 		UI::CheckBox_ptr pCheckBoxImage = std::make_shared<UI::CheckBox>( Rectangle2D( 10, iY, 13, 13 ) );
 		pCheckBoxImage->SetFont( "Arial", 16, 6, FALSE, FALSE, -1 );
-		pCheckBoxImage->SetText( "Image Only" );
+		pCheckBoxImage->SetText( "只支持图片" );
 		pCheckBoxImage->SetID( CHECKBOXID_ImageOnly );
 		pCheckBoxImage->SetEvent( UI::Event::Build( std::bind( &CLoginScreen::OnCheckScreen, this, CHECKBOXID_ImageOnly, std::placeholders::_1 ) ) );
 		pCheckBoxImage->SetImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox.png" ), UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox_.png" ) );
@@ -98,7 +98,7 @@ BOOL CLoginScreen::Init()
 		iY += 20;
 		UI::CheckBox_ptr pCheckBoxVideoLow = std::make_shared<UI::CheckBox>( Rectangle2D( 10, iY, 13, 13 ) );
 		pCheckBoxVideoLow->SetFont( "Arial", 16, 6, FALSE, FALSE, -1 );
-		pCheckBoxVideoLow->SetText( "Video Low Quality" );
+		pCheckBoxVideoLow->SetText( "视频质量低" );
 		pCheckBoxVideoLow->SetID( CHECKBOXID_VideoLow );
 		pCheckBoxVideoLow->SetSelected( TRUE );
 		pCheckBoxVideoLow->SetEvent( UI::Event::Build( std::bind( &CLoginScreen::OnCheckScreen, this, CHECKBOXID_VideoLow, std::placeholders::_1 ) ) );
@@ -108,7 +108,7 @@ BOOL CLoginScreen::Init()
 		iY += 20;
 		UI::CheckBox_ptr pCheckBoxVideoHigh = std::make_shared<UI::CheckBox>( Rectangle2D( 10, iY, 13, 13 ) );
 		pCheckBoxVideoHigh->SetFont( "Arial", 16, 6, FALSE, FALSE, -1 );
-		pCheckBoxVideoHigh->SetText( "Video High Quality" );
+		pCheckBoxVideoHigh->SetText( "视频质量高" );
 		pCheckBoxVideoHigh->SetID( CHECKBOXID_VideoHigh );
 		pCheckBoxVideoHigh->SetEvent( UI::Event::Build( std::bind( &CLoginScreen::OnCheckScreen, this, CHECKBOXID_VideoHigh, std::placeholders::_1 ) ) );
 		pCheckBoxVideoHigh->SetImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox.png" ), UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox_.png" ) );
@@ -120,7 +120,7 @@ BOOL CLoginScreen::Init()
 		int iY = 10;
 		UI::Text_ptr pTextServerSelector = std::make_shared<UI::Text>( Rectangle2D( 10, iY, 120, 20 ) );
 		pTextServerSelector->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-		pTextServerSelector->SetText( "Select World:" );
+		pTextServerSelector->SetText( "选择服务器:" );
 		pWindowServerSelector->AddElement( pTextServerSelector );
 
 		iY += 20;

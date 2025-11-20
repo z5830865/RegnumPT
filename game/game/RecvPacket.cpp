@@ -47,8 +47,8 @@ BOOL RecvPacket::AnalyzePacket( SocketData * pcSocketData, Packet * psPacket )
 				// Show Box to Save
 				MESSAGEBOX->ClearExtraElements();
 				MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_RollDice );
-				MESSAGEBOX->SetTitle( "DICE ROLL" );
-				MESSAGEBOX->SetDescription( "Do you want to try your luck?" );
+				MESSAGEBOX->SetTitle( "ROLL点" );
+				MESSAGEBOX->SetDescription( "你想要试试手气吗?" );
 				MESSAGEBOX->AddExtraText( ps->szBaseName, Rectangle2D( 25, 118, 76, 24 ), TRUE, UI::Color( 255, 255, 255, 255 ) );
 				MESSAGEBOX->AddExtraElement( pImageBoxItem );
 				MESSAGEBOX->SetEvent( std::bind( &ItemHandler::OnAcceptRollDiceItem, ITEMHANDLER ) );

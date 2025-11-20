@@ -304,7 +304,7 @@ void QuestGame::StartQuest( DWORD dwQuestID )
 
 	if ( TIMERSKILLHANDLER->FindSkillTimer( 0x096A0003 ) )
 	{
-		TITLEBOX( "You are already in a quest" );
+		TITLEBOX( "你正在进行任务" );
 		return;
 	}
 	UpdateQuests();

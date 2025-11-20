@@ -40,7 +40,7 @@ void CWarehouse::SetPage( int iPage )
 	{
 		if ( CQUESTGAME->GetQuestInstance()->GetRewardValue( EQuestExtraRewardType::QUESTREWARDTYPE_WarehousePage ) < (iPage-1) )
 		{
-			TITLEBOX( "You need to complete the Quest Warehouse #%d", iPage - 1 );
+			TITLEBOX( "你需要完成任务仓库 #%d", iPage - 1 );
 			return;
 		}
 	}

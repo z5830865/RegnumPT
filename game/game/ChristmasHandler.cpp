@@ -53,8 +53,8 @@ void CChristmasHandler::OnClickOKNPC()
 	if ( (ITEMHANDLER->GetItemAmountByCode( ITEMID_GiftBox1 ) > 0) || (ITEMHANDLER->GetItemAmountByCode( ITEMID_GiftBox2 ) > 0) )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Are you sure?" );
-		MESSAGEBOX->SetDescription( "Do you like to exchange the Gift Box?" );
+		MESSAGEBOX->SetTitle( "你确定吗?" );
+		MESSAGEBOX->SetDescription( "你想要交换这个礼物盒子吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CChristmasHandler::OnClickBox, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}

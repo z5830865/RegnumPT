@@ -78,9 +78,9 @@ void CActionFieldHandler::HandlePacket( PacketActionFieldUpdate * psPacket )
 	if ( psPacket->bFinished )
 		pTextTime->SetText( "" );
 	else if ( psPacket->bStarted )
-		pTextTime->SetTextEx( "Time Left: %02d:%02d", psPacket->iTime / 60, psPacket->iTime % 60 );
+		pTextTime->SetTextEx( "时间剩余: %02d:%02d", psPacket->iTime / 60, psPacket->iTime % 60 );
 	else
-		pTextTime->SetTextEx( "Time to start: %02d:%02d", psPacket->iTime / 60, psPacket->iTime % 60 );
+		pTextTime->SetTextEx( "准备开始: %02d:%02d", psPacket->iTime / 60, psPacket->iTime % 60 );
 
 	//Update Users
 	for ( int i = 0; i < psPacket->iUsersCount; i++ )
@@ -357,7 +357,7 @@ void CActionFieldHandler::BuildWindow()
 	UI::Text_ptr pTextName = std::make_shared<UI::Text>( Rectangle2D( 0, 0, 390, 22 ) );
 	pTextName->SetID( TEXTID_Name );
 	pTextName->SetFont( "Frutiger LT 55 Roman", 24, 0, FALSE, TRUE, D3DCOLOR_XRGB( 255, 255, 255 ) );
-	pTextName->SetText( "Ghost Castle" );
+	pTextName->SetText( "幽灵城堡" );
 	pTextName->SetHorizontalAlign( EAlign::ALIGN_Center );
 	pGhostCastleInfo->AddElement( pTextName );
 
@@ -373,7 +373,7 @@ void CActionFieldHandler::BuildWindow()
 	UI::Text_ptr pTextTime = std::make_shared<UI::Text>( Rectangle2D( 0, 28, 350, 28 ) );
 	pTextTime->SetID( TEXTID_Time );
 	pTextTime->SetFont( "Frutiger LT 55 Roman", 28, 0, FALSE, TRUE, D3DCOLOR_XRGB( 255, 255, 30 ) );
-	pTextTime->SetText( "Time Left: 23:59" );
+	pTextTime->SetText( "时间剩余: 23:59" );
 	pTextTime->SetHorizontalAlign( EAlign::ALIGN_Right );
 	pGhostCastleInfo->AddElement( pTextTime );
 

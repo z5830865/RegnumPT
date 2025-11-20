@@ -49,8 +49,8 @@ void CWindowTest::OnAllStatsClick( UIEventArgs e )
 {
 	// Show Box to accept the reset
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Event Girl" );
-	MESSAGEBOX->SetDescription( "Do you want to Reset All your Stats?\nPrice: 1,000,000 Gold" );
+	MESSAGEBOX->SetTitle( "洗点女孩" );
+	MESSAGEBOX->SetDescription( "你想要重置所有属性点吗?\n价格: 1,000,000 金币" );
 	//MESSAGEBOX->SetEvent( UI::Event::Build( std::bind( &CWindowTest::Close, this, std::placeholders::_1 ) ) );
 	MESSAGEBOX->Show();
 }
@@ -59,8 +59,8 @@ void CWindowTest::OnAllSkillsClick( UIEventArgs e )
 {
 	// Show Box to accept the reset
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Event Girl" );
-	MESSAGEBOX->SetDescription( "Do you want to Reset All your Skills?\nPrice: 1,000,000 Gold" );
+	MESSAGEBOX->SetTitle( "洗点女孩" );
+	MESSAGEBOX->SetDescription( "你想要重置技能点吗?\n价格: 1,000,000 金币" );
 	//MESSAGEBOX->SetEvent( UI::Event::Build( std::bind( &CWindowTest::Close, this, std::placeholders::_1 ) ) );
 	MESSAGEBOX->Show();
 
@@ -70,8 +70,8 @@ void CWindowTest::OnResetButtonClick( UIEventArgs e )
 {
 	// Show Box to accept the reset
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Event Girl" );
-	MESSAGEBOX->SetDescription( "Do you want to Reset these stats?\nPrice: %d" );
+	MESSAGEBOX->SetTitle( "洗点女孩" );
+	MESSAGEBOX->SetDescription( "你想要重置属性点吗?\n价格: %d" );
 	//MESSAGEBOX->SetEvent( UI::Event::Build( std::bind( &CWindowTest::Close, this, std::placeholders::_1 ) ) );
 	MESSAGEBOX->Show();
 }

@@ -93,8 +93,8 @@ void CPartyWindow::ShowPartyNotification( char * pszCharacterName, int iType )
 	iPartyRequestType = iType;
 
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Party Request" );
-	MESSAGEBOX->SetDescription( FormatString("Do you want to accept %s's Party Request?", pszCharacterName) );
+	MESSAGEBOX->SetTitle( "队伍请求" );
+	MESSAGEBOX->SetDescription( FormatString("你想要接受 %s's 的入队申请吗?", pszCharacterName) );
 	MESSAGEBOX->SetEvent( std::bind( &CPartyWindow::OnAcceptPartyButtonClick, this ) );
 	MESSAGEBOX->SetAutoClose( 10 );
 	MESSAGEBOX->Show();
@@ -106,8 +106,8 @@ void CPartyWindow::ShowRaidNotification( char * pszCharacterName )
 		return;
 
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Raid Request" );
-	MESSAGEBOX->SetDescription( FormatString( "Do you want to accept %s's Raid Request?", pszCharacterName ) );
+	MESSAGEBOX->SetTitle( "方阵请求" );
+	MESSAGEBOX->SetDescription( FormatString( "你想要接受 %s's 的加入方阵请求吗?", pszCharacterName ) );
 	MESSAGEBOX->SetEvent( std::bind( &CPartyWindow::OnAcceptRaidButtonClick, this ) );
 	MESSAGEBOX->SetAutoClose( 10 );
 	MESSAGEBOX->Show();
@@ -565,31 +565,31 @@ void CPartyWindow::BuildWindowRaid()
 void CPartyWindow::ShowMessageBox( int iType, int iIndex )
 {
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Are you sure?" );
+	MESSAGEBOX->SetTitle( "你确定吗?" );
 
 	if( iType == 1 )
 	{
-		MESSAGEBOX->SetDescription( "Do you want to disband the Party?" );
+		MESSAGEBOX->SetDescription( "你想解散队伍吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CPartyWindow::OnDisbandPartyButtonClick, this ) );
 	}
 	else if( iType == 2 )
 	{
-		MESSAGEBOX->SetDescription( FormatString("Do you want  to expel %s?", PARTYHANDLER->GetPartyData().saMembers[iIndex].szCharacterName) );
+		MESSAGEBOX->SetDescription( FormatString("你想要踢出 %s吗?", PARTYHANDLER->GetPartyData().saMembers[iIndex].szCharacterName) );
 		MESSAGEBOX->SetEvent( std::bind( &CPartyWindow::OnKickPartyButtonClick, this, iIndex ) );
 	}
 	else if( iType == 3 )
 	{
-		MESSAGEBOX->SetDescription( "Do you want to leave the party?" );
+		MESSAGEBOX->SetDescription( "你想要离开这个队伍吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CPartyWindow::OnLeavePartyButtonClick, this ) );
 	}
 	else if( iType == 4 )
 	{
-		MESSAGEBOX->SetDescription( FormatString( "Do you want to delegate %s as party leader?", PARTYHANDLER->GetPartyData().saMembers[iIndex].szCharacterName ) );
+		MESSAGEBOX->SetDescription( FormatString( "你想要委任 %s 作为新队长吗?", PARTYHANDLER->GetPartyData().saMembers[iIndex].szCharacterName ) );
 		MESSAGEBOX->SetEvent( std::bind( &CPartyWindow::OnDelegatePartyButtonClick, this, iIndex ) );
 	}
 	else if( iType == 5 )
 	{ 
-		MESSAGEBOX->SetDescription( FormatString(AY_OBFUSCATE("Do you want to change Party to %s?"), GetPartyMode((EPartyMode)((PARTYHANDLER->GetPartyData().eMode+1)%3))) );
+		MESSAGEBOX->SetDescription( FormatString(AY_OBFUSCATE("你想要改变队伍给%s吗?"), GetPartyMode((EPartyMode)((PARTYHANDLER->GetPartyData().eMode+1)%3))) );
 		MESSAGEBOX->SetEvent( std::bind( &CPartyWindow::OnChangePartyModeButtonClick, this ) );
 	}
 

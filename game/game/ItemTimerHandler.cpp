@@ -829,8 +829,8 @@ BOOL CItemTimerHandler::OnMouseClick( CMouse * pcMouse )
 					if ( bCanCancel )
 					{
 						MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-						MESSAGEBOX->SetTitle( "Are you sure?" );
-						MESSAGEBOX->SetDescription( FormatString( "Do you want to cancel the %s?", pcaItemTimer[i]->szName ) );
+						MESSAGEBOX->SetTitle( "你确定吗?" );
+						MESSAGEBOX->SetDescription( FormatString( "你是否想要取消 %s?", pcaItemTimer[i]->szName ) );
 						MESSAGEBOX->SetEvent( std::bind( &CItemTimerHandler::OnClickCancelOK, this, pcaItemTimer[i], std::placeholders::_1 ) );
 						MESSAGEBOX->Show();
 					}
@@ -1192,7 +1192,7 @@ BOOL CItemTimerHandler::AddTimer( EItemTimerType iType, EItemID iItemID, DWORD d
 			}
 		}
 		else
-			TITLEBOX( "You are already using an item of this type!" );
+			TITLEBOX( "你已经使用了这种类型的装备!" );
 	}
 
 	return FALSE;
@@ -1238,8 +1238,8 @@ void CItemTimerHandler::HandlePacket( PacketRequestBeginnerItemsTimer * psPacket
 	if ( UNITDATA->sCharacterData.iLevel <= MAX_LEVEL_BEGINNERSBUFF )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Beginner's Boost!" );
-		MESSAGEBOX->SetDescription( "Do you wish to boost to level 70?" );
+		MESSAGEBOX->SetTitle( "初学者的直升!" );
+		MESSAGEBOX->SetDescription( "你想要直升到level 70吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CItemTimerHandler::OnClickBeginnerRequest, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
@@ -1252,8 +1252,8 @@ void CItemTimerHandler::HandlePacket( PacketRequestChemistItemTimer * psPacket )
 		bool bHat = GetHead() != NULL;
 
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Chemist Buff" );
-		MESSAGEBOX->SetDescription( bHat ? "Do you want to receive the buff and replace the current hat?" : "Do you want to receive the buff?" );
+		MESSAGEBOX->SetTitle( "化学家增益" );
+		MESSAGEBOX->SetDescription( bHat ? "你是否确认用当前增益替换你的现有增益?" : "你是否想要获取这个增益?" );
 		MESSAGEBOX->SetEvent( std::bind( &CItemTimerHandler::OnClickChemistBuffRequest, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}

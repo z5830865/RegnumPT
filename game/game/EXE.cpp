@@ -4613,14 +4613,11 @@ void __cdecl MainUnitDataSelf( UnitData * pcUnitData )
 				{
 					if ( ITEMDATA_USED_ITEM && ITEMDATA_USED_ITEM->sItem.sItemID.ToInt() )
 					{
-						// ITEMDATA_USED_ITEM = INVENTORYITEMS[INVENTORYITEMSLOT[ITEMSLOT_PotionOne - 1].iItemIndex - 1] 第一栏药水
-						// 发送使用道具的封包
 						ItemHandler::UseItem( &ITEMDATA_USED_ITEM->sItem );
 					}
 
 					int iHeightEffect = pcUnitData->sPosition.iY + (48 << 8);
 
-					// 使用药水
 					switch ( ItemHandler::UsedPotion() )
 					{
 						case POTIONSTATUS_HP:

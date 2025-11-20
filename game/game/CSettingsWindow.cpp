@@ -897,8 +897,8 @@ void CSettingsWindow::OnSaveButtonClick( UIEventArgs eArgs )
 {	
 	// Show Box to Save
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Save Settings" );
-	MESSAGEBOX->SetDescription( "Do you want to save the changes?" );
+	MESSAGEBOX->SetTitle( "保存设置" );
+	MESSAGEBOX->SetDescription( "你想要保存这些设置吗?" );
 	MESSAGEBOX->SetEvent( std::bind( &CSettingsWindow::Save, this ) );
 	MESSAGEBOX->SetAutoClose( 5 );
 	MESSAGEBOX->Show();
@@ -1200,7 +1200,7 @@ void CSettingsWindow::BuildWindow1()
 	// Boss Time and Server time
 	{
 		UI::Text_ptr pTextBossTimeHeader = std::make_shared<UI::Text>( Rectangle2D( 24, 114 + (26 * 2) + 20, 100, 20 ) );
-		pTextBossTimeHeader->SetText( "Boss Time:" );
+		pTextBossTimeHeader->SetText( "Boss时间:" );
 		pTextBossTimeHeader->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 		pWindow1->AddElement( pTextBossTimeHeader );
 
@@ -1211,7 +1211,7 @@ void CSettingsWindow::BuildWindow1()
 		pWindow1->AddElement( pTextBossTime );
 
 		UI::Text_ptr pTextServerTimeHeader = std::make_shared<UI::Text>( Rectangle2D( 24, 114 + (26 * 2) + 56, 100, 20 ) );
-		pTextServerTimeHeader->SetText( "Server Time:" );
+		pTextServerTimeHeader->SetText( "Serve时间:" );
 		pTextServerTimeHeader->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 		pWindow1->AddElement( pTextServerTimeHeader );
 
@@ -1224,7 +1224,7 @@ void CSettingsWindow::BuildWindow1()
 		pWindow1->AddElement( pTextServerTime );
 
 		UI::Text_ptr pTextServerNameHeader = std::make_shared<UI::Text>( Rectangle2D( 24, 114 + (26 * 2) + 72 + 36, 100, 20 ) );
-		pTextServerNameHeader->SetText( "Server:" );
+		pTextServerNameHeader->SetText( "服务:" );
 		pTextServerNameHeader->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 		pWindow1->AddElement( pTextServerNameHeader );
 
@@ -1235,7 +1235,7 @@ void CSettingsWindow::BuildWindow1()
 		pWindow1->AddElement( pTextServerName );
 
 		UI::Text_ptr pTextSiegeWar = std::make_shared<UI::Text>( Rectangle2D( 24, 114 + ( 26 * 2 ) + 108 + 36, 100, 20 ) );
-		pTextSiegeWar->SetText( "Siege War:" );
+		pTextSiegeWar->SetText( "攻城战:" );
 		pTextSiegeWar->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 		pWindow1->AddElement( pTextSiegeWar );
 
@@ -1311,7 +1311,7 @@ void CSettingsWindow::BuildWindow1Video()
 	// Text Ratio
 	UI::Text_ptr pTextRatio = std::make_shared<UI::Text>( Rectangle2D( iNewBaseX, iNewBaseY, 0, 0 ) );
 	pTextRatio->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextRatio->SetText( "Ratio:" );
+	pTextRatio->SetText( "画面比例:" );
 	pWindowVideo->AddElement( pTextRatio );
 
 	UI::CheckBox_ptr pCheckBox4_3 = std::make_shared<UI::CheckBox>( Rectangle2D( iNewBaseX, iNewBaseY + 20, 13, 13 ) );
@@ -1453,7 +1453,7 @@ void CSettingsWindow::BuildWindow1Audio()
 	// Text Background Music
 	UI::Text_ptr pTextBackgroundMusic = std::make_shared<UI::Text>( Rectangle2D( 24, 47, 0, 0 ) );
 	pTextBackgroundMusic->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextBackgroundMusic->SetText( "Background Music:" );
+	pTextBackgroundMusic->SetText( "背景音乐:" );
 	pWindowAudio->AddElement( pTextBackgroundMusic );
 
 	// Background Controller
@@ -1491,7 +1491,7 @@ void CSettingsWindow::BuildWindow1Audio()
 	// Text iSound Effects
 	UI::Text_ptr pTextSoundEffects = std::make_shared<UI::Text>( Rectangle2D( 24, 181, 0, 0 ) );
 	pTextSoundEffects->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextSoundEffects->SetText( "Sound Effects:" );
+	pTextSoundEffects->SetText( "音效:" );
 	pWindowAudio->AddElement( pTextSoundEffects );
 
 	// Background Controller
@@ -1584,7 +1584,7 @@ void CSettingsWindow::BuildWindow1General()
 	// Text
 	UI::Text_ptr pTextDamageDebug = std::make_shared<UI::Text>( Rectangle2D( 24, 167, 0, 0 ) );
 	pTextDamageDebug->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextDamageDebug->SetText( "Damage Debug:" );
+	pTextDamageDebug->SetText( "伤害调试:" );
 	pWindowGeneral->AddElement( pTextDamageDebug );
 
 	// Group
@@ -1612,7 +1612,7 @@ void CSettingsWindow::BuildWindow1General()
 	// Text
 	UI::Text_ptr pTextHPBar = std::make_shared<UI::Text>( Rectangle2D( 204, 167, 0, 0 ) );
 	pTextHPBar->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextHPBar->SetText( "HP Bar on Head:" );
+	pTextHPBar->SetText( "头顶HP血条:" );
 	pWindowGeneral->AddElement( pTextHPBar );
 
 	// Group
@@ -1721,7 +1721,7 @@ void CSettingsWindow::BuildWindow1General()
 	// Text
 	UI::Text_ptr pTextElement = std::make_shared<UI::Text>( Rectangle2D( 204, 247, 0, 0 ) );
 	pTextElement->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextElement->SetText( "Elemental Effects:" );
+	pTextElement->SetText( "元素影响:" );
 	pWindowGeneral->AddElement( pTextElement );
 
 	// Group
@@ -1775,7 +1775,7 @@ void CSettingsWindow::BuildWindow1General()
 	// Text
 	UI::Text_ptr pTextConnectionData = std::make_shared<UI::Text>( Rectangle2D( 24, 287, 0, 16 ) );
 	pTextConnectionData->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextConnectionData->SetText( "Connection Data:" );
+	pTextConnectionData->SetText( "连接数据:" );
 	pTextConnectionData->SetWidth( pTextConnectionData->GetTextWidth() + 8 );
 	pWindowGeneral->AddElement( pTextConnectionData );
 
@@ -1803,7 +1803,7 @@ void CSettingsWindow::BuildWindow1General()
 	// Text
 	UI::Text_ptr pTextHideCaravans = std::make_shared<UI::Text>( Rectangle2D( 204, 287, 0, 16 ) );
 	pTextHideCaravans->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextHideCaravans->SetText( "Hide Caravans:" );
+	pTextHideCaravans->SetText( "隐藏商队:" );
 	pTextHideCaravans->SetWidth( pTextHideCaravans->GetTextWidth() + 8 );
 	pWindowGeneral->AddElement( pTextHideCaravans );
 
@@ -1836,7 +1836,7 @@ void CSettingsWindow::BuildWindow1General()
 	pTooltipHideCaravans->SetFont( "Arial", 16, -1 );
 	pTooltipHideCaravans->SetPosition( TOOLTIPPOSITION_Left );
 	pTooltipHideCaravans->SetFollowMouse( FALSE );
-	pTooltipHideCaravans->SetText( "Hide caravans that aren't yours (except in cities)" );
+	pTooltipHideCaravans->SetText( "隐藏不属于你的商队（城市除外）" );
 	pWindowGeneral->AddElement( pTooltipHideCaravans );
 
 	iY += 336;
@@ -1844,7 +1844,7 @@ void CSettingsWindow::BuildWindow1General()
 	// Text
 	UI::Text_ptr pTextLootFilter = std::make_shared<UI::Text>( Rectangle2D( 24, iY, 0, 0 ) );
 	pTextLootFilter->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pTextLootFilter->SetText( "Loot Filter:" );
+	pTextLootFilter->SetText( "战利品过滤器:" );
 	pWindowGeneral->AddElement( pTextLootFilter );
 	iY += 20;
 
@@ -1852,7 +1852,7 @@ void CSettingsWindow::BuildWindow1General()
 	{
 		UI::CheckBox_ptr pCheckBoxLoot = std::make_shared<UI::CheckBox>( Rectangle2D( 24, iY, 13, 13 ) );
 		pCheckBoxLoot->SetFont( "Arial", 16, 6, FALSE, TRUE, -1 );
-		pCheckBoxLoot->SetText( "Enable Loot Filter" );
+		pCheckBoxLoot->SetText( "启用战利品过滤器" );
 		pCheckBoxLoot->SetID( CHECKBOXID_LootFilterEnable );
 		pCheckBoxLoot->SetImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox.png" ), UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox_.png" ) );
 		pWindowGeneral->AddElement( pCheckBoxLoot );
@@ -1862,7 +1862,7 @@ void CSettingsWindow::BuildWindow1General()
 
 		pCheckBoxLoot = std::make_shared<UI::CheckBox>( Rectangle2D( 24, iY, 13, 13 ) );
 		pCheckBoxLoot->SetFont( "Arial", 16, 6, FALSE, FALSE, -1 );
-		pCheckBoxLoot->SetText( "HP Potion" );
+		pCheckBoxLoot->SetText( "HP生命药水" );
 		pCheckBoxLoot->SetID( CHECKBOXID_LootHPPotion );
 		pCheckBoxLoot->SetImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox.png" ), UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox_.png" ) );
 		pWindowGeneral->AddElement( pCheckBoxLoot );
@@ -1870,7 +1870,7 @@ void CSettingsWindow::BuildWindow1General()
 
 		pCheckBoxLoot = std::make_shared<UI::CheckBox>( Rectangle2D( 24, iY, 13, 13 ) );
 		pCheckBoxLoot->SetFont( "Arial", 16, 6, FALSE, FALSE, -1 );
-		pCheckBoxLoot->SetText( "MP Potion" );
+		pCheckBoxLoot->SetText( "MP魔法药水" );
 		pCheckBoxLoot->SetID( CHECKBOXID_LootMPPotion );
 		pCheckBoxLoot->SetImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox.png" ), UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox_.png" ) );
 		pWindowGeneral->AddElement( pCheckBoxLoot );
@@ -1878,7 +1878,7 @@ void CSettingsWindow::BuildWindow1General()
 
 		pCheckBoxLoot = std::make_shared<UI::CheckBox>( Rectangle2D( 24, iY, 13, 13 ) );
 		pCheckBoxLoot->SetFont( "Arial", 16, 6, FALSE, FALSE, -1 );
-		pCheckBoxLoot->SetText( "SP Potion" );
+		pCheckBoxLoot->SetText( "SP耐力药水" );
 		pCheckBoxLoot->SetID( CHECKBOXID_LootSPPotion );
 		pCheckBoxLoot->SetImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox.png" ), UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox_.png" ) );
 		pWindowGeneral->AddElement( pCheckBoxLoot );

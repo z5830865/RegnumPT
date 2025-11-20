@@ -322,7 +322,7 @@ BOOL SkillManager::CancelSkill( int iSkillID )
 			break;
 	}
 
-	ChatGame::AddChatBoxText( AY_OBFUSCATE( "> Skill buff canceled!" ) );
+	ChatGame::AddChatBoxText( AY_OBFUSCATE( "> 技能增益取消!" ) );
 
 	return TRUE;
 }
@@ -391,7 +391,7 @@ void SkillManager::SkillPlaySound( DWORD dwCode, int iX, int iY, int iZ, int iFl
 {
 	fnSkillPlaySound( dwCode, iX, iY, iZ, iFlag );
 }
-//是否允许使用技能
+
 BOOL SkillManager::CanUseSkill( Skill * psSkill )
 {
 	if ( UNITDATA && UNITDATA->iLoadedMapIndex >= 0 && FIELDGAME[UNITDATA->iLoadedMapIndex]->iMapType == MAPTYPE_Town )
@@ -402,7 +402,7 @@ BOOL SkillManager::CanUseSkill( Skill * psSkill )
 
 	if( SKILLDATAHANDLER->IsSkillLocked( psSkill->iID ) )
 	{
-		TITLEBOX( "Skill is locked!" );
+		TITLEBOX( "技能被锁定!" );
 		return FALSE;
 	}
 
@@ -2364,8 +2364,8 @@ BOOL SkillManager::OnMouseClick( class CMouse * pcMouse )
 		{
 			// Show Box to accept the quest
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "Are you sure?" );
-			MESSAGEBOX->SetDescription( "Do you want to cancel the Force Orb?" );
+			MESSAGEBOX->SetTitle( "你确定吗?" );
+			MESSAGEBOX->SetDescription( "你是否要取消Orb之力?" );
 			MESSAGEBOX->SetEvent( std::bind( &SkillManager::CancelForceOrb, this, *(int*)(0x0367DE8C) - 1 ) );
 			MESSAGEBOX->Show();
 
@@ -2375,8 +2375,8 @@ BOOL SkillManager::OnMouseClick( class CMouse * pcMouse )
 		{
 			// Show Box to accept the quest
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "Are you sure?" );
-			MESSAGEBOX->SetDescription( "Do you want to cancel the Active Quest?" );
+			MESSAGEBOX->SetTitle( "你确定吗?" );
+			MESSAGEBOX->SetDescription( "你是否要取消当前任务?" );
 			MESSAGEBOX->SetEvent( std::bind( &CQuestGame::HandleCancelQuest, CQUESTGAME, sTempSkillTimerData[iID].iID, sTempSkillTimerData[iID].PlusState[4] ) );
 			MESSAGEBOX->Show();
 
@@ -2386,8 +2386,8 @@ BOOL SkillManager::OnMouseClick( class CMouse * pcMouse )
 		if ( SKILLINFOBOX->IsCancelableSkill( (ESkillID)sTempSkillTimerData[iID].iID ) )
 		{
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "Are you sure?" );
-			MESSAGEBOX->SetDescription( "Do you want to cancel the Skill?" );
+			MESSAGEBOX->SetTitle( "你确定吗?" );
+			MESSAGEBOX->SetDescription( "您想取消技能吗?" );
 			MESSAGEBOX->SetEvent( std::bind( &SkillManager::CancelSkill, SKILLMANAGERHANDLER, sTempSkillTimerData[iID].iID ) );
 			MESSAGEBOX->Show();
 			return TRUE;
@@ -2799,7 +2799,7 @@ BOOL SkillManager::OnBuySkill()
 			{
 				if( SKILLDATAHANDLER->IsSkillLocked( CURRENTSKILL->iID ) )
 				{
-					TITLEBOX( "Skill is Locked!" );
+					TITLEBOX( "技能被锁定!" );
 					return TRUE;
 				}
 			}
@@ -2851,10 +2851,10 @@ BOOL SkillManager::OnBuySkill()
 					SAVE;
 				}
 				else
-					TITLEBOX( "Not enough gold" );
+					TITLEBOX( "金币不足" );
 			}
 			else
-				TITLEBOX( "Not enough Regnum Skill Points" );
+				TITLEBOX( "没有足够的Regnum技能点" );
 
 			return TRUE;
 		}
@@ -3099,7 +3099,7 @@ BOOL SkillManager::OnRankUPButtonClick( int iX, int iY )
 
 							CHARACTERGAME->ResetHead( TRUE );
 
-							TITLEBOX( "You Rankup!" );
+							TITLEBOX( "你的排名上升了!" );
 						}
 						else if ( UNITDATA->sCharacterData.iRank == CHARACTERRANK_Rank4 )
 						{

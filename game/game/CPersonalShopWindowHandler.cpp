@@ -50,7 +50,7 @@ void CPersonalShopWindowHandler::Open( bool bSelfShop )
 				MOUSEHANDLER->BlockMouse();
 			}
 			else
-				TITLEBOX( AY_OBFUSCATE( "You can't set up a Personal Shop, because you're logged in with the Share PW!" ) );
+				TITLEBOX( AY_OBFUSCATE( "你不能开启个人商店, 因为你登录的是分享PW!" ) );
 		}
 		else
 		{
@@ -263,7 +263,7 @@ void CPersonalShopWindowHandler::AddItem( ItemData * pcItemData, bool bSelf )
 	{
 		if ( pcItemData->sItem.bLockedItemType )
 		{
-			TITLEBOX( AY_OBFUSCATE( "You can't sell locked items!" ) );
+			TITLEBOX( AY_OBFUSCATE( "你不能出售已经锁定的装备!" ) );
 			return;
 		}
 
@@ -344,7 +344,7 @@ void CPersonalShopWindowHandler::BuildWindow()
 	UI::Tooltip_ptr pTooltipStartSell = std::make_shared<UI::Tooltip>( Rectangle2D() );
 	pTooltipStartSell->Init();
 	pTooltipStartSell->SetFont( "Arial", 16, -1 );
-	pTooltipStartSell->SetText( "Start Selling" );
+	pTooltipStartSell->SetText( "开始售卖" );
 	pTooltipStartSell->SetLinkObject( pButtonStartSell );
 	pTooltipStartSell->SetPosition( TOOLTIPPOSITION_Top );
 	pTooltipStartSell->SetFollowMouse( FALSE );
@@ -436,14 +436,14 @@ void CPersonalShopWindowHandler::OnButtonStartSellClick( UIEventArgs eArgs )
 				{
 					MESSAGEBOX->ClearExtraElements();
 					MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_PersonalShopMessage );
-					MESSAGEBOX->SetTitle( "START SELLING" );
-					MESSAGEBOX->SetDescription( "Set a message about your personal shop:" );
+					MESSAGEBOX->SetTitle( "开始售卖" );
+					MESSAGEBOX->SetDescription( "为你的个人商店设置一条信息:" );
 					MESSAGEBOX->SetPersonalShopMessageLength( 128 - (STRLEN( UNITDATA->sCharacterData.szName ) + 2) );
 					MESSAGEBOX->SetEvent( std::bind( &CPersonalShopWindowHandler::OnAcceptStartSelling, this, std::placeholders::_1 ) );
 					MESSAGEBOX->Show();
 				}
 				else
-					TITLEBOX( "You need to put an item to start a new personal shop!" );
+					TITLEBOX( "你需要把一个装备放上去开启一个新的个人商店!" );
 			}
 		}
 	}
@@ -509,7 +509,7 @@ void CPersonalShopWindowHandler::OnBeforePutItemEvent( UIEventArgs eArgs )
 
 		if ( pcItemData->sItem.bLockedItemType )
 		{
-			TITLEBOX( AY_OBFUSCATE( "You can't sell locked items!" ) );
+			TITLEBOX( AY_OBFUSCATE( "你不能出售一件锁定的装备!" ) );
 			return;
 		}
 
@@ -538,8 +538,8 @@ void CPersonalShopWindowHandler::OnBeforePutItemEvent( UIEventArgs eArgs )
 
 					MESSAGEBOX->ClearExtraElements();
 					MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_PersonalShop );
-					MESSAGEBOX->SetTitle( "SELL ITEM" );
-					MESSAGEBOX->SetDescription( "Price:" );
+					MESSAGEBOX->SetTitle( "装备出售" );
+					MESSAGEBOX->SetDescription( "价格:" );
 					MESSAGEBOX->AddExtraText( pcItemData->sItem.szItemName, Rectangle2D( 25, 118, 76, 24 ), TRUE, UI::Color( 255, 255, 255, 255 ) );
 					MESSAGEBOX->AddExtraElement( pImageBoxItem );
 					MESSAGEBOX->SetItemPriceMax( iPriceMax > 0 ? 0 : 0, iPriceMax, iLastItemPrice );
@@ -549,10 +549,10 @@ void CPersonalShopWindowHandler::OnBeforePutItemEvent( UIEventArgs eArgs )
 					bIsSellingTime = TRUE;
 				}
 				else
-					TITLEBOX( "You cannot carry more items on personal shop!" );
+					TITLEBOX( "你不能在个人商店装载更多的装备了!" );
 			}
 			else
-				TITLEBOX( "You can't sell this item" );
+				TITLEBOX( "你不能出售这件装备" );
 		}
 	}
 }
@@ -564,8 +564,8 @@ void CPersonalShopWindowHandler::OnBeforeGetItemEvent( UIEventArgs eArgs )
 		if ( pWindow1->GetElement<UI::Button>( BUTTON_StartSell )->IsSelected() == FALSE )
 		{
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "STOP SELLING" );
-			MESSAGEBOX->SetDescription( "Do you want to stop selling this item?" );
+			MESSAGEBOX->SetTitle( "停止售卖" );
+			MESSAGEBOX->SetDescription( "你想要停止售卖这件装备吗?" );
 			MESSAGEBOX->SetEvent( std::bind( &CPersonalShopWindowHandler::OnAcceptGetItem, this, std::placeholders::_1 ) );
 			MESSAGEBOX->Show();
 		}
@@ -590,8 +590,8 @@ void CPersonalShopWindowHandler::OnBeforeGetItemEvent( UIEventArgs eArgs )
 
 							MESSAGEBOX->ClearExtraElements();
 							MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_PersonalShopBuy );
-							MESSAGEBOX->SetTitle( "BUY ITEM" );
-							MESSAGEBOX->SetDescription( FormatString( "Price (in %s):", psPrice->bCredits ? "coin" : "gold" ) );
+							MESSAGEBOX->SetTitle( "购买装备" );
+							MESSAGEBOX->SetDescription( FormatString( "价格 (in %s):", psPrice->bCredits ? "积分" : "金币" ) );
 							MESSAGEBOX->AddExtraText( pcItemData->sItem.szItemName, Rectangle2D( 25, 118, 76, 24 ), TRUE, UI::Color( 255, 255, 255, 255 ) );
 							MESSAGEBOX->AddExtraElement( pImageBoxItem );
 							MESSAGEBOX->SetItemPriceMax( psPrice->iPrice );
@@ -602,13 +602,13 @@ void CPersonalShopWindowHandler::OnBeforeGetItemEvent( UIEventArgs eArgs )
 						else
 						{
 							if ( psPrice->bCredits )
-								TITLEBOX( AY_OBFUSCATE( "Not enough coins" ) );
+								TITLEBOX( AY_OBFUSCATE( "没有足够的积分" ) );
 							else
-								TITLEBOX( AY_OBFUSCATE( "Not enough gold" ) );
+								TITLEBOX( AY_OBFUSCATE( "没有足够的金币" ) );
 						}
 					}
 					else
-						TITLEBOX( AY_OBFUSCATE( "Not enough gold" ) );
+						TITLEBOX( AY_OBFUSCATE( "没有足够的金币" ) );
 				}
 			}
 		}
@@ -667,13 +667,13 @@ void CPersonalShopWindowHandler::OnAcceptSellItem( ItemData * pcItemData, UIEven
 				}
 			}
 			else
-				TITLEBOX( AY_OBFUSCATE( "You need to set a price on this item!" ) );
+				TITLEBOX( AY_OBFUSCATE( "你需要给这件装备设定一个价格!" ) );
 		}
 		else
 		{
 			pcItemData->bValid = TRUE;
 
-			TITLEBOX( AY_OBFUSCATE( "Not enough space in inventory" ) );
+			TITLEBOX( AY_OBFUSCATE( "库存空间不足" ) );
 		}
 	}
 	else
@@ -696,13 +696,13 @@ void CPersonalShopWindowHandler::OnAcceptBuyItem( ItemData * pcItemData, UIEvent
 			{
 				if ( !CHARACTERGAME->CheckInventorySpace( pcItemData ) )
 				{
-					TITLEBOX( "Not enough space in inventory" );
+					TITLEBOX( "库存空间不足" );
 					return;
 				}
 
 				if ( (dwTimeProcessBuy + 1500) > TICKCOUNT )
 				{
-					TITLEBOX( "Wait for transaction time process!" );
+					TITLEBOX( "等待交易处理!" );
 					return;
 				}
 
@@ -727,9 +727,9 @@ void CPersonalShopWindowHandler::OnAcceptBuyItem( ItemData * pcItemData, UIEvent
 				else
 				{
 					if ( psPrice->bCredits )
-						TITLEBOX( AY_OBFUSCATE( "Not enough coins" ) );
+						TITLEBOX( AY_OBFUSCATE( "没有足够的积分" ) );
 					else
-						TITLEBOX( AY_OBFUSCATE( "Not enough gold" ) );
+						TITLEBOX( AY_OBFUSCATE( "没有足够的金币" ) );
 				}
 			}
 		}
@@ -754,6 +754,6 @@ void CPersonalShopWindowHandler::OnAcceptStartSelling( UIEventArgs eArgs )
 			pWindow1->GetElement<UI::Button>( BUTTON_StartSell )->SetSelected( TRUE );
 		}
 		else
-			TITLEBOX( "Fill the message on personal shop" );
+			TITLEBOX( "填写个人商店信息" );
 	}
 }

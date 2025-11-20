@@ -316,8 +316,8 @@ void CStarterCoreHandler::OnClickMap( int iMapID, int iIndex, UIEventArgs eArgs 
 
 	pWindow->GetElement<UI::Button>( BUTTONID_Teleport )->Show();
 
-	pWindow->GetElement<UI::Text>( TEXTID_MapType )->SetText( "Map Type:" );
-	pWindow->GetElement<UI::Text>( TEXTID_MapLevelText )->SetText( "Map Level:" );
+	pWindow->GetElement<UI::Text>( TEXTID_MapType )->SetText( "地图 类型:" );
+	pWindow->GetElement<UI::Text>( TEXTID_MapLevelText )->SetText( "地图 等级:" );
 	pWindow->GetElement<UI::Text>( TEXTID_MapLevel )->SetTextEx( "%d", MAPLEVEL( iMapID ) );
 }
 
@@ -327,12 +327,12 @@ void CStarterCoreHandler::OnClickTeleport( UIEventArgs eArgs )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
 		MESSAGEBOX->SetTitle( pszaMapsName[iMapID] );
-		MESSAGEBOX->SetDescription( "Do you want to teleport?" );
+		MESSAGEBOX->SetDescription( "你要传送吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CStarterCoreHandler::OnAcceptTeleport, this, iMapID, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
 	else
-		TITLEBOX( "You must be level %d or higher to teleport!", MAPLEVEL( iMapID ) );
+		TITLEBOX( "你必须达到level %d 或者更高等级才能传送!", MAPLEVEL( iMapID ) );
 }
 
 void CStarterCoreHandler::OnAcceptTeleport( int iMapID, UIEventArgs eArgs )

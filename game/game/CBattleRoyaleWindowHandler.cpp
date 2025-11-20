@@ -26,7 +26,7 @@ void CBattleRoyaleWindowHandler::Open( EWindowOpenID eWindowID, bool bClear )
 {
 	if ( fTimeSending > 0.0f )
 	{
-		TITLEBOX( "You need to wait your reward!" );
+		TITLEBOX( "你需要等待你的奖赏!" );
 		return;
 	}
 
@@ -89,7 +89,7 @@ void CBattleRoyaleWindowHandler::Close()
 {
 	if ( (fTimeSending > 0.0f) || bRoll )
 	{
-		TITLEBOX( "You need to wait your reward!" );
+		TITLEBOX( "你需要等待你的奖赏!" );
 		return;
 	}
 
@@ -155,15 +155,15 @@ void CBattleRoyaleWindowHandler::AddBattle( int iBattleID, int iMapID, bool bOpe
 			int iMinutes	= (int)((iTimeLeft / 60) % 60);
 
 			if ( iHour > 0 )
-				pTextBattle->SetTextEx( "%s (%s) (%d-%d) will open in %02d hour%s and %02d minute%s!", strName.c_str(), MAPNAME( iMapID ), sRequiredLevel.iMin, sRequiredLevel.iMax, iHour, iHour > 1 ? "s" : "", iMinutes, iMinutes > 1 ? "s" : "" );
+				pTextBattle->SetTextEx( "%s (%s) (%d-%d)将会在 %02d 小时%s and %02d 分%s 后打开!", strName.c_str(), MAPNAME( iMapID ), sRequiredLevel.iMin, sRequiredLevel.iMax, iHour, iHour > 1 ? "s" : "", iMinutes, iMinutes > 1 ? "s" : "" );
 			else
-				pTextBattle->SetTextEx( "%s (%s) (%d-%d) will open in %02d minute%s!", strName.c_str(), MAPNAME( iMapID ), sRequiredLevel.iMin, sRequiredLevel.iMax, iMinutes, iMinutes > 1 ? "s" : "" );
+				pTextBattle->SetTextEx( "%s (%s) (%d-%d) 将会在 %02d %s 后打开!", strName.c_str(), MAPNAME( iMapID ), sRequiredLevel.iMin, sRequiredLevel.iMax, iMinutes, iMinutes > 1 ? "s" : "" );
 		}
 		else
 			pTextBattle->SetTextEx( "%s (%s) (%d-%d)", strName.c_str(), MAPNAME( iMapID ), sRequiredLevel.iMin, sRequiredLevel.iMax );
 	}
 	else
-		pTextBattle->SetTextEx( "%s (%s) (%d-%d) will not open today, back tomorrow!", strName.c_str(), MAPNAME( iMapID ), sRequiredLevel.iMin, sRequiredLevel.iMax );
+		pTextBattle->SetTextEx( "%s (%s) (%d-%d) 今天暂不开放,请明天再来!", strName.c_str(), MAPNAME( iMapID ), sRequiredLevel.iMin, sRequiredLevel.iMax );
 
 	pTextBattle->SetColorHover( D3DCOLOR_XRGB( 238, 201, 0 ) );
 	pTextBattle->SetEvent( UI::Event::Build( std::bind( &CBattleRoyaleWindowHandler::OnButtonRequestClick, this, iBattleID, std::placeholders::_1 ) ) );
@@ -347,7 +347,7 @@ void CBattleRoyaleWindowHandler::BuildWindow()
 	UI::Text_ptr pTextNoReward = std::make_shared<UI::Text>( Rectangle2D( (568 >> 1) - (568 >> 1), 110, 568, 76 ) );
 	pTextNoReward->SetID( TEXT_NoRewards );
 	pTextNoReward->SetFont( "Arial", 48, 0, TRUE, TRUE, -1 );
-	pTextNoReward->SetText( "NO REWARDS!" );
+	pTextNoReward->SetText( "没有奖励!" );
 	pTextNoReward->SetHorizontalAlign( ALIGN_Center );
 	pTextNoReward->SetVerticalAlign( ALIGN_Center );
 	pTextNoReward->Hide();
@@ -448,14 +448,14 @@ void CBattleRoyaleWindowHandler::OnButtonRequestClick( int iBattleID, UIEventArg
 			if ( sBattle.bOpen )
 			{
 				MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-				MESSAGEBOX->SetTitle( "BATTLE ROYALE" );
-				MESSAGEBOX->SetDescription( "Do you want to enter?" );
+				MESSAGEBOX->SetTitle( "BATTLE ROYALE 大逃杀" );
+				MESSAGEBOX->SetDescription( "你想要进入吗?" );
 				MESSAGEBOX->SetEvent( std::bind( &CBattleRoyaleWindowHandler::OnAcceptRequest, this, iBattleID ) );
 				MESSAGEBOX->SetAutoClose( 10 );
 				MESSAGEBOX->Show();
 			}
 			else
-				TITLEBOX( "This battle is closed for now!" );
+				TITLEBOX( "这场战斗现在已经结束了!" );
 
 			break;
 		}
@@ -466,7 +466,7 @@ void CBattleRoyaleWindowHandler::OnButtonRollClick( UIEventArgs eArgs )
 {
 	if ( (fTimeSending > 0.0f) || bRoll )
 	{
-		TITLEBOX( "You need to wait your reward!" );
+		TITLEBOX( "你需要等待你的奖赏!" );
 		return;
 	}
 
@@ -475,7 +475,7 @@ void CBattleRoyaleWindowHandler::OnButtonRollClick( UIEventArgs eArgs )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
 		MESSAGEBOX->SetTitle( "Roll" );
-		MESSAGEBOX->SetDescription( "Do you want to roll the rewards?" );
+		MESSAGEBOX->SetDescription( "你想要ROLL取你的奖励吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CBattleRoyaleWindowHandler::OnAcceptRoll, this ) );
 		MESSAGEBOX->SetAutoClose( 10 );
 		MESSAGEBOX->Show();
@@ -486,7 +486,7 @@ void CBattleRoyaleWindowHandler::OnButtonClaimClick( UIEventArgs eArgs )
 {
 	if ( fTimeSending > 0.0f )
 	{
-		TITLEBOX( "You need to wait your reward!" );
+		TITLEBOX( "你需要等待你的奖赏!" );
 		return;
 	}
 
@@ -500,7 +500,7 @@ void CBattleRoyaleWindowHandler::OnButtonBackClick( UIEventArgs eArgs )
 {
 	if ( (fTimeSending > 0.0f) || bRoll )
 	{
-		TITLEBOX( "You need to wait your reward!" );
+		TITLEBOX( "你需要等待你的奖赏!" );
 		return;
 	}
 
@@ -525,7 +525,7 @@ void CBattleRoyaleWindowHandler::OnAcceptRequest( int iBattleID )
 
 		if ( ITEMHANDLER->GetMouseItem()->bValid )
 		{
-			TITLEBOX( "Please, put your mouse item on inventory before request!" );
+			TITLEBOX( "发起请求前请将装备放入背包中!" );
 			bRequest = false;
 		}
 

@@ -544,7 +544,7 @@ void CCharacterScreenModel::HandlePacket( PacketCreateCharacter * psPacket )
 	}
 	else
 	{
-		TITLEBOX( "Character Name already exist" );
+		TITLEBOX( "角色名已经存在" );
 
 		CSound::PlaySoundID( ACTIONSOUND_Back );
 		SOUNDHANDLER->UpdateVolume();
@@ -557,7 +557,7 @@ void CCharacterScreenModel::CreateNewCharacter( const std::string strCharacterNa
 {
 	if ( strCharacterName.length() == 0 )
 	{
-		TITLEBOX( "Please enter a Character Name" );
+		TITLEBOX( "请输入角色名" );
 	}
 	else
 	{

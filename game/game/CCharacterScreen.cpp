@@ -212,7 +212,7 @@ void CCharacterScreen::SelectCharacter( bool bLock )
 {
 	if ( pcCharacterScreenModel->HasSelectedCharacter() == false )
 	{
-		TITLEBOX( "Please select a character" );
+		TITLEBOX( "请选择一个角色" );
 		return;
 	}
 
@@ -221,8 +221,8 @@ void CCharacterScreen::SelectCharacter( bool bLock )
 		pcCharacterScreenModel->SetCharacterLocked( true );
 
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Character" );
-		MESSAGEBOX->SetDescription( "Do you want to select this character?" );
+		MESSAGEBOX->SetTitle( "角色" );
+		MESSAGEBOX->SetDescription( "你想要选择这个角色吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CCharacterScreen::OnSelectedCharacterBox, this ) );
 		MESSAGEBOX->SetAutoClose( 10 );
 		MESSAGEBOX->Show();

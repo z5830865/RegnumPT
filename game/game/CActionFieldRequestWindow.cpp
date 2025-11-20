@@ -68,7 +68,7 @@ void CActionFieldRequestWindow::AddModeList( std::string strName, IMinMax sRequi
 
 	int iEntranceLeft = iInstanceLimitPerDay - iInstanceCount;
 
-	pText->SetText( FormatString( "%s (%d-%d) Entrances left: %d/%d", strName.c_str(), sRequiredLevel.iMin, sRequiredLevel.iMax, iEntranceLeft, iInstanceLimitPerDay ) );
+	pText->SetText( FormatString( "%s (%d-%d) 入口剩余: %d/%d", strName.c_str(), sRequiredLevel.iMin, sRequiredLevel.iMax, iEntranceLeft, iInstanceLimitPerDay ) );
 
 	pText->SetEvent( UI::Event::Build( std::bind( &CActionFieldRequestWindow::OnButtonRequestEventClick, this, strName, eMode, std::placeholders::_1 ) ) );
 	pText->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
@@ -167,7 +167,7 @@ void CActionFieldRequestWindow::OnButtonRequestEventClick( std::string strName, 
 {
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
 	MESSAGEBOX->SetTitle( strName.c_str() );
-	MESSAGEBOX->SetDescription( "Do you want to participate?" );
+	MESSAGEBOX->SetDescription( "你想要参与吗?" );
 	MESSAGEBOX->SetEvent( std::bind( &CActionFieldRequestWindow::OnButtonYesClick, this, eModeID, std::placeholders::_1 ) );
 	MESSAGEBOX->Show();
 }

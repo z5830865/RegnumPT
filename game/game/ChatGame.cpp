@@ -306,8 +306,8 @@ int ChatGame::AnalyzeChat( char * pszBuff )
 
 		if ( ChatCommand( "/InputBox", pszBuff ) )
 		{
-			INPUTBOX->SetTitle( "Unstack Potions" );
-			INPUTBOX->SetDescription( "How many potions would you like to take?" );
+			INPUTBOX->SetTitle( "Unstack药水" );
+			INPUTBOX->SetDescription( "你想要携带多少药水?" );
 			INPUTBOX->SetValue( "0" );
 			INPUTBOX->SetNumberType( 0, 100, TRUE );
 			INPUTBOX->Show();
@@ -316,7 +316,7 @@ int ChatGame::AnalyzeChat( char * pszBuff )
 		{
 			SKILLMANAGERHANDLER->LoadParticles();
 			CALL( 0x00574740 );
-			AddChatBoxTextEx( CHATCOLOR_Error, "> All Particles reloaded!" );
+			AddChatBoxTextEx( CHATCOLOR_Error, "> 所有粒子重新加载!" );
 		}
 		else if ( ChatCommand( "/HideAll", pszBuff ) )
 		{

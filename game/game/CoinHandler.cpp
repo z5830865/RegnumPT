@@ -216,34 +216,34 @@ void CCoinHandler::HandlePacket( struct PacketCoinBuy * psPacket )
 	switch ( psPacket->iReturnCode )
 	{
 		case 0:
-			ChatGame::AddChatBoxText( "> Not enough credits!", CHATCOLOR_Global );
-			TITLEBOX( "Not enough credits!" );
+			ChatGame::AddChatBoxText( "> 没有足够的积分!", CHATCOLOR_Global );
+			TITLEBOX( "没有足够的积分!" );
 			break;
 
 		case 1:
-			ChatGame::AddChatBoxText( "> Item bought! Please visit Item Distiributor to get it!", CHATCOLOR_Global );
-			TITLEBOX( "Item bought! Please visit Item Distiributor to get it!" );
+			ChatGame::AddChatBoxText( "> 装备已经购买!请访问装备发放员获取你的装备!", CHATCOLOR_Global );
+			TITLEBOX( "装备已经购买!请访问装备发放员获取你的装备!" );
 			PLAYMINISOUND( 25 );
 			pcCoinShopWindow->ClearQuantity();
 			break;
 
 		case 2:
-			ChatGame::AddChatBoxText( "> Item bought!", CHATCOLOR_Global );
-			TITLEBOX( "Item bought!" );
+			ChatGame::AddChatBoxText( "> 装备已经购买!", CHATCOLOR_Global );
+			TITLEBOX( "装备已经购买!" );
 			PLAYMINISOUND( 25 );
 			pcCoinShopWindow->ClearQuantity();
 			break;
 
 		case -1:
-			ChatGame::AddChatBoxText( "> Tab Error" );
+			ChatGame::AddChatBoxText( "> 选项错误" );
 			break;
 
 		case -2:
-			ChatGame::AddChatBoxText( "> Item Error" );
+			ChatGame::AddChatBoxText( "> 装备错误" );
 			break;
 
 		case -3:
-			ChatGame::AddChatBoxText( "> You already have this premium item!" );
+			ChatGame::AddChatBoxText( "> 你已经获得了这件高品质的装备!" );
 			break;
 
 		default:

@@ -87,7 +87,7 @@ void CCarnivalWindowHandler::OnButtonCloseClick( UIEventArgs eArgs )
 	if ( dwCloseTime < TICKCOUNT )
 		Close();
 	else
-		TITLEBOX( "Still in progress... wait %d seconds", (dwCloseTime - TICKCOUNT) / 1000 );
+		TITLEBOX( "仍在进行中... 等待 %d 秒", (dwCloseTime - TICKCOUNT) / 1000 );
 }
 
 void CCarnivalWindowHandler::OnButtonRewardClick( UIEventArgs eArgs )
@@ -97,17 +97,17 @@ void CCarnivalWindowHandler::OnButtonRewardClick( UIEventArgs eArgs )
 		if ( CARNIVALHANDLER->HaveFruits() )
 		{
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "EXCHANGE ITEMS" );
-			MESSAGEBOX->SetDescription( "Do you want to exchange items?" );
+			MESSAGEBOX->SetTitle( "交换装备" );
+			MESSAGEBOX->SetDescription( "你想要交换装备吗?" );
 			MESSAGEBOX->SetEvent( std::bind( &CCarnivalWindowHandler::OnAcceptRewardClick, this ) );
 			MESSAGEBOX->SetAutoClose( 10 );
 			MESSAGEBOX->Show();
 		}
 		else
-			TITLEBOX( AY_OBFUSCATE( "You must have all fruits to exchange!" ) );
+			TITLEBOX( AY_OBFUSCATE( "你必须用所有的果实去交换!" ) );
 	}
 	else
-		TITLEBOX( "Still in progress... wait %d seconds", (dwCloseTime - TICKCOUNT) / 1000 );
+		TITLEBOX( "仍在进行中... 等待 %d 秒", (dwCloseTime - TICKCOUNT) / 1000 );
 }
 
 void CCarnivalWindowHandler::OnAcceptRewardClick()

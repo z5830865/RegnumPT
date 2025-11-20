@@ -163,14 +163,14 @@ void CItemBoxWindowHandler::AddItemReceive( const char * pszSenderName, SYSTEMTI
 			if ( pcItemData->sItem.sItemID.ToItemType() == ITEMTYPE_GoldAndExp )
 			{
 				if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_Gold )
-					pTextGoldEXP->SetTextEx( "Gold: %s gp", FormatNumber( pcItemData->sItem.iSalePrice ) );
+					pTextGoldEXP->SetTextEx( "金币: %s gp", FormatNumber( pcItemData->sItem.iSalePrice ) );
 				else if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_Experience )
 				{
 					LARGE_INTEGER li;
 					li.LowPart = pcItemData->sOldPosition.iX;
 					li.HighPart = pcItemData->sOldPosition.iY;
 
-					pTextGoldEXP->SetTextEx( "EXP: %s", FormatNumber( li.QuadPart ) );
+					pTextGoldEXP->SetTextEx( "经验值: %s", FormatNumber( li.QuadPart ) );
 				}
 			}
 
@@ -252,7 +252,7 @@ void CItemBoxWindowHandler::BuildWindowMain()
 	//Text Retrive Items
 	UI::Text_ptr pTextRetrive = std::make_shared<UI::Text>( Rectangle2D( 70, 201, 165, 20 ) );
 	pTextRetrive->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextRetrive->SetText( "Check your Item Box for items" );
+	pTextRetrive->SetText( "检查你装备盒子中的装备" );
 	pWindowMain->AddElement( pTextRetrive );
 
 	//Button Send
@@ -265,7 +265,7 @@ void CItemBoxWindowHandler::BuildWindowMain()
 	//Text Send Items
 	UI::Text_ptr pTextSend = std::make_shared<UI::Text>( Rectangle2D( 70, 283, 165, 20 ) );
 	pTextSend->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextSend->SetText( "Send items to an Item Box of another player" );
+	pTextSend->SetText( "发送物品到其他玩家的物品箱" );
 	pWindowMain->AddElement( pTextSend );
 
 	//Button Close
@@ -286,7 +286,7 @@ void CItemBoxWindowHandler::BuildWindowReceive()
 	//Header Text
 	UI::Text_ptr pTextHeader = std::make_shared<UI::Text>( Rectangle2D( 30, 40, 300, 18 ) );
 	pTextHeader->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextHeader->SetText( "Hold on, let me see if I have anything in your name." );
+	pTextHeader->SetText( "等一下, 让我看看有没有你名下的东西." );
 	pWindowReceive->AddElement( pTextHeader );
 
 	//Empty
@@ -296,7 +296,7 @@ void CItemBoxWindowHandler::BuildWindowReceive()
 		
 		UI::Text_ptr pTextEmpty = std::make_shared<UI::Text>( Rectangle2D( 30, 80, 304, 80 ) );
 		pTextEmpty->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-		pTextEmpty->SetText( "Hmm... guess not. Yeah, there's nothing for you here at the moment.\n\nFeel free to come back later and I will check again." );
+		pTextEmpty->SetText( "嗯...我猜没有. 是的,这里现在还没有你的东西.\n\n请稍后再来，我再检查一下." );
 		pTextEmpty->SetMultiLine( TRUE );
 		pTextEmpty->SetWordWrap( TRUE );
 		pWindowReceiveEmpty->AddElement( pTextEmpty );
@@ -522,13 +522,13 @@ void CItemBoxWindowHandler::BuildWindowSend()
 	//Character Name Description
 	UI::Text_ptr pTextCharacterNameDescription = std::make_shared<UI::Text>( Rectangle2D( 30, 260, 260, 20 ) );
 	pTextCharacterNameDescription->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextCharacterNameDescription->SetText( "Fill in below the recipient's Character Name." );
+	pTextCharacterNameDescription->SetText( "填写以下收件人的角色名称." );
 	pWindowSend->AddElement( pTextCharacterNameDescription );
 
 	//Character Name
 	UI::Text_ptr pTextCharacterName = std::make_shared<UI::Text>( Rectangle2D( 30, 290, 260, 20 ) );
 	pTextCharacterName->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextCharacterName->SetText( "Name:" );
+	pTextCharacterName->SetText( "名字:" );
 	pWindowSend->AddElement( pTextCharacterName );
 
 	//Input Image
@@ -586,9 +586,9 @@ void CItemBoxWindowHandler::OnButtonBackClick( UIEventArgs eArgs )
 		if ( pWindow1->GetElement<UI::Window>( WINDOW_Send )->GetElement<UI::ItemBox>( ITEMBOX_Items )->GetItems().size() > 0 )
 		{
 			if ( fItemBoxSendBlockTime == 0.0f )
-				TITLEBOX( "Remove items before close the window!" );
+				TITLEBOX( "在关闭窗口之前移除装备!" );
 			else
-				TITLEBOX( "Item box still processing data" );
+				TITLEBOX( "装备盒子仍在处理数据" );
 			return;
 		}
 	}
@@ -609,8 +609,8 @@ void CItemBoxWindowHandler::OnButtonGetItemClick( UIEventArgs eArgs )
 void CItemBoxWindowHandler::OnButtonDiscardItemClick( UIEventArgs eArgs )
 {
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Discard Item" );
-	MESSAGEBOX->SetDescription( "Do you want to discard this item?" );
+	MESSAGEBOX->SetTitle( "丢弃装备" );
+	MESSAGEBOX->SetDescription( "你想要丢弃这件装备吗?" );
 	MESSAGEBOX->SetEvent( std::bind( &CItemBoxWindowHandler::OnAcceptDiscardItemClick, this, std::placeholders::_1 ) );
 	MESSAGEBOX->SetAutoClose( 10 );
 	MESSAGEBOX->Show();
@@ -637,20 +637,20 @@ void CItemBoxWindowHandler::OnButtonSendItemClick( UIEventArgs eArgs )
 				if ( pInputName->GetText().length() > 0 )
 				{
 					MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-					MESSAGEBOX->SetTitle( "Send Items" );
-					MESSAGEBOX->SetDescription( FormatString( "Do you want to send items to %s?", pInputName->GetText().c_str() ) );
+					MESSAGEBOX->SetTitle( "赠送装备" );
+					MESSAGEBOX->SetDescription( FormatString( "你确定要将装备赠送给 %s 吗?", pInputName->GetText().c_str() ) );
 					MESSAGEBOX->SetEvent( std::bind( &CItemBoxWindowHandler::OnAcceptSendItemClick, this, std::placeholders::_1 ) );
 					MESSAGEBOX->SetAutoClose( 10 );
 					MESSAGEBOX->Show();
 				}
 				else
-					TITLEBOX( "Fill the character name" );
+					TITLEBOX( "填写角色名称" );
 			}
 			else
-				TITLEBOX( "Not enough gold! You need %s gp!", FormatNumber( iGold ) );
+				TITLEBOX( "金币不够，你还需要 %s 金币!", FormatNumber( iGold ) );
 		}
 		else
-			TITLEBOX( "Put an item on item box to send" );
+			TITLEBOX( "将装备放进装备盒子里赠送" );
 	}
 }
 
@@ -684,10 +684,10 @@ void CItemBoxWindowHandler::OnAcceptSendItemClick( UIEventArgs eArgs )
 				ItemBoxSendBlock( TRUE );
 			}
 			else
-				TITLEBOX( "Put an item on item box to send" );
+				TITLEBOX( "将装备放进装备盒子里赠送" );
 		}
 		else
-			TITLEBOX( "Fill the character name" );
+			TITLEBOX( "填写角色名称" );
 	}
 }
 
@@ -707,7 +707,7 @@ void CItemBoxWindowHandler::HandleReceiveItemReply( BOOL bGetItem )
 			if ( CHARACTERGAME->CheckInventorySpace( pcItemData ) )
 				ITEMBOXHANDLER->ProcessPacket( &sPacket );
 			else
-				TITLEBOX( "Not enough space in inventory" );
+				TITLEBOX( "库存空间不足" );
 		}
 		else
 		{

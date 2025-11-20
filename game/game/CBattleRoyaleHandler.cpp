@@ -65,7 +65,7 @@ void CBattleRoyaleHandler::Init()
 		pTextState->SetFont( "Arial", 28, 0, FALSE, TRUE, D3DCOLOR_XRGB( 84, 173, 63 ) );
 		pTextState->SetDropdownShadow( TRUE );
 		pTextState->SetDropdownColor( D3DCOLOR_ARGB( 200, 0, 0, 0 ) );
-		pTextState->SetText( "Waiting for players..." );
+		pTextState->SetText( "等待其他玩家..." );
 		pWindowTop->AddElement( pTextState );
 	}
 
@@ -153,12 +153,12 @@ void CBattleRoyaleHandler::HandlePacket( PacketBattleRoyaleUpdate * psPacket )
 	{
 		if ( InBattle() )
 		{
-			pWindowTop->GetElement<UI::Text>( TEXT_State )->SetText( "In Battle" );
+			pWindowTop->GetElement<UI::Text>( TEXT_State )->SetText( "战斗中" );
 			pWindowTop->GetElement<UI::Text>( TEXT_State )->SetColor( D3DCOLOR_XRGB( 255, 20, 20 ) );
 
 			if ( sState.bTeam )
 			{
-				pWindowTop->GetElement<UI::Text>( TEXT_Team )->SetText( FormatString( "%s Team", BroyaleTeamToString( eTeamID ).c_str() ) );
+				pWindowTop->GetElement<UI::Text>( TEXT_Team )->SetText( FormatString( "%s 队伍", BroyaleTeamToString( eTeamID ).c_str() ) );
 
 				DWORD dwColor = -1;
 				switch ( eTeamID )
@@ -182,9 +182,9 @@ void CBattleRoyaleHandler::HandlePacket( PacketBattleRoyaleUpdate * psPacket )
 					for ( int i = 0; i < _countof( sState.eaTeamID ); i++ )
 					{
 						if ( sState.eaTeamID[i] == EPlayerTeam::PLAYERTEAM_Green )
-							pWindowTop->GetElement<UI::Text>( TEXT_TeamGreenKills )->SetTextEx( "Green (%d/%d)", sState.iaTeamKills[i], sState.iKillsNeeded );
+							pWindowTop->GetElement<UI::Text>( TEXT_TeamGreenKills )->SetTextEx( "绿 (%d/%d)", sState.iaTeamKills[i], sState.iKillsNeeded );
 						else
-							pWindowTop->GetElement<UI::Text>( TEXT_TeamWhiteKills )->SetTextEx( "White (%d/%d)", sState.iaTeamKills[i], sState.iKillsNeeded );
+							pWindowTop->GetElement<UI::Text>( TEXT_TeamWhiteKills )->SetTextEx( "白 (%d/%d)", sState.iaTeamKills[i], sState.iKillsNeeded );
 					}
 				}
 			}
@@ -198,7 +198,7 @@ void CBattleRoyaleHandler::HandlePacket( PacketBattleRoyaleUpdate * psPacket )
 				int iDifferenceTime = (MAX_BATTLEROYALE_WAITTIME - psPacket->sState.iTimeUpdate) / 1000;
 				int iMinutes = iDifferenceTime / 60;
 				int iSeconds = iDifferenceTime % 60;
-				pWindowTop->GetElement<UI::Text>( TEXT_State )->SetTextEx( "Waiting for players... (%02d:%02d)", iMinutes, iSeconds );
+				pWindowTop->GetElement<UI::Text>( TEXT_State )->SetTextEx( "等待其他玩家... (%02d:%02d)", iMinutes, iSeconds );
 
 				if ( sState.bCountdown )
 					pWindowTop->GetElement<UI::Text>( TEXT_State )->SetText( "" );
@@ -215,7 +215,7 @@ void CBattleRoyaleHandler::HandlePacket( PacketBattleRoyaleUpdate * psPacket )
 				int iDifferenceTime = (MAX_BATTLEROYALE_WAITPVP - psPacket->sState.iTimeUpdate) / 1000;
 				int iMinutes = iDifferenceTime / 60;
 				int iSeconds = iDifferenceTime % 60;
-				pWindowTop->GetElement<UI::Text>( TEXT_State )->SetTextEx( "Drop time... (%02d:%02d)", iMinutes, iSeconds );
+				pWindowTop->GetElement<UI::Text>( TEXT_State )->SetTextEx( "掉落时间... (%02d:%02d)", iMinutes, iSeconds );
 				if ( sState.bCountdown )
 					pWindowTop->GetElement<UI::Text>( TEXT_State )->SetText( "" );
 			}
@@ -537,7 +537,7 @@ void CBattleRoyaleHandler::Update( float fTime )
 				{
 					iOldTimeCountdown = 1000;
 
-					pWindowTop->GetElement<UI::Text>( TEXT_Countdown )->SetText( "START" );
+					pWindowTop->GetElement<UI::Text>( TEXT_Countdown )->SetText( "开始" );
 
 					fAlphaCountdown = 1000.0f;
 				}
@@ -560,7 +560,7 @@ void CBattleRoyaleHandler::Update( float fTime )
 			if ( iTime < 0 )
 				iTime = 0;
 
-			pWindowTop->GetElement<UI::Text>( TEXT_TimeRevive )->SetTextEx( "Revive in %d", iTime );
+			pWindowTop->GetElement<UI::Text>( TEXT_TimeRevive )->SetTextEx( "恢复中 %d", iTime );
 
 			fTimeToRevive -= fTime;
 		}

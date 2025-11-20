@@ -28,8 +28,8 @@ BOOL CCharacterPvPModeHandler::OnKeyChar( CKeyboard * pcKeyboard )
 					AddTimer();
 				else
 				{
-					TITLEBOX( AY_OBFUSCATE( "You can't turn into Pk Mode on this map!" ) );
-					CHATGAMEHANDLER->AddChatBoxTextEx( CHATCOLOR_Error, AY_OBFUSCATE( "> You can't turn into Pk Mode on this map!" ) );
+					TITLEBOX( AY_OBFUSCATE( "在这张地图上你不能进入Pk模式!" ) );
+					CHATGAMEHANDLER->AddChatBoxTextEx( CHATCOLOR_Error, AY_OBFUSCATE( "> 在这张地图上你不能进入Pk模式!" ) );
 				}
 			}
 		}
@@ -46,9 +46,9 @@ void CCharacterPvPModeHandler::Kill( bool bForce )
 
 		TIMERSKILLHANDLER->KillTimer( SKILLID_PKMode );
 
-		TITLEBOX( AY_OBFUSCATE( "You turned into Neutral Mode!" ) );
+		TITLEBOX( AY_OBFUSCATE( "你切换了中立模式!" ) );
 
-		CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> You turned into Neutral Mode!" ) );
+		CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> 你切换了中立模式!" ) );
 
 		dwTimeUpdate = TICKCOUNT;
 	}
@@ -56,8 +56,8 @@ void CCharacterPvPModeHandler::Kill( bool bForce )
 	{
 		int iTime = CHARACTERPVPMODEHANDLER->GetTimeLeft();
 
-		TITLEBOX( AY_OBFUSCATE( "You will be able to turn into Neutral Mode in %02d:%02d!" ), iTime / 60, iTime % 60 );
-		CHATGAMEHANDLER->AddChatBoxTextEx( CHATCOLOR_Error, AY_OBFUSCATE( "> You will be able to turn into Neutral Mode in %02d:%02d!" ), iTime / 60, iTime % 60 );
+		TITLEBOX( AY_OBFUSCATE( "你将会在 %02d:%02d! 之后进入中立模式" ), iTime / 60, iTime % 60 );
+		CHATGAMEHANDLER->AddChatBoxTextEx( CHATCOLOR_Error, AY_OBFUSCATE( "> 你将会在 %02d:%02d! 之后进入中立模式" ), iTime / 60, iTime % 60 );
 	}
 }
 
@@ -67,14 +67,14 @@ int CCharacterPvPModeHandler::OnRenderTime( Skill * psSkill )
 
 	if ( psSkill->iID == SKILLID_PKMode )
 	{
-		SKILLMANAGERHANDLER->AddSkillInfo( 1, "Time left to disable:\r" );
+		SKILLMANAGERHANDLER->AddSkillInfo( 1, "剩余禁用时间:\r" );
 
 		int iTime = (dwTimeUpdate - TICKCOUNT) / 1000;
 
 		if ( iTime > 0 )
 			SKILLMANAGERHANDLER->AddSkillInfo( 2, "%d:%d\r", iTime / 60, iTime % 60 );
 		else
-			SKILLMANAGERHANDLER->AddSkillInfo( 2, "You can disable now!\r" );
+			SKILLMANAGERHANDLER->AddSkillInfo( 2, "现在就可以禁用了!\r" );
 
 		iLineCount++;
 	}
@@ -163,7 +163,7 @@ void CCharacterPvPModeHandler::AddTimer()
 			sSkill.iUseTime = 70 * 70;
 			sSkill.iLevel = 1;
 			sSkill.MatIcon = iTimerID;
-			STRINGCOPY( sSkill.sSkillInfo.szName, "Pk Mode" );
+			STRINGCOPY( sSkill.sSkillInfo.szName, "Pk 模式" );
 			TIMERSKILLHANDLER->AddSkillTimer( &sSkill );
 		}
 
@@ -171,14 +171,14 @@ void CCharacterPvPModeHandler::AddTimer()
 
 		UNIT->bPvPMode = true;
 
-		TITLEBOX( AY_OBFUSCATE( "You turned into Pk Mode!" ) );
-		CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> You turned into Pk Mode!" ) );
+		TITLEBOX( AY_OBFUSCATE( "切换到Pk模式!" ) );
+		CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> 切换到Pk模式!" ) );
     }
 	else if ( UNIT->bPvPMode == false )
 	{
 		int iTime = CHARACTERPVPMODEHANDLER->GetTimeLeft( true );
 
-		TITLEBOX( AY_OBFUSCATE( "You will be able to turn into Pk Mode in %02d:%02d!" ), iTime / 60, iTime % 60 );
-		CHATGAMEHANDLER->AddChatBoxTextEx( CHATCOLOR_Error, AY_OBFUSCATE( "> You will be able to turn into Pk Mode in %02d:%02d!" ), iTime / 60, iTime % 60 );
+		TITLEBOX( AY_OBFUSCATE( "你将会在 %02d:%02d!之后切换到Pk模式!" ), iTime / 60, iTime % 60 );
+		CHATGAMEHANDLER->AddChatBoxTextEx( CHATCOLOR_Error, AY_OBFUSCATE( "> 你将会在 %02d:%02d!之后切换到Pk模式!" ), iTime / 60, iTime % 60 );
 	}
 }
