@@ -611,8 +611,8 @@ BOOL CCoinShopHandler::PerfectizeItem( User * pcUser, PacketCoinServiceBuy * psP
 		}
 		else
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "Not enough credits!" );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Not enough credits!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "没有足够的积分!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, ">没有足够的积分!" );
 			psPacket->iRetCode = -1; //Not coins
 			ProcessPacket( pcUser, psPacket );
 		}
@@ -621,7 +621,7 @@ BOOL CCoinShopHandler::PerfectizeItem( User * pcUser, PacketCoinServiceBuy * psP
 	{
 		psPacket->iRetCode = -4; //Already Perfect
 		ProcessPacket( pcUser, psPacket );
-		CHATSERVER->SendChatMessageBox( pcUser, "This item is already perfect!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "这件装备已经是完美的!" );
 	}
 	//FAIL!
 	return FALSE;
@@ -768,8 +768,8 @@ BOOL CCoinShopHandler::ItemSwapper( User * pcUser, PacketCoinServiceBuy * psPack
 		}
 		else
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "Not enough credits!" );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Not enough credits!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "没有足够的积分!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 没有足够的积分!" );
 			psPacket->iRetCode = -1;
 			ProcessPacket( pcUser, psPacket );
 		}
@@ -799,8 +799,8 @@ BOOL CCoinShopHandler::ChangeNick( User * pcUser, PacketCoinServiceBuy * psPacke
 			{
 				if ( strstr( tolower(psPacket->ChangeNick.szNewCharacterName).c_str(), pszaNotAllowedNamesChangeNick[i] ) )
 				{
-					CHATSERVER->SendChatMessageBox( pcUser, "Character Name not allowed! choose other!" );
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Character Name not allowed! choose other!" );
+					CHATSERVER->SendChatMessageBox( pcUser, "该角色名已经存在!请重新选择!" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 该角色名已经存在!请重新选择!" );
 					
 					psPacket->iRetCode = -3;
 					ProcessPacket( pcUser, psPacket );
@@ -821,8 +821,8 @@ BOOL CCoinShopHandler::ChangeNick( User * pcUser, PacketCoinServiceBuy * psPacke
 		}
 		else
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "Character Name already exists!" );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Character Name already exists!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "角色名称已存在!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 角色名称已存在!" );
 			psPacket->iRetCode = -2;
 			ProcessPacket( pcUser, psPacket );
 			return FALSE;
@@ -830,8 +830,8 @@ BOOL CCoinShopHandler::ChangeNick( User * pcUser, PacketCoinServiceBuy * psPacke
 	}
 	else
 	{
-		CHATSERVER->SendChatMessageBox( pcUser, "Not enough credits!" );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Not enough credits!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "没有足够的积分!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 没有足够的积分!" );
 		psPacket->iRetCode = -1;
 		ProcessPacket( pcUser, psPacket );
 		return FALSE;
@@ -865,8 +865,8 @@ BOOL CCoinShopHandler::LevelUP( User * pcUser, PacketCoinServiceBuy * psPacket )
 	}
 	else
 	{
-		CHATSERVER->SendChatMessageBox( pcUser, "Error on Level UP!" );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Error on Level UP!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "等级提升失败!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, ">等级提升失败!" );
 		psPacket->iRetCode = -2;
 		ProcessPacket( pcUser, psPacket );
 		return FALSE;
@@ -910,16 +910,16 @@ BOOL CCoinShopHandler::AgingRecovery( User * pcUser, PacketCoinServiceBuy * psPa
 		}
 		else
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "Not enough credits!" );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Not enough credits!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "没有足够的积分!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 没有足够的积分!" );
 			psPacket->iRetCode = -1;
 			ProcessPacket( pcUser, psPacket );
 		}
 	}
 	else
 	{
-		CHATSERVER->SendChatMessageBox( pcUser, "Item not found!" );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Item not found!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "没有找到该装备!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, ">没有找到该装备!" );
 		psPacket->iRetCode = -1;
 		ProcessPacket( pcUser, psPacket );
 	}
@@ -947,8 +947,8 @@ BOOL CCoinShopHandler::ChangeClass( User * pcUser, PacketCoinServiceBuy * psPack
 	{
 		if ( SERVERCOMMAND->SQLReadFromCharacter( CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), SQLSERVERCOMMAND_ChangeCharacterClass, SQLServerCommand() ) )
 		{
-			CHATSERVER->SendChatMessageBox( pcUser, "You have a change class in the queue!" );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> You have a change class in the queue!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你在队列中有一个更改类!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 你在队列中有一个更改类!" );
 			psPacket->iRetCode = -4;
 			ProcessPacket( pcUser, psPacket );
 			return FALSE;
@@ -962,8 +962,8 @@ BOOL CCoinShopHandler::ChangeClass( User * pcUser, PacketCoinServiceBuy * psPack
 				{
 					if ( strstr( tolower( psPacket->ChangeClass.szNewCharacterName ).c_str(), pszaNotAllowedNamesChangeNick[i] ) )
 					{
-						CHATSERVER->SendChatMessageBox( pcUser, "Character Name not allowed! choose other!" );
-						CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Character Name not allowed! choose other!" );
+						CHATSERVER->SendChatMessageBox( pcUser, "该角色名已经存在!请重新选择!" );
+						CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 该角色名已经存在!请重新选择!" );
 
 						psPacket->iRetCode = -3;
 						ProcessPacket( pcUser, psPacket );
@@ -979,8 +979,8 @@ BOOL CCoinShopHandler::ChangeClass( User * pcUser, PacketCoinServiceBuy * psPack
 			}
 			else
 			{
-				CHATSERVER->SendChatMessageBox( pcUser, "Character Name already exists!" );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Character Name already exists!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "角色名称已存在!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 角色名称已存在!" );
 				psPacket->iRetCode = -2;
 				ProcessPacket( pcUser, psPacket );
 				return FALSE;
@@ -1413,7 +1413,7 @@ void CCoinShopHandler::HandlePacket( User * pcUser, struct PacketCoinBuy * psPac
 	{
 		SENDPACKET( pcUser, psPacket );
 
-		CHATSERVER->SendChatMessageBox( pcUser, "You can't spend Coins, because you're logged in with the Share PW!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "你不能赠送积分, 因为你登录的是共享PW!" );
 
 		return;
 	}
@@ -1532,7 +1532,7 @@ void CCoinShopHandler::HandlePacket( User * pcUser, PacketCoinServiceBuy * psPac
 
 			SENDPACKET( pcUser, psPacket );
 
-			CHATSERVER->SendChatMessageBox( pcUser, "You can't spend Coins, because you're logged in with the Share PW!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你不能赠送积分, 因为你登录的是共享PW!" );
 		}
 
 		//Update Coins
@@ -1556,7 +1556,7 @@ void CCoinShopHandler::HandlePacket( User * pcUser, PacketTradeCoinSet * psPacke
 			}
 		}
 		else
-			CHATSERVER->SendChatMessageBox( pcUser, "You can't Trade Coin, because you're logged in with the Share PW!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你不能交易积分, 因为你登录的是共享PW!" );
 	}
 }
 

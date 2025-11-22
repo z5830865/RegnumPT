@@ -149,16 +149,16 @@ void CRollDiceHandler::Tick()
 							{
 								//Send item to Distributor
 								if( ITEMSERVER->AddItemOpenBox( pcWinnerUser->pcUserData, psItemData->szInventoryName, 0 ) )
-									CHATSERVER->SendChat( pcWinnerUser, CHATCOLOR_Error, "> Check Item Distributor to get your item!" );
+									CHATSERVER->SendChat( pcWinnerUser, CHATCOLOR_Error, ">检查物品分发员以获得奖励!" );
 
 								//Chat Alert
 								if ( pcItemDrop->vListUsers.size() > 1 )
-									CHATSERVER->SendChatAllUsersInStage( pcWinnerUser->GetMapID(), CHATCOLOR_Global, "Roll> %s #%d won %s from %d players!", CHARACTERSERVER->GetCharacterName( pcWinnerUser->pcUserData ), iLastNumber, psDefItem->sItem.szItemName, pcItemDrop->vListUsers.size() );
+									CHATSERVER->SendChatAllUsersInStage( pcWinnerUser->GetMapID(), CHATCOLOR_Global, "Roll> %s #%d 从玩家 %d 赢得了 %s!", CHARACTERSERVER->GetCharacterName( pcWinnerUser->pcUserData ), iLastNumber, psDefItem->sItem.szItemName, pcItemDrop->vListUsers.size() );
 								else
-									CHATSERVER->SendChatAllUsersInStage( pcWinnerUser->GetMapID(), CHATCOLOR_Global, "Roll> %s #%d won %s!", CHARACTERSERVER->GetCharacterName( pcWinnerUser->pcUserData ), iLastNumber, psDefItem->sItem.szItemName );
+									CHATSERVER->SendChatAllUsersInStage( pcWinnerUser->GetMapID(), CHATCOLOR_Global, "Roll> %s #%d 赢得了 %s!", CHARACTERSERVER->GetCharacterName( pcWinnerUser->pcUserData ), iLastNumber, psDefItem->sItem.szItemName );
 
 								//Log of send item
-								LOGSERVER->OnLogItemEx( pcWinnerUser, ITEMLOGID_RollDiceWon, "Character[%s] Won Roll Dice MapID[%d] ItemName[%s] TotalUsers[%d] RollNumber[%d]",
+								LOGSERVER->OnLogItemEx( pcWinnerUser, ITEMLOGID_RollDiceWon, "玩家[%s]赢得了 Roll Dice MapID[%d] ItemName[%s] TotalUsers[%d] RollNumber[%d]",
 									CHARACTERSERVER->GetCharacterName( pcWinnerUser->pcUserData ), pcWinnerUser->GetMapID(), psDefItem->sItem.szItemName, pcItemDrop->vListUsers.size(), iLastNumber );
 
 								SENDPACKETBLANK( pcWinnerUser, PKTHDR_PacketFun );

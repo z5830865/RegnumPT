@@ -95,7 +95,7 @@ int CGameSkillHandlerOld::OpenPlaySkill( Skill * psSkill )
 					UNITDATA->iFPS = 80;
 					UNITDATA->bOverrideFPS = TRUE;
 
-					SKILLMANAGERHANDLER->SetUnitsRange( UNITDATA->sPosition, sSkillTable.iaPikemanT11PushbackRange[psSkill->iLevel - 1], FALSE );
+					SKILLMANAGERHANDLER->SetUnitsRange( UNITDATA->sPosition, iaPikemanT11PushbackRange[psSkill->iLevel - 1], FALSE );
 
 					SKILLMANAGERHANDLER->DamageAreaHandle( UNITDATA->pcTarget, UNITDATA->sPosition, 0, 0, 0, 0, UNITDATA->sActiveSkill.iValue );
 
@@ -166,7 +166,7 @@ int CGameSkillHandlerOld::OpenPlaySkill( Skill * psSkill )
 					UNITDATA->iFPS = 80;
 					UNITDATA->bOverrideFPS = TRUE;
 
-					SKILLMANAGERHANDLER->SetUnitsRange( UNITDATA->sPosition, sSkillTable.iaPikemanT21FreezeAttackRange[psSkill->iLevel - 1], FALSE );
+					SKILLMANAGERHANDLER->SetUnitsRange( UNITDATA->sPosition, iaPikemanT21FreezeAttackRange[psSkill->iLevel - 1], FALSE );
 
 					SKILLMANAGERHANDLER->DamageAreaHandle( UNITDATA->pcTarget, UNITDATA->sPosition, 0, 0, 0, 0, UNITDATA->sActiveSkill.iValue );
 

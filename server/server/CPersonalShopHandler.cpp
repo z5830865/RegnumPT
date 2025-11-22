@@ -204,7 +204,7 @@ void CPersonalShopHandler::HandlePacket( User * pcUser, PacketPersonalShopTradeI
                 if ( iSeconds == 0 )
                     iSeconds = 1;
 
-                CHATSERVER->SendChatMessageBox( pcUser, "You must wait %d second%s before buy another item!", iSeconds, iSeconds > 1 ? "s" : "" );
+                CHATSERVER->SendChatMessageBox( pcUser, "在你购买下一件装备之前 你必须等待 %d 秒%s!", iSeconds, iSeconds > 1 ? "s" : "" );
 
                 bCanTrade = false;
             }
@@ -229,7 +229,7 @@ void CPersonalShopHandler::HandlePacket( User * pcUser, PacketPersonalShopTradeI
             }
 		}
 		else
-			CHATSERVER->SendChatMessageBox( pcUser, "You can't buy items on Personal Shop, because you're logged in with the Share PW!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "你不能在个人商店购买装备, 因为你登录的是共享PW!" );
 	}
 }
 

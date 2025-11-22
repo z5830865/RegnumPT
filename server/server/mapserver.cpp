@@ -164,7 +164,7 @@ void MapServer::SetFlagPoint( UserData * pcUserData, const char * pszDescription
 			CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Error, "> Flag Point '%s' Added! [X: %d   Z: %d]", pszDescription, iX >> 8, iZ >> 8 );
 		}
 		else
-			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> Map not found!" );
+			CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> 地图没有找到!" );
 	}
 }
 
@@ -1087,7 +1087,7 @@ BOOL MapServer::UseUnionCore( UserData * pcUserData, struct PacketUseUnionCore *
 				pcUserDataTarget->iMapID == MAPID_QuestArena || pcUserDataTarget->iMapID == MAPID_T5QuestArena || pcUserDataTarget->iMapID == MAPID_BlessCastle ||
 				pcUserDataTarget->iMapID == MAPID_OldRuinen2 || pcUserDataTarget->iMapID == MAPID_RoyalDesert )
 			{
-				CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "You cannot teleport to player" );
+				CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "你不能传送到玩家" );
 				return FALSE;
 			}
 			// Mismatch clan?
@@ -1105,7 +1105,7 @@ BOOL MapServer::UseUnionCore( UserData * pcUserData, struct PacketUseUnionCore *
 				{
 					if ( pcUserData->sCharacterData.iLevel < pcMap->pcBaseMap->iLevel )
 					{
-						CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "Level does not match" );
+						CHATSERVER->SendChatMessageBox( USERDATATOUSER( pcUserData ), "等级不匹配" );
 						return FALSE;
 					}
 				
@@ -1884,7 +1884,7 @@ BOOL MapServer::SpawnCrystal( EItemID iItemID, int iX, int iY, int iZ, UserData 
 			{
 				if ( (*(BOOL*)0x07AB1EE8) == FALSE || pcUserData->iClanID == 0 || pcUserData->iClanID != (*(int*)0x07AB1EEC) || pcUserData->iMapID != MAPID_BlessCastle )
 				{
-					CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "You can't summon a Bless Castle guard now!" );
+					CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "你现在不能召唤祝福城堡的守卫!" );
 
 					return FALSE;
 				}
@@ -1931,7 +1931,7 @@ BOOL MapServer::SpawnCrystal( EItemID iItemID, int iX, int iY, int iZ, UserData 
 
 				if ( iClanMonster >= 20 || iSelfMonster >= 1 || iaBCGuard[iBlessCrystalID] >= 5 )
 				{
-					CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "You can't summon a Bless Castle guard now!" );
+					CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "你现在不能召唤祝福城堡的守卫!" );
 
 					return FALSE;
 				}

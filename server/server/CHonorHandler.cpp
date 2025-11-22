@@ -225,7 +225,7 @@ void CHonorHandler::SendHonors( User * pcUser )
 void CHonorHandler::UpdateHonor()
 {
 	SQLResetHonors();
-	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Honor> Bellatra Honor and PvP Honor has been reset!" );
+	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Honor> 贝拉特拉的荣誉和PvP荣誉已经重置!" );
 
 	PacketNetUpdatePvPBellatraBuff sPacket;
 	for ( int i = 0; i < 10; i++ )

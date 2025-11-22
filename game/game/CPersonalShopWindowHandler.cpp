@@ -436,8 +436,8 @@ void CPersonalShopWindowHandler::OnButtonStartSellClick( UIEventArgs eArgs )
 				{
 					MESSAGEBOX->ClearExtraElements();
 					MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_PersonalShopMessage );
-					MESSAGEBOX->SetTitle( "开始售卖" );
-					MESSAGEBOX->SetDescription( "为你的个人商店设置一个标题:" );
+					MESSAGEBOX->SetTitle("开始售卖");
+					MESSAGEBOX->SetDescription("为你的个人商店设置一个标题:");
 					MESSAGEBOX->SetPersonalShopMessageLength( 128 - (STRLEN( UNITDATA->sCharacterData.szName ) + 2) );
 					MESSAGEBOX->SetEvent( std::bind( &CPersonalShopWindowHandler::OnAcceptStartSelling, this, std::placeholders::_1 ) );
 					MESSAGEBOX->Show();

@@ -406,10 +406,10 @@ void CharacterGame::OnCharacterUpdateData()
 	{
 		if ( iLevelSkill )
 		{
-			int iPercentSkill = iaKnightT43AddAtkPow[iLevelSkill - 1];
+			int iPercentSkill = iaKnightT43AddAttackPower[iLevelSkill - 1];
 			(*(int*)0x035EB600) += (UNITDATA->sCharacterData.iMinDamage * iPercentSkill) / 100;
 
-			iPercentSkill = iaKnightT43AddAtkPow[iLevelSkill - 1];
+			iPercentSkill = iaKnightT43AddAttackPower[iLevelSkill - 1];
 			(*(int*)0x035EB604) += (UNITDATA->sCharacterData.iMaxDamage * iPercentSkill) / 100;
 		}
 	}

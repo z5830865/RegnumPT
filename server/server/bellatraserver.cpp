@@ -159,7 +159,7 @@ void BellatraServer::ResetBellatra()
 		}
 	}
 
-	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Bellatra> SoD Scores has been Reset!" );
+	CHATSERVER->SendChatAll( CHATCOLOR_Global, "Bellatra> SoD分数已经重置!" );
 }
 
 BOOL BellatraServer::PHGoldClanRecv( User * pcUser, struct PacketClanGoldReceive * psPacket )
@@ -407,9 +407,9 @@ BOOL BellatraServer::RecordClanPoint( const char * pszClanName, int iPoint, int 
 
 	if ( !STRINGCOMPAREI( szClanName, pszClanName ) && iPoint > iClanLeaderPoint )
 	{
-		CHATSERVER->SendChatAll( CHATCOLOR_Global, "Bellatra> New Top Clan!" );
-		CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Bellatra> Clan: %s", pszClanName );
-		CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Bellatra> Score: %s", FormatNumber(iPoint) );
+		CHATSERVER->SendChatAll( CHATCOLOR_Global, "Bellatra> 新的最强公会诞生了!" );
+		CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Bellatra> 公会: %s", pszClanName );
+		CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "Bellatra> 分数: %s", FormatNumber(iPoint) );
 
 		if ( pcDB->Open() )
 		{
@@ -821,7 +821,7 @@ BOOL BellatraServer::UpdateServer( Map * pcStage, MonsterMapSpawnHandle * psMons
 					{
 						if ( MAPSERVER->IsBellatraMapArea( ud->sPosition.iX, ud->sPosition.iY, ud->sPosition.iZ ) )
 						{
-							CHATSERVER->SendChat( USERDATATOUSER( ud ), CHATCOLOR_Global, "Bellatra> Your team failed to reach the points to the next round!" );
+							CHATSERVER->SendChat( USERDATATOUSER( ud ), CHATCOLOR_Global, "Bellatra> 你的团队积分不能进入下一关!" );
 							SENDPACKET( USERDATATOUSER( ud ), &sPacket, TRUE );
 
 							int iScore = GetRoomScore( ud->sBellatraRoomID );
@@ -837,8 +837,8 @@ BOOL BellatraServer::UpdateServer( Map * pcStage, MonsterMapSpawnHandle * psMons
 
 							CHARACTERSERVER->GiveGOLD( USERDATATOUSER( ud ), iGold );
 
-							CHATSERVER->SendChatMessageBox( USERDATATOUSER( ud ), "You won %s gp!", FormatNumber( iGold ) );
-							CHATSERVER->SendChatEx( USERDATATOUSER( ud ), CHATCOLOR_Global, "Bellatra> You won %s gp!", FormatNumber( iGold ) );
+							CHATSERVER->SendChatMessageBox( USERDATATOUSER( ud ), "你赢得了 %s 金币!", FormatNumber( iGold ) );
+							CHATSERVER->SendChatEx( USERDATATOUSER( ud ), CHATCOLOR_Global, "Bellatra>你赢得了 %s 金币!", FormatNumber( iGold ) );
 						}
 					}
 				}
@@ -966,8 +966,8 @@ BOOL BellatraServer::UpdateServer( Map * pcStage, MonsterMapSpawnHandle * psMons
 						s.iValue2 = iGold;
 						SENDPACKET( USERDATATOUSER(ud), &s, TRUE );
 
-						CHATSERVER->SendChatMessageBox( USERDATATOUSER( ud ), "You won %s gp!", FormatNumber( iGold ) );
-						CHATSERVER->SendChatEx( USERDATATOUSER( ud ), CHATCOLOR_Global, "Bellatra> You won %s gp!", FormatNumber( iGold ) );
+						CHATSERVER->SendChatMessageBox( USERDATATOUSER( ud ), "你赢得了%s金币!", FormatNumber( iGold ) );
+						CHATSERVER->SendChatEx( USERDATATOUSER( ud ), CHATCOLOR_Global, "Bellatra> 你赢得了%s金币!", FormatNumber( iGold ) );
 
 						PacketBellatraResult * ps = GetBellatraResultPacket();
 
@@ -1152,11 +1152,11 @@ BOOL BellatraServer::UpdateServer( Map * pcStage, MonsterMapSpawnHandle * psMons
 								sChatBox.iHeader = PKTHDR_ChatMessageBox;
 								sChatBox.iChatColor = CHATCOLOR_Error;
 								sChatBox.lID = 0;
-								STRINGFORMAT( sChatBox.szChatBoxMessage, "Rank: %d, Gold: %s gp", iRank, FormatNumber( iGold ) );
+								STRINGFORMAT( sChatBox.szChatBoxMessage, "排名: %d, Gold: %s 金币", iRank, FormatNumber( iGold ) );
 								sChatBox.iLength = STRLEN( sChatBox.szChatBoxMessage ) + 32;
 								SENDPACKET( USERDATATOUSER(ud), &sChatBox, TRUE );
 
-								CHATSERVER->SendChatEx( USERDATATOUSER( ud ), CHATCOLOR_Global, "Bellatra> Rank: %d, Gold: %s gp", iRank, FormatNumber( iGold ) );
+								CHATSERVER->SendChatEx( USERDATATOUSER( ud ), CHATCOLOR_Global, "Bellatra> 排名: %d, Gold: %s 金币", iRank, FormatNumber( iGold ) );
 							}
 						}
 					}
@@ -1363,11 +1363,11 @@ void BellatraServer::HandlePacket( User * pcUser, PacketReceiveItemIhin * psPack
 					SQLBellatraRewardLog( ud->szAccountName, CHARACTERSERVER->GetCharacterName( ud ), ps->szCode, ps->iQuantity );
 
 					if ( STRINGCOMPAREI("GG101", ps->szCode ) )
-						CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> You won %s gp!", FormatNumber( ps->iQuantity ) );
+						CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> 你赢得了 %s 金币!", FormatNumber( ps->iQuantity ) );
 					else
-						CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> You won %s[%s]!", szItemName, FormatNumber( ps->iQuantity ) );
+						CHATSERVER->SendChatEx( pcUser, CHATCOLOR_Global, "Bellatra> 你赢得了 %s[%s]!", szItemName, FormatNumber( ps->iQuantity ) );
 
-					CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "Bellatra> Check Item Distributor to get your prize!" );
+					CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "Bellatra> 获得物品奖励!" );
 				}
 			}
 		}

@@ -20,13 +20,13 @@ int CArcher::AddForceOfNature( UserData * pcUserData, int TypeDamage )
 		if ( TypeDamage == 1 )
 		{
 			int iAtkMin = pcUserData->sCharacterData.iMinDamage + iValue;
-			CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Error, "> Force Of Nature Damage Min [%d + %d]", pcUserData->sCharacterData.iMinDamage, iValue );
+			CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Error, "> 自然之力低攻 [%d + %d]", pcUserData->sCharacterData.iMinDamage, iValue );
 			return iValue;
 		}
 		else
 		{
 			int iAtkMax = pcUserData->sCharacterData.iMaxDamage + iValue;
-			CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Error, "> Force Of Nature Damage Max [%d + %d]", pcUserData->sCharacterData.iMaxDamage, iValue );
+			CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Error, "> 自然之力高攻 [%d + %d]", pcUserData->sCharacterData.iMaxDamage, iValue );
 			return iValue;
 		}
 	}
@@ -458,7 +458,7 @@ int CArcher::RecvBuffSkill( UserData * pcUserData, UINT packet )
 
 			if ( MAPSERVER->IsSummonMap( pcUser->GetMapID() ) == FALSE )
 			{
-				CHATSERVER->SendChatMessageBox( pcUser, "You can't summon a pet on this map" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能在这张地图上召唤宠物" );
 				break;
 			}
 

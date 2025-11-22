@@ -291,27 +291,27 @@ void BlessCastleServer::HandleIndividualScore()
 		//Conquest Mode?
 		if ( (GetSiegeWarMode() == SIEGEWARMODE_TheConquest) || (GetSiegeWarMode() == SIEGEWARMODE_TheMassacre) )
 		{
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Player Top Scores:" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 玩家最高分数:" );
 
 			if ( szCharacterName[0] && iCharacterScore[0] > 0 )
 			{
 				STRINGCOPY( szGold, FormatNumber( 30000000 ) );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 1st Place: %s", szCharacterName[0] );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( iCharacterScore[0] ), szGold );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第一名: %s", szCharacterName[0] );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( iCharacterScore[0] ), szGold );
 				ITEMSERVER->AddItemOpenBox( szAccountName[0], "GG101", 0, 30000000 );
 			}
 			if ( szCharacterName[1] && iCharacterScore[1] > 0 )
 			{
 				STRINGCOPY( szGold, FormatNumber( 20000000 ) );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 2nd Place: %s", szCharacterName[1] );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( iCharacterScore[1] ), szGold );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第二名: %s", szCharacterName[1] );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( iCharacterScore[1] ), szGold );
 				ITEMSERVER->AddItemOpenBox( szAccountName[1], "GG101", 0, 20000000 );
 			}
 			if ( szCharacterName[2] && iCharacterScore[2] > 0 )
 			{
 				STRINGCOPY( szGold, FormatNumber( 10000000 ) );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 3rd Place: %s", szCharacterName[2] );
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( iCharacterScore[2] ), szGold );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第三名: %s", szCharacterName[2] );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( iCharacterScore[2] ), szGold );
 				ITEMSERVER->AddItemOpenBox( szAccountName[2], "GG101", 0, 10000000 );
 			}
 		}
@@ -704,9 +704,9 @@ BOOL BlessCastleServer::Main()
 				if ( GetClanName( psBlessCastleStatusData->sPacketTopData.iClanID[0], szClanName ) )
 				{
 					STRINGCOPY( szGold, FormatNumber( iGold ) );
-					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> Winner Clan: %s!", szClanName );
-					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 1st Place: %s", szClanName );
-					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[0] ), szGold );
+					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 获胜公会: %s!", szClanName );
+					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第一名: %s", szClanName );
+					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[0] ), szGold );
 				}
 
 				//2nd
@@ -734,8 +734,8 @@ BOOL BlessCastleServer::Main()
 					if ( GetClanName( psBlessCastleStatusData->sPacketTopData.iClanID[1], szClanName ) )
 					{
 						STRINGCOPY( szGold, FormatNumber( iGold ) );
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 2nd Place: %s", szClanName );
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[1] ), szGold );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第二名: %s", szClanName );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[1] ), szGold );
 					}
 				}
 
@@ -764,15 +764,15 @@ BOOL BlessCastleServer::Main()
 					if ( GetClanName( psBlessCastleStatusData->sPacketTopData.iClanID[2], szClanName ) )
 					{
 						STRINGCOPY( szGold, FormatNumber( iGold ) );
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 3rd Place: %s", szClanName );
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[2] ), szGold );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第三名: %s", szClanName );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[2] ), szGold );
 					}
 				}
 
 				HandleIndividualScore();
 
 				//Notify Users
-				CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> All prizes delivered to the leaders!" );
+				CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 所有奖品均发给队长!" );
 			}
 			else if ( GetSiegeWarMode() == SIEGEWARMODE_TheMassacre )
 			{
@@ -793,9 +793,9 @@ BOOL BlessCastleServer::Main()
 				if ( GetClanName( psBlessCastleStatusData->sPacketTopData.iClanID[0], szClanName ) )
 				{
 					STRINGCOPY( szGold, FormatNumber( iGold ) );
-					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> Winner Clan: %s!", szClanName );
-					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 1st Place: %s", szClanName );
-					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[0] ), szGold );
+					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 获胜公会: %s!", szClanName );
+					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第一名: %s", szClanName );
+					CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[0] ), szGold );
 				}
 
 				//2nd
@@ -809,8 +809,8 @@ BOOL BlessCastleServer::Main()
 					if ( GetClanName( psBlessCastleStatusData->sPacketTopData.iClanID[1], szClanName ) )
 					{
 						STRINGCOPY( szGold, FormatNumber( iGold ) );
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 2nd Place: %s", szClanName );
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[1] ), szGold );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第二名: %s", szClanName );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[1] ), szGold );
 					}
 
 				}
@@ -826,15 +826,15 @@ BOOL BlessCastleServer::Main()
 					if ( GetClanName( psBlessCastleStatusData->sPacketTopData.iClanID[2], szClanName ) )
 					{
 						STRINGCOPY( szGold, FormatNumber( iGold ) );
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 3rd Place: %s", szClanName );
-						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s Points, %s gp!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[2] ), szGold );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> 第三名: %s", szClanName );
+						CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BlessCastle> %s 分数, %s 金币!", FormatNumber( psBlessCastleStatusData->sPacketTopData.iDamage[2] ), szGold );
 					}
 				}
 
 				HandleIndividualScore();
 
 				//Notify Users
-				CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> All prizes delivered to the leaders!" );
+				CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 所有奖品均发给队长!" );
 			}
 		}
 
@@ -1213,7 +1213,7 @@ void BlessCastleServer::EndBattle()
 	}
 
 
-	CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> Siege War has ended! thanks for joining." );
+	CHATSERVER->SendChatAll( CHATCOLOR_Global, "BlessCastle> 攻城战已经结束!感谢参与." );
 
 	if ( psBlessCastlePVPLeague->iMode )
 	{

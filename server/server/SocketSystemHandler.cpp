@@ -422,7 +422,7 @@ void CSocketSystemHandler::OnMixingItem( User * pcUser, PacketMixServer * psPack
 			psPacket->iLength = sizeof( ItemData ) + 32;
 			SENDPACKET( pcUser, psPacket, TRUE );
 
-			CHATSERVER->SendChatMessageBox( pcUser, "Received %s", psPacket->sItemData.sItem.szItemName );
+			CHATSERVER->SendChatMessageBox( pcUser, "接收到 %s", psPacket->sItemData.sItem.szItemName );
 		}
 	}
 
@@ -548,9 +548,9 @@ void CSocketSystemHandler::OnSocketDrill( User * pcUser, PacketSocketSystem * ps
 	SENDPACKET( pcUser, psPacket, TRUE );
 
 	if ( bSuccess )
-		CHATSERVER->SendChatMessageBox( pcUser, "Socket Creation Success" );
+		CHATSERVER->SendChatMessageBox( pcUser, "接口创建成功" );
 	else
-		CHATSERVER->SendChatMessageBox( pcUser, "Socket Creation Failed" );
+		CHATSERVER->SendChatMessageBox( pcUser, "接口创建失败" );
 
 }
 

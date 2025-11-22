@@ -188,7 +188,7 @@ BOOL UnitServer::SetMotionFromCode( UnitData * pcUnitData, int iMotionCode )
 
 void UnitServer::SendBossMessage( BaseMap * pcBaseMap, UINT pUnit )
 {
-	CHATSERVER->SendChatAllUsersInStage( pcBaseMap->GetID(), CHATCOLOR_Global, "Boss> %s Spawned!", (char *)*(UINT*)(pUnit) );
+	CHATSERVER->SendChatAllUsersInStage( pcBaseMap->GetID(), CHATCOLOR_Global, "Boss> %s 产生了!", (char *)*(UINT*)(pUnit) );
 }
 
 BOOL UnitServer::OnUnitNpcClick( UserData * pcUserData, Unit * pcUnit )
@@ -209,13 +209,13 @@ BOOL UnitServer::OnUnitNpcClick( UserData * pcUserData, Unit * pcUnit )
 			if ( bSendShop )
 				ITEMSERVER->SendItemShopList( pcUser, pcUnit->pcUnitData );
 			else
-				CHATSERVER->SendChatMessageBox( pcUser, "You can't open Blacksmith, because you're logged in with the Share PW!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能打开铁匠, 因为你登录的是共享PW!" );
 		}
 
 		// Is only Game Master?
 		if ( pcUnit->pcUnitData->sUnitInfo.bGMOnly )
 		{
-			CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Global, "> Only for GameMaster!" );
+			CHATSERVER->SendDebugChat( pcUserData, CHATCOLOR_Global, "> 只适用于游戏管理员!" );
 			return FALSE;
 		}
 
@@ -245,7 +245,7 @@ BOOL UnitServer::OnUnitNpcClick( UserData * pcUserData, Unit * pcUnit )
 			if ( !pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyCaravanPet ) )
 				FOLLOWUNITHANDLER->SendOpenCaravan( USERDATATOUSER( pcUserData ), pcUnit );
 			else
-				CHATSERVER->SendChatMessageBox( pcUser, "You can't open Caravan, because you're logged in with the Share PW!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能打开商队, 因为你登录的是共享PW!" );
 		}
 
 		if ( pcUnit->pcUnitData->sUnitInfo.iSmelting == NPCEVENTCODE_ResetItem )
@@ -282,7 +282,7 @@ BOOL UnitServer::OnUnitNpcClick( UserData * pcUserData, Unit * pcUnit )
 			}
 			else
 			{
-				CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Global, "BossArena> Boss Arena is closed on this server!" );
+				CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Global, "BossArena> BOSS竞技场已经关闭!" );
 			}
 		}
 		if ( pcUnit->pcUnitData->sUnitInfo.iSmelting == NPCEVENTCODE_FuryArenaNPCEnter )
@@ -299,7 +299,7 @@ BOOL UnitServer::OnUnitNpcClick( UserData * pcUserData, Unit * pcUnit )
 			}
 			else
 			{
-				CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Global, "BossArena> Boss Arena is closed on this server!" );
+				CHATSERVER->SendChat( USERDATATOUSER( pcUserData ), CHATCOLOR_Global, "BossArena> BOSS竞技场已经关闭!" );
 			}
 		}
 		if ( pcUnit->pcUnitData->sUnitInfo.iSmelting == NPCEVENTCODE_SocketSystemNPCDrill || pcUnit->pcUnitData->sUnitInfo.iSmelting == NPCEVENTCODE_SocketSystemNPCStone )
@@ -483,7 +483,7 @@ BOOL UnitServer::OnUnitNpcClick( UserData * pcUserData, Unit * pcUnit )
 				SENDPACKET( USERDATATOUSER( pcUserData ), &s );
 			}
 			else
-				CHATSERVER->SendChatMessageBox( pcUser, "You can't open Event Girl, because you're logged in with the Share PW!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能打开活动女孩, 因为你登录的是共享PW!" );
 		}
 
 		if ( pcUnit->pcUnitData->sUnitInfo.iClanController )
@@ -491,7 +491,7 @@ BOOL UnitServer::OnUnitNpcClick( UserData * pcUserData, Unit * pcUnit )
 			if ( !pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyClanMaster ) )
 				SENDPACKETBLANK( pcUser, PKTHDR_OpenClanMaster, TRUE );
 			else
-				CHATSERVER->SendChatMessageBox( pcUser, "You can't open Clan Master, because you're logged in with the Share PW!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能打开公会管理员, 因为你登录的是共享PW!" );
 		}
 
 		if ( pcUnit->pcUnitData->sUnitInfo.iItemBox )
@@ -499,7 +499,7 @@ BOOL UnitServer::OnUnitNpcClick( UserData * pcUserData, Unit * pcUnit )
 			if ( !pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyOpenItemBox ) )
 				SENDPACKETBLANK( pcUser, PKTHDR_NPCItemBoxOpen, TRUE );
 			else
-				CHATSERVER->SendChatMessageBox( pcUser, "You can't open Item Distributor, because you're logged in with the Share PW!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能打开装备发放员, 因为你登录的是共享PW!" );
 		}
 
 		SERVEREVENTHANDLER->OnNPCClick( pcUser, pcUnit );

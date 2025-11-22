@@ -294,7 +294,7 @@ void CWarehouseHandler::HandlePacket( User * pcUser, PacketWarehouseOpen * psPac
 	//Check if can Open
 	if ( pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyWarehouse ) )
 	{
-		CHATSERVER->SendChatMessageBox( pcUser, "You can't open Warehouse, because you're logged in with the Share PW!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "你不能打开仓库, 因为你登录的是共享PW!" );
 		return;
 	}
 

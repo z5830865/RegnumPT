@@ -96,25 +96,25 @@ const char * GetCharacterClassByFlag( EClassFlag eFlag )
 	switch( eFlag )
 	{
 		case CLASSFLAG_Fighter:
-			return "Fighter";
+			return "武士";
 		case CLASSFLAG_Archer:
-			return "Archer";
+			return "弓箭手";
 		case CLASSFLAG_Assassin:
-			return "Assassin";
+			return "刺客";
 		case CLASSFLAG_Atalanta:
-			return "Atalanta";
+			return "魔枪手";
 		case CLASSFLAG_Knight:
-			return "Knight";
+			return "游侠";
 		case CLASSFLAG_Magician:
-			return "Magician";
+			return "法师";
 		case CLASSFLAG_Mechanician:
-			return "Mechanician";
+			return "机械兵";
 		case CLASSFLAG_Pikeman:
-			return "Pikeman";
+			return "枪兵";
 		case CLASSFLAG_Priestess:
-			return "Priestess";
+			return "祭司";
 		case CLASSFLAG_Shaman:
-			return "Shaman";
+			return "萨满";
 	}
 
 	return "";
@@ -139,11 +139,11 @@ ECharacterRace GetCharacterRace( ECharacterClass iClass )
 const char * GetCharacterRaceName( ECharacterRace eCharacterRace )
 {
 	if ( eCharacterRace == CHARACTERRACE_Morion )
-		return "Morion";
+		return "魔灵族";
 	else if ( eCharacterRace == CHARACTERRACE_Sopphetio )
 		return "Sopphetio";
 
-	return "Tempskron";
+	return "坦普族";
 }
 
 CharacterClassData * GetCharacterClassData( int iClass, int iRankup )

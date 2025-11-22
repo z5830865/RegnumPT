@@ -110,8 +110,8 @@ void CQuestWindow::OnButtonOKT5QuestClick( UIEventArgs e )
 	else
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "排名上升" );
-		MESSAGEBOX->SetDescription( "你想要接取这个任务吗?" );
+		MESSAGEBOX->SetTitle("转职任务");
+		MESSAGEBOX->SetDescription("你想要接取这个任务吗?");
 		MESSAGEBOX->SetEvent( std::bind( &CQuestWindow::OnMessageBoxT5QuestStartClick, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}

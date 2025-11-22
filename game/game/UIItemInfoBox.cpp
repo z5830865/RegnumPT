@@ -445,136 +445,135 @@ BOOL ItemInfoBox::FormatItemInfo( ItemData * pcItemData )
 	}
 	if( pcItemData->sItem.sItemID.ToItemID() == ITEMID_ValentoRing )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_KelvezuAmulet )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_DraxosBoots )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if( pcItemData->sItem.sItemID.ToInt() == ITEMID_MokovaBoots )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_FurySheltom )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if (pcItemData->sItem.sItemID.ToItemID() == ITEMID_ThroneSheltom)
 	{
-		AddString(0, "Boss Item", D3DCOLOR_RGBA(0, 128, 128, 255));
+		AddString(0, "Boss物品", D3DCOLOR_RGBA(0, 128, 128, 255));
 		AddString(1, "");
 	}
 	if (pcItemData->sItem.sItemID.ToItemID() == ITEMID_ThroneAmulet )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA(0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA(0, 128, 128, 255 ) );
 		AddString( 1, "");
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_TullaAmulet )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_FallenRing )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_DarkGuardianSheltom )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_ArgonianGauntlets )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_GreedyGauntlets )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_DevilShyRing )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_ThroneRing )
 	{
-		AddString(0, "Boss Item", D3DCOLOR_RGBA(0, 128, 128, 255));
+		AddString(0, "Boss物品", D3DCOLOR_RGBA(0, 128, 128, 255));
 		AddString(1, "");
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_GorgonyteEarring )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToItemID() == ITEMID_VolcanosEarring )
 	{
-		AddString( 0, "Boss Item", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
+		AddString( 0, "Boss物品", D3DCOLOR_RGBA( 0, 128, 128, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( IsCostumeItem( pcItemData ) )
 	{
-		AddString( 0, "Skin Item", D3DCOLOR_RGBA( 255, 105, 180, 255 ) );
+		AddString( 0, "皮肤物品", D3DCOLOR_RGBA( 255, 105, 180, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( ((pcItemData->sItem.sItemID.ToInt() & 0xFFFF0000) == ITEMID_RuneCodeManufacture1) || (pcItemData->sItem.sItemID.ToItemType() == ITEMTYPE_Crafting2) )
 	{
-		AddString( 0, "Craft Item", D3DCOLOR_RGBA( 255, 155, 50, 255 ) );
+		AddString( 0, "合成物品", D3DCOLOR_RGBA( 255, 155, 50, 255 ) );
 		AddString( 1, "" );
 	}
 	if ( ( (pcItemData->sItem.sItemID.ToInt() & 0xFFFF0000 ) == ITEMID_RecipeCode ) )
 	{
-		AddString( 0, "Crafting Recipe", D3DCOLOR_ARGB( 255, 155, 50, 255 ) );
+		AddString( 0, "合成配方", D3DCOLOR_ARGB( 255, 155, 50, 255 ) );
 		AddString( 1, "" );
 
 	//Betting
 	if ( pcItemData->sItem.sItemID.ToInt() == ITEMID_DOUBLETALE )
 	{
-		AddString( 0, "Test your luck!", D3DCOLOR_ARGB( 255, 155, 50, 255 ) );
+		AddString( 0, "试试你的运气!", D3DCOLOR_ARGB( 255, 155, 50, 255 ) );
 		AddString( 1, "" );
 
 		AddString( 0, "Win 200M or Lose 100M TALE", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, "" );
 
-		AddString( 0, "Hit the Jackpot to get valuable item!", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "抽中大奖，获得珍贵道具!", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToInt() == ITEMID_TRIPLETALE )
 	{
-		AddString( 0, "Test your luck!", D3DCOLOR_ARGB( 255, 155, 50, 255 ) );
+		AddString( 0, "试试你的运气!", D3DCOLOR_ARGB( 255, 155, 50, 255 ) );
 		AddString( 1, "" );
 
 		AddString( 0, "Win 300M or Lose 100M TALE", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, "" );
 
-		AddString( 0, "Hit the Jackpot to get valuable item!", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "抽中大奖，获得珍贵道具!", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, "" );
 	}
 	if ( pcItemData->sItem.sItemID.ToInt() == ITEMID_TIMESTENTALE )
 	{
-		AddString( 0, "Test your luck!", D3DCOLOR_ARGB( 255, 155, 50, 255 ) );
+		AddString( 0, "试试你的运气!", D3DCOLOR_ARGB( 255, 155, 50, 255 ) );
 		AddString( 1, "" );
 
 		AddString( 0, "Win 1B or Lose 100M TALE", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, "" );
 
-		AddString( 0, "Hit the Jackpot to get valuable item!", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "抽中大奖，获得珍贵道具!", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, "" );
 	}
 	//End Betting
-
-//            WEAPONS RECIPE
+	//WEAPONS RECIPE
 
 		if ( pcItemData->sItem.sItemID.ToInt() == ITEMID_WeaponRecipe )
 		{
@@ -2378,7 +2377,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 		}
 	}
 
-	//Make Description Item
+	// 制作描述项
 	FormatItemInfo( &cItemWrapper );
 
 	//Aging Bar
@@ -2409,7 +2408,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 		EItemID eItemID = cItemWrapper.sBaseItemID.ToItemID();
 		if( psList[ i ].eItemID == eItemID )
 		{
-			AddString( 0, "Level Req.:" );
+			AddString( 0, "等级范围:" );
 			AddString( 1, FormatString( "%d-%d", psList[i].iMinLevel, psList[i].iMaxLevel ) );
 			break;
 		}
@@ -2418,7 +2417,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Attack Power
 	if( cItemWrapper.sItem.sDamage.sMin || cItemWrapper.sItem.sDamage.sMax )
 	{
-		AddString( 0, "Attack Power:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "攻击:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d-%d", cItemWrapper.sItem.sDamage.sMin, cItemWrapper.sItem.sDamage.sMax ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2444,7 +2443,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Attack fMovementSpeed
 	if( cItemWrapper.sItem.iAttackSpeed )
 	{
-		AddString( 0, "Attack Speed:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "攻速:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iAttackSpeed ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2466,7 +2465,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Range
 	if( cItemWrapper.sItem.iAttackRange )
 	{
-		AddString( 0, "Range:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "射程:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iAttackRange ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Compare Item
@@ -2483,7 +2482,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Critical
 	if( cItemWrapper.sItem.iCritical )
 	{
-		AddString( 0, "Critical Rate:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "必杀:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d%%", cItemWrapper.sItem.iCritical ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2509,7 +2508,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Defense
 	if( cItemWrapper.sItem.iDefenseRating )
 	{
-		AddString( 0, "Defense:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "防御:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iDefenseRating ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2535,7 +2534,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Attack Rating
 	if( cItemWrapper.sItem.iAttackRating )
 	{
-		AddString( 0, "Attack Rate:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "命中:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iAttackRating ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2562,7 +2561,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Absorption
 	if( cItemWrapper.sItem.fAbsorbRating )
 	{
-		AddString( 0, "Absorption:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "吸收:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.fAbsorbRating ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2588,7 +2587,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Block
 	if( cItemWrapper.sItem.fBlockRating )
 	{
-		AddString( 0, "Block:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "格挡:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 
 		if( fabs( cItemWrapper.sItem.fBlockRating - round( cItemWrapper.sItem.fBlockRating ) ) < FLT_MIN )
 			AddString( 1, FormatString( "%.0f%%", round( cItemWrapper.sItem.fBlockRating ) ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
@@ -2617,7 +2616,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Evade
 	if ( cItemWrapper.sItem.bEvade )
 	{
-		AddString( 0, "Evade:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "躲避:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d%%", (int)cItemWrapper.sItem.bEvade ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Compare Item
@@ -2635,7 +2634,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Movement Speed
 	if ( cItemWrapper.sItem.fMovementSpeed )
 	{
-		AddString( 0, "Speed:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "速度:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.fMovementSpeed ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2656,7 +2655,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Integrity
 	if( cItemWrapper.sItem.sIntegrity.sCur || cItemWrapper.sItem.sIntegrity.sMax )
 	{
-		AddString( 0, "Integrity:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "耐久:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d/%d", cItemWrapper.sItem.sIntegrity.sCur, cItemWrapper.sItem.sIntegrity.sMax ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Aging Color
@@ -2682,7 +2681,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Mana
 	if( cItemWrapper.sItem.sMPRecovery.sMin || cItemWrapper.sItem.sMPRecovery.sMax )
 	{
-		AddString( 0, "MP Recovery:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "灵力:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d-%d", cItemWrapper.sItem.sMPRecovery.sMin, cItemWrapper.sItem.sMPRecovery.sMax ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 	
 		//Compare Item
@@ -2700,7 +2699,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//HP
 	if( cItemWrapper.sItem.sHPRecovery.sMin || cItemWrapper.sItem.sHPRecovery.sMax )
 	{
-		AddString( 0, "HP Recovery:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "生命:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d-%d", cItemWrapper.sItem.sHPRecovery.sMin, cItemWrapper.sItem.sHPRecovery.sMax ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 	
 		//Compare Item
@@ -2718,7 +2717,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//STM
 	if( cItemWrapper.sItem.sSPRecovery.sMin || cItemWrapper.sItem.sSPRecovery.sMax )
 	{
-		AddString( 0, "STM Recovery:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "耐力:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d-%d", cItemWrapper.sItem.sSPRecovery.sMin, cItemWrapper.sItem.sSPRecovery.sMax ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 	
 		//Compare Item
@@ -2737,7 +2736,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	{
 		if( cItemWrapper.sItem.saElementalDef[0] )
 		{
-			AddString( 0, "Organic:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "魔属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.saElementalDef[0] ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 			//Mix Color
@@ -2757,7 +2756,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 
 		if( cItemWrapper.sItem.saElementalDef[2] )
 		{
-			AddString( 0, "Fire:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "火属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.saElementalDef[2] ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 			//Mix Color
@@ -2777,7 +2776,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 
 		if( cItemWrapper.sItem.saElementalDef[3] )
 		{
-			AddString( 0, "Frost:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "冰属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.saElementalDef[3] ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 			//Mix Color
@@ -2797,7 +2796,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 
 		if( cItemWrapper.sItem.saElementalDef[4] )
 		{
-			AddString( 0, "Lightning:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "雷属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.saElementalDef[4] ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 			//Mix Color
@@ -2817,7 +2816,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 
 		if( cItemWrapper.sItem.saElementalDef[5] )
 		{
-			AddString( 0, "Poison:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "毒属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.saElementalDef[5] ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 			//Mix Color
@@ -2839,7 +2838,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//HP Regen
 	if( cItemWrapper.sItem.fHPRegen && cItemWrapper.sBaseItemID.ToItemType() != ITEMTYPE_ForceOrb )
 	{
-		AddString( 0, "HP Regen:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "生命再生:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.fHPRegen ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2860,7 +2859,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//MP Regen
 	if( cItemWrapper.sItem.fMPRegen && cItemWrapper.sBaseItemID.ToItemType() != ITEMTYPE_ForceOrb )
 	{
-		AddString( 0, "MP Regen:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "灵力再生:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.fMPRegen ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2881,7 +2880,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//STM Regen
 	if( cItemWrapper.sItem.fSPRegen && cItemWrapper.sBaseItemID.ToItemType() != ITEMTYPE_ForceOrb )
 	{
-		AddString( 0, "STM Regen:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "耐力再生:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.fSPRegen ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2902,7 +2901,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Add HP
 	if( cItemWrapper.sItem.fAddHP )
 	{
-		AddString( 0, "Add HP:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "生命:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.0f", cItemWrapper.sItem.fAddHP ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2923,7 +2922,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Add MP
 	if( cItemWrapper.sItem.fAddMP )
 	{
-		AddString( 0, "Add MP:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "灵力:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.0f", cItemWrapper.sItem.fAddMP ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2948,7 +2947,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Add STM
 	if( cItemWrapper.sItem.fAddSP )
 	{
-		AddString( 0, "Add STM:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "耐力:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.0f", cItemWrapper.sItem.fAddSP ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -2969,7 +2968,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Potion Storage
 	if( cItemWrapper.sItem.iPotionStorage )
 	{
-		AddString( 0, "Pot Count:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "药水存放数量:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iPotionStorage ), D3DCOLOR_ARGB( 255, 240, 215, 150 ) );
 
 		//Mix Color
@@ -3063,7 +3062,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Req Level
 	if( cItemWrapper.sItem.iLevel )
 	{
-		AddString( 0, "\nReq. Level:" );
+		AddString( 0, "\n等级要求:" );
 		AddString( 1, FormatString( "\n%d", cItemWrapper.sItem.iLevel ) );
 
 		if( PLAYERDATA->iLevel < cItemWrapper.sItem.iLevel )
@@ -3088,7 +3087,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Req Strenght
 	if( cItemWrapper.sItem.iStrength )
 	{
-		AddString( 0, "Req. Strength:" );
+		AddString( 0, "力量要求:" );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iStrength ) );
 
 		if( PLAYERDATA->iStrength < cItemWrapper.sItem.iStrength )
@@ -3113,7 +3112,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Req Spirit
 	if( cItemWrapper.sItem.iSpirit )
 	{
-		AddString( 0, "Req. Spirit:" );
+		AddString( 0, "精神要求:" );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iSpirit ) );
 
 		if( PLAYERDATA->iSpirit < cItemWrapper.sItem.iSpirit )
@@ -3138,7 +3137,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Req Talent
 	if( cItemWrapper.sItem.iTalent )
 	{
-		AddString( 0, "Req. Talent:" );
+		AddString( 0, "才能要求:" );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iTalent ) );
 
 		if( PLAYERDATA->iTalent < cItemWrapper.sItem.iTalent )
@@ -3163,7 +3162,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Req Agility
 	if( cItemWrapper.sItem.iAgility )
 	{
-		AddString( 0, "Req. Agility:" );
+		AddString( 0, "敏捷要求:" );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iAgility ) );
 
 		if( PLAYERDATA->iAgility < cItemWrapper.sItem.iAgility )
@@ -3188,7 +3187,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Req Health
 	if( cItemWrapper.sItem.iHealth )
 	{
-		AddString( 0, "Req. Health:" );
+		AddString( 0, "体质要求:" );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.iHealth ) );
 
 		if( PLAYERDATA->iHealth < cItemWrapper.sItem.iHealth )
@@ -3215,7 +3214,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	if( cItemWrapper.sItem.eSpecialization )
 	{
 		EClassFlag e = static_cast<EClassFlag>( cItemWrapper.sItem.eSpecialization );
-		AddString( 0, FormatString( "\n%s Spec", GetCharacterClassByFlag( e ) ) );
+		AddString( 0, FormatString( "\n%s 的特效", GetCharacterClassByFlag( e ) ) );
 		AddString( 1, "\n" );
 
 		if( PLAYERDATA->iFlag == cItemWrapper.sItem.eSpecialization )
@@ -3227,7 +3226,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec ATK fMovementSpeed
 	if( cItemWrapper.sItem.sSpecData.iSpecAttackSpeed )
 	{
-		AddString( 0, "Attack Speed:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "攻速:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.sSpecData.iSpecAttackSpeed ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3247,7 +3246,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec Critical
 	if( cItemWrapper.sItem.sSpecData.iSpecCritical )
 	{
-		AddString( 0, "Critical Rate:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "必杀:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d%%", cItemWrapper.sItem.sSpecData.iSpecCritical ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3267,7 +3266,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec Defense
 	if( cItemWrapper.sItem.sSpecData.iSpecDefenseRating )
 	{
-		AddString( 0, "Defense:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "防御:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.sSpecData.iSpecDefenseRating ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3287,7 +3286,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec fAbsorbRating
 	if( cItemWrapper.sItem.sSpecData.fSpecAbsorbRating )
 	{
-		AddString( 0, "Absorption:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "吸收:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.sSpecData.fSpecAbsorbRating ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3307,7 +3306,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec Block
 	if( cItemWrapper.sItem.sSpecData.fSpecBlockRating )
 	{
-		AddString( 0, "Block:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "格挡:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 
 		if( fabs( cItemWrapper.sItem.sSpecData.fSpecBlockRating - round( cItemWrapper.sItem.sSpecData.fSpecBlockRating ) ) < FLT_MIN )
 			AddString( 1, FormatString( "%.0f%%", round( cItemWrapper.sItem.sSpecData.fSpecBlockRating ) ) );
@@ -3331,7 +3330,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec MagicAPT
 	if( cItemWrapper.sItem.sSpecData.fSpecMagicMastery )
 	{
-		AddString( 0, "Magic APT:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "魔法熟练:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.0f", cItemWrapper.sItem.sSpecData.fSpecMagicMastery ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3351,7 +3350,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec fMovementSpeed
 	if( cItemWrapper.sItem.sSpecData.fSpecMovementSpeed )
 	{
-		AddString( 0, "Speed:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "速度:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.sSpecData.fSpecMovementSpeed ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3372,7 +3371,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	{
 		if( cItemWrapper.sItem.sSpecData.saSpecElementalDef[0] )
 		{
-			AddString( 0, "Organic:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "魔属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.sSpecData.saSpecElementalDef ) );
 
 			SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3391,7 +3390,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 
 		if( cItemWrapper.sItem.sSpecData.saSpecElementalDef[2] )
 		{
-			AddString( 0, "Fire:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "火属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.sSpecData.saSpecElementalDef[2] ) );
 
 			SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3410,7 +3409,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 
 		if( cItemWrapper.sItem.sSpecData.saSpecElementalDef[3] )
 		{
-			AddString( 0, "Frost:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "冰属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.sSpecData.saSpecElementalDef[3] ) );
 
 			SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3429,7 +3428,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 
 		if( cItemWrapper.sItem.sSpecData.saSpecElementalDef[4] )
 		{
-			AddString( 0, "Lightning:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "雷属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.sSpecData.saSpecElementalDef[4] ) );
 
 			SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3448,7 +3447,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 
 		if( cItemWrapper.sItem.sSpecData.saSpecElementalDef[5] )
 		{
-			AddString( 0, "Poison:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+			AddString( 0, "毒属性:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 			AddString( 1, FormatString( "%d", cItemWrapper.sItem.sSpecData.saSpecElementalDef[5] ) );
 
 			SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3458,7 +3457,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec ATK Power
 	if( cItemWrapper.sItem.sSpecData.iSpecAttackPowerDiv )
 	{
-		AddString( 0, "Attack Power:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "攻击:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "LV/%d", cItemWrapper.sItem.sSpecData.iSpecAttackPowerDiv ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3478,7 +3477,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec ATK Rtg
 	if( cItemWrapper.sItem.sSpecData.iSpecAttackRatingDiv )
 	{
-		AddString( 0, "Attack Rate:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "命中:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "LV/%d", cItemWrapper.sItem.sSpecData.iSpecAttackRatingDiv ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3498,7 +3497,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec Range
 	if( cItemWrapper.sItem.sSpecData.iSpecAttackRange )
 	{
-		AddString( 0, "Range:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "射程:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d", cItemWrapper.sItem.sSpecData.iSpecAttackRange ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3535,10 +3534,10 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 		}
 	}
 
-	//Spec HP Potion Efficience
+	//特殊生命药水效率
 	if ( cItemWrapper.sItem.sSpecData.sSpecHPPotionEfficience )
 	{
-		AddString( 0, "Spec HP Potion Efficiency:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "生命药水效能:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d%%", cItemWrapper.sItem.sSpecData.sSpecHPPotionEfficience ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3558,7 +3557,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec MP Potion Efficience
 	if ( cItemWrapper.sItem.sSpecData.sSpecMPPotionEfficience )
 	{
-		AddString( 0, "Spec MP Potion Efficiency:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "灵力药水效能:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d%%", cItemWrapper.sItem.sSpecData.sSpecMPPotionEfficience ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3578,7 +3577,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec SP Potion Efficience
 	if ( cItemWrapper.sItem.sSpecData.sSpecSPPotionEfficience )
 	{
-		AddString( 0, "Spec SP Potion Efficiency:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "耐力药水效能:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%d%%", cItemWrapper.sItem.sSpecData.sSpecSPPotionEfficience ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3598,7 +3597,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec HP Boost
 	if ( cItemWrapper.sItem.sSpecData.iSpecAddHPDiv )
 	{
-		AddString( 0, "Max HP Boost:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "生命:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "LV/%d", cItemWrapper.sItem.sSpecData.iSpecAddHPDiv ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3618,7 +3617,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec MP Boost
 	if( cItemWrapper.sItem.sSpecData.iSpecAddMPDiv )
 	{
-		AddString( 0, "Max MP Boost:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "灵力:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "LV/%d", cItemWrapper.sItem.sSpecData.iSpecAddMPDiv ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3638,7 +3637,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec HP Regen
 	if( cItemWrapper.sItem.sSpecData.fSpecHPRegen && cItemWrapper.sBaseItemID.ToItemType() != ITEMTYPE_ForceOrb )
 	{
-		AddString( 0, "HP Regen:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "生命再生:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.sSpecData.fSpecHPRegen ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3658,7 +3657,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec MP Regen
 	if( cItemWrapper.sItem.sSpecData.fSpecMPRegen && cItemWrapper.sBaseItemID.ToItemType() != ITEMTYPE_ForceOrb )
 	{
-		AddString( 0, "MP Regen:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "灵力再生:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.sSpecData.fSpecMPRegen ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3678,7 +3677,7 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 	//Spec STM Regen
 	if ( cItemWrapper.sItem.sSpecData.fSpecSPRegen && cItemWrapper.sBaseItemID.ToItemType() != ITEMTYPE_ForceOrb )
 	{
-		AddString( 0, "STM Regen:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
+		AddString( 0, "耐力再生:", D3DCOLOR_ARGB( 255, 245, 240, 218 ) );
 		AddString( 1, FormatString( "%.1f", cItemWrapper.sItem.sSpecData.fSpecSPRegen ) );
 
 		SetLineColor( D3DCOLOR_ARGB( 255, 235, 190, 60 ), 1 );
@@ -3847,38 +3846,42 @@ BOOL ItemInfoBox::PrepareShowItem( ItemData * pcItemData, BOOL bShowBuyPrice, BO
 				iSocketGem[i] += 2;
 			}
 
-			//Format Name and Stats of Gem
-			switch( cItemWrapper.sItem.sSocketData[i].eGemItem )
+			//格式化宝石名称和属性
+			switch (cItemWrapper.sItem.sSocketData[i].eGemItem)
 			{
-				case GEMITEM_Topaz:
-					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 255, 220, 0 ) );
-					paSocketText[i][0]->SetText( "黄水晶宝石" );
+			case GEMITEM_Topaz:
+				paSocketText[i][0]->SetColor(D3DCOLOR_ARGB(255, 255, 220, 0));
+				paSocketText[i][0]->SetText("托帕石宝石"); // Topaz Gem
 
-					paSocketText[i][1]->AppendText( " 传送" );
+				paSocketText[i][1]->AppendText(" 才能");  
 				break;
-				case GEMITEM_Aquamarine:
-					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 0, 150, 255 ) );
-					paSocketText[i][0]->SetText( "绿玉宝石" );
 
-					paSocketText[i][1]->AppendText( " 精神" );
+			case GEMITEM_Aquamarine:
+				paSocketText[i][0]->SetColor(D3DCOLOR_ARGB(255, 0, 150, 255));
+				paSocketText[i][0]->SetText("海蓝宝石"); // Aquamarine Gem
+
+				paSocketText[i][1]->AppendText(" 精神");  
 				break;
-				case GEMITEM_Ruby:
-					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 180, 25, 25 ) );
-					paSocketText[i][0]->SetText( "红宝石" );
 
-					paSocketText[i][1]->AppendText( " 力量" );
+			case GEMITEM_Ruby:
+				paSocketText[i][0]->SetColor(D3DCOLOR_ARGB(255, 180, 25, 25));
+				paSocketText[i][0]->SetText("红宝石"); // Ruby Gem
+
+				paSocketText[i][1]->AppendText(" 力量");  
 				break;
-				case GEMITEM_Amethyst:
-					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 150, 5, 235 ) );
-					paSocketText[i][0]->SetText( "紫水晶宝石" );
 
-					paSocketText[i][1]->AppendText( " 体质" );
+			case GEMITEM_Amethyst:
+				paSocketText[i][0]->SetColor(D3DCOLOR_ARGB(255, 150, 5, 235));
+				paSocketText[i][0]->SetText("紫水晶宝石"); // Amethyst Gem
+
+				paSocketText[i][1]->AppendText(" 体质");  
 				break;
-				case GEMITEM_Emerald:
-					paSocketText[i][0]->SetColor( D3DCOLOR_ARGB( 255, 0, 170, 10 ) );
-					paSocketText[i][0]->SetText( "祖母绿宝石" );
 
-					paSocketText[i][1]->AppendText( " 敏捷" );
+			case GEMITEM_Emerald:
+				paSocketText[i][0]->SetColor(D3DCOLOR_ARGB(255, 0, 170, 10));
+				paSocketText[i][0]->SetText("祖母绿宝石"); // Emerald Gem
+
+				paSocketText[i][1]->AppendText(" 敏捷");  
 				break;
 			}
 		}

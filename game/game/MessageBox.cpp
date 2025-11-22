@@ -32,7 +32,7 @@ void CMessageBox::SetTitle( std::string strText )
 	std::transform( strText.begin(), strText.end(), strText.begin(), ::toupper );
 
 	if( pWindow1 )
-		pWindow1->GetElement<UI::BitmapFont>( TextID_Title )->SetText( strText );
+		pWindow1->GetElement<UI::BitmapFont>( TextID_Title )->SetText( strText ); 
 }
 
 void CMessageBox::SetDescription( std::string strText )

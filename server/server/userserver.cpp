@@ -206,7 +206,7 @@ BOOL UserServer::SetUserID( UserData * pcUserData )
 
 void UserServer::ReconnectUser( UserData * pcUserData )
 {
-	CHATSERVER->SendChatEx( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> Reconnected to %s Server!", GAME_SERVER ? "Game" : "Login" );
+	CHATSERVER->SendChatEx( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> 重新连接服务 %s !", GAME_SERVER ? "Game" : "Login" );
 	PacketSimple sPacket;
 	sPacket.iLength = sizeof( PacketSimple );
 	sPacket.iHeader = PKTHDR_ReconnectedServer;
@@ -451,7 +451,7 @@ BOOL UserServer::OnTradeRequest( UserData * pcUserData, PacketSimple * psPacket 
 			return FALSE;
 		if ( pcUserTarget->sSettingsData.bNoTradeRequest || pcUserTarget->IsAccountShareDenied( ACCOUNTSHARE_DenyTrade ) )
 		{
-			CHATSERVER->SendChatEx( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> %s disabled trade request!", CHARACTERSERVER->GetCharacterName(pcUserDataTarget) );
+			CHATSERVER->SendChatEx( USERDATATOUSER( pcUserData ), CHATCOLOR_Error, "> %s 禁止交易请求!", CHARACTERSERVER->GetCharacterName(pcUserDataTarget) );
 			return FALSE;
 		}
 
@@ -459,7 +459,7 @@ BOOL UserServer::OnTradeRequest( UserData * pcUserData, PacketSimple * psPacket 
 		{
 			if ( pcUser->IsAccountShareDenied( ACCOUNTSHARE_DenyTrade ) )
 			{
-				CHATSERVER->SendChatMessageBox( pcUser, "You can't start a Trade, because you're logged in with the Share PW!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能交易, 因为你登录的是共享PW!" );
 				return FALSE;
 			}
 		}

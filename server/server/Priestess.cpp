@@ -530,7 +530,7 @@ int CPriestess::RecvBuffSkill( UserData * pcUserData, UINT packet )
 
 			if ( MAPSERVER->IsSummonMap( pcUser->GetMapID() ) == FALSE )
 			{
-				CHATSERVER->SendChatMessageBox( pcUser, "You can't summon a pet on this map" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能在这张地图上召唤宠物" );
 				break;
 			}
 

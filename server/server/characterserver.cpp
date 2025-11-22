@@ -591,9 +591,9 @@ bool CharacterServer::KickCharacterName( char * pszCharacterName )
 	UserData * pcUserKicked = USERSERVER->GetUserdata( pszCharacterName );
 	if ( pcUserKicked )
 	{
-		LOGSERVER->OnLogEx( USERDATATOUSER( pcUserKicked ), ACCLOGID_CharacterNameKicked, "Character[%s] Disconnected by UserPanel", CHARACTERSERVER->GetCharacterName( USERDATATOUSER( pcUserKicked )->pcUserData ) );
+		LOGSERVER->OnLogEx( USERDATATOUSER( pcUserKicked ), ACCLOGID_CharacterNameKicked, "角色[%s]已中断连接", CHARACTERSERVER->GetCharacterName( USERDATATOUSER( pcUserKicked )->pcUserData ) );
 
-		CHATSERVER->SendChat( USERDATATOUSER( pcUserKicked ), CHATCOLOR_Error, "> A disconnect has been initiated through the User Panel, closing game..." );
+		CHATSERVER->SendChat( USERDATATOUSER( pcUserKicked ), CHATCOLOR_Error, "> 连接已断开,游戏关闭中..." );
 
 		ACCOUNTSERVER->OnDisconnectUser( pcUserKicked );
 		SENDPACKETBLANK( USERDATATOUSER( pcUserKicked ), PKTHDR_Disconnect, TRUE );
@@ -1029,7 +1029,7 @@ void CharacterServer::CharacterCreate( UserData * pcUserData, PacketCreateCharac
 		STRINGFORMAT( szDataPath, "Data\\Character\\%s.chr", psPacket->szCharname );
 		psPacket->iCode = FALSE;
 
-		/*for ( int i = 0; i < lstrlenA( psPacket->szCharname ); i++ )
+		for ( int i = 0; i < lstrlenA( psPacket->szCharname ); i++ )
 		{
 			bool bFound = false;
 			for ( int j = 0; j < STRLEN( ALLOWED_CHARS_NICK ); j++ )
@@ -1046,7 +1046,7 @@ void CharacterServer::CharacterCreate( UserData * pcUserData, PacketCreateCharac
 				SENDPACKET( USERDATATOUSER( pcUserData ), psPacket );
 				return;
 			}
-		}*/
+		}
 
 		BOOL bContinue		= TRUE;
 		BOOL bFileExists	= FILEEXIST( szDataPath );
@@ -1523,7 +1523,7 @@ void CharacterServer::OnCharacterSyncData( UserData * pcUserData )
 	SQLConnection * pcDB = SQLCONNECTION( DATABASEID_ServerDB );
 				
 	if ( EVENT_PVPMODE )
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> Welcome to PvP Server!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 欢迎来到竞技场!" );
 
 	if ( pcDB->Open() )
 	{
@@ -2098,7 +2098,7 @@ void CharacterServer::HandlePacket( User * pcUser, PacketCharacterRecordDataSpli
 		SENDPACKET( pcUser, &sPacket );
 
 		if ( pcUser->GetGameLevel() >= GAMELEVEL_Three )
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> Cannot Save Event!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 无法保存事件!" );
 	}
 	else
 	{

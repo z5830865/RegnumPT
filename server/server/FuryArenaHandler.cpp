@@ -268,11 +268,11 @@ BOOL CFuryArenaHandler::ExchangeItem( User * pcUser, PacketFuryArenaRequest * ps
 			SENDPACKET( pcUser, &sPacket, TRUE );
 
 			//Log It
-			SQLLog( "AccountName[%s] CharacterName[%s] Received EXP [%s]", pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), FormatNumber( iExp ) );
+			SQLLog( "账号[%s] 角色名[%s] 收到了 经验值 [%s]", pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), FormatNumber( iExp ) );
 
 			//Send message to user to be confirmed
-			CHATSERVER->SendChatMessageBox( pcUser, "You received %s EXP", FormatNumber( iExp ) );
-			CHATSERVER->SendChatEx( pcUser, EChatColor::CHATCOLOR_Error, "You received %s EXP", FormatNumber( iExp ) );
+			CHATSERVER->SendChatMessageBox( pcUser, "你获得了 %s 经验值", FormatNumber( iExp ) );
+			CHATSERVER->SendChatEx( pcUser, EChatColor::CHATCOLOR_Error, "你获得了 %s 经验值", FormatNumber( iExp ) );
 			SENDPACKETBLANK( pcUser, PKTHDR_Save, TRUE );
 		}
 		else
@@ -290,11 +290,11 @@ BOOL CFuryArenaHandler::ExchangeItem( User * pcUser, PacketFuryArenaRequest * ps
 			SENDPACKET( pcUser, &sPacket, TRUE );
 
 			//Log It
-			SQLLog( "AccountName[%s] CharacterName[%s] Received Gold [%s gp]", pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), FormatNumber( iGold ) );
+			SQLLog( "账号[%s] 角色名[%s] 收到了金币 [%s gp]", pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), FormatNumber( iGold ) );
 
 			//Send message to user to be confirmed
-			CHATSERVER->SendChatMessageBox( pcUser, "You received %s gp", FormatNumber( iGold ) );
-			CHATSERVER->SendChatEx( pcUser, EChatColor::CHATCOLOR_Error, "You received %s gp", FormatNumber( iGold ) );
+			CHATSERVER->SendChatMessageBox( pcUser, "你获得了 %s 金币", FormatNumber( iGold ) );
+			CHATSERVER->SendChatEx( pcUser, EChatColor::CHATCOLOR_Error, "你获得了 %s 金币", FormatNumber( iGold ) );
 			SENDPACKETBLANK( pcUser, PKTHDR_Save, TRUE );
 		}
 	}
@@ -321,12 +321,12 @@ BOOL CFuryArenaHandler::ExchangeItem( User * pcUser, PacketFuryArenaRequest * ps
 				SENDPACKET( pcUser, &sPacket, TRUE );
 
 				// Log It
-				SQLLog( "AccountName[%s] CharacterName[%s] Received Item [0x%08X][%s]", pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ),
+				SQLLog( "账号名[%s] 角色[%s] 收到了装备 [0x%08X][%s]", pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ),
 					psItemData->sBaseItemID.ToItemID(), psItemData->szBaseName );
 				
 				// Send message to user to be confirmed
-				CHATSERVER->SendChatMessageBox( pcUser, "You received %s", psItemData->szBaseName );
-				CHATSERVER->SendChatEx( pcUser, EChatColor::CHATCOLOR_Error, "You received %s", psItemData->szBaseName );
+				CHATSERVER->SendChatMessageBox( pcUser, "你获得了 %s", psItemData->szBaseName );
+				CHATSERVER->SendChatEx( pcUser, EChatColor::CHATCOLOR_Error, "你获得了 %s", psItemData->szBaseName );
 			}
 		}
 	}
@@ -427,7 +427,7 @@ BOOL CFuryArenaHandler::StartEvent()
 
 
 			// Notify Users about event
-			CHATSERVER->SendChatAll( CHATCOLOR_Global, "BossArena> Boss Arena Started!" );
+			CHATSERVER->SendChatAll( CHATCOLOR_Global, "BossArena> Boss竞技场已经开始!" );
 
 			dwStarted = TICKCOUNT;
 
@@ -462,7 +462,7 @@ BOOL CFuryArenaHandler::EndEvent()
 		dwEventLeaveTime	= TICKCOUNT + (20 * 1000);
 
 		// Notify users from event end
-		CHATSERVER->SendChatAll( CHATCOLOR_Global, "BossArena> Boss Arena Ended!" );
+		CHATSERVER->SendChatAll( CHATCOLOR_Global, "BossArena> Boss竞技场已经结束!" );
 
 		// Kill All Units in event
 		KillUnits();
@@ -525,8 +525,8 @@ BOOL CFuryArenaHandler::EnterFromArena( User * pcUser )
 
 	if ( iCount >= 2000 )
 	{
-		CHATSERVER->SendChatMessageBox( pcUser, "You already entered the Arena with 4 accounts!" );
-		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> You already entered the Arena with 4 accounts!" );
+		CHATSERVER->SendChatMessageBox( pcUser, "你已经以4个帐号进入竞技场!" );
+		CHATSERVER->SendChat( pcUser, CHATCOLOR_Error, "> 你已经以4个帐号进入竞技场!" );
 		return FALSE;
 	}
 
@@ -534,7 +534,7 @@ BOOL CFuryArenaHandler::EnterFromArena( User * pcUser )
 	CHARACTERSERVER->SetPositionWarp( pcUser->pcUserData, _X_KINGFURY + (rand() % (4096 * 2)), _Z_KINGFURY + (rand() % (4096 * 2)), MAPID_CursedTempleF2 );
 
 	// Entered from Arena
-	CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s has entered the Arena", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+	CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s 进入了Arena竞技场", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 
 	// Success
 	pcUser->bInGrandFury = TRUE;
@@ -599,7 +599,7 @@ BOOL CFuryArenaHandler::LeaveFromArena( User * pcUser )
 		SENDPACKET( pcUser, &sPacket, TRUE );
 
 		// Notify users
-		CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s left the Arena (Kicked)", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+		CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s 离开了竞技场 (被踢出)", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 
 		return TRUE;
 	}
@@ -609,7 +609,7 @@ BOOL CFuryArenaHandler::LeaveFromArena( User * pcUser )
 
 BOOL CFuryArenaHandler::OnDisconnected( User * pcUser )
 {
-	CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s left the Arena (DC)", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+	CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s 离开了竞技场 (丢失连接)", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 	pcUser->bInGrandFury			= FALSE;
 	pcUser->dwGrandFuryTickEnter	= 0;
 	return TRUE;
@@ -683,8 +683,8 @@ BOOL CFuryArenaHandler::OnUnitKilled( UserData * pcUserData, UnitData * pcUnitDa
 
 						// Gained The Stone
 						ITEMSERVER->SendItemData( pcUser->pcUserData, &sItem );
-						CHATSERVER->SendChatMessageBox( pcUser, "You received the King Stone" );
-						SQLLog( "AccountName[%s] CharacterName[%s] Received King Stone [%d]", pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), iEventIDNow == 1 ? ITEMCRAFTTYPE_TGFLordBabel : ITEMCRAFTTYPE_TGFKingFury );
+						CHATSERVER->SendChatMessageBox( pcUser, "你获得了王者之石" );
+						SQLLog( "账号[%s] 角色[%s] 收到了王者之石 [%d]", pcUser->pcUserData->szAccountName, CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ), iEventIDNow == 1 ? ITEMCRAFTTYPE_TGFLordBabel : ITEMCRAFTTYPE_TGFKingFury );
 					}
 				}
 			}
@@ -719,7 +719,7 @@ void CFuryArenaHandler::PacketHandlerData( User * pcUser, PacketFuryArenaRequest
 			}
 			else
 			{
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "BossArena> Boss Arena is closed on this server!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "BossArena> Arena竞技场已经关闭!" );
 			}
 			break;
 	
@@ -743,14 +743,14 @@ void CFuryArenaHandler::PacketHandlerData( User * pcUser, PacketFuryArenaRequest
 			if ( bStarted )
 			{
 				// Notify user
-				CHATSERVER->SendChatMessageBox( pcUser, "Event was started" );
+				CHATSERVER->SendChatMessageBox( pcUser, "活动已经开始" );
 				break;
 			}
 
 			// Time to enter on arena
 			if ( dw < 30 || dw > (15*60) )
 			{
-				CHATSERVER->SendChatMessageBox( pcUser, "You cannot enter at the arena" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你不能进入arena竞技场" );
 				break;
 			}
 			// Level <= 100?
@@ -759,14 +759,14 @@ void CFuryArenaHandler::PacketHandlerData( User * pcUser, PacketFuryArenaRequest
 				if ( pcUser->pcUserData->GetLevel() < 100 )
 				{
 					// Hack, can't enter at arena
-					CHATSERVER->SendChatMessageBox( pcUser, "You must be level 100 or above" );
+					CHATSERVER->SendChatMessageBox( pcUser, "你必须100级或者以上才能进入" );
 					break;
 				}
 			}
 			else if ( pcUser->pcUserData->GetLevel() < 120 )
 			{
 				// Hack, can't enter at arena
-				CHATSERVER->SendChatMessageBox( pcUser, "You must be level 120 or above" );
+				CHATSERVER->SendChatMessageBox( pcUser, "你必须120级或者以上才能进入" );
 				break;
 			}
 
@@ -781,7 +781,7 @@ void CFuryArenaHandler::PacketHandlerData( User * pcUser, PacketFuryArenaRequest
 
 			// Exchange Item
 			if ( !ExchangeItem(pcUser, psPacket) )
-				CHATSERVER->SendChatMessageBox( pcUser, "Error: Cannot receive reward" );
+				CHATSERVER->SendChatMessageBox( pcUser, "错误: 不能获得奖励" );
 
 			break;
 		
@@ -915,13 +915,13 @@ void CFuryArenaHandler::Tick()
 			if ( !bAlert1Start && dwTickTime == (30 * 60) )
 			{
 				// Notify Users about event
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BossArena> %s will start in 30 minutes!", szBossName[iEventID] );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BossArena> %s 将会在30分钟后开始!", szBossName[iEventID] );
 				bAlert1Start = TRUE;
 			}
 			if ( !bAlert2Start && dwTickTime == (15 * 60) )
 			{
 				// Notify Users about event
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BossArena> %s will start in 15 minutes!", szBossName[iEventID] );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BossArena> %s 将会在15分钟后开始!", szBossName[iEventID] );
 				bAlert2Start = TRUE;
 				bCanEnter = TRUE;
 			}
@@ -929,14 +929,14 @@ void CFuryArenaHandler::Tick()
 			if ( !bAlert3Start && dwTickTime == (10 * 60) )
 			{
 				// Notify Users about event
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BossArena> %s will start in 10 minutes!", szBossName[iEventID] );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BossArena> %s 将会在10分钟后开始!", szBossName[iEventID] );
 				bAlert3Start = TRUE;
 			}
 
 			if ( !bAlert4Start && dwTickTime == (5 * 60) )
 			{
 				// Notify Users about event
-				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BossArena> %s will start in 5 minutes!", szBossName[iEventID] );
+				CHATSERVER->SendChatAllEx( CHATCOLOR_Global, "BossArena> %s 将会在5分钟后开始!", szBossName[iEventID] );
 				bAlert4Start = TRUE;
 			}
 		}
@@ -1024,7 +1024,7 @@ void CFuryArenaHandler::Tick()
 					SENDPACKET( pcUser, &sPacket, TRUE );
 
 					// Leave from Arena
-					CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s left the Arena", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+					CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s 离开了竞技场", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 					pcUser->bInGrandFury = FALSE;
 					pcUser->dwGrandFuryTickEnter = 0;
 				}
@@ -1032,7 +1032,7 @@ void CFuryArenaHandler::Tick()
 				if ( USERSDATA[i].IsDead() )
 				{
 					// Leave from Arena ( Killed )
-					CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s left the Arena (Killed)", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
+					CHATSERVER->SendChatAllUsersInRange( _X_KINGFURY, _Z_KINGFURY, 0x12C000, CHATCOLOR_Global, "BossArena> %s 离开了竞技场 (被杀死)", CHARACTERSERVER->GetCharacterName( pcUser->pcUserData ) );
 						
 					PacketFuryArenaRequest sPacket;
 					sPacket.iLength = sizeof( PacketFuryArenaRequest );

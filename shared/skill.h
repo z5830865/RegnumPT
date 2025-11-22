@@ -1060,975 +1060,1455 @@ struct SkillTable
 
 extern SkillTable sSkillTable;
 
-	//Fighter
-	const int iaFighterT11DMGBoost[10] = {13, 16, 19, 22, 25, 28, 31, 34, 37, 40};
-	const int iaFighterT33AttackSpeed[10] = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30};
-	const int iaFighterT33Duration[10] = {300, 300, 300, 300, 300, 300, 300, 300, 300, 300};
-	static const int * iaFighterT24DMGBoost = ((int *)0x00995500);
-	const int iaFighterT24Area[10] = {100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
-	const float faFighterT51AddHPRegen[10] = {2.0f, 4.0f, 6.0f, 8.0f, 10.0f, 12.0f, 14.0f, 16.0f, 18.0f, 20.0f};
-	const int iaFighterT51AddHPPotionBoost[10] = {4, 8, 12, 16, 20, 24, 28, 32, 36, 40};
-	const int iaFighterT51BoostHealthBoost[10] = {13, 26, 39, 52, 65, 78, 91, 104, 117, 130};
-	const int iaFighterT52DMGBoost[10] = {45, 50, 55, 60, 65, 70, 75, 80, 85, 90};
-	const int iaFighterT52Area[10] = {50, 55, 60, 65, 70, 80, 85, 90, 95, 100};
-	const float faFighterT53HPDec[10] = {5.6f, 5.2f, 4.8f, 4.4f, 4.0f, 3.6f, 3.2f, 2.8f, 2.4f, 2.0f};
-	const int iaFighterT53HitsBoost[10] = {6, 6, 6, 5, 5, 5, 4, 4, 4, 3};
-	const int iaFighterT53DMGBoost[10] = {12, 14, 16, 18, 20, 22, 24, 26, 28, 30};
-	const int iaFighterT54DMGBoost[10] = {17, 24, 31, 38, 45, 52, 59, 66, 73, 80};
-	const int iaFighterT54Duration[10] = {12, 14, 16, 18, 20, 22, 24, 26, 28, 30};
-	const int iaFighterT54MPDrain[10] = {17, 19, 21, 23, 25, 27, 29, 31, 33, 35};
-	const int iaFighterT54SPDrain[10] = {29, 31, 35, 37, 39, 41, 43, 45, 47, 50};
+//武士T1
+static const int* iaFighterT11WeaponAttackPowerAdd = (int*)0x00995230;
 
-	//Mechanician
-	static const int * iaMechT21Damage = ((int *)0x009928A0);
-	const int iaMechT21Area[10] = {70, 70, 70, 70,70, 70, 70, 70};
-	static const int * iaMechT23DamageBoost = ((int *)0x00992968);
-	static const int * iaMechT23AtkSpeed = ((int *)0x00992990);
-	static const int * iaMechT23Duration = ((int *)0x009929B8);
-	const float faMechT23MPDrain[10] = {7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f, 16.0f};
-	const float faMechT23SPDrain[10] = {5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f};
-	static const int * iaMechT31DefenseRtg = ((int *)0x00992AA8);
-	static const int * iaMechT31Duration = ((int *)0x00992AD0);
-	const int iaMechT51DMGBoost[10] = {80, 90, 100, 110, 120, 130, 140, 150, 160, 170};
-	const int iaMechT52DMGBoost[10] = {2, 3, 5, 7, 10, 13, 16, 19, 22, 25};
-	const int iaMechT53DMGReduction[10] = {7, 8, 9, 10, 12, 14, 16, 18, 20};
-	const int iaMechT53WPAtkRateRed[10] = {20, 22, 24, 26, 27, 28, 29, 30, 31};
-	const int iaMechT54DMGBoost[10] = {20, 30, 40, 50, 60, 70, 80, 90, 100, 120};
+static const int* iaFighterT12FireResistanceIncrease = (int*)0x00995258;
 
-	//Archer
-	const int iaArcherT51RangeAdd[10] = {10, 15, 20, 25, 30, 35, 40, 45, 50, 55};
-	const int iaArcherT51CritRate[10] = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30};
-	const int iaArcherT51DMGBoost[10] = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
-	const int iaArcherT52DMGBoost[10] = {60, 70, 80, 90, 100, 110, 120, 130, 140};
-	const int iaArcherT52CDMGBoost[10] = {2, 3, 4, 5, 6, 8, 10, 12, 15};
-	const int iaArcherT53Duration[10] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-	const int iaArcherT54DMGBoost[10] = {86, 92, 98, 104, 110, 116, 122, 128, 134, 140};
-	const int iaArcherT54Duration[10] = {12, 14, 16, 18, 20, 22, 24, 26, 28, 30};
-	const int iaArcherT54MPDrain[10] = {17, 19, 21, 23, 25, 27, 29, 31, 33, 35};
-	const int iaArcherT54SPDrain[10] = {22, 24, 26, 28, 30, 32, 34, 36, 38, 40};
+const int iaFighterT13DamageBoost[10] = { 13, 16, 19, 22, 25, 28, 31, 34, 37, 40 };
+const int iaFighterT13NumberofHits[10] = { 2,2,2,3,3,3,4,4,4,4 };
+const float faFighterT13HPDecrease[10] = { 1,1,1,2,2,2,3,3,3,3 };
 
-	//Pikeman
-	const int iaPikeT51Duration[10] = {8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
-	const int iaPikeT52DamageBoost[10] = {60, 70, 80, 90, 100, 110, 120, 130, 140, 150};
-	const int iaPikeT52MinATKRed[10] = {20, 40, 60, 80, 100, 120, 140, 160, 180, 200};
-	const int iaPikeT52MaxATKInc[10] = {30, 60, 90, 120, 150, 180, 210, 240, 270, 300};
-	const int iaPikeT53DMGBoost[10] = {4, 8, 12, 16, 20, 24, 28, 32, 36, 40};
-	const int iaPikeT53ATKRate[10] = {24, 28, 32, 36, 40, 44, 48, 52, 56, 60};
-	const int iaPikeT54DMGBoost[10] = {18, 26, 34, 42, 50, 58, 66, 74, 82, 90};
+const int iaFighterT14AddAttackRating[10] = { 20,40,60,80,100,120,140,160,180,200 };
+const int iaFighterT14DamageBoost[10] = { 20,25,29,33,37,41,44,47,50,55 };
+//武士T2
+const int iaFighterT21DamageBoost[10] = { 10,15,20,25,30,35,40,45,50,55 };
+const int iaFighterT21NumberofHits[10] = { 1,1,2,2,2,3,3,3,3,3 };
 
-	//Atalanta
-	const int iaAtaT51DMGBoost[10] = {39, 41, 44, 47, 50, 53, 56, 59, 62, 75};
-	const int iaAtaT51Targets[10] = {3, 3, 4, 4, 5, 6, 7, 8, 9, 10};
-	const int iaAtaT51PoisonDuration[10] = {2, 2, 3, 3, 4, 4, 5, 5, 6, 7};
-	const int iaAtaT52Speed[10] = {8, 10, 12, 14, 16, 18, 20, 22, 24, 26};
-	const int iaAtaT52Evade[10] = {1, 1, 1, 2, 2, 2, 3, 3, 3, 4};
+const int iaFighterT22DamageBoost[10] = { 10,16,22,28,34,40,45,50,55,60 };
+const int iaFighterT22AddCritical[10] = { 3,7,10,13,16,19,21,24,27,30 };
 
-	//Knight
-	static const int * iaKnightT43AddAtkPow = (int *)0x009938B8;
-	static const int * iaKnightT43Duration = (int *)0x009938E0;
-	const int iaKnightT51DMGBoost[10] = {14, 16, 18, 20, 22, 24, 26, 28, 30, 32};
-	const int iaKnightT52DMGBoost[10] = {35, 45, 55, 65, 75, 85, 95, 105, 115, 125};
-	const int iaKnightT52Area[10] = {80, 85, 90, 95, 100, 105, 110, 115, 120, 125};
-	const int iaKnightT52AtkRtg[10] = {20, 30, 40, 50, 60, 70, 80, 90, 100, 110};
-	const int iaKnightT52Duration[10] = {2, 2, 3, 3, 4, 4, 5, 5, 6, 6};
-	const int iaKnightT53DefBoost[10] = {40, 46, 52, 58, 64, 70, 76, 82, 96, 100};
-	const int iaKnightT54DMGBoost[10] = {4,8,12,16,20,24,28,32,36,40};
+const int iaFighterT23AreaofEffect[10] = { 50,60,70,80,90,100,108,116,124,130 };
+const int iaFighterT23Duration[10] = { 6,7,8,9,10,11,12,13,14,15 };
 
-	static const TwoArraySkill * iaMageT23FireDamage = (TwoArraySkill *)0x00995F50;
-	static const TwoArraySkill * iaMageT23IceDamage = (TwoArraySkill *)0x00995F00;
-	static const TwoArraySkill * iaMageT23LightDamage = (TwoArraySkill *)0x00995FA0;
-	static const int * iaMageT23Duration = (int *)0x00995FF0;
+const int iaFighterT24DamageBoost[10] = { 2,4,6,8,10,12,14,16,18,20 };
+const int iaFighterT24AreaofEffect[10] = { 100,100,100,100,100,100,100,100,100,100 };
+//武士T3
+static const int* iaFighterT31AddAttackRating = (int*)0x00995578;
+const int iaFighterT31Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
 
-	const int iaMageT21MPRecoveryBoost[10] = {60, 70, 80, 90, 100, 110, 120, 130, 140, 150};
-	const int iaMageT21MPCapacityBoost[10] = {4, 8, 12, 16, 20, 24, 28, 32, 36, 40};
-	const int iaMageT24DMGBoost[10] = {110, 115, 120, 125, 130, 135, 140, 145, 150, 155};
-	const int iaMageT24AttackRatingBoost[10] = {6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-	const int iaMageT24AttackRange[10] = {185, 190, 195, 200, 205, 210, 215, 220, 225, 230};
-	const int iaMageT51BlockBoost[10] = {4, 8, 12, 16, 20, 24, 28, 32, 36, 40};
-	const int iaMageT51ATKRateRed[10] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
-	const int iaMageT52DMGBoost[10] = {60, 70, 80, 90, 100, 110, 120, 130, 140, 150};
-	const int iaMageT52ATKRate[10] = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30};
-	const int iaMageT52Duration[10] = {4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
-	const int iaMageT52RunSpeedRed[10] = {80, 76, 72, 68, 64, 56, 52, 48, 44};
-	const int iaMageT53DMGBoost[10] = {26, 32, 38, 44, 50, 56, 62, 68, 74, 80};
-	const int iaMageT53AddRange[10] = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50};
-	const int iaMageT54DMGBoost[10] = {65, 80, 95, 110, 125, 140, 155, 170, 185, 200};
-	const int iaMageT54Duration[10] = {12, 14, 16, 18, 20, 22, 24, 26, 28, 30};
-	const int iaMageT54MPDrain[10] = {75, 80, 85, 90, 95, 100, 105, 110, 115, 120};
-	const int iaMageT54SPDrain[10] = {22, 24, 26, 28, 30, 32, 34, 36, 38, 40};
+const int iaFighterT32AddAttackRating[10] = { 5,10,15,20,25,30,35,40,45,50 };
+const int iaFighterT32DamageBoost[10] = { 40,45,50,55,60,65,70,75,80,85 };
+
+const int iaFighterT33AttackSpeed[10] = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 };
+const int iaFighterT33Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+const int iaFighterT34DamageBoost[10] = { 20,25,30,35,40,45,50,55,60,65 };
+const int iaFighterT34DamageBoostvsDemons[10] = { 70,80,90,100,110,120,130,140,150,160 };
+
+//static const int* iaFighterT24DMGBoost = ((int*)0x00995500);
+//const int iaFighterT24Area[10] = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
+//武士T4
+const int iaFighterT41DamageBoost[10] = { 15,30,45,60,75,90,105,120,135,150 };
+const int iaFighterT41AddCritical[10] = { 10,12,14,16,18,20,22,24,26,28 };
+
+static const int* iaFighterT42AddBaseAttackPower = (int*)0x009957A8;
+static const int* iaFighterT42DecreaseAbsorption = (int*)0x009957D0;
+const int iaFighterT42Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+const int iaFighterT43DamageBoost[10] = { 15,20,29,36,43,50,57,64,71,78 };
+const int iaFighterT43MaximumHits[10] = { 5,5,6,6,7,7,8,8,9,9 };
+const int iaFighterT43Range[10] = { 100,105,110,115,120,125,130,135,140,145 };
+
+static const int* iaFighterT44HPIncrease = (int*)0x00995938;
+//武士T5
+const float faFighterT51AddHPRegen[10] = { 2.0f, 4.0f, 6.0f, 8.0f, 10.0f, 12.0f, 14.0f, 16.0f, 18.0f, 20.0f };
+const int iaFighterT51AddHPPotionBoost[10] = { 4, 8, 12, 16, 20, 24, 28, 32, 36, 40 };
+const int iaFighterT51BoostHealthBoost[10] = { 13, 26, 39, 52, 65, 78, 91, 104, 117, 130 };
+const int iaFighterT52DMGBoost[10] = { 45, 50, 55, 60, 65, 70, 75, 80, 85, 90 };
+const int iaFighterT52Area[10] = { 50, 55, 60, 65, 70, 80, 85, 90, 95, 100 };
+const float faFighterT53HPDec[10] = { 5.6f, 5.2f, 4.8f, 4.4f, 4.0f, 3.6f, 3.2f, 2.8f, 2.4f, 2.0f };
+const int iaFighterT53HitsBoost[10] = { 6, 6, 6, 5, 5, 5, 4, 4, 4, 3 };
+const int iaFighterT53DMGBoost[10] = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 };
+const int iaFighterT54DMGBoost[10] = { 17, 24, 31, 38, 45, 52, 59, 66, 73, 80 };
+const int iaFighterT54Duration[10] = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 };
+const int iaFighterT54MPDrain[10] = { 17, 19, 21, 23, 25, 27, 29, 31, 33, 35 };
+const int iaFighterT54SPDrain[10] = { 29, 31, 35, 37, 39, 41, 43, 45, 47, 50 };
+
+//弓箭手T1
+static const int* iaArcherT11AddAttackRating = (int*)0x00993BB0;
+const int iaArcherT11HawkRotations[10] = { 5,6,7,8,9,10,11,12,13,14 };
+
+static const int* iaArcherT12AddAttackPower = (int*)0x00993C28;
+
+const int iaArcherT13AddAttackSpeed[10] = { 2,2,2,3,3,3,4,4,4,5 };
+const int iaArcherT13DamageBoost[10] = { 15,24,32,39,45,50,54,57,59,62 };
+
+const int iaArcherT14AddAttackRating[10] = { 16,22,28,34,40,46,52,58,64,70 };
+const int iaArcherT14DamageBoost[10] = { 20,22,24,26,28,30,32,34,36,38 };
+
+//弓箭手T2    
+static const int* iaArcherT21AddAttackRating = (int*)0x009977D8;
+
+const int iaArcherT22StaticDamage[10] = { 14,18,22,26,30,34,38,42,46,50 };
+const int iaArcherT22FormulaDamage[10] = { 16,20,24,28,32,36,40,44,48,52 };
+const int iaArcherT22Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+const int iaArcherT23DamageBoost[10] = { 122,124,126,128,130,132,134,136,138,140 };
+const int iaArcherT23AreaofEffect[10] = { 55,59,63,67,70,73,76,79,82,85 };
+
+const int iaArcherT24AddAttackSpeed[10] = { 1,2,2,3,3,4,4,5,5,6 };
+const int iaArcherT24DamageBoost[10] = { 30,35,40,45,50,55,60,65,70,75 };
+const int iaArcherT24NumberofArrows[10] = { 3,3,3,4,4,4,5,5,5,6 };
+//弓箭手T3
+const int iaArcherT31FireDamageStatic[10] = { 20,25,30,35,40,45,50,55,60,65 };
+//const int iaArcherT31FireDamageCalculated[10];
+const int iaArcherT31LightningDamageStatic[10] = { 10,20,30,40,50,60,70,80,90,100 };
+//const int iaArcherT31LightningDamageCalculated[10];
+
+const int iaArcherT32FalconDamage[10] = { 150,160,165,170,175,180,185,190,195,200 };
+const float faArcherT32HPRegen[10] = { 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f };
+const int iaArcherT32Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+const int iaArcherT33DamageBoost[10] = { 4,8,12,16,20,24,28,32,36,40 };
+const int iaArcherT33DamageBoostvsDemonMonsters[10] = { 50,60,70,80,90,100,110,120,130,140 };
+const int iaArcherT33AreaofEffect[10] = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
+
+const int iaArcherT34IncreasedShotRange[10] = { 7,14,21,28,35,42,48,56,63,70 };
+const int iaArcherT34DamageBoost[10] = { 3,6,9,12,15,18,21,24,27,30 };
+//弓箭手T4
+const int iaArcherT41SummonAttackPowerMin[10] = { 120,140,160,180,200,220,240,260,280,300 };
+const int iaArcherT41SummonAttackPowerMax[10] = { 120,140,160,180,200,220,240,260,280,300 };
+const int iaArcherT41SummonAttackRating[10] = { 3000,3500,4000,4500,5000,5500,6000,6500,7000,7500 };
+const int iaArcherT41SummonDefense[10] = { 2000,2500,3000,3500,4000,4500,5000,5500,6000,6500 };
+const int iaArcherT41SummonHP[10] = { 8000,10000,12000,14000,16000,18000,20000,22000,24000,26000 };
+const int iaArcherT41Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+static const int* iaArcherT42IncreaseEvasion = (int*)0x009943A8;
+
+//const int iaArcherT43ShotRangeIncrease[10];
+const int iaArcherT43DamageBoost[10] = { 13,27,40,54,67,81,94,108,121,135 };
+const float faArcherT43ChargeRaiseSpeed[10] = { 6,8,12,16,20,24,28,32,36,40 };
+
+static const int* iaArcherT44AddAttackPower = (int*)0x00994470;
+static const int* iaArcherT44AddAttackRating = (int*)0x00994498;
+const int iaArcherT44Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+//弓箭手T5
+const int iaArcherT51RangeAdd[10] = { 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 };
+const int iaArcherT51CritRate[10] = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 };
+const int iaArcherT51DMGBoost[10] = { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 };
+const int iaArcherT52DMGBoost[10] = { 60, 70, 80, 90, 100, 110, 120, 130, 140 };
+const int iaArcherT52CDMGBoost[10] = { 2, 3, 4, 5, 6, 8, 10, 12, 15 };
+const int iaArcherT53Duration[10] = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+const int iaArcherT54DMGBoost[10] = { 86, 92, 98, 104, 110, 116, 122, 128, 134, 140 };
+const int iaArcherT54Duration[10] = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 };
+const int iaArcherT54MPDrain[10] = { 17, 19, 21, 23, 25, 27, 29, 31, 33, 35 };
+const int iaArcherT54SPDrain[10] = { 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 };
+
+//枪兵T1
+const int iaPikemanT11AttackPowerMin[10] = { 15,20,25,30,35,40,45,50,55,60 };
+const int iaPikemanT11AttackPowerMax[10] = { 25,30,35,40,45,50,55,60,65,70 };
+const int iaPikemanT11PushbackRange[10] = { 70,80,90,100,110,120,130,140,150,160 };
+
+static const int* iaPikemanT12FrostResistanceIncrease = (int*)0x00997580;
+
+const int iaPikemanT13AddCriticalDamage[10] = { 2,4,6,8,10,11,12,13,14,15 };
+
+const int iaPikemanT14WeaponAttackRatingBoost[10] = { 7,14,21,28,35,42,49,56,63,70 };
+const int iaPikemanT14DamageBoost[10] = { 10,20,30,40,50,60,70,80,90,100 };
+//枪兵T2
+const int iaPikemanT21FreezeDuration[10] = { 5,6,7,8,9,10,11,12,13,14 };
+const int iaPikemanT21FreezeAttackPowerMin[10] = { 30,35,40,45,50,55,60,65,70,75 };
+const int iaPikemanT21FreezeAttackPowerMax[10] = { 40,45,50,55,60,65,70,75,80,85 };
+const int iaPikemanT21FreezeAttackRange[10] = { 70,73,76,79,82,85,88,91,94,97 };
+
+const int iaPikemanT22DamageBoost[10] = { 25,30,35,40,45,50,55,60,65,70 };
+const int iaPikemanT22Range[10] = { 44,48,52,56,60,64,68,72,76,80 };
+
+static const int* iaPikemanT23WeaponCurrentBlockBoost = (int*)0x009977D8;
+
+const int iaPikemanT24AddSize[10] = { 10,20,30,40,50,60,70,80,90,100 };
+const int iaPikemanT24DamageBoost[10] = { 5,10,15,20,25,30,35,40,45,50 };
+//枪兵T3
+const int iaPikemanT31DamageBoost[10] = { 10,20,30,40,50,60,70,80,90,100 };
+const int iaPikemanT31NumberofSpears[10] = { 3,3,3,4,4,4,5,5,5,6 };
+const int iaPikemanT31EffectDuration[10] = { 5,5,5,5,6,6,6,6,7,7 };
+const int iaPikemanT31EffectRange[10] = { 90,94,98,102,106,110,114,118,122,126 };
+
+const int iaPikemanT32AfterDamage[10] = { 24,28,32,36,40,44,48,52,56,60 };
+const int iaPikemanT32MonsterSightDecrease[10] = { -35,-40,-45,-50,-55,-60,-65,-70,-75,-80 };
+const int iaPikemanT32Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+static const int* iaPikemanT33WeaponCriticalRatingBoost = (int*)0x00997A30;
+
+const int iaPikemanT34DamageBoost[10] = { 25,30,35,40,45,50,55,60,65,70 };
+//枪兵T4
+const int iaPikemanT41AddCriticalDamage[10] = { 10,14,18,22,26,30,34,38,42,46 };
+const int iaPikemanT41TargetCriticalDecrease[10] = { 4,5,6,7,8,9,10,11,12,13 };
+const int iaPikemanT41DebuffDuration[10] = { 12,13,14,15,16,17,18,19,20,21 };
+
+const int iaPikemanT42DamageBoost[10] = { 10,15,20,25,30,35,40,45,50,55 };
+const int iaPikemanT42ChargedDamageBoost[10] = { 30,45,60,75,90,105,120,135,150,165 };
+const int iaPikemanT42RaiseChargingSpeed[10] = { 4,8,12,16,20,24,28,32,36,40 };
+
+static const int* iaPikemanT43AddEvasion = (int*)0x00997BE8;
+const int iaPikemanT43Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+const int iaPikemanT44DamageBoost[10] = { 10,20,30,40,50,60,70,80,90,100 };
+const int iaPikemanT44NumberofHits[10] = { 3,3,4,4,5,5,6,6,7,7 };
+
+//枪兵T5
+const int iaPikeT51Duration[10] = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 };
+const int iaPikeT52DamageBoost[10] = { 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 };
+const int iaPikeT52MinATKRed[10] = { 20, 40, 60, 80, 100, 120, 140, 160, 180, 200 };
+const int iaPikeT52MaxATKInc[10] = { 30, 60, 90, 120, 150, 180, 210, 240, 270, 300 };
+const int iaPikeT53DMGBoost[10] = { 4, 8, 12, 16, 20, 24, 28, 32, 36, 40 };
+const int iaPikeT53ATKRate[10] = { 24, 28, 32, 36, 40, 44, 48, 52, 56, 60 };
+const int iaPikeT54DMGBoost[10] = { 18, 26, 34, 42, 50, 58, 66, 74, 82, 90 };
+
+//魔枪手T1
+const int iaAtalantaT11AttackPowerMin[10] = { 20,30,40,50,60,70,80,90,100,110 };
+const int iaAtalantaT11AttackPowerMax[10] = { 30,40,50,60,70,80,90,100,110,120 };
+
+const int iaAtalantaT12DamageBoost[10] = { 14,16,18,20,22,24,26,28,30,32 };
+const int iaAtalantaT12AddAttackSpeed[10] = { 1,1,1,1,2,2,2,2,2,2 };
+const int iaAtalantaT12AddAttackRating[10] = { 30,40,50,60,70,80,90,100,110,120 };
+
+const int iaAtaT51DMGBoost[10] = { 39, 41, 44, 47, 50, 53, 56, 59, 62, 75 };
+const int iaAtaT51Targets[10] = { 3, 3, 4, 4, 5, 6, 7, 8, 9, 10 };
+const int iaAtaT51PoisonDuration[10] = { 2, 2, 3, 3, 4, 4, 5, 5, 6, 7 };
+const int iaAtaT52Speed[10] = { 8, 10, 12, 14, 16, 18, 20, 22, 24, 26 };
+const int iaAtaT52Evade[10] = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 4 };
+
+static const int* iaAtalantaT13AddAttackPower = (int*)0x009948D0;
+
+const int iaAtalantaT14DamageBoost[10] = { 16,20,24,28,32,35,40,45,50,55 };
+//魔枪手T2
+static const int* iaAtalantaT21AttackRatingBoost = (int*)0x00994970;
+const int iaAtalantaT21Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaAtalantaT22DamageBoost[10] = { 14,18,22,24,26,28,30,32,34,36 };
+const int iaAtalantaT22AttackRatingBoost[10] = { 10,22,34,46,58,70,82,94,106,118 };
+
+const int iaAtalantaT23MonsterLifeAbsorption[10] = { 12,14,16,18,20,22,24,26,28,30 };
+
+const int iaAtalantaT24DamageBoost[10] = { 20,28,32,36,40,55,60,65,70,75 };
+//魔枪手T3
+const int iaAtalantaT31NumberofHits[10] = { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
+const int iaAtalantaT31DamageBoost[10] = { 10,20,30,40,50,60,70,80,90,100 };
+const int iaAtalantaT31AttackRatingBoost[10] = { -10,-7,-4,-1,2,5,8,12,16,20 };
+
+static const int* iaAtalantaT32MaxAttackPower = (int*)0x00994BC8;
+const int iaAtalantaT32Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaAtalantaT33DamageBoost[10] = { 20,28,32,36,40,55,60,65,70,75 };
+
+const int iaAtalantaT34DamageBoost[10] = { 20,24,28,30,32,34,35,36,37,38 };
+//魔枪手T4 
+static const int* iaAtalantaT41AddEvasion = (int*)0x00994D08;
+const int iaAtalantaT41Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaAtalantaT42DamageBoost[10] = { 46,52,58,64,70,76,82,88,94,100 };
+const int iaAtalantaT42AreaofEffect[10] = { 100,105,110,115,120,125,130,135,140,145 };
+
+static const int* iaAtalantaT43AddAttackPowerMin = (int*)0x00994DF8;
+static const int* iaAtalantaT43AddAttackPowerMax = (int*)0x00994DF8;
+const int iaAtalantaT43TargetRunningSpeedReduction[10] = { 7,8,9,10,11,12,13,14,15,16 };
+const int iaAtalantaT43TargetFreezeEffectDuration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+const int iaAtalantaT43Duration[10] = { 5,5,6,6,7,7,8,8,9,9 };
+
+const int iaAtalantaT44DamageBoost[10] = { 10,14,21,28,35,42,49,56,63,70 };
+const int iaAtalantaT44AddRange[10] = { 10,15,20,25,30,35,40,45,50,55 };
+//魔枪手T5
 
 
-	//Priestess
-	static const int * iaPrsT34Duration = (int *)0x00996E50;
-	const int iaPrsT52DMGBoost[10] = {55, 60, 65, 70, 75, 80, 85, 90, 95, 100};
-	const int iaPrsT52Area[10] = {141, 142, 143, 144, 145, 146, 147, 148, 149, 150};
-	const int iaPrsT52AreaFake[10] = {130, 140, 150, 160, 170, 180, 190, 200, 210, 220};
-	const int iaPrsT52MeteoriteCount[10] = {1, 1, 1, 1, 2, 3, 4, 5, 6, 7};
-	const int iaPrsT53ATKRate[10] = {6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-	const int iaPrsT53Duration[10] = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
-	const int iaPrsT53Area[10] = {80, 85, 90, 95, 100, 105, 110, 115, 120, 125};
-	const int iaPrsT54Defense[10] = {70, 80, 90, 100, 110, 120, 130, 140, 150, 160};
-	const int iaPrsT54Absorption[10] = {6, 8, 10, 12, 14, 16, 18, 20, 22, 24};
+//游侠T1
+const int iaKnightT11StaticDamage[10] = { 20,24,28,32,36,40,44,48,52,56 };
+const int iaKnightT11DamageBoost[10] = { 2,4,6,8,10,12,14,16,18,20 };
+const int iaKnightT11LinearAreaofEffect[10] = { 80,84,88,92,96,100,104,108,112,116 };
 
-	//Assassin
-	const int iaASNT33AttackSpeed[10] = {7, 9, 11, 13, 15, 17, 19, 21, 23, 25};
-	const int iaASNT33Duration[10] = {300, 300, 300, 300, 300, 300, 300, 300, 300, 300};
-	const int iaASNT51CritBoost[10] = {4, 8, 12, 16, 20, 24, 28, 32, 36, 40};
-	const int iaASNT51Range[10] = {60, 80, 100, 120, 140, 160, 180, 200, 220, 240};
-	const int iaASNT52CriticalAdd[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	const int iaASNT52Duration[10] = {300, 300, 300, 300, 300, 300, 300, 300, 300, 300};
+const int iaKnightT12DamageBoostvsUndeadMonsters[10] = { 3,6,9,12,15,18,21,24,27,30 };
+const int iaKnightT12Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
 
-	//Shaman
-	const int iaShaT34AttackRatingBoost[10] = { 4, 8, 12, 16, 20, 24, 28, 32, 37, 40 };
-	const int iaShaT34DamageBoost[10] = { 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 };
-	const int iaShaT43AttackSpeed[10] = { 7, 9, 11, 13, 15, 17, 19, 21, 23, 25 };
-	const int iaShaT43Duration[10] = {300, 300, 300, 300, 300, 300, 300, 300, 300, 300};
-	const int iaShaT51MPBoost[10] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
-	const int iaShaT51STMBoost[10] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
-	const int iaShaT52DMGBoost[10] = {70, 80, 90, 100, 110, 120, 125, 130, 135, 140};
-	const int iaShaT52Area[10] = {141, 142, 143, 144, 145, 146, 147, 148, 149, 150};
-	const int iaShaT52AreaFake[10] = {130, 140, 150, 160, 170, 180, 190, 200, 210, 220};
-	const int iaShaT52MeteoriteCount[10] = {1, 1, 1, 1, 2, 3, 4, 5, 6, 7};
+static const int* iaKnightT13SPBoost = (int*)0x00993318;
+
+const int iaKnightT14DamageBoost[10] = { 10,14,18,24,30,36,42,48,54,60 };
+const int iaKnightT14AddCritical[10] = { 2,3,3,4,4,4,5,5,5,6 };
+//游侠T2
+const int iaKnightT21PartyArea[10] = { 300,300,300,300,300,300,300,300,300,300 };
+const int iaKnightT21FinalDamageBoostvsUndeadEnemies[10] = { 5,10,15,20,25,30,35,40,45,50 };
+const int iaKnightT21Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaKnightT22AreaofEffect[10] = { 73,76,79,82,85,88,91,94,97,100 };
+const int iaKnightT22DamageBoost[10] = { 30,35,40,45,50,55,60,65,70,75 };
+
+const int iaKnightT23DamageBoost[10] = { 22,24,26,28,30,32,34,36,38,40 };
+const int iaKnightT23AreaofEffect[10] = { 40,50,60,70,80,90,100,110,120,130 };
+//const int iaKnightT23PierceRange[10];
+
+static const int* iaKnightT24DefenseBoost = (int*)0x00993520;
+const int iaKnightT24Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+//游侠T3
+static const int* iaKnightT31BaseAttackPowerIncrease = (int*)0x00993598;
+
+static const int* iaKnightT32AddBlockRating = (int*)0x009935E8;
+const int iaKnightT32MonsterDamageIntoHP[10] = { 9,18,27,36,45,54,63,72,81,90 };
+const int iaKnightT32Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaKnightT33SuccessRate[10] = { 44,48,52,56,60,64,72,80,88,96 };
+const int iaKnightT33MonsterLifeIncrease[10] = { 100,120,140,160,180,200,220,240,260,280 };
+const int iaKnightT33EnslaveEffectDuration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaKnightT34AttackRatingBoost[10] = { 5,10,15,20,25,30,35,40,45,50 };
+const int iaKnightT34DamageBoost[10] = { 35,40,45,50,55,60,65,70,75,80 };
+const int iaKnightT34DamageBoostvsUndeadEnemies[10] = { 5,10,15,20,25,30,35,40,45,50 };
+//游侠T4
+const int iaKnightT41DamageBoost[10] = { 50,58,66,74,82,90,98,106,114,122 };
+const int iaKnightT41AreaofEffect[10] = { 80,90,100,110,120,130,140,150,160,170 };
+
+static const int* iaKnightT42ShieldAbsorptionBoost = (int*)0x009935E8;
+const int iaKnightT42Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaKnightT43AddAttackPower[10] = {10,20,30,40,50,60,70,80,90,100};
+const int iaKnightT43Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaKnightT44AddCritical[10] = { 3,3,3,4,4,4,5,5,5,6 };
+const int iaKnightT44DamageBoost[10] = { 35,40,45,50,55,60,65,70,75,80 };
+const int iaKnightT44NumberofHits[10] = { 3,3,3,3,5,5,5,5,7,7 };
+//游侠T5
+//static const int* iaKnightT43AddAtkPow = (int*)0x009938B8;
+//static const int* iaKnightT43Duration = (int*)0x009938E0;
+const int iaKnightT51DMGBoost[10] = { 14, 16, 18, 20, 22, 24, 26, 28, 30, 32 };
+const int iaKnightT52DMGBoost[10] = { 35, 45, 55, 65, 75, 85, 95, 105, 115, 125 };
+const int iaKnightT52Area[10] = { 80, 85, 90, 95, 100, 105, 110, 115, 120, 125 };
+const int iaKnightT52AtkRtg[10] = { 20, 30, 40, 50, 60, 70, 80, 90, 100, 110 };
+const int iaKnightT52Duration[10] = { 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+const int iaKnightT53DefBoost[10] = { 40, 46, 52, 58, 64, 70, 76, 82, 96, 100 };
+const int iaKnightT54DMGBoost[10] = { 4,8,12,16,20,24,28,32,36,40 };
+
+//法师T1
+//int			iaMagicianT11HPSacrificed[10];
+const int iaMagicianT11MPIncreased[10] = { 4,8,12,16,20,24,28,32,36,40 };
+
+const int iaMagicianT12StaticDamage[10] = { 15,25,35,45,55,65,75,85,95,105 };
+const int iaMagicianT12DamageBoost[10] = { 2,4,6,8,10,12,14,16,18,20 };
+//int			iaMagicianT12AttackRange[10];
+
+//const int iaMagicianT13AddAbsorption[10];
+static const int* iaMagicianT13AddElementalResistance = (int*)0x00995CF8;
+const int iaMagicianT13Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaMagicianT14StaticDamage[10] = { 30,36,42,48,54,60,66,72,78,84 };
+const int iaMagicianT14DamageBoost[10] = { 2,4,6,8,10,12,14,16,18,20 };
+const int iaMagicianT14AttackRange[10] = { 163,166,169,172,175,178,181,184,187,190 };
+const int iaMagicianT14AreaofEffect[10] = { 70,72,74,76,78,80,82,84,86,88 };
+//法师T2
+const int iaMageT21MPRecoveryBoost[10] = { 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 };
+const int iaMageT21MPCapacityBoost[10] = { 4, 8, 12, 16, 20, 24, 28, 32, 36, 40 };
+
+const int iaMagicianT22DamageBoost[10] = { 20,25,30,35,40,45,50,58,67,70 };
+const int iaMagicianT22AttackRange[10] = { 170,174,178,182,186,190,184,198,202,206 };
+const int iaMagicianT22AreaofEffect[10] = { 70,72,74,76,78,80,82,84,86,88 };
+
+const int iaMagicianT23FireAttackPowerMin[10] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+const int iaMagicianT23IceAttackPowerMin[10] = { 12, 16, 20, 24, 28, 32, 36, 44, 52, 60 };
+const int iaMagicianT23LightningAttackPowerMin[10] = { 16, 22, 28, 34, 40, 46, 52, 58, 64, 70 };
+
+static const TwoArraySkill* iaMageT23FireDamage = (TwoArraySkill*)0x00995F50;
+static const TwoArraySkill* iaMageT23IceDamage = (TwoArraySkill*)0x00995F00;
+static const TwoArraySkill* iaMageT23LightDamage = (TwoArraySkill*)0x00995FA0;
+static const int* iaMageT23Duration = (int*)0x00995FF0;
+
+const int iaMagicianT24DamageBoost[10] = { 45,55,65,75,85,95,105,115,125,135 };
+const int iaMagicianT24AttackRange[10] = { 185,190,200,205,210,215,220,225,230 };
+//法师T3
+const int iaMagicianT31ReduceDamage[10] = { 11,12,13,14,15,16,17,18,19,20 };
+const int iaMagicianT31Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaMagicianT32DamageBoost[10] = { 22,24,26,28,30,32,34,36,38,40 };
+const int iaMagicianT32AreaofEffect[10] = { 100,105,110,115,120,125,130,135,140,145 };
+
+const int iaMagicianT33AddAttackPowerMin[10] = { 4,8,12,16,20,24,28,32,36,40 };
+const int iaMagicianT33AddAttackPowerMax[10] = { 4,8,12,16,20,24,28,32,36,40 };
+const int iaMagicianT33Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaMagicianT34FireDamage[10] = { 10,20,30,40,50,60,70,80,90,100 };
+const int iaMagicianT34IceDamage[10] = { 5,10,20,30,40,50,60,70,80,90 };
+const int iaMagicianT34SwordAttackDelay[10] = { 5,5,5,5,4,4,4,4,3,3 };
+const int iaMagicianT34Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaMagicianT41SummonAttackPowerMin[10] = { 140,160,180,200,220,240,260,280,300,320 };
+const int iaMagicianT41SummonAttackPowerMax[10] = { 140,160,180,200,220,240,260,280,300,320 };
+const int iaMagicianT41SummonAttackRating[10] = { 1000,1000,1000,1000,1000,1000,1000,1000,1000,1000 };
+const int iaMagicianT41SummonHP[10] = { 10000,12000,14000,16000,18000,20000,22000,24000,26000,28000 };
+const int iaMagicianT41SummonDuration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaMagicianT42DamageBoost[10] = { 72,84,96,108,120,132,144,156,168,180 };
+const int iaMagicianT42AreaofEffect[10] = { 110,120,130,140,150,160,170,180,190,200 };
+
+const int iaMagicianT43TargetSpeedReduction[10] = { 4,6,8,10,12,14,16,18,20,22 };
+const int iaMagicianT43AreaofEffect[10] = { 5,6,7,8,9,10,11,12,13,14 };
+const int iaMagicianT43EffectDuration[10] = { 2,4,6,8,10,11,12,13,14,18 };
+
+const int iaMagicianT44DamageBoost[10] = { 75,100,125,150,175,200,225,250,275,300 };
+const int iaMagicianT44AreaofEffect[10] = { 100,105,110,115,120,125,130,135,140,145 };
+
+
+
+const int iaMageT51BlockBoost[10] = { 4, 8, 12, 16, 20, 24, 28, 32, 36, 40 };
+const int iaMageT51ATKRateRed[10] = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+const int iaMageT52DMGBoost[10] = { 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 };
+const int iaMageT52ATKRate[10] = { 3, 6, 9, 12, 15, 18, 21, 24, 27, 30 };
+const int iaMageT52Duration[10] = { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+const int iaMageT52RunSpeedRed[10] = { 80, 76, 72, 68, 64, 56, 52, 48, 44 };
+const int iaMageT53DMGBoost[10] = { 26, 32, 38, 44, 50, 56, 62, 68, 74, 80 };
+const int iaMageT53AddRange[10] = { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 };
+const int iaMageT54DMGBoost[10] = { 65, 80, 95, 110, 125, 140, 155, 170, 185, 200 };
+const int iaMageT54Duration[10] = { 12, 14, 16, 18, 20, 22, 24, 26, 28, 30 };
+const int iaMageT54MPDrain[10] = { 75, 80, 85, 90, 95, 100, 105, 110, 115, 120 };
+const int iaMageT54SPDrain[10] = { 22, 24, 26, 28, 30, 32, 34, 36, 38, 40 };
+
+
+//祭司T1
+//const int iaPriestessT11FormulaBasedLifeRecovery[10];
+const int iaPriestessT11AttackPowerBasedLifeRecovery[10] = { 20,28,36,44,52,60,68,76,84,92 };
+
+const int iaPriestessT12FormulaBasedDamage[10] = { 15,25,35,45,55,65,75,85,95,105 };
+const int iaPriestessT12DamageBoost[10] = { 2,4,6,8,10,12,14,16,18,20 };
+
+const int iaPriestessT13FormulaBasedDamageperHit[10] = { 10,12,14,16,18,20,22,24,26,28 };
+const int iaPriestessT13AttackPowerBasedDamageperHit[10] = { 6,7,8,9,10,11,12,13,14,15 };
+const int iaPriestessT13MinNumberofSparks[10] = { 2,2,2,2,2,2,2,2,2,2 };
+
+const int iaPriestessT14TargetReduceDamage[10] = { 14,18,22,26,30,34,38,42,46,50 };
+const int iaPriestessT14EffectDuration[10] = { 25,25,25,25,25,25,25,25,25,25 };
+//祭司T2 
+static const int* iaPriestessT21AddMPPotionBoostRecovery = (int*)0x04B0D8B0;
+static const int* iaPriestessT21AddMPRegeneration = (int*)0x00996AE0;
+
+const int iaPriestessT22AttackRange[10] = { 180,180,180,180,180,180,180,180,180,180 };
+const int iaPriestessT22DamageBoost[10] = { 30,40,50,60,70,80,90,100,110,120 };
+const int iaPriestessT22NumberofBolts[10] = { 14,18,22,26,30,34,38,42,46,50 };
+
+const int iaPriestessT23MonsterDamageReflected[10] = { 15,30,45,60,75,90,105,120,135,150 };
+const int iaPriestessT23Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaPriestessT24FormulaBasedLifeRecovery[10] = { 30,38,46,54,62,70,78,86,94,102 };
+const int iaPriestessT24AttackPowerBasedLifeRecovery[10] = { 10,20,30,40,50,60,70,80,90,100 };
+const int iaPriestessT24Range[10] = { 300,310,320,330,340,350,360,370,380,390 };
+//祭司T3
+//int			iaPriestessT31AttackRatingBoost[10];
+const int iaPriestessT31DamageBoost[10] = { 58,66,74,82,90,98,106,114,122,130 };
+
+const int iaPriestessT32AttainableSuccessRate[10] = { 40,47,54,61,67,73,79,84,89,94 };
+//int			iaPriestessT32MaxPlayersResurrected[10];
+
+const int iaPriestessT33AttainableSuccessRate[10] = { 10,20,30,40,50,60,70,80,90,100 };
+const int iaPriestessT33MonsterHealthReduction[10] = { 26,28,30,32,34,36,38,40,42,44 };
+
+const int iaPriestessT34IncreaseLife[10] = { 3,6,9,12,15,18,21,24,27,30 };
+static const int* iaPriestessT34Duration = (int*)0x00996E50;
+//祭司T4
+const int iaPriestessT41AttackPowerMin[10] = { 60,70,80,90,100,110,120,130,140,150 };
+const int iaPriestessT41AttackPowerMax[10] = { 80,90,100,110,120,130,140,150,160,170 };
+const int iaPriestessT41AttackRange[10] = { 150,155,160,165,170,175,180,185,190,195 };
+const int iaPriestessT41FreezeDuration[10] = { 3,3,3,4,4,4,5,5,5,6 };
+//0x00996F40  0x00996F68
+const int iaPriestessT42AddHPRegen[10] = { 20,40,60,80,100,120,140,160,180,200 };
+const int iaPriestessT42AddMPRegen[10] = { 30,60,90,120,150,180,210,240,270,300 };
+const int iaPriestessT42Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+const int iaPriestessT42Range[10] = { 250,260,270,280,290,300,310,320,330,340 };
+
+const int iaPriestessT43DamageBoost[10] = { 256,272,288,304,320,336,352,368,384,400 };
+const int iaPriestessT43NumberofBolts[10] = { 14,18,22,26,30,34,38,42,46,50 };
+const int iaPriestessT43Range[10] = { 140,145,150,155,160,165,170,175,180,185 };
+
+const int iaPriestessT44MuspellDamage[10] = { 4,8,12,16,20,24,28,32,36,40 };
+static const int* iaPriestessT44AddAttackPowerMin = (int*)0x04B0DC64;
+static const int* iaPriestessT44AddAttackPowerMax = (int*)0x04B0DC8C;
+const int iaPriestessT44VirtualLifeEffectReduction[10] = { 300,300,300,300,300,300,300,300,300,300 };
+const int iaPriestessT44MuspellAttackDelay[10] = { 7,7,7,6,6,6,5,5,5,4 };
+const int iaPriestessT44AddUndeadAbsorption[10] = { 3,6,9,12,15,18,21,24,27,30 };
+static const int* iaPriestessT44AddEvasion = (int*)0x00997170;
+
+//int* iSkillTable1 = (int*)0x04B0DC64;
+//int* iSkillTable2 = (int*)0x04B0DC8C;
+
+static const int* iaPrsT34Duration = (int*)0x00996E50;
+const int iaPrsT52DMGBoost[10] = { 55, 60, 65, 70, 75, 80, 85, 90, 95, 100 };
+const int iaPrsT52Area[10] = { 141, 142, 143, 144, 145, 146, 147, 148, 149, 150 };
+const int iaPrsT52AreaFake[10] = { 130, 140, 150, 160, 170, 180, 190, 200, 210, 220 };
+const int iaPrsT52MeteoriteCount[10] = { 1, 1, 1, 1, 2, 3, 4, 5, 6, 7 };
+const int iaPrsT53ATKRate[10] = { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+const int iaPrsT53Duration[10] = { 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+const int iaPrsT53Area[10] = { 80, 85, 90, 95, 100, 105, 110, 115, 120, 125 };
+const int iaPrsT54Defense[10] = { 70, 80, 90, 100, 110, 120, 130, 140, 150, 160 };
+const int iaPrsT54Absorption[10] = { 6, 8, 10, 12, 14, 16, 18, 20, 22, 24 };
+
+//刺客T1
+const int iaAssassinT11DamageBoost[10] = { 12,13,14,15,16,17,18,19,20,21 };
+
+const int iaAssassinT12DamageBoost[10] = { 12,14,16,18,20,22,24,26,28,30 };
+
+static const int* iaAssassinT13WeaponAttackPowerAdd = (int*)0x00998020;
+
+const int iaAssassinT14ReduceReceivedDamageFromTarget[10] = { 6,9,12,15,18,20,22,24,26,28 };
+const int iaAssassinT14AttackRange[10] = { 50,53,56,59,62,65,68,71,74,77 };
+const int iaAssassinT14EffectDuration[10] = { 15,15,15,15,15,15,15,15,15,15 };
+//刺客T2
+const int iaAssassinT21DamageBoost[10] = { 13,16,19,22,25,28,31,34,37,40 };
+
+static const int* iaAssassinT22AddEvasion = (int*)0x00998160;
+const int iaAssassinT22Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaAssassinT23RadiusAreaofEffect[10] = { 38,46,54,62,70,78,86,94,102,110 };
+const int iaAssassinT23StunEffectDuration[10] = { 6,7,8,9,10,11,12,13,14,15 };
+
+static const int* iaAssassinT24WeaponAttackRatingBoost = (int*)0x00998228;
+static const int* iaAssassinT24WeaponBlockRatingBoost = (int*)0x00998200;
+//刺客T3
+const int iaAssassinT31DamageBoost[10] = { 40,45,50,55,60,65,70,75,80,85 };
+
+//const int iaAssassinT32AreaofEffect[10];
+const int iaAssassinT32DamageBoost[10] = { 7,9,11,13,15,17,19,21,23,25 };
+
+const int iaASNT33AttackSpeed[10] = { 7, 9, 11, 13, 15, 17, 19, 21, 23, 25 };
+const int iaASNT33Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+const int iaAssassinT34AfterDamage[10] = { 20,25,30,35,40,45,50,55,60,65 };
+const int iaAssassinT34MonsterSightDecrease[10] = { -40,-45,-50,-55,-60,-65,-70,-75,-80,-85 };
+const int iaAssassinT34Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+//刺客T4
+const int iaAssassinT41DamageBoost[10] = { 55,60,65,70,75,80,85,90,95,100 };
+
+static const int* iaAssassinT42WeaponCriticalRatingBoost = (int*)0x00998458;
+
+const int iaAssassinT43DamageBoost[10] = { 10,20,30,40,50,60,70,80,90,100 };
+const int iaAssassinT43MaximumHits[10] = { 2,3,3,4,4,4,5,5,5,6 };
+const int iaAssassinT43EffectDuration[10] = { 5,5,5,5,6,6,6,6,7,7 };
+const int iaAssassinT43EffectRange[10] = { 90,94,98,102,106,110,114,118,122,126 };
+
+const int iaAssassinT44DamageBoost[10] = { 66,72,78,84,90,96,102,108,114,120 };
+//刺客T5
+const int iaASNT51CritBoost[10] = { 4, 8, 12, 16, 20, 24, 28, 32, 36, 40 };
+const int iaASNT51Range[10] = { 60, 80, 100, 120, 140, 160, 180, 200, 220, 240 };
+const int iaASNT52CriticalAdd[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+const int iaASNT52Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+//Shaman
+const int iaShaT34AttackRatingBoost[10] = { 4, 8, 12, 16, 20, 24, 28, 32, 37, 40 };
+const int iaShaT34DamageBoost[10] = { 60, 70, 80, 90, 100, 110, 120, 130, 140, 150 };
+const int iaShaT43AttackSpeed[10] = { 7, 9, 11, 13, 15, 17, 19, 21, 23, 25 };
+const int iaShaT43Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+const int iaShaT51MPBoost[10] = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+const int iaShaT51STMBoost[10] = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+const int iaShaT52DMGBoost[10] = { 70, 80, 90, 100, 110, 120, 125, 130, 135, 140 };
+const int iaShaT52Area[10] = { 141, 142, 143, 144, 145, 146, 147, 148, 149, 150 };
+const int iaShaT52AreaFake[10] = { 130, 140, 150, 160, 170, 180, 190, 200, 210, 220 };
+const int iaShaT52MeteoriteCount[10] = { 1, 1, 1, 1, 2, 3, 4, 5, 6, 7 };
+
+//机械T1
+const int iaMechanicianT11ShieldBlockBoost[10] = { 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 }; //= (int*)0x00992698;
+const int iaMechanicianT11Duration[10] = { 300, 300, 300, 300, 300, 300, 300, 300, 300, 300 };
+
+const int iaMechanicianT12StaticDamage[10] = { 10, 14, 18, 22, 26, 30, 34, 38, 42, 46 };
+const int iaMechanicianT12AddAttackPower[10] = { 5, 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+const int iaMechanicianT12AreaofEffect[10] = { 64, 68, 72, 76, 80, 84, 88, 92, 96, 100 };
+
+static const int* iaMechanicianT13PoisonResistanceIncrease = (int*)0x00992850;
+
+static const int* iaMechanicianT14AbsorptionBoost = (int*)0x009927B0;
+const int iaMechanicianT14Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+//机械T2
+const int iaMechanicianT21CalculatedDamage[10] = { 20,25,30,35,40,45,50,55,60,65 };
+const int iaMechanicianT21AreaofEffect[10] = { 80,80,80,80,80,80,80,80,80,80 };
+
+const int iaMechanicianT22AddAttackPower[10] = { 2,4,6,8,10,12,14,16,18,20 };
+static const int* iaMechanicianT22AddAttackRating = (int*)0x04B0C034;
+const int iaMechanicianT22Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaMechanicianT23DamageBoost[10] = { 2,4,6,8,10,12,14,16,18,20 };
+const int iaMechanicianT23AddAttackSpeed[10] = { 4,4,4,4,5,5,5,5,6,6 };
+static const int* iaMechT23Duration = ((int*)0x009929B8);
+const float faMechT23MPDrain[10] = { 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f, 15.0f, 16.0f };
+const float faMechT23SPDrain[10] = { 5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f, 13.0f, 14.0f };
+
+const int iaMechanicianT24DamageBoost[10] = { 28,30,32,34,36,38,40,42,44,46 };
+const int iaMechanicianT24AreaofEffect[10] = { 100,105,110,115,120,125,130,135,140,145 };
+
+//机械T3
+const int iaMechanicianT31ArmorDefenseRatingBoost[10] = { 2, 4, 7, 10, 15, 20, 25, 30, 35, 40 };
+const int iaMechanicianT31Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+//static const int* iaMechT31DefenseRtg = ((int*)0x00992AA8);
+//static const int* iaMechT31Duration = ((int*)0x00992AD0);
+
+const int iaMechanicianT32DamageBoost[10] = { 45,50,55,60,65,70,75,80,85,90 };
+
+static const int* iaMechanicianT33BaseAttackPowerIncrease = ((int*)0x00992B98);
+
+const int iaMechanicianT34SparkDamage[10] = { 32,34,36,38,40,42,44,46,48,50 };
+static const int* iaMechanicianT34AddDefenseRating = ((int*)0x00992BE8);
+const int iaMechanicianT34Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+//机械T4
+const int iaMechanicianT41DamageBoost[10] = { 40,42,44,46,48,50,52,54,56,58 };
+const int iaMechanicianT41AreaofEffect[10] = { 130,135,140,145,150,155,160,165,170,175 };
+const int iaMechanicianT41MaxHits[10] = { 3,3,3,4,4,4,5,5,5,6 };
+
+static const int* iaMechanicianT42IncreaseAbsorption = ((int*)0x00992D28);
+//const int iaMechanicianT42BoostAbsorption[10];
+const int iaMechanicianT42MonsterSightRangeIncrease[10] = { 100,120,130,140,150,160,170,180,190,200 };
+const int iaMechanicianT42Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaMechanicianT43SpheresDamage[10] = { 2,4,6,8,10,12,14,16,18,20 };
+const int iaMechanicianT43SpheresAttackRange[10] = { 80,80,85,85,90,90,95,95,100,105 };
+//const int iaMechanicianT43SpheresAttackDelay[10];
+const int iaMechanicianT43Duration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+const int iaMechanicianT44SummonAttackPowerMin[10] = { 160,180,200,220,240,260,280,300,320,340 };
+const int iaMechanicianT44SummonAttackPowerMax[10] = { 160,180,200,220,240,260,280,300,320,340 };
+const int iaMechanicianT44SummonAttackRating[10] = { 1000,1000,1000,1000,1000,1000,1000,1000,1000,1000 };
+const int iaMechanicianT44SummonDefense[10] = { 1000,1500,2000,2500,3000,3500,4000,4500,5000,5500 };
+const int iaMechanicianT44SummonHP[10] = { 14000,16000,18000,20000,22000,24000,26000,28000,30000,30000 };
+const int iaMechanicianT44SummonDuration[10] = { 300,300,300,300,300,300,300,300,300,300 };
+
+//机械T5
+const int iaMechT51DMGBoost[10] = { 80, 90, 100, 110, 120, 130, 140, 150, 160, 170 };
+const int iaMechT52DMGBoost[10] = { 2, 3, 5, 7, 10, 13, 16, 19, 22, 25 };
+const int iaMechT53DMGReduction[10] = { 7, 8, 9, 10, 12, 14, 16, 18, 20 };
+const int iaMechT53WPAtkRateRed[10] = { 20, 22, 24, 26, 27, 28, 29, 30, 31 };
+const int iaMechT54DMGBoost[10] = { 20, 30, 40, 50, 60, 70, 80, 90, 100, 120 };
+
 
 
 enum ESkillType
 {
-	SKILLTYPE_Undefined			= 0,
+	SKILLTYPE_Undefined = 0,
 
-	SKILLTYPE_Right				= 0x01000000,
-	SKILLTYPE_Left				= 0x02000000,
-	SKILLTYPE_All				= 0x03000000,
-	SKILLTYPE_Passive			= 0x04000000,
+	SKILLTYPE_Right = 0x01000000,
+	SKILLTYPE_Left = 0x02000000,
+	SKILLTYPE_All = 0x03000000,
+	SKILLTYPE_Passive = 0x04000000,
 };
 
 enum ESkillPlayID
 {
-	SKILLPLAYID_Undefined		= 0x00,
+	SKILLPLAYID_Undefined = 0x00,
 
 	//Tier1
-	SKILLPLAYID_T11				= 0x1A,
-	SKILLPLAYID_T12				= 0x1B,
-	SKILLPLAYID_T13				= 0x1C,
-	SKILLPLAYID_T14				= 0x1D,
+	SKILLPLAYID_T11 = 0x1A,
+	SKILLPLAYID_T12 = 0x1B,
+	SKILLPLAYID_T13 = 0x1C,
+	SKILLPLAYID_T14 = 0x1D,
 
 	//Tier2
-	SKILLPLAYID_T21				= 0x2A,
-	SKILLPLAYID_T22				= 0x2B,
-	SKILLPLAYID_T23				= 0x2C,
-	SKILLPLAYID_T24				= 0x2D,
+	SKILLPLAYID_T21 = 0x2A,
+	SKILLPLAYID_T22 = 0x2B,
+	SKILLPLAYID_T23 = 0x2C,
+	SKILLPLAYID_T24 = 0x2D,
 
 	//Tier3
-	SKILLPLAYID_T31				= 0x3A,
-	SKILLPLAYID_T32				= 0x3B,
-	SKILLPLAYID_T33				= 0x3C,
-	SKILLPLAYID_T34				= 0x3D,
+	SKILLPLAYID_T31 = 0x3A,
+	SKILLPLAYID_T32 = 0x3B,
+	SKILLPLAYID_T33 = 0x3C,
+	SKILLPLAYID_T34 = 0x3D,
 
 	//Tier4
-	SKILLPLAYID_T41				= 0x4A,
-	SKILLPLAYID_T42				= 0x4B,
-	SKILLPLAYID_T43				= 0x4C,
-	SKILLPLAYID_T44				= 0x4D,
+	SKILLPLAYID_T41 = 0x4A,
+	SKILLPLAYID_T42 = 0x4B,
+	SKILLPLAYID_T43 = 0x4C,
+	SKILLPLAYID_T44 = 0x4D,
 
 	//Tier5
-	SKILLPLAYID_T51				= 0x5A,		//90
-	SKILLPLAYID_T52				= 0x5B,		//91
-	SKILLPLAYID_T53				= 0x5C,		//92
-	SKILLPLAYID_T54				= 0x5D,		//93
+	SKILLPLAYID_T51 = 0x5A,		//90
+	SKILLPLAYID_T52 = 0x5B,		//91
+	SKILLPLAYID_T53 = 0x5C,		//92
+	SKILLPLAYID_T54 = 0x5D,		//93
 };
 
 
 enum ESkillSound : int
 {
-	SKILLSOUND_PhysicalAbsorb3		= 0x00001032,
-	SKILLSOUND_Automation3			= 0x00002012,
-	SKILLSOUND_AvengingCrash		= 0x00003120,
+	SKILLSOUND_PhysicalAbsorb3 = 0x00001032,
+	SKILLSOUND_Automation3 = 0x00002012,
+	SKILLSOUND_AvengingCrash = 0x00003120,
 
-	
-	SKILLSOUNDID_LEARN				 = 0x1000,
-	SKILLSOUNDID_EXTREME_SHIELD				 = 0x1010,
-	SKILLSOUNDID_MECHANIC_BOMB1				 = 0x1020,
-	SKILLSOUNDID_MECHANIC_BOMB2				 = 0x1021,
-	SKILLSOUNDID_PHYSICAL_ABSORB1				 = 0x1030,
-	SKILLSOUNDID_PHYSICAL_ABSORB2				 = 0x1031,
-	SKILLSOUNDID_PHYSICAL_ABSORB3				 = 0x1032,
-	SKILLSOUNDID_JUMPING_CRASH1				 = 0x1130,
-	SKILLSOUNDID_JUMPING_CRASH2				 = 0x1131,
-	SKILLSOUNDID_PIKE_WIND				 = 0x1200,
-	SKILLSOUNDID_SCOUT_HAWK1				 = 0x1310,
-	SKILLSOUNDID_SCOUT_HAWK2				 = 0x1311,
-	SKILLSOUNDID_WIND_ARROW				 = 0x1320,
-	SKILLSOUNDID_PERFECT_AIM				 = 0x1330,
-	SKILLSOUNDID_ARROW_HIT1				 = 0x1301,
-	SKILLSOUNDID_ARROW_HIT2				 = 0x1302,
-	SKILLSOUNDID_SKILL_SWING1				 = 0x2000,
-	SKILLSOUNDID_SKILL_SWING2				 = 0x2001,
-	SKILLSOUNDID_SKILL_AUTOMATION1				 = 0x2010,
-	SKILLSOUNDID_SKILL_AUTOMATION2				 = 0x2011,
-	SKILLSOUNDID_SKILL_AUTOMATION3				 = 0x2012,
-	SKILLSOUNDID_SKILL_AUTOMATION4				 = 0x2013,
-	SKILLSOUNDID_SKILL_AUTOMATION5				 = 0x2014,
-	SKILLSOUNDID_SKILL_MAXIMIZE1				 = 0x2020,
-	SKILLSOUNDID_SKILL_MAXIMIZE2				 = 0x2021,
-	SKILLSOUNDID_SKILL_MAXIMIZE3				 = 0x2022,
-	SKILLSOUNDID_SKILL_SPARK1				 = 0x2030,
-	SKILLSOUNDID_SKILL_SPARK2				 = 0x2031,
-	SKILLSOUNDID_SKILL_SPARK3				 = 0x2032,
-	SKILLSOUNDID_SKILL_GROUND_PIKE				 = 0x2110,
-	SKILLSOUNDID_SKILL_TORNADO1				 = 0x2120,
-	SKILLSOUNDID_SKILL_EXPANSION1				 = 0x2130,
-	SKILLSOUNDID_SKILL_EXPANSION2				 = 0x2131,
-	SKILLSOUNDID_SKILL_ROAR1				 = 0x2201,
-	SKILLSOUNDID_SKILL_ROAR2				 = 0x2202,
-	SKILLSOUNDID_SKILL_RAGE_OF_ZECRAM1				 = 0x2211,
-	SKILLSOUNDID_SKILL_RAGE_OF_ZECRAM2				 = 0x2212,
-	SKILLSOUNDID_SKILL_RAGE_OF_ZECRAM3				 = 0x2213,
-	SKILLSOUNDID_SKILL_FALCON				 = 0x2310,
-	SKILLSOUNDID_SKILL_FALCON_ATTACK1				 = 0x2311,
-	SKILLSOUNDID_SKILL_FALCON_ATTACK2				 = 0x2312,
-	SKILLSOUNDID_SKILL_AVALANCHE1				 = 0x2322,
-	SKILLSOUNDID_SKILL_AVALANCHE2				 = 0x2322,
-	SKILLSOUNDID_SKILL_AVALANCHE3				 = 0x2322,
-	SKILLSOUNDID_SKILL_ARROW_OF_RANGE				 = 0x2332,
-	SKILLSOUNDID_SKILL_CASTING_MAGICIAN				 = 0x1800,
-	SKILLSOUNDID_SKILL_CASTING_PRIEST				 = 0x1700,
-	SKILLSOUNDID_SKILL_SWORDBLAST1				 = 0x1510,
-	SKILLSOUNDID_SKILL_SWORDBLAST2				 = 0x1511,
-	SKILLSOUNDID_SKILL_HOLYBODY				 = 0x1520,
-	SKILLSOUNDID_SKILL_SHIELDSTRIKE				 = 0x1610,
-	SKILLSOUNDID_SKILL_FARINA				 = 0x1620,
-	SKILLSOUNDID_SKILL_VIGORSPEAR				 = 0x1640,
-	SKILLSOUNDID_SKILL_HEALING				 = 0x1710,
-	SKILLSOUNDID_SKILL_HOLYBOLT				 = 0x1720,
-	SKILLSOUNDID_SKILL_MULTISPARK				 = 0x1730,
-	SKILLSOUNDID_SKILL_HOLYMIND				 = 0x1740,
-	SKILLSOUNDID_SKILL_AGONY				 = 0x1810,
-	SKILLSOUNDID_SKILL_FIREBOLT1				 = 0x1820,
-	SKILLSOUNDID_SKILL_FIREBOLT2				 = 0x1821,
-	SKILLSOUNDID_SKILL_ZENITH				 = 0x1830,
-	SKILLSOUNDID_SKILL_FIREBALL1				 = 0x1840,
-	SKILLSOUNDID_SKILL_FIREBALL2				 = 0x1841,
-	SKILLSOUNDID_SKILL_HOLY_VALOR1				 = 0x2510,
-	SKILLSOUNDID_SKILL_HOLY_VALOR3				 = 0x2513,
-	SKILLSOUNDID_SKILL_BLANDISH1				 = 0x2520,
-	SKILLSOUNDID_SKILL_BLANDISH2				 = 0x2521,
-	SKILLSOUNDID_SKILL_PIERCING				 = 0x2530,
-	SKILLSOUNDID_SKILL_DRASTICSPIRIT1				 = 0x2540,
-	SKILLSOUNDID_SKILL_DRASTICSPIRIT3				 = 0x2543,
-	SKILLSOUNDID_SKILL_WINDY1				 = 0x2610,
-	SKILLSOUNDID_SKILL_WINDY3				 = 0x2613,
-	SKILLSOUNDID_SKILL_TWISTJAVELIN				 = 0x2620,
-	SKILLSOUNDID_SKILL_SOULSUCKER2				 = 0x2622,
-	SKILLSOUNDID_SKILL_SOULSUCKER3				 = 0x2623,
-	SKILLSOUNDID_SKILL_SOULSUCKER4				 = 0x2624,
-	SKILLSOUNDID_SKILL_FIREJAVELIN				 = 0x2630,
-	SKILLSOUNDID_SKILL_DIVINELIGHTNING1				 = 0x2710,
-	SKILLSOUNDID_SKILL_DIVINELIGHTNING2				 = 0x2711,
-	SKILLSOUNDID_SKILL_DIVINELIGHTNING3				 = 0x2712,
-	SKILLSOUNDID_SKILL_HOLYREFLECTION1				 = 0x2720,
-	SKILLSOUNDID_SKILL_HOLYREFLECTION2				 = 0x2722,
-	SKILLSOUNDID_SKILL_GRANDHEALING				 = 0x2730,
-	SKILLSOUNDID_SKILL_WATORNADO1				 = 0x2810,
-	SKILLSOUNDID_SKILL_WATORNADO2				 = 0x2811,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_CAST				 = 0x2820,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_ICE1				 = 0x2821,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_ICE2				 = 0x2822,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_FIRE1				 = 0x2823,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_FIRE2				 = 0x2824,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_LIGHTNING1				 = 0x2825,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_LIGHTNING2				 = 0x2826,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_MAGIC_LIGHTNING1				 = 0x2827,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_MAGIC_LIGHTNING2				 = 0x2828,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_MAGIC_ICE1				 = 0x2840,
-	SKILLSOUNDID_SKILL_ENCHANTWEAPON_MAGIC_ICE2				 = 0x2841,
-	SKILLSOUNDID_SKILL_DEATHRAY				 = 0x2830,
-	SKILLSOUNDID_SKILL_METAL_ARMOR				 = 0x3010,
-	SKILLSOUNDID_SKILL_SPARK_SHIELD				 = 0x3040,
-	SKILLSOUNDID_SKILL_CONCENTRATION1				 = 0x3110,
-	SKILLSOUNDID_SKILL_CONCENTRATION2				 = 0x3111,
-	SKILLSOUNDID_SKILL_AVANGING_CRASH				 = 0x3120,
-	SKILLSOUNDID_SKILL_SWIFT_AXE1				 = 0x3130,
-	SKILLSOUNDID_SKILL_SWIFT_AXE2				 = 0x3131,
-	SKILLSOUNDID_SKILL_BONE_CRASH1				 = 0x3140,
-	SKILLSOUNDID_SKILL_VENOM_SPEAR1				 = 0x3210,
-	SKILLSOUNDID_SKILL_VENOM_SPEAR2				 = 0x3211,
-	SKILLSOUNDID_SKILL_VANISH1				 = 0x3220,
-	SKILLSOUNDID_SKILL_VANISH2				 = 0x3221,
-	SKILLSOUNDID_SKILL_CHAIN_LANCE1				 = 0x3240,
-	SKILLSOUNDID_SKILL_CHAIN_LANCE2				 = 0x3241,
-	SKILLSOUNDID_SKILL_CHAIN_LANCE3				 = 0x3242,
-	SKILLSOUNDID_SKILL_ELEMENTAL_SHOT				 = 0x3310,
-	SKILLSOUNDID_SKILL_GOLDEN_FALCON				 = 0x3320,
-	SKILLSOUNDID_SKILL_PERFORATION				 = 0x3330,
-	SKILLSOUNDID_SKILL_BOMB_SHOT1				 = 0x3340,
-	SKILLSOUNDID_SKILL_BOMB_SHOT2				 = 0x3341,
-	SKILLSOUNDID_SKILL_FLAME_BRANDISH				 = 0x3410,
-	SKILLSOUNDID_SKILL_DIVINE_INHALATION				 = 0x3420,
-	SKILLSOUNDID_SKILL_HOLY_INCANTATION				 = 0x3430,
-	SKILLSOUNDID_SKILL_GRAND_CROSS				 = 0x3440,
-	SKILLSOUNDID_SKILL_SPLIT_JAVELIN1				 = 0x3510,
-	SKILLSOUNDID_SKILL_SPLIT_JAVELIN2				 = 0x3511,
-	SKILLSOUNDID_SKILL_TRIUMPH_OF_VALHALLA1				 = 0x3520,
-	SKILLSOUNDID_SKILL_TRIUMPH_OF_VALHALLA2				 = 0x3521,
-	SKILLSOUNDID_SKILL_LIGHTNING_JAVELIN1				 = 0x3530,
-	SKILLSOUNDID_SKILL_LIGHTNING_JAVELIN2				 = 0x3531,
-	SKILLSOUNDID_SKILL_STORM_JAVELIN1				 = 0x3540,
-	SKILLSOUNDID_SKILL_STORM_JAVELIN2				 = 0x3541,
-	SKILLSOUNDID_SKILL_VIGOR_BALL1				 = 0x3610,
-	SKILLSOUNDID_SKILL_VIGOR_BALL2				 = 0x3611,
-	SKILLSOUNDID_SKILL_RESURRECTION				 = 0x3620,
-	SKILLSOUNDID_SKILL_EXTINTION				 = 0x3630,
-	SKILLSOUNDID_SKILL_VIRTUAL_LIFE				 = 0x3640,
-	SKILLSOUNDID_SKILL_ENERGY_SHIELD				 = 0x3710,
-	SKILLSOUNDID_SKILL_DIASTROPHISM				 = 0x3720,
-	SKILLSOUNDID_SKILL_SPIRIT_ELEMENTAL				 = 0x3730,
-	SKILLSOUNDID_SKILL_DANCING_SWORD				 = 0x3740,
-	SKILLSOUNDID_SKILL_DANCING_SWORD_ATK1				 = 0x3741,
-	SKILLSOUNDID_SKILL_DANCING_SWORD_ATK2				 = 0x3742,
-	SKILLSOUNDID_SKILL_IMPULSION				 = 0x4010,
-	SKILLSOUNDID_SKILL_COMPULSION1				 = 0x4021,
-	SKILLSOUNDID_SKILL_COMPULSION2				 = 0x4022,
-	SKILLSOUNDID_SKILL_COMPULSION3				 = 0x4023,
-	SKILLSOUNDID_SKILL_METAL_GOLEM				 = 0x4040,
-	SKILLSOUNDID_SKILL_BERSERKER				 = 0x4120,
-	SKILLSOUNDID_SKILL_CYCLONE_STRIKE				 = 0x4130,
-	SKILLSOUNDID_SKILL_ASSASSIN_EYE				 = 0x4210,
-	SKILLSOUNDID_SKILL_CHARGING				 = 0x4220,
-	SKILLSOUNDID_SKILL_CHARGING_STRIKE				 = 0x4221,
-	SKILLSOUNDID_SKILL_VAGUE				 = 0x4230,
-	SKILLSOUNDID_SKILL_SHADOW_STRIKE1				 = 0x4241,
-	SKILLSOUNDID_SKILL_SHADOW_STRIKE2				 = 0x4242,
-	SKILLSOUNDID_SKILL_SHADOW_STRIKE3				 = 0x4243,
-	SKILLSOUNDID_SKILL_SHADOW_STRIKE4				 = 0x4244,
-	SKILLSOUNDID_SKILL_RECALL_WOLVERIN				 = 0x4310,
-	SKILLSOUNDID_SKILL_PHOENIX_SHOT				 = 0x4330,
-	SKILLSOUNDID_SKILL_FORCE_OF_NATURE				 = 0x4340,
-	SKILLSOUNDID_SKILL_DVINE_PIERCING				 = 0x4410,
-	SKILLSOUNDID_SKILL_GODLY_SHIELD				 = 0x4420,
-	SKILLSOUNDID_SKILL_GODS_BLESS				 = 0x4430,
-	SKILLSOUNDID_SKILL_SWORD_OF_JUSTICE				 = 0x4440,
-	SKILLSOUNDID_SKILL_HALL_OF_VALHALLA				 = 0x4510,
-	SKILLSOUNDID_SKILL_EXTREM_RAGE1				 = 0x4521,
-	SKILLSOUNDID_SKILL_EXTREM_RAGE2				 = 0x4522,
-	SKILLSOUNDID_SKILL_EXTREM_RAGE3				 = 0x4523,
-	SKILLSOUNDID_SKILL_FROST_JAVELIN				 = 0x4530,
-	SKILLSOUNDID_SKILL_VENGEANCE1				 = 0x4541,
-	SKILLSOUNDID_SKILL_VENGEANCE2				 = 0x4542,
-	SKILLSOUNDID_SKILL_GLACIAL_SPIKE1				 = 0x4611,
-	SKILLSOUNDID_SKILL_GLACIAL_SPIKE2				 = 0x4612,
-	SKILLSOUNDID_SKILL_REGEN_FIELD1				 = 0x4621,
-	SKILLSOUNDID_SKILL_REGEN_FIELD2				 = 0x4622,
-	SKILLSOUNDID_SKILL_CHAIN_LIGHTNING1				 = 0x4631,
-	SKILLSOUNDID_SKILL_CHAIN_LIGHTNING2				 = 0x4632,
-	SKILLSOUNDID_SKILL_MUSPELL1				 = 0x4641,
-	SKILLSOUNDID_SKILL_MUSPELL2				 = 0x4642,
-	SKILLSOUNDID_SKILL_FIRE_ELEMENTAL				 = 0x4710,
-	SKILLSOUNDID_SKILL_FLAME_WAVE1				 = 0x4721,
-	SKILLSOUNDID_SKILL_FLAME_WAVE2				 = 0x4722,
-	SKILLSOUNDID_SKILL_FLAME_WAVE3				 = 0x4723,
-	SKILLSOUNDID_SKILL_DISTORTION				 = 0x4730,
-	SKILLSOUNDID_SKILL_METEO1				 = 0x4741,
-	SKILLSOUNDID_SKILL_METEO2				 = 0x4742,
-	SKILLSOUNDID_SKILL_METEO3				 = 0x4743
+
+	SKILLSOUNDID_LEARN = 0x1000,
+	SKILLSOUNDID_EXTREME_SHIELD = 0x1010,
+	SKILLSOUNDID_MECHANIC_BOMB1 = 0x1020,
+	SKILLSOUNDID_MECHANIC_BOMB2 = 0x1021,
+	SKILLSOUNDID_PHYSICAL_ABSORB1 = 0x1030,
+	SKILLSOUNDID_PHYSICAL_ABSORB2 = 0x1031,
+	SKILLSOUNDID_PHYSICAL_ABSORB3 = 0x1032,
+	SKILLSOUNDID_JUMPING_CRASH1 = 0x1130,
+	SKILLSOUNDID_JUMPING_CRASH2 = 0x1131,
+	SKILLSOUNDID_PIKE_WIND = 0x1200,
+	SKILLSOUNDID_SCOUT_HAWK1 = 0x1310,
+	SKILLSOUNDID_SCOUT_HAWK2 = 0x1311,
+	SKILLSOUNDID_WIND_ARROW = 0x1320,
+	SKILLSOUNDID_PERFECT_AIM = 0x1330,
+	SKILLSOUNDID_ARROW_HIT1 = 0x1301,
+	SKILLSOUNDID_ARROW_HIT2 = 0x1302,
+	SKILLSOUNDID_SKILL_SWING1 = 0x2000,
+	SKILLSOUNDID_SKILL_SWING2 = 0x2001,
+	SKILLSOUNDID_SKILL_AUTOMATION1 = 0x2010,
+	SKILLSOUNDID_SKILL_AUTOMATION2 = 0x2011,
+	SKILLSOUNDID_SKILL_AUTOMATION3 = 0x2012,
+	SKILLSOUNDID_SKILL_AUTOMATION4 = 0x2013,
+	SKILLSOUNDID_SKILL_AUTOMATION5 = 0x2014,
+	SKILLSOUNDID_SKILL_MAXIMIZE1 = 0x2020,
+	SKILLSOUNDID_SKILL_MAXIMIZE2 = 0x2021,
+	SKILLSOUNDID_SKILL_MAXIMIZE3 = 0x2022,
+	SKILLSOUNDID_SKILL_SPARK1 = 0x2030,
+	SKILLSOUNDID_SKILL_SPARK2 = 0x2031,
+	SKILLSOUNDID_SKILL_SPARK3 = 0x2032,
+	SKILLSOUNDID_SKILL_GROUND_PIKE = 0x2110,
+	SKILLSOUNDID_SKILL_TORNADO1 = 0x2120,
+	SKILLSOUNDID_SKILL_EXPANSION1 = 0x2130,
+	SKILLSOUNDID_SKILL_EXPANSION2 = 0x2131,
+	SKILLSOUNDID_SKILL_ROAR1 = 0x2201,
+	SKILLSOUNDID_SKILL_ROAR2 = 0x2202,
+	SKILLSOUNDID_SKILL_RAGE_OF_ZECRAM1 = 0x2211,
+	SKILLSOUNDID_SKILL_RAGE_OF_ZECRAM2 = 0x2212,
+	SKILLSOUNDID_SKILL_RAGE_OF_ZECRAM3 = 0x2213,
+	SKILLSOUNDID_SKILL_FALCON = 0x2310,
+	SKILLSOUNDID_SKILL_FALCON_ATTACK1 = 0x2311,
+	SKILLSOUNDID_SKILL_FALCON_ATTACK2 = 0x2312,
+	SKILLSOUNDID_SKILL_AVALANCHE1 = 0x2322,
+	SKILLSOUNDID_SKILL_AVALANCHE2 = 0x2322,
+	SKILLSOUNDID_SKILL_AVALANCHE3 = 0x2322,
+	SKILLSOUNDID_SKILL_ARROW_OF_RANGE = 0x2332,
+	SKILLSOUNDID_SKILL_CASTING_MAGICIAN = 0x1800,
+	SKILLSOUNDID_SKILL_CASTING_PRIEST = 0x1700,
+	SKILLSOUNDID_SKILL_SWORDBLAST1 = 0x1510,
+	SKILLSOUNDID_SKILL_SWORDBLAST2 = 0x1511,
+	SKILLSOUNDID_SKILL_HOLYBODY = 0x1520,
+	SKILLSOUNDID_SKILL_SHIELDSTRIKE = 0x1610,
+	SKILLSOUNDID_SKILL_FARINA = 0x1620,
+	SKILLSOUNDID_SKILL_VIGORSPEAR = 0x1640,
+	SKILLSOUNDID_SKILL_HEALING = 0x1710,
+	SKILLSOUNDID_SKILL_HOLYBOLT = 0x1720,
+	SKILLSOUNDID_SKILL_MULTISPARK = 0x1730,
+	SKILLSOUNDID_SKILL_HOLYMIND = 0x1740,
+	SKILLSOUNDID_SKILL_AGONY = 0x1810,
+	SKILLSOUNDID_SKILL_FIREBOLT1 = 0x1820,
+	SKILLSOUNDID_SKILL_FIREBOLT2 = 0x1821,
+	SKILLSOUNDID_SKILL_ZENITH = 0x1830,
+	SKILLSOUNDID_SKILL_FIREBALL1 = 0x1840,
+	SKILLSOUNDID_SKILL_FIREBALL2 = 0x1841,
+	SKILLSOUNDID_SKILL_HOLY_VALOR1 = 0x2510,
+	SKILLSOUNDID_SKILL_HOLY_VALOR3 = 0x2513,
+	SKILLSOUNDID_SKILL_BLANDISH1 = 0x2520,
+	SKILLSOUNDID_SKILL_BLANDISH2 = 0x2521,
+	SKILLSOUNDID_SKILL_PIERCING = 0x2530,
+	SKILLSOUNDID_SKILL_DRASTICSPIRIT1 = 0x2540,
+	SKILLSOUNDID_SKILL_DRASTICSPIRIT3 = 0x2543,
+	SKILLSOUNDID_SKILL_WINDY1 = 0x2610,
+	SKILLSOUNDID_SKILL_WINDY3 = 0x2613,
+	SKILLSOUNDID_SKILL_TWISTJAVELIN = 0x2620,
+	SKILLSOUNDID_SKILL_SOULSUCKER2 = 0x2622,
+	SKILLSOUNDID_SKILL_SOULSUCKER3 = 0x2623,
+	SKILLSOUNDID_SKILL_SOULSUCKER4 = 0x2624,
+	SKILLSOUNDID_SKILL_FIREJAVELIN = 0x2630,
+	SKILLSOUNDID_SKILL_DIVINELIGHTNING1 = 0x2710,
+	SKILLSOUNDID_SKILL_DIVINELIGHTNING2 = 0x2711,
+	SKILLSOUNDID_SKILL_DIVINELIGHTNING3 = 0x2712,
+	SKILLSOUNDID_SKILL_HOLYREFLECTION1 = 0x2720,
+	SKILLSOUNDID_SKILL_HOLYREFLECTION2 = 0x2722,
+	SKILLSOUNDID_SKILL_GRANDHEALING = 0x2730,
+	SKILLSOUNDID_SKILL_WATORNADO1 = 0x2810,
+	SKILLSOUNDID_SKILL_WATORNADO2 = 0x2811,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_CAST = 0x2820,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_ICE1 = 0x2821,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_ICE2 = 0x2822,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_FIRE1 = 0x2823,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_FIRE2 = 0x2824,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_LIGHTNING1 = 0x2825,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_LIGHTNING2 = 0x2826,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_MAGIC_LIGHTNING1 = 0x2827,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_MAGIC_LIGHTNING2 = 0x2828,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_MAGIC_ICE1 = 0x2840,
+	SKILLSOUNDID_SKILL_ENCHANTWEAPON_MAGIC_ICE2 = 0x2841,
+	SKILLSOUNDID_SKILL_DEATHRAY = 0x2830,
+	SKILLSOUNDID_SKILL_METAL_ARMOR = 0x3010,
+	SKILLSOUNDID_SKILL_SPARK_SHIELD = 0x3040,
+	SKILLSOUNDID_SKILL_CONCENTRATION1 = 0x3110,
+	SKILLSOUNDID_SKILL_CONCENTRATION2 = 0x3111,
+	SKILLSOUNDID_SKILL_AVANGING_CRASH = 0x3120,
+	SKILLSOUNDID_SKILL_SWIFT_AXE1 = 0x3130,
+	SKILLSOUNDID_SKILL_SWIFT_AXE2 = 0x3131,
+	SKILLSOUNDID_SKILL_BONE_CRASH1 = 0x3140,
+	SKILLSOUNDID_SKILL_VENOM_SPEAR1 = 0x3210,
+	SKILLSOUNDID_SKILL_VENOM_SPEAR2 = 0x3211,
+	SKILLSOUNDID_SKILL_VANISH1 = 0x3220,
+	SKILLSOUNDID_SKILL_VANISH2 = 0x3221,
+	SKILLSOUNDID_SKILL_CHAIN_LANCE1 = 0x3240,
+	SKILLSOUNDID_SKILL_CHAIN_LANCE2 = 0x3241,
+	SKILLSOUNDID_SKILL_CHAIN_LANCE3 = 0x3242,
+	SKILLSOUNDID_SKILL_ELEMENTAL_SHOT = 0x3310,
+	SKILLSOUNDID_SKILL_GOLDEN_FALCON = 0x3320,
+	SKILLSOUNDID_SKILL_PERFORATION = 0x3330,
+	SKILLSOUNDID_SKILL_BOMB_SHOT1 = 0x3340,
+	SKILLSOUNDID_SKILL_BOMB_SHOT2 = 0x3341,
+	SKILLSOUNDID_SKILL_FLAME_BRANDISH = 0x3410,
+	SKILLSOUNDID_SKILL_DIVINE_INHALATION = 0x3420,
+	SKILLSOUNDID_SKILL_HOLY_INCANTATION = 0x3430,
+	SKILLSOUNDID_SKILL_GRAND_CROSS = 0x3440,
+	SKILLSOUNDID_SKILL_SPLIT_JAVELIN1 = 0x3510,
+	SKILLSOUNDID_SKILL_SPLIT_JAVELIN2 = 0x3511,
+	SKILLSOUNDID_SKILL_TRIUMPH_OF_VALHALLA1 = 0x3520,
+	SKILLSOUNDID_SKILL_TRIUMPH_OF_VALHALLA2 = 0x3521,
+	SKILLSOUNDID_SKILL_LIGHTNING_JAVELIN1 = 0x3530,
+	SKILLSOUNDID_SKILL_LIGHTNING_JAVELIN2 = 0x3531,
+	SKILLSOUNDID_SKILL_STORM_JAVELIN1 = 0x3540,
+	SKILLSOUNDID_SKILL_STORM_JAVELIN2 = 0x3541,
+	SKILLSOUNDID_SKILL_VIGOR_BALL1 = 0x3610,
+	SKILLSOUNDID_SKILL_VIGOR_BALL2 = 0x3611,
+	SKILLSOUNDID_SKILL_RESURRECTION = 0x3620,
+	SKILLSOUNDID_SKILL_EXTINTION = 0x3630,
+	SKILLSOUNDID_SKILL_VIRTUAL_LIFE = 0x3640,
+	SKILLSOUNDID_SKILL_ENERGY_SHIELD = 0x3710,
+	SKILLSOUNDID_SKILL_DIASTROPHISM = 0x3720,
+	SKILLSOUNDID_SKILL_SPIRIT_ELEMENTAL = 0x3730,
+	SKILLSOUNDID_SKILL_DANCING_SWORD = 0x3740,
+	SKILLSOUNDID_SKILL_DANCING_SWORD_ATK1 = 0x3741,
+	SKILLSOUNDID_SKILL_DANCING_SWORD_ATK2 = 0x3742,
+	SKILLSOUNDID_SKILL_IMPULSION = 0x4010,
+	SKILLSOUNDID_SKILL_COMPULSION1 = 0x4021,
+	SKILLSOUNDID_SKILL_COMPULSION2 = 0x4022,
+	SKILLSOUNDID_SKILL_COMPULSION3 = 0x4023,
+	SKILLSOUNDID_SKILL_METAL_GOLEM = 0x4040,
+	SKILLSOUNDID_SKILL_BERSERKER = 0x4120,
+	SKILLSOUNDID_SKILL_CYCLONE_STRIKE = 0x4130,
+	SKILLSOUNDID_SKILL_ASSASSIN_EYE = 0x4210,
+	SKILLSOUNDID_SKILL_CHARGING = 0x4220,
+	SKILLSOUNDID_SKILL_CHARGING_STRIKE = 0x4221,
+	SKILLSOUNDID_SKILL_VAGUE = 0x4230,
+	SKILLSOUNDID_SKILL_SHADOW_STRIKE1 = 0x4241,
+	SKILLSOUNDID_SKILL_SHADOW_STRIKE2 = 0x4242,
+	SKILLSOUNDID_SKILL_SHADOW_STRIKE3 = 0x4243,
+	SKILLSOUNDID_SKILL_SHADOW_STRIKE4 = 0x4244,
+	SKILLSOUNDID_SKILL_RECALL_WOLVERIN = 0x4310,
+	SKILLSOUNDID_SKILL_PHOENIX_SHOT = 0x4330,
+	SKILLSOUNDID_SKILL_FORCE_OF_NATURE = 0x4340,
+	SKILLSOUNDID_SKILL_DVINE_PIERCING = 0x4410,
+	SKILLSOUNDID_SKILL_GODLY_SHIELD = 0x4420,
+	SKILLSOUNDID_SKILL_GODS_BLESS = 0x4430,
+	SKILLSOUNDID_SKILL_SWORD_OF_JUSTICE = 0x4440,
+	SKILLSOUNDID_SKILL_HALL_OF_VALHALLA = 0x4510,
+	SKILLSOUNDID_SKILL_EXTREM_RAGE1 = 0x4521,
+	SKILLSOUNDID_SKILL_EXTREM_RAGE2 = 0x4522,
+	SKILLSOUNDID_SKILL_EXTREM_RAGE3 = 0x4523,
+	SKILLSOUNDID_SKILL_FROST_JAVELIN = 0x4530,
+	SKILLSOUNDID_SKILL_VENGEANCE1 = 0x4541,
+	SKILLSOUNDID_SKILL_VENGEANCE2 = 0x4542,
+	SKILLSOUNDID_SKILL_GLACIAL_SPIKE1 = 0x4611,
+	SKILLSOUNDID_SKILL_GLACIAL_SPIKE2 = 0x4612,
+	SKILLSOUNDID_SKILL_REGEN_FIELD1 = 0x4621,
+	SKILLSOUNDID_SKILL_REGEN_FIELD2 = 0x4622,
+	SKILLSOUNDID_SKILL_CHAIN_LIGHTNING1 = 0x4631,
+	SKILLSOUNDID_SKILL_CHAIN_LIGHTNING2 = 0x4632,
+	SKILLSOUNDID_SKILL_MUSPELL1 = 0x4641,
+	SKILLSOUNDID_SKILL_MUSPELL2 = 0x4642,
+	SKILLSOUNDID_SKILL_FIRE_ELEMENTAL = 0x4710,
+	SKILLSOUNDID_SKILL_FLAME_WAVE1 = 0x4721,
+	SKILLSOUNDID_SKILL_FLAME_WAVE2 = 0x4722,
+	SKILLSOUNDID_SKILL_FLAME_WAVE3 = 0x4723,
+	SKILLSOUNDID_SKILL_DISTORTION = 0x4730,
+	SKILLSOUNDID_SKILL_METEO1 = 0x4741,
+	SKILLSOUNDID_SKILL_METEO2 = 0x4742,
+	SKILLSOUNDID_SKILL_METEO3 = 0x4743
 };
 
 
 enum ESkillMask
 {
-	SKILLMASK_ExtremeShield			= 0x00000001,
-	SKILLMASK_PhysicalAbsorb		= 0x00000002,
-	SKILLMASK_Automation			= 0x00000004,
-	SKILLMASK_CriticalHit			= 0x00000008,
-	SKILLMASK_SparkShield			= 0x00000010,
-	SKILLMASK_GodlyShield			= 0x00000020,
+	SKILLMASK_ExtremeShield = 0x00000001,
+	SKILLMASK_PhysicalAbsorb = 0x00000002,
+	SKILLMASK_Automation = 0x00000004,
+	SKILLMASK_CriticalHit = 0x00000008,
+	SKILLMASK_SparkShield = 0x00000010,
+	SKILLMASK_GodlyShield = 0x00000020,
 
-	SKILLMASK_HolyBody				= 0x00010000,
+	SKILLMASK_HolyBody = 0x00010000,
 };
 
 enum ESkillEffectID
 {
 	//Knight
-	SKILLEFFECTID_HolyValorAction			= 700,
+	SKILLEFFECTID_HolyValorAction = 700,
 
 	//Magician
-	SKILLEFFECTID_EnchantWeaponFire			= 100,
-	SKILLEFFECTID_EnchantWeaponIce			= 200,
-	SKILLEFFECTID_EnchantWeaponLightning	= 300,
+	SKILLEFFECTID_EnchantWeaponFire = 100,
+	SKILLEFFECTID_EnchantWeaponIce = 200,
+	SKILLEFFECTID_EnchantWeaponLightning = 300,
 };
 
 enum ESkillID
 {
-	SKILLID_None					= 0x00000000,
-	SKILLID_DefaultAttack			= 0x11111111,
+	SKILLID_None = 0x00000000,
+	SKILLID_DefaultAttack = 0x11111111,
 
 	//Fighter
-	SKILLID_MeleeMastery			= 0x02010001,
-	SKILLID_FireAttribute			= 0x02010002,
-	SKILLID_Raving					= 0x02010003,
-	SKILLID_Impact					= 0x02010004,
+	SKILLID_MeleeMastery = 0x02010001,//格斗之术
+	SKILLID_FireAttribute = 0x02010002,//炎之抗御
+	SKILLID_Raving = 0x02010003,//绝地暴走
+	SKILLID_Impact = 0x02010004,//精准之击
 
-	SKILLID_TripleImpact			= 0x02020001,
-	SKILLID_BrutalSwing				= 0x02020002,
-	SKILLID_Roar					= 0x02020003,
-	SKILLID_RageofZecram			= 0x02020004,
+	SKILLID_TripleImpact = 0x02020001,//威力冲击
+	SKILLID_BrutalSwing = 0x02020002,//致命回旋
+	SKILLID_Roar = 0x02020003,//极地怒吼
+	SKILLID_RageofZecram = 0x02020004,//战神之怒
 
-	SKILLID_Concentration			= 0x02040001,
-	SKILLID_AvengingCrash			= 0x02040002,
-	SKILLID_SwiftAxe				= 0x02040003,
-	SKILLID_BoneCrash				= 0x02040004,
+	SKILLID_Concentration = 0x02040001,//会心一击
+	SKILLID_AvengingCrash = 0x02040002,//复仇连击
+	SKILLID_SwiftAxe = 0x02040003,//刺杀之斧
+	SKILLID_BoneCrash = 0x02040004,//挫骨扬灰
 
-	SKILLID_Destroyer				= 0x02080001,
-	SKILLID_Berserker				= 0x02080002,
-	SKILLID_CycloneStrike			= 0x02080003,
-	SKILLID_BoostHealth				= 0x02080004,
+	SKILLID_Destroyer = 0x02080001,//破坏连击
+	SKILLID_Berserker = 0x02080002,//狂暴战士
+	SKILLID_CycloneStrike = 0x02080003,//飓风袭击
+	SKILLID_BoostHealth = 0x02080004,//健康专家
 
-	SKILLID_SurvivalInstinct		= 0x02100001,
-	SKILLID_SeismicImpact			= 0x02100002,
-	SKILLID_RuthlessofZecram		= 0x02100003,
-	SKILLID_WhirlwindFS01			= 0x02100004,
+	SKILLID_SurvivalInstinct = 0x02100001,//武士5-1
+	SKILLID_SeismicImpact = 0x02100002,//武士5-2
+	SKILLID_RuthlessofZecram = 0x02100003,//武士5-3
+	SKILLID_WhirlwindFS01 = 0x02100004,//武士5-4
 
 	//Mechanician
-	SKILLID_ExtremeShield			= 0x01010001,
-	SKILLID_MechanicBomb			= 0x01010002,
-	SKILLID_PhysicalAbsorb			= 0x01010003,
-	SKILLID_PoisonAttribute			= 0x01010004,
+	SKILLID_ExtremeShield = 0x01010001,
+	SKILLID_MechanicBomb = 0x01010002,
+	SKILLID_PhysicalAbsorb = 0x01010003,
+	SKILLID_PoisonAttribute = 0x01010004,
 
-	SKILLID_GreatSmash				= 0x01020001,
-	SKILLID_Maximize				= 0x01020002,
-	SKILLID_Automation				= 0x01020003,
-	SKILLID_Spark					= 0x01020004,
-	
-	SKILLID_MetalArmor				= 0x01040001,
-	SKILLID_GrandSmash				= 0x01040002,
-	SKILLID_MechanicWeaponMastery	= 0x01040003,
-	SKILLID_SparkShield				= 0x01040004,
-	
-	SKILLID_Impulsion				= 0x01080001,
-	SKILLID_Compulsion				= 0x01080002,
-	SKILLID_MagneticSphere			= 0x01080003,
-	SKILLID_MetalGolem				= 0x01080004,
+	SKILLID_GreatSmash = 0x01020001,
+	SKILLID_Maximize = 0x01020002,
+	SKILLID_Automation = 0x01020003,
+	SKILLID_Spark = 0x01020004,
 
-	SKILLID_Rupture					= 0x01100001,
-	SKILLID_MagneticDischarge		= 0x01100002,
-	SKILLID_HardeningShield			= 0x01100003,
-	SKILLID_ParasitShot				= 0x01100004,
+	SKILLID_MetalArmor = 0x01040001,
+	SKILLID_GrandSmash = 0x01040002,
+	SKILLID_MechanicWeaponMastery = 0x01040003,
+	SKILLID_SparkShield = 0x01040004,
+
+	SKILLID_Impulsion = 0x01080001,
+	SKILLID_Compulsion = 0x01080002,
+	SKILLID_MagneticSphere = 0x01080003,
+	SKILLID_MetalGolem = 0x01080004,
+
+	SKILLID_Rupture = 0x01100001,
+	SKILLID_MagneticDischarge = 0x01100002,
+	SKILLID_HardeningShield = 0x01100003,
+	SKILLID_ParasitShot = 0x01100004,
 
 	//Archer
-	SKILLID_ScoutHawk				= 0x04010001,
-	SKILLID_ShootingMastery			= 0x04010002,
-	SKILLID_WindArrow				= 0x04010003,
-	SKILLID_PerfectAim				= 0x04010004,
-										 
-	SKILLID_DionsEye				= 0x04020001,
-	SKILLID_Falcon					= 0x04020002,
-	SKILLID_ArrowofRage				= 0x04020003,
-	SKILLID_Avalanche				= 0x04020004,
-										 
-	SKILLID_ElementalShot			= 0x04040001,
-	SKILLID_GoldenFalcon			= 0x04040002,
-	SKILLID_BombShot				= 0x04040003,
-	SKILLID_Perforation				= 0x04040004,
-										 
-	SKILLID_RecallWolverine			= 0x04080001,
-	SKILLID_EvasionMastery			= 0x04080002,
-	SKILLID_PhoenixShot				= 0x04080003,
-	SKILLID_ForceofNature			= 0x04080004,
+	SKILLID_ScoutHawk = 0x04010001,
+	SKILLID_ShootingMastery = 0x04010002,
+	SKILLID_WindArrow = 0x04010003,
+	SKILLID_PerfectAim = 0x04010004,
 
-	SKILLID_LethalSight				= 0x04100001,
-	SKILLID_FierceWind				= 0x04100002,
-	SKILLID_EntalingRoots			= 0x04100003,
-	SKILLID_Bombardment				= 0x04100004,
+	SKILLID_DionsEye = 0x04020001,
+	SKILLID_Falcon = 0x04020002,
+	SKILLID_ArrowofRage = 0x04020003,
+	SKILLID_Avalanche = 0x04020004,
+
+	SKILLID_ElementalShot = 0x04040001,
+	SKILLID_GoldenFalcon = 0x04040002,
+	SKILLID_BombShot = 0x04040003,
+	SKILLID_Perforation = 0x04040004,
+
+	SKILLID_RecallWolverine = 0x04080001,
+	SKILLID_EvasionMastery = 0x04080002,
+	SKILLID_PhoenixShot = 0x04080003,
+	SKILLID_ForceofNature = 0x04080004,
+
+	SKILLID_LethalSight = 0x04100001,
+	SKILLID_FierceWind = 0x04100002,
+	SKILLID_EntalingRoots = 0x04100003,
+	SKILLID_Bombardment = 0x04100004,
 
 	//Pikeman
-	SKILLID_PikeWind				= 0x03010001,
-	SKILLID_IceAttribute			= 0x03010002,
-	SKILLID_CriticalHit				= 0x03010003,
-	SKILLID_JumpingCrash			= 0x03010004,
+	SKILLID_PikeWind = 0x03010001,
+	SKILLID_IceAttribute = 0x03010002,
+	SKILLID_CriticalHit = 0x03010003,
+	SKILLID_JumpingCrash = 0x03010004,
 
-	SKILLID_GroundPike				= 0x03020001,
-	SKILLID_Tornado					= 0x03020002,
-	SKILLID_WeaponDefenseMastery	= 0x03020003,
-	SKILLID_Expansion				= 0x03020004,
-	
-	SKILLID_VenomSpear				= 0x03040001,
-	SKILLID_Vanish					= 0x03040002,
-	SKILLID_CriticalMastery			= 0x03040003,
-	SKILLID_ChainLance				= 0x03040004,
+	SKILLID_GroundPike = 0x03020001,
+	SKILLID_Tornado = 0x03020002,
+	SKILLID_WeaponDefenseMastery = 0x03020003,
+	SKILLID_Expansion = 0x03020004,
 
-	SKILLID_AssassinsEye			= 0x03080001,
-	SKILLID_ChargingStrike			= 0x03080002,
-	SKILLID_Vague					= 0x03080003,
-	SKILLID_ShadowMaster			= 0x03080004,
+	SKILLID_VenomSpear = 0x03040001,
+	SKILLID_Vanish = 0x03040002,
+	SKILLID_CriticalMastery = 0x03040003,
+	SKILLID_ChainLance = 0x03040004,
 
-	SKILLID_RingofSpears			= 0x03100001,
-	SKILLID_LastBreath				= 0x03100002,
-	SKILLID_DeathMaster				= 0x03100003,
-	SKILLID_Twister					= 0x03100004,
+	SKILLID_AssassinsEye = 0x03080001,
+	SKILLID_ChargingStrike = 0x03080002,
+	SKILLID_Vague = 0x03080003,
+	SKILLID_ShadowMaster = 0x03080004,
+
+	SKILLID_RingofSpears = 0x03100001,
+	SKILLID_LastBreath = 0x03100002,
+	SKILLID_DeathMaster = 0x03100003,
+	SKILLID_Twister = 0x03100004,
 
 	//Atalanta
-	SKILLID_ShieldStrike			= 0x06010001,
-	SKILLID_Farina					= 0x06010002,
-	SKILLID_ThrowingMaster			= 0x06010003,
-	SKILLID_BiggerSpear				= 0x06010004,
-										 
-	SKILLID_Windy					= 0x06020001,
-	SKILLID_TwistJavelin			= 0x06020002,
-	SKILLID_SoulSucker				= 0x06020003,
-	SKILLID_FireJavelin				= 0x06020004,
-										 
-	SKILLID_SplitJavelin			= 0x06040001,
-	SKILLID_TriumphofJavelin		= 0x06040002,
-	SKILLID_LightningJavelin		= 0x06040003,
-	SKILLID_StormJavelin			= 0x06040004,
-										 
-	SKILLID_HallofValhalla			= 0x06080001,
-	SKILLID_ExtremeRage				= 0x06080002,
-	SKILLID_FrostJavelin			= 0x06080003,
-	SKILLID_Vengeance				= 0x06080004,
+	SKILLID_ShieldStrike = 0x06010001,
+	SKILLID_Farina = 0x06010002,
+	SKILLID_ThrowingMaster = 0x06010003,
+	SKILLID_BiggerSpear = 0x06010004,
 
-	SKILLID_SummonTiger				= 0x06100001,
-	SKILLID_GoldenApple				= 0x06100002,
-	SKILLID_PlagueJavelin			= 0x06100003,
-	SKILLID_ComboJavelin			= 0x06100004,
+	SKILLID_Windy = 0x06020001,
+	SKILLID_TwistJavelin = 0x06020002,
+	SKILLID_SoulSucker = 0x06020003,
+	SKILLID_FireJavelin = 0x06020004,
+
+	SKILLID_SplitJavelin = 0x06040001,
+	SKILLID_TriumphofJavelin = 0x06040002,
+	SKILLID_LightningJavelin = 0x06040003,
+	SKILLID_StormJavelin = 0x06040004,
+
+	SKILLID_HallofValhalla = 0x06080001,
+	SKILLID_ExtremeRage = 0x06080002,
+	SKILLID_FrostJavelin = 0x06080003,
+	SKILLID_Vengeance = 0x06080004,
+
+	SKILLID_SummonTiger = 0x06100001,
+	SKILLID_GoldenApple = 0x06100002,
+	SKILLID_PlagueJavelin = 0x06100003,
+	SKILLID_ComboJavelin = 0x06100004,
 
 	//Knight
-	SKILLID_SwordBlast				= 0x05010001,
-	SKILLID_HolyBody				= 0x05010002,
-	SKILLID_PhysicalTraining		= 0x05010003,
-	SKILLID_DoubleCrash				= 0x05010004,
+	SKILLID_SwordBlast = 0x05010001,
+	SKILLID_HolyBody = 0x05010002,
+	SKILLID_PhysicalTraining = 0x05010003,
+	SKILLID_DoubleCrash = 0x05010004,
 
-	SKILLID_HolyValor				= 0x05020001,
-	SKILLID_Brandish				= 0x05020002,
-	SKILLID_Piercing				= 0x05020003,
-	SKILLID_DrasticSpirit			= 0x05020004,
-	
-	SKILLID_SwordMastery			= 0x05040001,
-	SKILLID_DivineShield			= 0x05040002,
-	SKILLID_HolyIncantation			= 0x05040003,
-	SKILLID_GrandCross				= 0x05040004,
+	SKILLID_HolyValor = 0x05020001,
+	SKILLID_Brandish = 0x05020002,
+	SKILLID_Piercing = 0x05020003,
+	SKILLID_DrasticSpirit = 0x05020004,
 
-	SKILLID_SwordofJustice			= 0x05080001,
-	SKILLID_GodlyShield				= 0x05080002,
-	SKILLID_GodsBlessing			= 0x05080003,
-	SKILLID_DivinePiercing			= 0x05080004,
+	SKILLID_SwordMastery = 0x05040001,
+	SKILLID_DivineShield = 0x05040002,
+	SKILLID_HolyIncantation = 0x05040003,
+	SKILLID_GrandCross = 0x05040004,
 
-	SKILLID_HolyConviction			= 0x05100001,
-	SKILLID_WhirlWind				= 0x05100002,
-	SKILLID_GloriousShield			= 0x05100003,
-	SKILLID_DivineCross				= 0x05100004,
+	SKILLID_SwordofJustice = 0x05080001,
+	SKILLID_GodlyShield = 0x05080002,
+	SKILLID_GodsBlessing = 0x05080003,
+	SKILLID_DivinePiercing = 0x05080004,
+
+	SKILLID_HolyConviction = 0x05100001,
+	SKILLID_WhirlWind = 0x05100002,
+	SKILLID_GloriousShield = 0x05100003,
+	SKILLID_DivineCross = 0x05100004,
 
 	//Magician
-	SKILLID_Agony					= 0x08010001,
-	SKILLID_FireBolt				= 0x08010002,
-	SKILLID_Zenith					= 0x08010003,
-	SKILLID_FireBall				= 0x08010004,
+	SKILLID_Agony = 0x08010001,
+	SKILLID_FireBolt = 0x08010002,
+	SKILLID_Zenith = 0x08010003,
+	SKILLID_FireBall = 0x08010004,
 
-	SKILLID_MentalMastery			= 0x08020001,
-	SKILLID_Watornado				= 0x08020002,
-	SKILLID_EnchantWeapon			= 0x08020003,
-	SKILLID_DeathRay				= 0x08020004,
-	
-	SKILLID_EnergyShield			= 0x08040001,
-	SKILLID_Diastrophism			= 0x08040002,
-	SKILLID_SpiritElemental			= 0x08040003,
-	SKILLID_DancingSword			= 0x08040004,
+	SKILLID_MentalMastery = 0x08020001,
+	SKILLID_Watornado = 0x08020002,
+	SKILLID_EnchantWeapon = 0x08020003,
+	SKILLID_DeathRay = 0x08020004,
 
-	SKILLID_FireElemental			= 0x08080001,
-	SKILLID_FlameWave				= 0x08080002,
-	SKILLID_Distortion				= 0x08080003,
-	SKILLID_Meteorite				= 0x08080004,
+	SKILLID_EnergyShield = 0x08040001,
+	SKILLID_Diastrophism = 0x08040002,
+	SKILLID_SpiritElemental = 0x08040003,
+	SKILLID_DancingSword = 0x08040004,
 
-	SKILLID_WizardTrance			= 0x08100001,
-	SKILLID_StoneSkin				= 0x08100002,
-	SKILLID_RedRay					= 0x08100003,
-	SKILLID_Cataclysm				= 0x08100004,
+	SKILLID_FireElemental = 0x08080001,
+	SKILLID_FlameWave = 0x08080002,
+	SKILLID_Distortion = 0x08080003,
+	SKILLID_Meteorite = 0x08080004,
+
+	SKILLID_WizardTrance = 0x08100001,
+	SKILLID_StoneSkin = 0x08100002,
+	SKILLID_RedRay = 0x08100003,
+	SKILLID_Cataclysm = 0x08100004,
 
 	//Priestess
-	SKILLID_Healing					= 0x07010001,
-	SKILLID_HolyBolt				= 0x07010002,
-	SKILLID_MultiSpark				= 0x07010003,
-	SKILLID_HolyMind				= 0x07010004,
+	SKILLID_Healing = 0x07010001,
+	SKILLID_HolyBolt = 0x07010002,
+	SKILLID_MultiSpark = 0x07010003,
+	SKILLID_HolyMind = 0x07010004,
 
-	SKILLID_Meditation				= 0x07020001,
-	SKILLID_DivineLightning			= 0x07020002,
-	SKILLID_HolyReflection			= 0x07020003,
-	SKILLID_GrandHealing			= 0x07020004,
+	SKILLID_Meditation = 0x07020001,
+	SKILLID_DivineLightning = 0x07020002,
+	SKILLID_HolyReflection = 0x07020003,
+	SKILLID_GrandHealing = 0x07020004,
 
-	SKILLID_VigorBall				= 0x07040001,
-	SKILLID_Resurrection			= 0x07040002,
-	SKILLID_Extinction				= 0x07040003,
-	SKILLID_VirtualLife				= 0x07040004,
+	SKILLID_VigorBall = 0x07040001,
+	SKILLID_Resurrection = 0x07040002,
+	SKILLID_Extinction = 0x07040003,
+	SKILLID_VirtualLife = 0x07040004,
 
-	SKILLID_GlacialSpike			= 0x07080001,
-	SKILLID_RegenerationField		= 0x07080002,
-	SKILLID_ChainLightning			= 0x07080003,
-	SKILLID_SummonMuspell			= 0x07080004,
+	SKILLID_GlacialSpike = 0x07080001,
+	SKILLID_RegenerationField = 0x07080002,
+	SKILLID_ChainLightning = 0x07080003,
+	SKILLID_SummonMuspell = 0x07080004,
 
-	SKILLID_IceElemental			= 0x07100001,
-	SKILLID_IceMeteorite			= 0x07100002,
-	SKILLID_HeavenlyLight			= 0x07100003,
-	SKILLID_Consecration			= 0x07100004,
+	SKILLID_IceElemental = 0x07100001,
+	SKILLID_IceMeteorite = 0x07100002,
+	SKILLID_HeavenlyLight = 0x07100003,
+	SKILLID_Consecration = 0x07100004,
 
 	//Assassin
-	SKILLID_Stinger					= 0x10010001,
-	SKILLID_RunningHit				= 0x10010002,
-	SKILLID_DualWieldMastery		= 0x10010003,
-	SKILLID_Wisp					= 0x10010004,
+	SKILLID_Stinger = 0x10010001,
+	SKILLID_RunningHit = 0x10010002,
+	SKILLID_DualWieldMastery = 0x10010003,
+	SKILLID_Wisp = 0x10010004,
 
-	SKILLID_VenomThorn				= 0x10020001,
-	SKILLID_Alas					= 0x10020002,
-	SKILLID_SoulShock				= 0x10020003,
-	SKILLID_AttackMastery			= 0x10020004,
+	SKILLID_VenomThorn = 0x10020001,
+	SKILLID_Alas = 0x10020002,
+	SKILLID_SoulShock = 0x10020003,
+	SKILLID_AttackMastery = 0x10020004,
 
-	SKILLID_SoreBlade				= 0x10040001,
-	SKILLID_GustSlash				= 0x10040002,
-	SKILLID_Inpes					= 0x10040003,
-	SKILLID_Blind					= 0x10040004,
+	SKILLID_SoreBlade = 0x10040001,
+	SKILLID_GustSlash = 0x10040002,
+	SKILLID_Inpes = 0x10040003,
+	SKILLID_Blind = 0x10040004,
 
-	SKILLID_FrostWind				= 0x10080001,
-	SKILLID_FatalMastery			= 0x10080002,
-	SKILLID_Polluted				= 0x10080003,
-	SKILLID_NinjaShadow				= 0x10080004,
+	SKILLID_FrostWind = 0x10080001,
+	SKILLID_FatalMastery = 0x10080002,
+	SKILLID_Polluted = 0x10080003,
+	SKILLID_NinjaShadow = 0x10080004,
 
-	SKILLID_ShadowBlink				= 0x10100001,
-	SKILLID_KissViper				= 0x10100002,
-	SKILLID_ViolentStub				= 0x10100003,
-	SKILLID_ShadowStorm				= 0x10100004,
+	SKILLID_ShadowBlink = 0x10100001,
+	SKILLID_KissViper = 0x10100002,
+	SKILLID_ViolentStub = 0x10100003,
+	SKILLID_ShadowStorm = 0x10100004,
 
 	//Shaman
-	SKILLID_DarkBolt				= 0x50010001,
-	SKILLID_DarkWave				= 0x50010002,
-	SKILLID_Inertia					= 0x50010003,
-	SKILLID_InnerPeace				= 0x50010004,
+	SKILLID_DarkBolt = 0x50010001,
+	SKILLID_DarkWave = 0x50010002,
+	SKILLID_Inertia = 0x50010003,
+	SKILLID_InnerPeace = 0x50010004,
 
-	SKILLID_SpiritualFlare			= 0x50020001,
-	SKILLID_SpiritualManacle		= 0x50020002,
-	SKILLID_ChasingHunt				= 0x50020003,
-	SKILLID_AdventMigal				= 0x50020004,
-	
-	SKILLID_Rainmaker				= 0x50040001,
-	SKILLID_PhantomCall				= 0x50040002,
-	SKILLID_Haunt					= 0x50040003,
-	SKILLID_Scratch					= 0x50040004,
+	SKILLID_SpiritualFlare = 0x50020001,
+	SKILLID_SpiritualManacle = 0x50020002,
+	SKILLID_ChasingHunt = 0x50020003,
+	SKILLID_AdventMigal = 0x50020004,
 
-	SKILLID_RecallHestian			= 0x50080001,
-	SKILLID_Judgement				= 0x50080002,
-	SKILLID_AdventMidranda			= 0x50080003,
-	SKILLID_MourningPray			= 0x50080004,
+	SKILLID_Rainmaker = 0x50040001,
+	SKILLID_PhantomCall = 0x50040002,
+	SKILLID_Haunt = 0x50040003,
+	SKILLID_Scratch = 0x50040004,
 
-	SKILLID_Creed					= 0x50100001,
-	SKILLID_PressDeity				= 0x50100002,
-	SKILLID_PhantomNail				= 0x50100003,
-	SKILLID_OccultLife				= 0x50100004,
+	SKILLID_RecallHestian = 0x50080001,
+	SKILLID_Judgement = 0x50080002,
+	SKILLID_AdventMidranda = 0x50080003,
+	SKILLID_MourningPray = 0x50080004,
+
+	SKILLID_Creed = 0x50100001,
+	SKILLID_PressDeity = 0x50100002,
+	SKILLID_PhantomNail = 0x50100003,
+	SKILLID_OccultLife = 0x50100004,
 
 	//Stones
-	SKILLID_FighterStone			= 0x09040001,
-	SKILLID_MechanicianStone		= 0x09040002,
-	SKILLID_PikemanStone			= 0x09040003,
-	SKILLID_ArcherStone				= 0x09040004,
-	SKILLID_KnightStone				= 0x09040005,
-	SKILLID_AtalantaStone			= 0x09040006,
-	SKILLID_PriestessStone			= 0x09040007,
-	SKILLID_MagicianStone			= 0x09040008,
-	SKILLID_ShamanStone				= 0x09040009,
-	SKILLID_AssassinStone			= 0x0904000A,
+	SKILLID_FighterStone = 0x09040001,
+	SKILLID_MechanicianStone = 0x09040002,
+	SKILLID_PikemanStone = 0x09040003,
+	SKILLID_ArcherStone = 0x09040004,
+	SKILLID_KnightStone = 0x09040005,
+	SKILLID_AtalantaStone = 0x09040006,
+	SKILLID_PriestessStone = 0x09040007,
+	SKILLID_MagicianStone = 0x09040008,
+	SKILLID_ShamanStone = 0x09040009,
+	SKILLID_AssassinStone = 0x0904000A,
 
 	//Timers
-	SKILLID_AvertScroll				= 0x09080003,
-	SKILLID_AbsorptionOfGlory		= 0x09010004,
-	SKILLID_PowerSiege				= 0x09010005,
-	SKILLID_EvasionAdaption			= 0x09010006,
-	SKILLID_Force					= 0x09010001,
-	SKILLID_QUEST1					= 0x09010002,
-	SKILLID_QUEST2					= 0x09010003,
-	SKILLID_QUEST3					= 0x09010010,
-	SKILLID_QUEST4					= 0x09010020,
-	SKILLID_QUESTNew				= 0x096A0003,
-	SKILLID_QUESTNewTime			= 0x096B0003,
-	SKILLID_EventTimer				= 0x096A0004,
-	SKILLID_Atanasia				= 0x09020001,
-	SKILLID_DeadlyEdge				= 0x09020002,
-	SKILLID_AvailofEvasion			= 0x09020003,
-	SKILLID_DefianceStoneA			= 0x09020004,
-	SKILLID_DefianceStoneB			= 0x09020005,
-	SKILLID_DefianceStoneC			= 0x09020006,
-	SKILLID_MightStone				= 0x09040010,
-	SKILLID_EternalLife				= 0x09080001,
-	SKILLID_FatalEdge				= 0x09080002,
-	SKILLID_Rivera					= 0x09080004,
+	SKILLID_AvertScroll = 0x09080003,
+	SKILLID_AbsorptionOfGlory = 0x09010004,
+	SKILLID_PowerSiege = 0x09010005,
+	SKILLID_EvasionAdaption = 0x09010006,
+	SKILLID_Force = 0x09010001,
+	SKILLID_QUEST1 = 0x09010002,
+	SKILLID_QUEST2 = 0x09010003,
+	SKILLID_QUEST3 = 0x09010010,
+	SKILLID_QUEST4 = 0x09010020,
+	SKILLID_QUESTNew = 0x096A0003,
+	SKILLID_QUESTNewTime = 0x096B0003,
+	SKILLID_EventTimer = 0x096A0004,
+	SKILLID_Atanasia = 0x09020001,
+	SKILLID_DeadlyEdge = 0x09020002,
+	SKILLID_AvailofEvasion = 0x09020003,
+	SKILLID_DefianceStoneA = 0x09020004,
+	SKILLID_DefianceStoneB = 0x09020005,
+	SKILLID_DefianceStoneC = 0x09020006,
+	SKILLID_MightStone = 0x09040010,
+	SKILLID_EternalLife = 0x09080001,
+	SKILLID_FatalEdge = 0x09080002,
+	SKILLID_Rivera = 0x09080004,
 
-	SKILLID_BellatraGold			= 0x096A0061,
-	SKILLID_BellatraSilver			= 0x096A0062,
-	SKILLID_BellatraBronze			= 0x096A0063,
+	SKILLID_BellatraGold = 0x096A0061,
+	SKILLID_BellatraSilver = 0x096A0062,
+	SKILLID_BellatraBronze = 0x096A0063,
 
-	SKILLID_PvPHonor				= 0x096B0051,
-	SKILLID_BellatraHonor			= 0x096B0052,
-	
-	SKILLID_PKMode					= 0x096A0051,
+	SKILLID_PvPHonor = 0x096B0051,
+	SKILLID_BellatraHonor = 0x096B0052,
+
+	SKILLID_PKMode = 0x096A0051,
 };
 
 enum ESkillShortID
 {
-		//Mechanician
-	SKILLSHORTID_ExtremeShield				=  SKILLPLAYID_T11,				
-	SKILLSHORTID_MechanicBomb				=  SKILLPLAYID_T12,				
-	SKILLSHORTID_PhysicalAbsorption			=  SKILLPLAYID_T13,			
-	SKILLSHORTID_PoisonAttribute			=  SKILLPLAYID_Undefined,		
+	//Mechanician
+	SKILLSHORTID_ExtremeShield = SKILLPLAYID_T11,
+	SKILLSHORTID_MechanicBomb = SKILLPLAYID_T12,
+	SKILLSHORTID_PhysicalAbsorption = SKILLPLAYID_T13,
+	SKILLSHORTID_PoisonAttribute = SKILLPLAYID_Undefined,
 
-	SKILLSHORTID_GreatSmash					=  SKILLPLAYID_T21,				
-	SKILLSHORTID_Maximize					=  SKILLPLAYID_T22,					
-	SKILLSHORTID_Automation					=  SKILLPLAYID_T23,					
-	SKILLSHORTID_Spark						=  SKILLPLAYID_T24,						
-	
-	SKILLSHORTID_MetalArmor					=  SKILLPLAYID_T31,					
-	SKILLSHORTID_GrandSmash					=  SKILLPLAYID_T32,					
-	SKILLSHORTID_MechanicMastery			=  SKILLPLAYID_Undefined,		
-	SKILLSHORTID_SparkShield				=  SKILLPLAYID_T33,				
-	
-	SKILLSHORTID_Impulsion					=  SKILLPLAYID_T41,					
-	SKILLSHORTID_Compulsion					=  SKILLPLAYID_T42,					
-	SKILLSHORTID_MagneticSphere				=  SKILLPLAYID_T43,				
-	SKILLSHORTID_MetalGolem					=  SKILLPLAYID_T44,					
-	
-	SKILLSHORTID_Rupture					=  SKILLPLAYID_T51,					
-	SKILLSHORTID_MagneticDischarge			=  SKILLPLAYID_T52,			
-	SKILLSHORTID_HardeningShield			=  SKILLPLAYID_T53,			
-	SKILLSHORTID_ParasitShot				=  SKILLPLAYID_T54,				
+	SKILLSHORTID_GreatSmash = SKILLPLAYID_T21,
+	SKILLSHORTID_Maximize = SKILLPLAYID_T22,
+	SKILLSHORTID_Automation = SKILLPLAYID_T23,
+	SKILLSHORTID_Spark = SKILLPLAYID_T24,
+
+	SKILLSHORTID_MetalArmor = SKILLPLAYID_T31,
+	SKILLSHORTID_GrandSmash = SKILLPLAYID_T32,
+	SKILLSHORTID_MechanicMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_SparkShield = SKILLPLAYID_T33,
+
+	SKILLSHORTID_Impulsion = SKILLPLAYID_T41,
+	SKILLSHORTID_Compulsion = SKILLPLAYID_T42,
+	SKILLSHORTID_MagneticSphere = SKILLPLAYID_T43,
+	SKILLSHORTID_MetalGolem = SKILLPLAYID_T44,
+
+	SKILLSHORTID_Rupture = SKILLPLAYID_T51,
+	SKILLSHORTID_MagneticDischarge = SKILLPLAYID_T52,
+	SKILLSHORTID_HardeningShield = SKILLPLAYID_T53,
+	SKILLSHORTID_ParasitShot = SKILLPLAYID_T54,
 
 	//Fighter
-	SKILLSHORTID_MeleeMastery				=  SKILLPLAYID_Undefined,			
-	SKILLSHORTID_FireAttribute				=  SKILLPLAYID_Undefined,			
-	SKILLSHORTID_Raving						=  SKILLPLAYID_T11,						
-	SKILLSHORTID_Impact						=  SKILLPLAYID_T12,						
+	SKILLSHORTID_MeleeMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_FireAttribute = SKILLPLAYID_Undefined,
+	SKILLSHORTID_Raving = SKILLPLAYID_T11,
+	SKILLSHORTID_Impact = SKILLPLAYID_T12,
 
-	SKILLSHORTID_TripleImpact				=  SKILLPLAYID_T21,				
-	SKILLSHORTID_BrutalSwing				=  SKILLPLAYID_T22,				
-	SKILLSHORTID_Roar						=  SKILLPLAYID_T23,						
-	SKILLSHORTID_RageofZecram				=  SKILLPLAYID_T24,				
-	
-	SKILLSHORTID_Concentration				=  SKILLPLAYID_T31,				
-	SKILLSHORTID_AvengingCrash				=  SKILLPLAYID_T32,				
-	SKILLSHORTID_SwiftAxe					=  SKILLPLAYID_T33,					
-	SKILLSHORTID_BoneCrash					=  SKILLPLAYID_T34,					
-	
-	SKILLSHORTID_Destroyer					=  SKILLPLAYID_T41,					
-	SKILLSHORTID_Berserker					=  SKILLPLAYID_T42,					
-	SKILLSHORTID_CycloneStrike				=  SKILLPLAYID_T43,				
-	SKILLSHORTID_BoostHealth				=  SKILLPLAYID_Undefined,			
-	
-	SKILLSHORTID_SesmicImpact				=  SKILLPLAYID_T51,				
-	SKILLSHORTID_POWERDASH					=  SKILLPLAYID_T52,					
-	SKILLSHORTID_MOTALBLOW					=  SKILLPLAYID_T53,					
-	SKILLSHORTID_BLOODYBERSERKER			=  SKILLPLAYID_T54,			
+	SKILLSHORTID_TripleImpact = SKILLPLAYID_T21,
+	SKILLSHORTID_BrutalSwing = SKILLPLAYID_T22,
+	SKILLSHORTID_Roar = SKILLPLAYID_T23,
+	SKILLSHORTID_RageofZecram = SKILLPLAYID_T24,
+
+	SKILLSHORTID_Concentration = SKILLPLAYID_T31,
+	SKILLSHORTID_AvengingCrash = SKILLPLAYID_T32,
+	SKILLSHORTID_SwiftAxe = SKILLPLAYID_T33,
+	SKILLSHORTID_BoneCrash = SKILLPLAYID_T34,
+
+	SKILLSHORTID_Destroyer = SKILLPLAYID_T41,
+	SKILLSHORTID_Berserker = SKILLPLAYID_T42,
+	SKILLSHORTID_CycloneStrike = SKILLPLAYID_T43,
+	SKILLSHORTID_BoostHealth = SKILLPLAYID_Undefined,
+
+	SKILLSHORTID_SesmicImpact = SKILLPLAYID_T51,
+	SKILLSHORTID_POWERDASH = SKILLPLAYID_T52,
+	SKILLSHORTID_MOTALBLOW = SKILLPLAYID_T53,
+	SKILLSHORTID_BLOODYBERSERKER = SKILLPLAYID_T54,
 
 	//Pikeman
-	SKILLSHORTID_PikeWind					=  SKILLPLAYID_T11,					
-	SKILLSHORTID_IceAttribute				=  SKILLPLAYID_Undefined,			
-	SKILLSHORTID_CriticalHit				=  SKILLPLAYID_T12,				
-	SKILLSHORTID_JumpingCrash				=  SKILLPLAYID_T13,				
-	
-	SKILLSHORTID_GroundPike					=  SKILLPLAYID_T21,					
-	SKILLSHORTID_Tornado					=  SKILLPLAYID_T22,					
-	SKILLSHORTID_WeaponDefenceMastery		=  SKILLPLAYID_Undefined,	
-	SKILLSHORTID_Expansion					=  SKILLPLAYID_T23,					
-	
-	SKILLSHORTID_VenomSpear					=  SKILLPLAYID_T31,					
-	SKILLSHORTID_Vanish						=  SKILLPLAYID_T32,						
-	SKILLSHORTID_CriticalMastery			=  SKILLPLAYID_Undefined,		
-	SKILLSHORTID_ChainLance					=  SKILLPLAYID_T33,					
-	
-	SKILLSHORTID_AssassinsEye				=  SKILLPLAYID_T41,				
-	SKILLSHORTID_ChargingStrike				=  SKILLPLAYID_T42,				
-	SKILLSHORTID_Vague						=  SKILLPLAYID_T43,						
-	SKILLSHORTID_ShadowMaster				=  SKILLPLAYID_T44,				
-	
-	SKILLSHORTID_DANCINGREAPER				=  SKILLPLAYID_T51,				
-	SKILLSHORTID_FINALSPEAR					=  SKILLPLAYID_T52,					
-	SKILLSHORTID_AMPLIFIED					=  SKILLPLAYID_T53,					
-	SKILLSHORTID_SIDESPINATTACK				=  SKILLPLAYID_T54,				
-	
+	SKILLSHORTID_PikeWind = SKILLPLAYID_T11,
+	SKILLSHORTID_IceAttribute = SKILLPLAYID_Undefined,
+	SKILLSHORTID_CriticalHit = SKILLPLAYID_T12,
+	SKILLSHORTID_JumpingCrash = SKILLPLAYID_T13,
+
+	SKILLSHORTID_GroundPike = SKILLPLAYID_T21,
+	SKILLSHORTID_Tornado = SKILLPLAYID_T22,
+	SKILLSHORTID_WeaponDefenceMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_Expansion = SKILLPLAYID_T23,
+
+	SKILLSHORTID_VenomSpear = SKILLPLAYID_T31,
+	SKILLSHORTID_Vanish = SKILLPLAYID_T32,
+	SKILLSHORTID_CriticalMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_ChainLance = SKILLPLAYID_T33,
+
+	SKILLSHORTID_AssassinsEye = SKILLPLAYID_T41,
+	SKILLSHORTID_ChargingStrike = SKILLPLAYID_T42,
+	SKILLSHORTID_Vague = SKILLPLAYID_T43,
+	SKILLSHORTID_ShadowMaster = SKILLPLAYID_T44,
+
+	SKILLSHORTID_DANCINGREAPER = SKILLPLAYID_T51,
+	SKILLSHORTID_FINALSPEAR = SKILLPLAYID_T52,
+	SKILLSHORTID_AMPLIFIED = SKILLPLAYID_T53,
+	SKILLSHORTID_SIDESPINATTACK = SKILLPLAYID_T54,
+
 	//Archer
-	SKILLSHORTID_ScoutHawk					=  SKILLPLAYID_T11,					
-	SKILLSHORTID_ShootingMastery			=  SKILLPLAYID_Undefined,		
-	SKILLSHORTID_WindArrow					=  SKILLPLAYID_T12,					
-	SKILLSHORTID_PerfectAim					=  SKILLPLAYID_T13,					
-	
-	SKILLSHORTID_DionsEye					=  SKILLPLAYID_Undefined,				
-	SKILLSHORTID_Falcon						=  SKILLPLAYID_T21,						
-	SKILLSHORTID_ArrowofRage				=  SKILLPLAYID_T22,				
-	SKILLSHORTID_Avalanche					=  SKILLPLAYID_T23,					
-	
-	SKILLSHORTID_ElementalShot				=  SKILLPLAYID_T31,				
-	SKILLSHORTID_GoldenFalcon				=  SKILLPLAYID_T32,				
-	SKILLSHORTID_BombShot					=  SKILLPLAYID_T33,					
-	SKILLSHORTID_Perforation				=  SKILLPLAYID_T34,				
-	
-	SKILLSHORTID_RecallWolverine			=  SKILLPLAYID_T41,				
-	SKILLSHORTID_EvasionMastery				=  SKILLPLAYID_Undefined,			
-	SKILLSHORTID_PhoenixShot				=  SKILLPLAYID_T42,				
-	SKILLSHORTID_ForceOfNature				=  SKILLPLAYID_T43,				
-	
-	SKILLSHORTID_LethalSight				=  SKILLPLAYID_T51,				
-	SKILLSHORTID_FierceWind					=  SKILLPLAYID_T52,					
-	SKILLSHORTID_NATURESPLASH				=  SKILLPLAYID_T53,				
-	SKILLSHORTID_CIRCLETRAP					=  SKILLPLAYID_T54,					
+	SKILLSHORTID_ScoutHawk = SKILLPLAYID_T11,
+	SKILLSHORTID_ShootingMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_WindArrow = SKILLPLAYID_T12,
+	SKILLSHORTID_PerfectAim = SKILLPLAYID_T13,
+
+	SKILLSHORTID_DionsEye = SKILLPLAYID_Undefined,
+	SKILLSHORTID_Falcon = SKILLPLAYID_T21,
+	SKILLSHORTID_ArrowofRage = SKILLPLAYID_T22,
+	SKILLSHORTID_Avalanche = SKILLPLAYID_T23,
+
+	SKILLSHORTID_ElementalShot = SKILLPLAYID_T31,
+	SKILLSHORTID_GoldenFalcon = SKILLPLAYID_T32,
+	SKILLSHORTID_BombShot = SKILLPLAYID_T33,
+	SKILLSHORTID_Perforation = SKILLPLAYID_T34,
+
+	SKILLSHORTID_RecallWolverine = SKILLPLAYID_T41,
+	SKILLSHORTID_EvasionMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_PhoenixShot = SKILLPLAYID_T42,
+	SKILLSHORTID_ForceOfNature = SKILLPLAYID_T43,
+
+	SKILLSHORTID_LethalSight = SKILLPLAYID_T51,
+	SKILLSHORTID_FierceWind = SKILLPLAYID_T52,
+	SKILLSHORTID_NATURESPLASH = SKILLPLAYID_T53,
+	SKILLSHORTID_CIRCLETRAP = SKILLPLAYID_T54,
 
 	//Knight
-	SKILLSHORTID_SwordBlast					=  SKILLPLAYID_T11,					
-	SKILLSHORTID_HolyBody					=  SKILLPLAYID_T12,					
-	SKILLSHORTID_PhysicalTraining			=  SKILLPLAYID_Undefined,		
-	SKILLSHORTID_DoubleCrash				=  SKILLPLAYID_T13,				
+	SKILLSHORTID_SwordBlast = SKILLPLAYID_T11,
+	SKILLSHORTID_HolyBody = SKILLPLAYID_T12,
+	SKILLSHORTID_PhysicalTraining = SKILLPLAYID_Undefined,
+	SKILLSHORTID_DoubleCrash = SKILLPLAYID_T13,
 
-	SKILLSHORTID_HolyValor					=  SKILLPLAYID_T21,					
-	SKILLSHORTID_Brandish					=  SKILLPLAYID_T22,					
-	SKILLSHORTID_Piercing					=  SKILLPLAYID_T23,					
-	SKILLSHORTID_DrasticSpirit				=  SKILLPLAYID_T24,				
+	SKILLSHORTID_HolyValor = SKILLPLAYID_T21,
+	SKILLSHORTID_Brandish = SKILLPLAYID_T22,
+	SKILLSHORTID_Piercing = SKILLPLAYID_T23,
+	SKILLSHORTID_DrasticSpirit = SKILLPLAYID_T24,
 
-	SKILLSHORTID_SwordMastery				=  SKILLPLAYID_Undefined,			
-	SKILLSHORTID_DivineShield				=  SKILLPLAYID_T31,			
-	SKILLSHORTID_HolyIncantation			=  SKILLPLAYID_T32,			
-	SKILLSHORTID_GrandCross					=  SKILLPLAYID_T33,					
+	SKILLSHORTID_SwordMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_DivineShield = SKILLPLAYID_T31,
+	SKILLSHORTID_HolyIncantation = SKILLPLAYID_T32,
+	SKILLSHORTID_GrandCross = SKILLPLAYID_T33,
 
-	SKILLSHORTID_DivinePiercing				=  SKILLPLAYID_T44,				
-	SKILLSHORTID_DIVINEPIERCING2			=  0x90,						
-	SKILLSHORTID_DIVINEPIERCING3			=  0x91,						
-	SKILLSHORTID_GodlyShield				=  SKILLPLAYID_T42,				
-	SKILLSHORTID_GodsBlessing				=  SKILLPLAYID_T43,					
-	SKILLSHORTID_SwordOfJustice				=  SKILLPLAYID_T41,				
+	SKILLSHORTID_DivinePiercing = SKILLPLAYID_T44,
+	SKILLSHORTID_DIVINEPIERCING2 = 0x90,
+	SKILLSHORTID_DIVINEPIERCING3 = 0x91,
+	SKILLSHORTID_GodlyShield = SKILLPLAYID_T42,
+	SKILLSHORTID_GodsBlessing = SKILLPLAYID_T43,
+	SKILLSHORTID_SwordOfJustice = SKILLPLAYID_T41,
 
-	SKILLSHORTID_HolyConviction				=  SKILLPLAYID_T51,				
-	SKILLSHORTID_DivineInquisition			=  SKILLPLAYID_T52,			
-	SKILLSHORTID_SAINTBLADE					=  SKILLPLAYID_T53,					
-	SKILLSHORTID_HOLYBENEDIC				=  SKILLPLAYID_T54,				
+	SKILLSHORTID_HolyConviction = SKILLPLAYID_T51,
+	SKILLSHORTID_DivineInquisition = SKILLPLAYID_T52,
+	SKILLSHORTID_SAINTBLADE = SKILLPLAYID_T53,
+	SKILLSHORTID_HOLYBENEDIC = SKILLPLAYID_T54,
 
 	//Atalanta
-	SKILLSHORTID_ShieldStrike				 =  SKILLPLAYID_T11,				
-	SKILLSHORTID_Farina				 =  SKILLPLAYID_T12,						
-	SKILLSHORTID_ThrowingMastery				 =  SKILLPLAYID_Undefined,		
-	SKILLSHORTID_VigorSpear				 =  SKILLPLAYID_T13,					
+	SKILLSHORTID_ShieldStrike = SKILLPLAYID_T11,
+	SKILLSHORTID_Farina = SKILLPLAYID_T12,
+	SKILLSHORTID_ThrowingMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_VigorSpear = SKILLPLAYID_T13,
 
-	SKILLSHORTID_Windy				 =  SKILLPLAYID_T21,						
-	SKILLSHORTID_TwistJavelin				 =  SKILLPLAYID_T22,				
-	SKILLSHORTID_SoulSucker				 =  SKILLPLAYID_T23,					
-	SKILLSHORTID_FireJavelin				 =  SKILLPLAYID_T24,				
+	SKILLSHORTID_Windy = SKILLPLAYID_T21,
+	SKILLSHORTID_TwistJavelin = SKILLPLAYID_T22,
+	SKILLSHORTID_SoulSucker = SKILLPLAYID_T23,
+	SKILLSHORTID_FireJavelin = SKILLPLAYID_T24,
 
-	SKILLSHORTID_SplitJavelin				 =  SKILLPLAYID_T31,				
-	SKILLSHORTID_TriumphOfValhalla				 =  SKILLPLAYID_T32,			
-	SKILLSHORTID_LightningJavelin				 =  SKILLPLAYID_T33,			
-	SKILLSHORTID_StormJavelin				 =  SKILLPLAYID_T34,				
+	SKILLSHORTID_SplitJavelin = SKILLPLAYID_T31,
+	SKILLSHORTID_TriumphOfValhalla = SKILLPLAYID_T32,
+	SKILLSHORTID_LightningJavelin = SKILLPLAYID_T33,
+	SKILLSHORTID_StormJavelin = SKILLPLAYID_T34,
 
-	SKILLSHORTID_HALLOFVALHALLA				 =  SKILLPLAYID_T41,				
-	SKILLSHORTID_XRAGE				 =  SKILLPLAYID_T42,						
-	SKILLSHORTID_FROSTJAVELIN				 =  SKILLPLAYID_T43,				
-	SKILLSHORTID_VENGEANCE				 =  SKILLPLAYID_T44,					
+	SKILLSHORTID_HALLOFVALHALLA = SKILLPLAYID_T41,
+	SKILLSHORTID_XRAGE = SKILLPLAYID_T42,
+	SKILLSHORTID_FROSTJAVELIN = SKILLPLAYID_T43,
+	SKILLSHORTID_VENGEANCE = SKILLPLAYID_T44,
 
-	SKILLSHORTID_ComboJavelin				 =  SKILLPLAYID_T51,				
-	SKILLSHORTID_GALAXYCOUP				 =  SKILLPLAYID_T52,					
-	SKILLSHORTID_SUMMONARCUDA				 =  SKILLPLAYID_T53,				
-	SKILLSHORTID_SNIPPYFEAR				 =  SKILLPLAYID_T54,					
+	SKILLSHORTID_ComboJavelin = SKILLPLAYID_T51,
+	SKILLSHORTID_GALAXYCOUP = SKILLPLAYID_T52,
+	SKILLSHORTID_SUMMONARCUDA = SKILLPLAYID_T53,
+	SKILLSHORTID_SNIPPYFEAR = SKILLPLAYID_T54,
 
 	//Priestess
-	SKILLSHORTID_Healing				 =  SKILLPLAYID_T11,					
-	SKILLSHORTID_HolyBolt				 =  SKILLPLAYID_T12,					
-	SKILLSHORTID_MultiSpark				 =  SKILLPLAYID_T13,					
-	SKILLSHORTID_HolyMind				 =  SKILLPLAYID_T14,					
+	SKILLSHORTID_Healing = SKILLPLAYID_T11,
+	SKILLSHORTID_HolyBolt = SKILLPLAYID_T12,
+	SKILLSHORTID_MultiSpark = SKILLPLAYID_T13,
+	SKILLSHORTID_HolyMind = SKILLPLAYID_T14,
 
-	SKILLSHORTID_Meditation				 =  SKILLPLAYID_Undefined,				
-	SKILLSHORTID_DivineLightning				 =  SKILLPLAYID_T21,			
-	SKILLSHORTID_HolyReflection				 =  SKILLPLAYID_T22,				
-	SKILLSHORTID_GrandHealing				 =  SKILLPLAYID_T23,				
+	SKILLSHORTID_Meditation = SKILLPLAYID_Undefined,
+	SKILLSHORTID_DivineLightning = SKILLPLAYID_T21,
+	SKILLSHORTID_HolyReflection = SKILLPLAYID_T22,
+	SKILLSHORTID_GrandHealing = SKILLPLAYID_T23,
 
-	SKILLSHORTID_VigorBall				 =  SKILLPLAYID_T31,					
-	SKILLSHORTID_Resurrection				 =  SKILLPLAYID_T32,				
-	SKILLSHORTID_Extinction				 =  SKILLPLAYID_T33,					
-	SKILLSHORTID_VirtualLife				 =  SKILLPLAYID_T34,				
+	SKILLSHORTID_VigorBall = SKILLPLAYID_T31,
+	SKILLSHORTID_Resurrection = SKILLPLAYID_T32,
+	SKILLSHORTID_Extinction = SKILLPLAYID_T33,
+	SKILLSHORTID_VirtualLife = SKILLPLAYID_T34,
 
-	SKILLSHORTID_GLACIALSPIKE				 =  SKILLPLAYID_T41,				
-	SKILLSHORTID_REGENERATIONFIELD				 =  SKILLPLAYID_T42,			
-	SKILLSHORTID_CHAINLIGHTNING				 =  SKILLPLAYID_T43,				
-	SKILLSHORTID_SUMMONMUSPELL				 =  SKILLPLAYID_T44,				
+	SKILLSHORTID_GLACIALSPIKE = SKILLPLAYID_T41,
+	SKILLSHORTID_REGENERATIONFIELD = SKILLPLAYID_T42,
+	SKILLSHORTID_CHAINLIGHTNING = SKILLPLAYID_T43,
+	SKILLSHORTID_SUMMONMUSPELL = SKILLPLAYID_T44,
 
-	SKILLSHORTID_SpiritImpact				 =  SKILLPLAYID_T51,				
-	SKILLSHORTID_PiercingIce				 =  SKILLPLAYID_T52,				
-	SKILLSHORTID_SummonRamiel				 =  SKILLPLAYID_T53,				
-	SKILLSHORTID_BlessingKrishna				 =  SKILLPLAYID_T54,			
+	SKILLSHORTID_SpiritImpact = SKILLPLAYID_T51,
+	SKILLSHORTID_PiercingIce = SKILLPLAYID_T52,
+	SKILLSHORTID_SummonRamiel = SKILLPLAYID_T53,
+	SKILLSHORTID_BlessingKrishna = SKILLPLAYID_T54,
 
 	//Magician
-	SKILLSHORTID_Agony				 =  SKILLPLAYID_T11,						
-	SKILLSHORTID_FireBolt				 =  SKILLPLAYID_T12,					
-	SKILLSHORTID_Zenith				 =  SKILLPLAYID_T13,						
-	SKILLSHORTID_FireBall				 =  SKILLPLAYID_T14,					
+	SKILLSHORTID_Agony = SKILLPLAYID_T11,
+	SKILLSHORTID_FireBolt = SKILLPLAYID_T12,
+	SKILLSHORTID_Zenith = SKILLPLAYID_T13,
+	SKILLSHORTID_FireBall = SKILLPLAYID_T14,
 
-	SKILLSHORTID_MentalMastery				 =  SKILLPLAYID_Undefined,			
-	SKILLSHORTID_ColumnOfWater				 =  SKILLPLAYID_T21,				
-	SKILLSHORTID_EnchantWeapon				 =  SKILLPLAYID_T22,				
-	SKILLSHORTID_DeadRay				 =  SKILLPLAYID_T23,					
+	SKILLSHORTID_MentalMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_ColumnOfWater = SKILLPLAYID_T21,
+	SKILLSHORTID_EnchantWeapon = SKILLPLAYID_T22,
+	SKILLSHORTID_DeadRay = SKILLPLAYID_T23,
 
-	SKILLSHORTID_EnergyShield				 =  SKILLPLAYID_T31,				
-	SKILLSHORTID_Diastrophism				 =  SKILLPLAYID_T32,				
-	SKILLSHORTID_SpiritElemental				 =  SKILLPLAYID_T33,			
-	SKILLSHORTID_DancingSword				 =  SKILLPLAYID_T34,				
+	SKILLSHORTID_EnergyShield = SKILLPLAYID_T31,
+	SKILLSHORTID_Diastrophism = SKILLPLAYID_T32,
+	SKILLSHORTID_SpiritElemental = SKILLPLAYID_T33,
+	SKILLSHORTID_DancingSword = SKILLPLAYID_T34,
 
-	SKILLSHORTID_FIREELEMENTAL				 =  SKILLPLAYID_T41,				
-	SKILLSHORTID_FLAMEWAVE				 =  SKILLPLAYID_T42,					
-	SKILLSHORTID_DISTORTION				 =  SKILLPLAYID_T43,					
-	SKILLSHORTID_METEO				 =  SKILLPLAYID_T44,						
+	SKILLSHORTID_FIREELEMENTAL = SKILLPLAYID_T41,
+	SKILLSHORTID_FLAMEWAVE = SKILLPLAYID_T42,
+	SKILLSHORTID_DISTORTION = SKILLPLAYID_T43,
+	SKILLSHORTID_METEO = SKILLPLAYID_T44,
 
-	SKILLSHORTID_StoneSkin				 =  SKILLPLAYID_T51,					
-	SKILLSHORTID_RedRay				 =  SKILLPLAYID_T52,						
-	SKILLSHORTID_Primaignis				 =  SKILLPLAYID_T53,					
-	SKILLSHORTID_Thirdanima				 =  SKILLPLAYID_T54,					
+	SKILLSHORTID_StoneSkin = SKILLPLAYID_T51,
+	SKILLSHORTID_RedRay = SKILLPLAYID_T52,
+	SKILLSHORTID_Primaignis = SKILLPLAYID_T53,
+	SKILLSHORTID_Thirdanima = SKILLPLAYID_T54,
 
 	//Assassin
-	SKILLSHORTID_Stingger				 =  SKILLPLAYID_T11,					
-	SKILLSHORTID_RunningHit				 =  SKILLPLAYID_T12,					
-	SKILLSHORTID_DualSwordMastery				 =  SKILLPLAYID_Undefined,		
-	SKILLSHORTID_Wisp				 =  SKILLPLAYID_T14,						
-	
-	SKILLSHORTID_VenomThrone				 =  SKILLPLAYID_T21,				
-	SKILLSHORTID_Alas				 =  SKILLPLAYID_T22,						
-	SKILLSHORTID_SoulShock				 =  SKILLPLAYID_T23,					
-	SKILLSHORTID_AttackMastery				 =  SKILLPLAYID_Undefined,			
-	
-	SKILLSHORTID_SoreSword				 =  SKILLPLAYID_T31,					
-	SKILLSHORTID_BeatUp				 =  SKILLPLAYID_T32,						
-	SKILLSHORTID_Inpes				 =  SKILLPLAYID_T33,						
-	SKILLSHORTID_Blind				 =  SKILLPLAYID_T34,						
-	
-	SKILLSHORTID_FrostWind				 =  SKILLPLAYID_T41,					
-	SKILLSHORTID_AsnCriticalMastery				 =  SKILLPLAYID_Undefined,		
-	SKILLSHORTID_Polluted				 =  SKILLPLAYID_T43,					
-	SKILLSHORTID_PastingShadow				 =  SKILLPLAYID_T44,				
-	
-	SKILLSHORTID_ShadowBomb				 =  SKILLPLAYID_T51,					
-	SKILLSHORTID_RisingSlash				 =  SKILLPLAYID_T52,				
-	SKILLSHORTID_ViolenceStab				 =  SKILLPLAYID_T53,				
-	SKILLSHORTID_Storm				 =  SKILLPLAYID_T54,						
+	SKILLSHORTID_Stingger = SKILLPLAYID_T11,
+	SKILLSHORTID_RunningHit = SKILLPLAYID_T12,
+	SKILLSHORTID_DualSwordMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_Wisp = SKILLPLAYID_T14,
+
+	SKILLSHORTID_VenomThrone = SKILLPLAYID_T21,
+	SKILLSHORTID_Alas = SKILLPLAYID_T22,
+	SKILLSHORTID_SoulShock = SKILLPLAYID_T23,
+	SKILLSHORTID_AttackMastery = SKILLPLAYID_Undefined,
+
+	SKILLSHORTID_SoreSword = SKILLPLAYID_T31,
+	SKILLSHORTID_BeatUp = SKILLPLAYID_T32,
+	SKILLSHORTID_Inpes = SKILLPLAYID_T33,
+	SKILLSHORTID_Blind = SKILLPLAYID_T34,
+
+	SKILLSHORTID_FrostWind = SKILLPLAYID_T41,
+	SKILLSHORTID_AsnCriticalMastery = SKILLPLAYID_Undefined,
+	SKILLSHORTID_Polluted = SKILLPLAYID_T43,
+	SKILLSHORTID_PastingShadow = SKILLPLAYID_T44,
+
+	SKILLSHORTID_ShadowBomb = SKILLPLAYID_T51,
+	SKILLSHORTID_RisingSlash = SKILLPLAYID_T52,
+	SKILLSHORTID_ViolenceStab = SKILLPLAYID_T53,
+	SKILLSHORTID_Storm = SKILLPLAYID_T54,
 
 	//Shaman
-	SKILLSHORTID_DarkBolt				 =  SKILLPLAYID_T11,					
-	SKILLSHORTID_DarkWave				 =  SKILLPLAYID_T12,					
-	SKILLSHORTID_CurseLazy				 =  SKILLPLAYID_T13,					
-	SKILLSHORTID_InnerPeace				 =  SKILLPLAYID_Undefined,				
-	
-	SKILLSHORTID_SpiritualFlare				 =  SKILLPLAYID_T21,				
-	SKILLSHORTID_SoulManacle				 =  SKILLPLAYID_T22,				
-	SKILLSHORTID_ChasingHunt				 =  SKILLPLAYID_T23,				
-	SKILLSHORTID_AdventMigal				 =  SKILLPLAYID_T24,				
-	
-	SKILLSHORTID_RainMaker				 =  SKILLPLAYID_T31,					
-	SKILLSHORTID_LandOfGhost				 =  SKILLPLAYID_T32,				
-	SKILLSHORTID_Haunt				 =  SKILLPLAYID_T33,						
-	SKILLSHORTID_Scratch				 =  SKILLPLAYID_T34,					
-	
-	SKILLSHORTID_RecallBloodyKnight				 =  SKILLPLAYID_T41,			
-	SKILLSHORTID_Judgement				 =  SKILLPLAYID_T42,					
-	SKILLSHORTID_AdventMidranda				 =  SKILLPLAYID_T43,				
-	SKILLSHORTID_MourningOfPray				 =  SKILLPLAYID_T44,				
-	
-	SKILLSHORTID_Creed				 =  SKILLPLAYID_T51,						
-	SKILLSHORTID_PressOfDeity				 =  SKILLPLAYID_T52,				
-	SKILLSHORTID_GhostyNail				 =  SKILLPLAYID_T53,					
-	SKILLSHORTID_HighRegeneration				 =  SKILLPLAYID_Undefined,		
+	SKILLSHORTID_DarkBolt = SKILLPLAYID_T11,
+	SKILLSHORTID_DarkWave = SKILLPLAYID_T12,
+	SKILLSHORTID_CurseLazy = SKILLPLAYID_T13,
+	SKILLSHORTID_InnerPeace = SKILLPLAYID_Undefined,
+
+	SKILLSHORTID_SpiritualFlare = SKILLPLAYID_T21,
+	SKILLSHORTID_SoulManacle = SKILLPLAYID_T22,
+	SKILLSHORTID_ChasingHunt = SKILLPLAYID_T23,
+	SKILLSHORTID_AdventMigal = SKILLPLAYID_T24,
+
+	SKILLSHORTID_RainMaker = SKILLPLAYID_T31,
+	SKILLSHORTID_LandOfGhost = SKILLPLAYID_T32,
+	SKILLSHORTID_Haunt = SKILLPLAYID_T33,
+	SKILLSHORTID_Scratch = SKILLPLAYID_T34,
+
+	SKILLSHORTID_RecallBloodyKnight = SKILLPLAYID_T41,
+	SKILLSHORTID_Judgement = SKILLPLAYID_T42,
+	SKILLSHORTID_AdventMidranda = SKILLPLAYID_T43,
+	SKILLSHORTID_MourningOfPray = SKILLPLAYID_T44,
+
+	SKILLSHORTID_Creed = SKILLPLAYID_T51,
+	SKILLSHORTID_PressOfDeity = SKILLPLAYID_T52,
+	SKILLSHORTID_GhostyNail = SKILLPLAYID_T53,
+	SKILLSHORTID_HighRegeneration = SKILLPLAYID_Undefined,
 };
 
 struct ActiveSkill
@@ -2046,7 +2526,7 @@ struct ActiveSkill
 	};
 
 	ActiveSkill() {}
-	ActiveSkill( int iValue ) : iValue(iValue) {}
+	ActiveSkill(int iValue) : iValue(iValue) {}
 };
 
 struct RecordSkill
@@ -2122,8 +2602,8 @@ struct UseSkill
 {
 	Skill		saUseSkill[20];
 	SkillBox	saSkillBox[21];
-	Skill	  * pLeftSkill;
-	Skill	  * pRightSkill;
+	Skill* pLeftSkill;
+	Skill* pRightSkill;
 	int			iSkillPoint;
 	int			iSkillPointTier4;
 };
@@ -2195,9 +2675,8 @@ const Rectangle2D saSkillPage2Button[4]
 	{ 132, 82, 39, 36 },
 };
 
-const Skill saSkill[MAX_SKILLS] = 
+const Skill saSkill[MAX_SKILLS] =
 {
-	//Mechanician Skills - Tier 1
 	{ "基础攻击", 0x11111111, "Skill_Normal" },
 
 	//Mechanician Skills - Tier 1
@@ -2532,1042 +3011,1042 @@ const Skill saSkill[MAX_SKILLS] =
 
 const SkillBase saSkillBase[MAX_SKILLS] =
 {
-	{ "Extreme Shield", "Temporarily increases your block rating when a shield is being used",
+	{ "极光护盾", "在使用的盾上附以极光，提高格挡能力。",
 	10, 34, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Shield, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522DB0, SKILLID_ExtremeShield, SKILLTYPE_Right, 0x009926E8, 0 },
 
-	{ "Mechanic Bomb", "Throws a bomb that causes an explosion damaging enemies in that area",
+	{ "机械炸弹", "扔出机械手榴弹，打击一定距离内的敌人。",
 	12, 28, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522F70, SKILLID_MechanicBomb, SKILLTYPE_All, 0x00992788, 0 },
 
-	{ "Poison Attribute", "Permanently increases resistance to all poison property attacks",
+	{ "毒属性", "增加对毒系攻击的抗御能力。",
 	14, 0, 0, 0, 0,
 	{ 0, 0, 0 },{ ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523220, SKILLID_PoisonAttribute, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Physical Absorption", "Boosts your absorption rating for a period of time",
+	{ "灵光护体", "汲取自然之灵气，暂时增加吸收，起到减少物理损伤的作用。",
 	17, 30, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523090, SKILLID_PhysicalAbsorb, SKILLTYPE_Right, 0x00992828, 0 },
 
-	{ "Great Smash", "Delivers a powerful smash with some area damage",
+	{ "破碎巨击", "将自身力量注入武器来造成对敌人更大的伤害。",
 	20, 38, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523240, SKILLID_GreatSmash, SKILLTYPE_All, 0x009928C8, 0 },
 
-	{ "Maximize", "Increases your attack rating and attack power for a period of time",
+	{ "改良专家", "对持有的武器进行优化，提高武器性能。",
 	23, 41, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_Bow, ITEMTYPE_Javelin, ITEMTYPE_None },
 	0x00523390, SKILLID_Maximize, SKILLTYPE_Right, 0x00992940, 0 },
 
-	{ "Automation", "Increases your attack power and attack speed when using bows and javelins for a period of time",
+	{ "灵光飞扬", "一定时间内提高远程武器攻速和攻击。",
 	26, 42, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523510, SKILLID_Automation, SKILLTYPE_Right, 0x009929E0, 0 },
 
-	{ "Spark", "Creates a spark of pure energy and releases it to damage enemies",
+	{ "火花电场", "用强力的电光攻击附近的敌人。",
 	30, 40, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_Hammer, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005236C0, SKILLID_Spark, SKILLTYPE_All, 0x00992A80, 0 },
 
-	{ "Metal Armor", "Temporarily increases defense rating of your armor if it's mechanician spec.",
+	{ "金属重甲", "一定时间内提高机械兵特效盔甲的防御。",
 	40, 48, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524FB0, SKILLID_MetalArmor, SKILLTYPE_Right, 0x00992AF8, 0 },
 
-	{ "Grand Smash", "Unleashes two devastating blows to a single target with increased attack power and attack rating",
+	{ "星光灭绝", "利用精湛的连击加强攻击。",
 	43, 44, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_Hammer, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525000, SKILLID_GrandSmash, SKILLTYPE_All, 0x00992B70, 0 },
 
-	{ "Mechanic Weapon Mastery", "Permanently increases base attack power when using a mechanician spec weapon",
+	{ "优化专家", "将机械兵特效武器的威力发挥至最佳效果。",
 	46, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525020, SKILLID_MechanicWeaponMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Spark Shield", "Increases your defense rating and deal damage to monsters when your shield blocks a hit successfully, based on damage of your Spark skill",
+	{ "防御电波", "利用强大的电击波形成一个保护力场，格挡时对敌人造成反弹伤害。",
 	50, 52, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Shield, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525030, SKILLID_SparkShield, SKILLTYPE_Right, 0x00992C38, 0 },
 
-	{ "Impulsion", "Creates a powerful chain of sparks that causes eletric damage against multiple targets",
+	{ "雷霆冲击", "连锁电击造成多次伤害。",
 	60, 55, 2, 70, 3,
 	{ 1, 0, 0 }, { ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005252A0, SKILLID_Impulsion, SKILLTYPE_All, 0x00992D00, 0 },
 
-	{ "Compulsion", "Creates a magnetic field that pulls enemies towards the player while temporarily boosting absorption",
+	{ "威慑怒吼", "通过强力的吼叫来聚集怪物并提升吸收。",
 	63, 65, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005252C0, SKILLID_Compulsion, SKILLTYPE_Right, 0x00992DA0, 0 },
 
-	{ "Magnetic Sphere", "Generates three magnetic spheres that attack nearby enemies",
+	{ "磁性球体", "召唤磁球攻击敌人。",
 	66, 71, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525300, SKILLID_MagneticSphere, SKILLTYPE_Right, 0x00992E90, 0 },
 
-	{ "Metal Golem", "Summons a huge metallic golem to your aid, attacking nearby enemies",
+	{ "机械傀儡", "通过召唤机械傀儡来协助战斗。",
 	70, 71, 2, 169, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525340, SKILLID_MetalGolem, SKILLTYPE_Right, 0x00992F80, 0 },
-
-	{ "Rupture", "Attacks the Enemy with a great force",
+	//机械五转
+	{ "破裂", "强力单体攻击",
 	80, 71, 2, 180, 4,
 	{ 2, 0, 0 },{ ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525670, SKILLID_Rupture, SKILLTYPE_All, 0x00993110, 0 },
 
-	{ "Magnetic Discharge", "Releases a mechanical discharge of magnetics spheres damaging enemies around you",
+	{ "磁暴释放", "释放磁球造成范围伤害",
 	83, 95, 2, 128, -1,
 	{ 2, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_Bow, ITEMTYPE_Javelin, ITEMTYPE_None },
 	0x00525690, SKILLID_MagneticDischarge, SKILLTYPE_Right, 0x00993160, 0 },
 
-	{ "Hardened Ward", "Shield strenght is hardened by reducing your attack rating",
+	{ "硬化之盾", "牺牲攻击力强化盾牌",
 	86, 90, 2, 203, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_Bow, ITEMTYPE_Javelin, ITEMTYPE_None },
 	0x00525630, SKILLID_HardeningShield, SKILLTYPE_Right, 0x00993098, 0 },
 
-	{ "Swarm Shot", "Shots an arrow filled with parasites",
+	{ "寄生箭", "射出含寄生虫的箭矢",
 	90, 65, 2, 93, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525610, SKILLID_ParasitShot, SKILLTYPE_Right, 0x00992FA8, 0 },
-
-	{ "Melee Mastery", "Permanently increases base attack power when using melee weapons",
+	//武士
+	{ "格斗之术", "提高战士近距离的格斗搏击能力。",
 	10, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005237E0, SKILLID_MeleeMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Fire Attribute", "Permanently increases your resistance against fire attacks",
+	{ "炎之抗御", "增加对火系魔法攻击的抗御能力。",
 	12, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523800, SKILLID_FireAttribute, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Raving", "Goes berserk and attacks a single target with increased damage, losing HP when attacking",
+	{ "绝地暴走", "狂暴状态下提升伤害但损失生命值。",
 	14, 35, 2, 73, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523820, SKILLID_Raving, SKILLTYPE_All, 0x009952F8, 0 },
 
-	{ "Impact", "Delivers two powerful swings on a single target",
+	{ "精准之击", "暂时性提高攻击的命中，更有效地打击敌人。",
 	17, 37, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005239C0, SKILLID_Impact, SKILLTYPE_All, 0x00995370, 0 },
 
-	{ "Triple Impact", "Delivers devastating attack combos inflicting huge damage to the target",
+	{ "威力冲击", "三次连击造成巨额伤害。",
 	20, 39, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523B10, SKILLID_TripleImpact, SKILLTYPE_All, 0x009953E8, 0 },
 
-	{ "Brutal Swing", "Unleashes a massive attack with improved critical chances",
+	{ "致命回旋", "运用强力的回旋给敌人致命的一击。",
 	23, 41, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523C60, SKILLID_BrutalSwing, SKILLTYPE_All, 0x00995460, 0 },
 
-	{ "Roar", "Lets out a deafening roar to momentarily stun enemies",
+	{ "极地怒吼", "一声振耳欲聋的吼暂时地使周围的敌人处于混乱之中。",
 	26, 39, 2, 129, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523DB0, SKILLID_Roar, SKILLTYPE_Right, 0x009954D8, 0 },
 
-	{ "Rage of Zecram", "Jumps into the air smashing the axe into the ground to unleash a powerful eruption of fire that inflicts area damage",
+	{ "战神之怒", "借助英雄的伟大力量从空中重击造成范围火伤害。",
 	30, 45, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Hammer, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00523ED0, SKILLID_RageofZecram, SKILLTYPE_All, 0x00995528, 0 },
 
-	{ "Concentration", "Temporarily increases base attack rating by concentrating intensly",
+	{ "会心一击", "发挥高度的集中力，一定时间内提升命中。",
 	40, 53, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525080, SKILLID_Concentration, SKILLTYPE_Right, 0x009955A0, 0 },
 
-	{ "Avenging Crash", "Inflicts great damage with the use of two deadly uppercuts",
+	{ "复仇连击", "利用复仇的力量连续打击敌人。",
 	43, 48, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005250D0, SKILLID_AvengingCrash, SKILLTYPE_All, 0x00995618, 0 },
 
-	{ "Swift Axe", "Greatly increases your attacking speed with axe weapons",
+	{ "刺杀之斧", "熟练掌握斧头的使用，一定时间内提升攻击速度。",
 	46, 53, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005250F0, SKILLID_SwiftAxe, SKILLTYPE_Right, 0x00995690, 0 },
 
-	{ "Bone Crash", "Jumps into the air and delivers a smashing blow",
+	{ "挫骨扬灰", "古代勇者曾用来对付恶魔的技能，空中跳跃造成粉碎伤害。",
 	50, 54, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525140, SKILLID_BoneCrash, SKILLTYPE_All, 0x00995708, 0 },
 
-	{ "Destroyer", "Delivers a powerful combo with massive damage and increased critical rating",
+	{ "破坏连击", "使对方遭受强烈的攻击。",
 	60, 45, 2, 180, 4,
 	{ 1, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525390, SKILLID_Destroyer, SKILLTYPE_All, 0x00995780, 0 },
 
-	{ "Berserker", "Decreases absorb rating for an increased base attack power",
+	{ "狂暴战士", "使武士进入狂暴化状态，显著地提升攻击，但同时会显著降低吸收。",
 	63, 60, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005253B0, SKILLID_Berserker, SKILLTYPE_Right, 0x00995820, 0 },
 
-	{ "Cyclone Strike", "Rotates and creates a huge cyclone damaging surrounding targets",
+	{ "飓风袭击", "运用强烈的旋转攻击敌人。",
 	66, 55, 2, 70, 3,
 	{ 1, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525400, SKILLID_CycloneStrike, SKILLTYPE_All, 0x00995910, 0 },
 
-	{ "Boost Health", "Permanently raises your maximum heath capacity",
+	{ "健康专家", "永久地增加生命上限。",
 	70, 0, 0, 0, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525420, SKILLID_BoostHealth, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Survival Instinct", "Permanently raises your rejuvenation capabilities",
+	{ "生存本能", "永久提升生命恢复能力",
 	80, 0, 0, 0, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005256F0, SKILLID_SurvivalInstinct, SKILLTYPE_Passive, 0, 0 },
 
-	{ "Seismic Impact", "Deals a huge damage on the target that shakes the ground",
+	{ "地震冲击", "范围震动伤害",
 	83, 48, 2, 70, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005256D0, SKILLID_SeismicImpact, SKILLTYPE_Right, 0x00995960, 0 },
 
-	{ "Might of Zecram", "Infuse your weapon with fire energy increasing damage after a number of hits. Reduces your HP with each hit",
+	{ "泽克拉姆之力", "武器附火属性造成持续伤害",
 	86, 70, 2, 203, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Hammer, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525710, SKILLID_RuthlessofZecram, SKILLTYPE_Right, 0x00995A78, 0 },
 
-	{ "Raging Strikes", "Use your axe to rotate furiously damaging nearby targets",
+	{ "狂暴旋风", "旋转攻击范围敌人",
 	90, 93, 2, 200, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525730, SKILLID_WhirlwindFS01, SKILLTYPE_Right, 0x00995B68, 0 },
-
-	{ "Pike Wind", "Creates a whirwind with the use of a scythe, pushing the enemies away",
+	//枪兵
+	{ "龙卷枪风", "镰刀旋转造成范围伤害，并能将敌人震退一段距离。",
 	10, 27, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524020, SKILLID_PikeWind, SKILLTYPE_Right, 0x00997558, 0 },
 
-	{ "Ice Attribute", "Permanently increases your resistance against ice attacks",
+	{ "寒之抗御", "永久提升冰属性抗性。",
 	12, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524160, SKILLID_IceAttribute, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Critical Hit", "Hits the enemy twice on their weak points causing increased critical damage",
+	{ "致命打击", "打击敌人的要害，提高必杀。",
 	14, 31, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_Hammer, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524180, SKILLID_CriticalHit, SKILLTYPE_All, 0x009975D0, 0 },
 
-	{ "Jumping Crash", "Leaps up into the air to deliver a blow with massive power and accuracy",
+	{ "霹雳一击", "高高跃起，猛烈打击敌人。",
 	17, 34, 2, 112, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005242A0, SKILLID_JumpingCrash, SKILLTYPE_All, 0x009975F8, 0 },
 
-	{ "Ground Pike", "Thrusts spear into the ground freezing and slowing down enemies within range",
+	{ "大地之枪", "结合冰和气的力量攻击周围的敌人。",
 	20, 36, 2, 115, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005243F0, SKILLID_GroundPike, SKILLTYPE_Right, 0x009976E8, 0 },
 
-	{ "Tornado", "Brandishes scythe and creates a tornado, dealing serious damage to enemies within range",
+	{ "枪之飓风", "利用强力旋转攻击附近的敌人。",
 	23, 38, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524530, SKILLID_Tornado, SKILLTYPE_All, 0x009977B0, 0 },
 
-	{ "Weapon Block Mastery", "Permanently increases block rating when using two-handed scythes",
+	{ "格挡专家", "永久性增加使用枪系武器交战时的格挡能力。",
 	26, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524670, SKILLID_WeaponDefenseMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Expansion", "Increases size of scythe and unleashes a devastating attack to strike the enemy",
+	{ "无限力枪", "结合武器和灵力施展毁灭一击。",
 	30, 42, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_Hammer, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524690, SKILLID_Expansion, SKILLTYPE_All, 0x00997850, 0 },
 
-	{ "Venom Spear", "Thrusts spear into the ground causing poisoned spears to consume surrounding enemies",
+	{ "灵蛇标枪", "利用强大的灵力投出致命的标枪。",
 	40, 50, 2, 124, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525160, SKILLID_VenomSpear, SKILLTYPE_Right, 0x00997940, 0 },
 
-	{ "Vanish", "Vanishes into thin air, getting invisible to enemies eyes and increasing final damage to first hit",
+	{ "隐身刺杀", "使你在有限的时间内隐身，隐身后首次攻击增加刺杀伤害。",
 	43, 53, 2, 203, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525180, SKILLID_Vanish, SKILLTYPE_Right, 0x00997A08, 0 },
 
-	{ "Critical Mastery", "Permanently increases chance to inflict critical damage when using scythes",
+	{ "致命掌控", "永久地增加必杀。",
 	46, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005251C0, SKILLID_CriticalMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Chain Lancer", "Jumps into the air slashing a single opponent with a fast and devastating three hits combo",
+	{ "链枪骑兵", "使出致命三连击以打击敌人。",
 	50, 51, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005251D0, SKILLID_ChainLance, SKILLTYPE_All, 0x00997A80, 0 },
 
-	{ "Assassin's Eye", "Curses the target, increasing your critical damage against it temporarily",
+	{ "暗杀之眼", "针对指定怪物或敌人附加恶性状态，降低目标必杀，提升自身必杀伤害。",
 	60, 61, 2, 135, 4,
 	{ 1, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525430, SKILLID_AssassinsEye, SKILLTYPE_All, 0x00997B20, 0 },
 
-	{ "Charging Strike", "Charges at an enemy delivering three powerful blows on a single target",
+	{ "转换打击", "聚集力量的连续攻击。",
 	63, 75, 2, 180, 4,
 	{ 1, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525450, SKILLID_ChargingStrike, SKILLTYPE_All, 0x00997BC0, 0 },
 
-	{ "Vague", "Increases evasion rating when using two handed scythes temporarily",
+	{ "影遁躲避", "使你的身体看起来不那么清楚，提升躲避。",
 	66, 71, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525470, SKILLID_Vague, SKILLTYPE_Right, 0x00997C38, 0 },
 
-	{ "Shadow Master", "Strikes a single target with a barrage of powerful devastating piercing attacks",
+	{ "影子大师", "制造一些残像依次对一个怪物施放强力的伤害。",
 	70, 51, 2, 180, 4,
 	{ 1, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005254B0, SKILLID_ShadowMaster, SKILLTYPE_All, 0x00997CD8, 0 },
-
-	{ "Ring of Spears", "Surround the target with spears stunning it with fear",
+	//五转
+	{ "矛之环", "范围恐惧并造成伤害",
 	80, 75, 2, 180, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Claw, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525570, SKILLID_RingofSpears, SKILLTYPE_Right, 0x00997D00, 0 },
 
-	{ "Last Breath", "Jumps into target and deal damage",
+	{ "最后一击", "跳跃造成高额伤害",
 	83, 70, 2, 203, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525590, SKILLID_LastBreath, SKILLTYPE_Right, 0x00997D50, 0 },
 
-	{ "Ex-Death", "Becomes the master of death by involving your weapon with the power of the shadows",
+	{ "死亡之主", "暗影之力造成范围伤害",
 	86, 93, 2, 180, 4,
 	{ 2, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005255B0, SKILLID_DeathMaster, SKILLTYPE_Right, 0x00997E18, 0 },
 
-	{ "Sinister Spin", "Spins vigorously to create a deadly twister damaging nearby enemies",
+	{ "罪恶旋转", "旋转造成持续伤害",
 	90, 81, 2, 100, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005255F0, SKILLID_Twister, SKILLTYPE_Right, 0x00997EE0, 0 },
-
-	{ "Scout Hawk", "Summons a Hawk to scout the surrounding area raising your base attack rating temporarily",
+	//弓箭手
+	{ "侦察之鹰", "放出一只鹰，开阔视野，提高命中。",
 	10, 25, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005247E0, SKILLID_ScoutHawk, SKILLTYPE_Right, 0x00993C00, 0 },
 
-	{ "Shooting Mastery", "Permanently raises your base attack power when using bow-type weapons",
+	{ "强力之箭", "弓类武器永久提升攻击力。",
 	12, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524920, SKILLID_ShootingMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Wind Arrow", "Fires a wind arrow causing additional damage to normal monsters",
+	{ "疾风之箭", "射出如风般飞快的箭，提高攻击和攻速。",
 	14, 25, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524940, SKILLID_WindArrow, SKILLTYPE_All, 0x00993CA0, 0 },
 
-	{ "Perfect Aim", "Fires an enhanced arrow that cause additional damage to demon monsters",
+	{ "夺命之箭", "增加弓箭攻击的准确性，提高命中和攻击。",
 	17, 29, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524A80, SKILLID_PerfectAim, SKILLTYPE_All, 0x00993D40, 0 },
 
-	{ "Dion's Eye", "Increases your attack rating permanently, based on your weapon",
+	{ "射神之眼", "像传说中的射手戴奥妮一样提高视力，增加武器命中。",
 	20, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524BC0, SKILLID_DionsEye, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Falcon", "Summons a fierce falcon to your aid attacking all enemies that you hit with your weapon",
+	{ "灵魂之鹰", "召唤攻击型猎鹰。",
 	23, 36, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524BE0, SKILLID_Falcon, SKILLTYPE_Right, 0x00993E08, 0 },
 
-	{ "Arrow of Rage", "Launches a handful of arrows in midair that causes splash damage to certain targets",
+	{ "狂暴火箭", "向一个指定的目标区域射出箭雨。",
 	26, 38, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524D30, SKILLID_ArrowofRage, SKILLTYPE_All, 0x00993EA8, 0 },
 
-	{ "Avalanche", "Shoots a series of multiple arrows to a single target causing massive damage",
+	{ "雪崩之箭", "多段箭矢造成巨额伤害。",
 	30, 41, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00524E70, SKILLID_Avalanche, SKILLTYPE_All, 0x00993F48, 0 },
 
-	{ "Elemental Shot", "Fires a shot of fire or lightning arrow causing damage",
+	{ "元素攻击", "使用元素性攻击持续地攻击敌人。",
 	40, 43, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005251F0, SKILLID_ElementalShot, SKILLTYPE_All, 0x00994060, 0 },
 
-	{ "Golden Falcon", "Summons a falcon to help you by attacking and healing",
+	{ "黄金猎鹰", "召唤一只攻击力以及生命力强大的猎鹰来协助攻击。",
 	43, 52, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525210, SKILLID_GoldenFalcon, SKILLTYPE_Right, 0x00994100, 0 },
 
-	{ "Bomb Shot", "Fires two explosive arrows causing splash damage within the blast radius",
+	{ "致命射击", "连续2次使用爆炸性弓箭，攻击周围的怪物。",
 	46, 46, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525260, SKILLID_BombShot, SKILLTYPE_All, 0x009941F0, 0 },
 
-	{ "Perforation", "Fires an arrow that pierces through the hardest obstacles and does splash damage",
+	{ "穿透之箭", "准确而强力的发射，贯穿敌人的身体，给予致命的攻击。",
 	50, 48, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525280, SKILLID_Perforation, SKILLTYPE_All, 0x00994268, 0 },
 
-	{ "Wolverine", "Summons the fierce beast Wolverine to aid attack your enemies",
+	{ "召唤魔狼", "召唤出一只魔狼来协助战斗",
 	60, 58, 2, 169, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005254D0, SKILLID_RecallWolverine, SKILLTYPE_Right, 0x00994380, 0 },
 
-	{ "Evasion Mastery", "Permanently increases your evasion rating when using a two-handed bow to improve capability of dodging attacks",
+	{ "躲避大师", "有效地避免一次敌人的攻击。",
 	63, 0, 0, 0, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525520, SKILLID_EvasionMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Phoenix Shot", "Fires an arrow enchanted with the flames of Phoenix",
+	{ "火翼射击", "通过火凤凰的力量得到强大的攻击力提升。",
 	66, 43, 2, 70, 3,
 	{ 1, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525530, SKILLID_PhoenixShot, SKILLTYPE_All, 0x00994420, 0 },
 
-	{ "Force of Nature", "Amplifies and improves your offensive abilities with the use of nature's energy",
+	{ "自然之力", "它使你和自然天地融为一体，利用自然改善你的能力。",
 	70, 56, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525550, SKILLID_ForceofNature, SKILLTYPE_Right, 0x00994510, 0 },
-
-	{ "Lethal Sight", "Focus your aim on a target at a far distance, making the next attack fatal",
+	//弓箭手5转
+	{ "致命视野", "远距离致命一击",
 	80, 52, 2, 203, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005257A0, SKILLID_LethalSight, SKILLTYPE_Right, 0x009945D8, 0 },
 
-	{ "Mistral's Arrow", "Harness the power of wind to create an arrow that penetrates enemies and deals a heavy damage",
+	{ "狂风箭", "风属性穿透箭",
 	83, 52, 2, 82, 2,
 	{ 2, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525780, SKILLID_FierceWind, SKILLTYPE_Right, 0x00994538, 0 },
 
-	{ "Blooming Lotus", "Roots the enemy on the floor with the Nature's Power",
+	{ "绽放之莲", "自然之力束缚敌人",
 	86, 57, 2, 87, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005257C0, SKILLID_EntalingRoots, SKILLTYPE_Right, 0x00994678, 0 },
 
-	{ "Saggitarius Rain", "Bombards the enemy with a strong blast of continuous arrows",
+	{ "射手座箭雨", "持续箭矢轰炸",
 	90, 95, 2, 100, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Bow, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005257E0, SKILLID_Bombardment, SKILLTYPE_Right, 0x009946F0, 0 },
-
-	{ "Stinger", "Runs straight towards the enemy and hits him with two quick attacks",
+	//刺客
+	{ "突袭刺击", "快速移动到敌人面前造成致命的损伤。",
 	10, 22, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525800, SKILLID_Stinger, SKILLTYPE_All, 0x00997F58, 0 },
 
-	{ "Running Hit", "Deals continuous damage to the enemy while spinning",
+	{ "侧翻闪击", "身体侧翻给予敌人两次损伤。",
 	12, 27, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525820, SKILLID_RunningHit, SKILLTYPE_All, 0x00997FD0, 0 },
 
-	{ "Dual Wield Mastery", "Increase permanently your base attack power when using daggers",
+	{ "精通匕首", "增加武器攻击。",
 	14, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525840, SKILLID_DualWieldMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Wisp", "Reduces targeted enemy damage for a period of time",
+	{ "弱点牵制", "减少敌人攻击。",
 	17, 37, 2, 159, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525850, SKILLID_Wisp, SKILLTYPE_All, 0x00998048, 0 },
 
-	{ "Venom Thorn", "Distributes dexterity of an Assassin increasing evasion rating to all party members",
+	{ "毒牙连击", "用抹着毒的武器朝敌人快速二连击。",
 	20, 38, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525870, SKILLID_VenomThorn, SKILLTYPE_All, 0x009980C0, 0 },
 
-	{ "Alas", "Increases evasion rating of party for a certain duration",
+	{ "天使之翼", "赋予队友刺客的敏捷,提升躲避。",
 	23, 41, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525890, SKILLID_Alas, SKILLTYPE_Right, 0x00998110, 0 },
 
-	{ "Soul Shock", "Performs a hard hit to the ground with daggers and stun all enemies around",
+	{ "灵魂震撼", "使一定范围内的敌人气绝陷入混乱。",
 	26, 39, 2, 129, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005258D0, SKILLID_SoulShock, SKILLTYPE_Right, 0x00998188, 0 },
 
-	{ "Attack Mastery", "Increases your base attack rating and block rating permanently when using daggers",
+	{ "刺杀大师", "永久增加刺客的命中与格挡。",
 	30, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005258F0, SKILLID_AttackMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Sore Blade", "Using your agility performs a continous, sharp and fast attack to the enemy",
+	{ "飞舞之剑", "给敌人带去连续的敏锐的损伤。",
 	40, 45, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525900, SKILLID_SoreBlade, SKILLTYPE_All, 0x00998250, 0 },
 
-	{ "Gust Slash", "Jumps and performs a fast spinning attack, dealing massive damage to nearby enemies",
+	{ "旋风连击", "快速跳起给予敌人致命的损伤。",
 	43, 48, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525920, SKILLID_GustSlash, SKILLTYPE_All, 0x009982A0, 0 },
 
-	{ "Inpes", "Increases your attack speed temporarily",
+	{ "敏捷大师", "以高度的集中力提高攻击速度。",
 	46, 48, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525940, SKILLID_Inpes, SKILLTYPE_Right, 0x009982F0, 0 },
 
-	{ "Blind", "Hides into your own shadow, turning invisible to enemies eyes for a short duration until you attack",
+	{ "隐匿刺杀", "隐藏自己的影子,给予敌人强力的损伤。",
 	50, 53, 2, 203, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525980, SKILLID_Blind, SKILLTYPE_Right, 0x00998368, 0 },
 
-	{ "Frost Wind", "Moves quickly, causing a fatal damage to the enemy",
+	{ "霜冻之刃", "敏捷的移动身体让敌人造成连续的损伤。",
 	60, 53, 2, 140, 2,
 	{ 1, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005259C0, SKILLID_FrostWind, SKILLTYPE_All, 0x00998408, 0 },
 
-	{ "Fatal Mastery", "Increases permanently chance to inflict critical damage when using daggers",
+	{ "致命精通", "永久增加必杀。",
 	63, 0, 0, 0, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005259E0, SKILLID_FatalMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Polluted", "Poison all nearby enemies and decrease their health for a period of time",
+	{ "瘟疫之刃", "对周围的敌人带去毒属性攻击。",
 	66, 55, 2, 124, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005259F0, SKILLID_Polluted, SKILLTYPE_Right, 0x00998480, 0 },
 
-	{ "Ninja Shadow", "Moves fast to deal two powerful hits to the enemy with shadows",
+	{ "忍者闪击", "进入你的影子形态，猛烈攻击敌人。",
 	70, 51, 2, 180, 4,
 	{ 1, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525A10, SKILLID_NinjaShadow, SKILLTYPE_All, 0x00998570, 0 },
 
-	{ "Shunpo", "Swiftly teleports onto your enemies",
+	{ "暗炎领域", "快速传送至敌人身边",
 	80, 65, 2, 180, 4,
 	{ 2, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525A30, SKILLID_ShadowBlink, SKILLTYPE_Right, 0x009985C0, 0 },
 
-	{ "Kiss of the Viper", "Catalyze the power and add critical damage boost",
+	{ "新月之刃", "暴击率提升并附加毒伤",
 	83, 71, 2, 135, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525A50, SKILLID_KissViper, SKILLTYPE_Right, 0x009986B0, 0 },
 
-	{ "Shade Kick", "Violently kicks your enemies dealing damage",
+	{ "猛龙摆尾", "强力踢击造成伤害",
 	86, 90, 2, 70, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525A70, SKILLID_ViolentStub, SKILLTYPE_Right, 0x00998700, 0 },
 
-	{ "Shadow Storm", "Engulfs your enemies into a powerfull shadow storm dealing damage",
+	{ "风暴之刃", "范围暗影伤害",
 	90, 95, 2, 160, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Dagger, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00525A90, SKILLID_ShadowStorm, SKILLTYPE_Right, 0x00998750, 0 },
 
-	{ "Sword Blast", "Charges sword with divine energy, and blasts it away until a certain distance",
+	{ "剑气爆发", "发出剑气攻击敌人。",
 	10, 22, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521320, SKILLID_SwordBlast, SKILLTYPE_All, 0x00993200, 0 },
 
-	{ "Holy Body", "Gathers holy energy to strengthen the knight against undead monsters temporarily",
+	{ "圣光护体",			"身体变为圣属性，减免亡灵系的敌人的攻击伤害。",
 	12, 28, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521340, SKILLID_HolyBody, SKILLTYPE_Right, 0x009932A0, 0 },
 
-	{ "Physical Training", "Physically trains body to permanently increase stamina points",
+	{ "超能体训",		"通过死亡特训永久性地增加耐力。",
 	14, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521380, SKILLID_PhysicalTraining, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Double Crash", "Performs a two hit crashing attack with increased critical chance",
+	{ "双重爆击",			"连续发出两下重击。",
 	17, 35, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521390, SKILLID_DoubleCrash, SKILLTYPE_All, 0x00993340, 0 },
 
-	{ "Holy Valor", "Increases party damage against undead enemies temporarily",
+	{ "神圣勇气",			"增加对亡灵系的伤害。",
 	20, 36, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521620, SKILLID_HolyValor, SKILLTYPE_Right, 0x00993408, 0 },
 
-	{ "Brandish", "Brandishes the weapon causing area damage against multiple targets in front of player",
+	{ "狂躁挥舞",			"打击有效半径内的所有敌人。",
 	23, 38, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521660, SKILLID_Brandish, SKILLTYPE_All, 0x00993480, 0 },
 
-	{ "Piercing", "Pierces a sword through the targeted enemy with a powerful attack",
+	{ "强龙啸天",			"用强大的力量和精神力刺杀敌人。",
 	26, 41, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521680, SKILLID_Piercing, SKILLTYPE_All, 0x009934F8, 0 },
 
-	{ "Drastic Spirit", "Replenishes the knight's spirit to increase his defense for a period of time",
+	{ "天佑神铠",	"一定时间内提高的吸收、防御。",
 	30, 44, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005216A0, SKILLID_DrasticSpirit, SKILLTYPE_Right, 0x00993570, 0 },
 
-	{ "Sword Mastery", "Increases base attack power when using swords permanently",
+	{ "刀剑专精",	"永久地提升使用剑的攻击力。",
 	40, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521890, SKILLID_SwordMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Divine Shield", "Boosts your block rating and convert dealt undead damage into health points while using shield",
+	{ "圣灵之吸",	"利用神圣的盾牌，格挡时将亡灵族的攻击转换为生命。",
 	43, 46, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Shield, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005218A0, SKILLID_DivineShield, SKILLTYPE_Right, 0x00993638, 0 },
 
-	{ "Holy Incantation", "Transforms the targeted monster into a pet that will fight for you in battle for a period of time",
+	{ "迷惑之咒",	"利用神圣的咒语迷惑敌人。",
 	46, 50, 2, 128, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005218F0, SKILLID_HolyIncantation, SKILLTYPE_All, 0x009936D8, 0 },
 
-	{ "Grand Cross", "Attacks the enemy with a deadly cross, causing extra damage against undead enemies",
+	{ "圣光十字",	"利用2次连击横切敌人，给予致命的一击。",
 	50, 45, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521910, SKILLID_GrandCross, SKILLTYPE_All, 0x00993778, 0 },
 
-	{ "Sword of Justice", "Smash the ground with the sword to create a wave that damages all enemies within range",
+	{"神圣刺骨", "释放出强力的剑气来刺穿敌人。",
 	60, 45, 2, 70, 3,
 	{ 1, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521BD0, SKILLID_SwordofJustice, SKILLTYPE_All, 0x00993980, 12 },
 
-	{ "Godly Shield", "Forms a Holy Shield blessed by God, increasing absorption rating while a shield is being used",
+	{ "敬神之盾",	"一个受上帝祝福而产生的神圣的盾。",
 	63, 50, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_Shield, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521B50, SKILLID_GodlyShield, SKILLTYPE_All, 0x00993890, 0 },
 
-	{ "God's Blessing", "Temporarily increases your base attack power with the divine blessings of God",
+	{ "上帝祝福",	"以上帝的名字的赐予强大的力量，增加伤害。",
 	66, 51, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_Bow, ITEMTYPE_Javelin, ITEMTYPE_None },
 	0x00521B90, SKILLID_GodsBlessing, SKILLTYPE_Right, 0x00993908, 0 },
 
-	{ "Divine Piercing", "With the help of God's power, attacks the enemy unleashing a devastating strike with increased critical chance",
+	{ "裁决之剑","借用上帝之力使用一段剑舞来攻击敌人。",
 	70, 51, 2, 180, 4,
 	{ 1, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521B30, SKILLID_DivinePiercing, SKILLTYPE_All, 0x00993818, 15 },
 
-	{ "Holy Conviction", "Gleams sacred belief to strengthen allies souls",
+	{ "神圣信念", "强化盟友灵魂力量",
 	80, 69, 2, 128, -1,
 	{ 2, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521DE0, SKILLID_HolyConviction, SKILLTYPE_Right, 0x009939A8, 0 },
 
-	{ "Whirl Wind", "Use your sword to rotate furiously damaging nearby targets",
+	{ "旋风斩", "旋转造成范围伤害",
 	83, 70, 2, 169, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521E00, SKILLID_WhirlWind, SKILLTYPE_Right, 0x00993A48, 0 },
 
-	{ "Glorious shield", "Forms the final shield to protect Knight",
+	{ "荣耀之盾", "终极防御技能",
 	86, 75, 2, 203, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Sword, ITEMTYPE_Hammer, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521E20, SKILLID_GloriousShield, SKILLTYPE_Right, 0x00993AC0, 0 },
 
-	{ "Divine Cross", "Perform the final cross with divine power",
+	{ "神圣十字", "终极神圣伤害技能",
 	90, 93, 2, 180, 4,
 	{ 2, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Sword, ITEMTYPE_Bow, ITEMTYPE_Javelin, ITEMTYPE_None },
 	0x00521E40, SKILLID_DivineCross, SKILLTYPE_Right, 0x00993B38, 0 },
 
-	{ "Shield Strike", "Smites down and temporarily stuns enemies in linear range by smashing them with a shield",
+	{ "美杜莎盾", "投掷盾牌，给敌人以穿透性的攻击,并眩晕。",
 	10, 23, 2, 152, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Shield, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005213B0, SKILLID_ShieldStrike, SKILLTYPE_All, 0x009947B8, 0 },
 
-	{ "Farina", "Throws a javelin thrusting at a target's body with increased attack power and accuracy",
+	{ "含沙射影",			"快速的投掷标枪,可连续攻击敌人。",
 	12, 26, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005213D0, SKILLID_Farina, SKILLTYPE_All, 0x00994858, 0 },
 
-	{ "Throwing Mastery", "Increases base attack power permanently when using Javelins",
+	{ "魔力神枪",		"训练投枪的技术永久提升攻击。",
 	14, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005213F0, SKILLID_ThrowingMaster, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Bigger Spear", "Strikes down an enemy with immensely enhanced force and thrusting power",
+	{ "精神之枪",			"结合精神能力的投枪技术。",
 	17, 32, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Scythe, ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521400, SKILLID_BiggerSpear, SKILLTYPE_All, 0x009948F8, 0 },
 
-	{ "Windy", "Temporarily increases base attack rating and attack range while using Javelin weapons",
+	{ "追命劲风",			"将标枪投向更远并提高命中。",
 	20, 34, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005216F0, SKILLID_Windy, SKILLTYPE_Right, 0x009949C0, 0 },
 
-	{ "Twist Javelin", "Throws a Javelin with increases attack power and rating, causing extra damage against demon monsters",
+	{ "螺旋飞标",	"通过旋转标枪来提高攻击和命中。",
 	23, 36, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521730, SKILLID_TwistJavelin, SKILLTYPE_All, 0x00994A38, 0 },
 
-	{ "Soul Sucker", "Absorbs the HP of monster and add it the casters's health points, but only when monster health points is higher than 50%",
+	{ "灵魂吞噬",	"吸收敌人的生命。",
 	26, 42, 2, 180, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_Shield, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521750, SKILLID_SoulSucker, SKILLTYPE_All, 0x00994A88, 0 },
 
-	{ "Fire Javelin", "Throws a Javelin with the properties of fire causing extra damage against mutant monsters",
+	{ "火焰烈枪",	"利用火元素的标枪攻击敌人。",
 	30, 40, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521770, SKILLID_FireJavelin, SKILLTYPE_All, 0x00994B00, 0 },
 
-	{ "Split Javelin", "Throws a Javelin that separates in mid-air and falls down damaging a single target",
+	{ "追风之枪",	"利用最快的速度，连续散发性攻击。",
 	40, 43, 2, 180, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521930, SKILLID_SplitJavelin, SKILLTYPE_All, 0x00994BA0, 0 },
 
-	{ "Triumph of Valhalla", "Temporarily increases maximum attack power",
+	{ "战栗咆哮",	"利用强有力的吼声加强队友的气势，提高攻击力。",
 	43, 50, 2, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_Sword, ITEMTYPE_Bow, ITEMTYPE_Scythe, ITEMTYPE_Hammer, ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Wand },
 	0x00521950, SKILLID_TriumphofJavelin, SKILLTYPE_Right, 0x00994C18, 0 },
 
-	{ "Lightning Javelin", "Throws a javelin with the properties of lightning causing extra damage against undead monsters",
+	{ "光猎之枪",	"使用标枪时一定时间内提高元素能力。",
 	46, 46, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521980, SKILLID_LightningJavelin, SKILLTYPE_All, 0x00994C90, 0 },
 
-	{ "Storm Javelin", "Throws two javelins with massive strength, damaging all within its path",
+	{ "暴风狂标",	    "以暴风雨般的旋转威力，连续投掷标枪。",
 	50, 48, 2, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005219A0, SKILLID_StormJavelin, SKILLTYPE_All, 0x00994CE0, 0 },
 
-	{ "Hall of Valhalla", "Temporarily raises evasion rating, automatically activating properties of Triumph of Valhalla to all friends in range",
+	{ "哈拉之光",	"运用哈拉的力量创造一个空间。",
 	60, 52, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Bow, ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521BF0, SKILLID_HallofValhalla, SKILLTYPE_Right, 0x00994D58, 0 },
 
-	{ "Extreme Rage", "Leaps into the air throwing three explosive Javelins, damaging all enemies within the area",
+	{ "十字怒刺",	"利用愤怒的跳击攻击一个敌人。",
 	63, 48, 2, 70, 3,
 	{ 1, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521C10, SKILLID_ExtremeRage, SKILLTYPE_All, 0x00994DD0, 0 },
 
-	{ "Frost Javelin", "Temporarily enchants the Javelin with the properties of ice, reducing enemy speed when hit",
+	{ "霜冻标枪",	"使用后, 在一段时间内增加你的寒冰能力。",
 	66, 50, 2, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521C30, SKILLID_FrostJavelin, SKILLTYPE_Right, 0x00994EC0, 0 },
 
-	{ "Vengeance", "Throws two javelins with massive strength at a single target",
+	{ "复仇连击",	"快速地攻击,连续的攻击。",
 	70, 45, 2, 70, 3,
 	{ 1, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521C70, SKILLID_Vengeance, SKILLTYPE_All, 0x00994F60, 0 },
 
-	{ "Nature's Call", "Summons the predator of the jungle to your aid",
+	{ "自然召唤", "召唤丛林掠食者",
 	80, 95, 2, 169, 0,
 	{ 2, 0, 0 },{ ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522000, SKILLID_SummonTiger, SKILLTYPE_Right, 0x00995168, 0 },
 
-	{ "Golden Apple", "Eats a sacred apple that boosts your speed and evade",
+	{ "金苹果", "食用后提升速度与闪避",
 	83, 52, 2, 0, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521C70, SKILLID_GoldenApple, SKILLTYPE_Passive, 0x00995000, 0 },
 
-	{ "Plague Javelin", "Infuses your weapong with a distinct jungle poison",
+	{ "瘟疫标枪", "丛林毒药附加持续伤害",
 	86, 68, 2, 100, 4,
 	{ 2, 0, 0 }, { ITEMTYPE_Axe, ITEMTYPE_Claw, ITEMTYPE_Hammer, ITEMTYPE_Scythe, ITEMTYPE_Bow, ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521FA0, SKILLID_PlagueJavelin, SKILLTYPE_Right, 0x00994F88, 0 },
 
-	{ "Triple Threat", "Launcher a serious attack with increased power to dealing continuous damage",
+	{ "三重威胁", "连续攻击造成持续伤害",
 	90, 57, 2, 180, 4,
 	{ 2, 0, 0 }, { ITEMTYPE_Javelin, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521C70, SKILLID_ComboJavelin, SKILLTYPE_Right, 0x00995190, 0 },
 
-	{ "Healing", "Restore lost health points to a single target, based on your attack power",
+	{ "治愈之术", "通过神圣的魔法恢复生命。",
 	10, 15, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521420, SKILLID_Healing, SKILLTYPE_All, 0x009968D8, 0 },
 
-	{ "Holy Bolt", "Shoots a bolt made of divine energy to disintegrate a single target",
+	{ "圣光攻击",			"利用一种神圣气流来攻击敌人。",
 	12, 11, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521440, SKILLID_HolyBolt, SKILLTYPE_All, 0x00996950, 0 },
 
-	{ "Multi Spark", "Disperses multiple sparks which stacks and hits a single target",
+	{ "光芒四射",			"利用星状的气流来攻击敌人。",
 	14, 14, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521460, SKILLID_MultiSpark, SKILLTYPE_All, 0x009969C8, 0 },
 
-	{ "Holy Mind", "Casts a spell on target, reducing its damage against you for a period of time",
+	{ "意念之术",			"通过精神能力来降低敌人的攻击,维持时间受生物抗性影响。",
 	17, 19, 1, 159, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521480, SKILLID_HolyMind, SKILLTYPE_All, 0x00996A68, 0 },
 
-	{ "Meditation", "Increases MP regen and boosts MP potion recovery permanently",
+	{ "曙光耀灵",		"永久地提高灵力恢复能力。",
 	20, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521790, SKILLID_Meditation, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Divine Lightning", "Summons lightning bolts from the clouds to strike enemies below",
+	{ "神之雷电",	"利用神圣的雷的力量来攻击敌人。",
 	23, 21, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005217A0, SKILLID_DivineLightning, SKILLTYPE_Right, 0x00996B80, 0 },
 
-	{ "Holy Reflection", "Creates a holy shield that reflects attacks from Undead Monsters",
+	{ "灵魔之御",	"通过生成神圣的魔法盾来反弹亡灵系怪物的攻击。",
 	26, 23, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005217C0, SKILLID_HolyReflection, SKILLTYPE_Right, 0x00996BF8, 0 },
 
-	{ "Grand Healing", "Restore health to multiple allies at once with the same group party at range, based on your attack power",
+	{ "圣洁之光",	"恢复队员的生命。",
 	30, 27, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521800, SKILLID_GrandHealing, SKILLTYPE_Right, 0x00996C98, 0 },
 
-	{ "Vigor Ball", "Launches two glowing spheres of powerful energy against a single target with increased damage and attack rating",
+	{ "火影双重",			"连续释放2次利用精神力量而制成的魔法球。",
 	40, 24, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005219C0, SKILLID_VigorBall, SKILLTYPE_All, 0x00996D10, 0 },
 
-	{ "Resurrection", "With holy magic, revives dead players near you, not preventing them to lose gold or EXP",
+	{ "起死回生",		"可以复活队伍中牺牲的队友。",
 	43, 31, 1, 115, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005219E0, SKILLID_Resurrection, SKILLTYPE_Right, 0x00996D88, 0 },
 
-	{ "Extinction", "Cast a spell to quickly reduce the health of undead monsters",
+	{ "死亡凋零",		"给不死族系列的怪物给予致命的咒语，大大降低它们的生命。",
 	46, 28, 1, 180, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521A00, SKILLID_Extinction, SKILLTYPE_Right, 0x00996E00, 0 },
 
-	{ "Virtual Life", "Increases health points of the targeted friend for a period of time",
+	{ "神圣之光",	"提高自己或他人的最大生命上限，同时具有伤害减免效果。",
 	50, 31, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521A20, SKILLID_VirtualLife, SKILLTYPE_All, 0x00996E78, 0 },
 
-	{ "Glacial Spike", "Projects a sharp ice spikes on the ground damaging and freezing all enemies within range",
+	{ "冰霜长矛",	"施放巨大的冰块打击敌人。",
 	60, 35, 1, 124, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521C90, SKILLID_GlacialSpike, SKILLTYPE_All, 0x00996F18, 0 },
 
-	{ "Regeneration Field", "Creates a Regeneration Field for a period of time that HP and MP regen of all friends in range",
+	{ "再生领域",	"化身天使增加范围内玩家生命、灵力再生能力。",
 	63, 41, 1, 203, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521CB0, SKILLID_RegenerationField, SKILLTYPE_Right, 0x00996FE0, 0 },
 
-	{ "Chain Lightning", "Creates a chain of lightning bolts that can hit multiple enemies at once",
+	{ "环形闪电",	"使用强而有力的雷电来攻击敌人。",
 	66, 41, 1, 140, 2,
 	{ 1, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521CD0, SKILLID_ChainLightning, SKILLTYPE_All, 0x009970A8, 0 },
 
-	{ "Summon Muspell", "Summons a Muspell who enhances priestess defensive and offensive abilities and helps by attacking nearby enemies",
+	{ "召唤符咒",	"召唤符咒附加自己身上，并提高人物相关能力值。",
 	70, 47, 1, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521CF0, SKILLID_SummonMuspell, SKILLTYPE_Right, 0x009971C0, 0 },
 
-	{ "Ice Elemental", "Summons an Ice Elemental to help you in battle",
+	{ "冰元素", "召唤冰元素协助战斗",
 	80, 45, 2, 169, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521F00, SKILLID_IceElemental, SKILLTYPE_Right, 0x009971E8, 0 },
 
-	{ "Ice Meteorite", "Calls in an ice cold meteorite storm which will damage and freeze opponents near the strike area of each meteorite",
+	{ "冰陨", "冰陨石造成范围伤害",
 	83, 33, 1, 70, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521F20, SKILLID_IceMeteorite, SKILLTYPE_Right, 0x00997288, 0 },
 
-	{ "Heavenly Light", "Summons a divine light to purify allies and blind enemies",
+	{ "神圣之光", "净化盟友并致盲敌人",
 	86, 54, 2, 203, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521F40, SKILLID_HeavenlyLight, SKILLTYPE_Right, 0x00997300, 0 },
 
-	{ "Consecration", "Blesses party members with God's protection",
+	{ "奉献", "神之保护祝福盟友",
 	90, 60, 2, 203, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521F70, SKILLID_Consecration, SKILLTYPE_Right, 0x00997418, 0 },
 
-	{ "Agony", "Sacrifices your own health points to be converted to mana points",
+	{ "魔力转化", "把自己的生命转化为灵力能力。",
 	10, 12, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005214A0, SKILLID_Agony, SKILLTYPE_Right, 0x00995C08, 0 },
 
-	{ "Fire Bolt", "Fires a small flaming bolt of hot lava to a single target",
+	{ "火箭之术",			"发出一团绚丽的魔法火球攻击敌人。",
 	12, 11, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521540, SKILLID_FireBolt, SKILLTYPE_All, 0x00995C58, 0 },
 
-	{ "Zenith", "Temporarily raises your resistance to all type of elemental attacks or spells",
+	{ "颠峰之术",			"利用精神能力在一定时间内提升属性值。",
 	14, 15, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521560, SKILLID_Zenith, SKILLTYPE_Right, 0x00995CD0, 0 },
 
-	{ "Fire Ball", "Creates a giant ball of flaming hot rocks to attack targeted enemies",
+	{ "火球之术",			"使用巨大的魔法火球来攻击敌人。",
 	17, 19, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521600, SKILLID_FireBall, SKILLTYPE_All, 0x00995D48, 0 },
 
-	{ "Mental Mastery", "Increases your mana capacity and MP potion recovery permanently",
+	{ "控制意念",	"增加灵力的最大值。",
 	20, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521820, SKILLID_MentalMastery, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Watornado", "Creates a water tornado, causing a devastating damage to all enemies in range",
+	{ "海龙长啸",	"发出巨大水柱来打击敌人。",
 	23, 21, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521830, SKILLID_Watornado, SKILLTYPE_All, 0x00995ED8, 0 },
 
-	{ "Enchant Weapon", "Temporarily increases your attack power with different elemental properties",
+	{ "神通加持",	"给武器增加元素攻击属性。",
 	26, 28, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521850, SKILLID_EnchantWeapon, SKILLTYPE_Right, 0x00996018, 0 },
 
-	{ "Death Ray", "Fires a ray of pure energy to disintegrate a single target",
+	{ "冥亡之光",	"从掌心发出强力的光线。",
 	30, 26, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521870, SKILLID_DeathRay, SKILLTYPE_All, 0x009960B8, 0 },
 
-	{ "Energy Shield", "Generates a shield of energy, reducing damage by absorbing a portion of damage to mana points",
+	{ "魔法守护",		"在身体的周围形成魔法系的保护盾。",
 	40, 40, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521A40, SKILLID_EnergyShield, SKILLTYPE_Right, 0x00996130, 0 },
 
-	{ "Diastrophism", "Strong geographical attack to opponents within range. Diastrophism hits each enemy 2 times per cast.",
+	{ "地动山摇",	"能使地壳变动的强大魔法，将周围的敌人置于死地。",
 	43, 33, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521A80, SKILLID_Diastrophism, SKILLTYPE_Right, 0x009961D0, 0 },
 
-	{ "Spirit Elemental", "Summons a ghost to temporarily raises your base attack power",
+	{ "魂之召唤",	"召唤小精灵以增加魔法伤害。",
 	46, 35, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521AA0, SKILLID_SpiritElemental, SKILLTYPE_Right, 0x00996248, 0 },
 
-	{ "Dancing Sword", "Summons a magical sword to attack nearby enemies attributed with Ice or Fire element",
+	{ "刀光剑影",	"利用元素能力攻击敌人时展现刀光剑影的效果。",
 	50, 30, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521AF0, SKILLID_DancingSword, SKILLTYPE_Right, 0x00996388, 0 },
 
-	{ "Fire Elemental", "Summons a monster made of fire to help attacking neaby enemies",
+	{ "火焰元素",	"召唤一只强力的火焰元素。",
 	60, 120, 2, 169, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521D30, SKILLID_FireElemental, SKILLTYPE_Right, 0x00996450, 0 },
 
-	{ "Flame Wave", "Creates a giant wave of fire, damaging all enemies within range",
+	{ "火焰波动",	"使用强力的火焰冲击面对的敌人。",
 	63, 32, 1, 70, 3,
 	{ 1, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521D70, SKILLID_FlameWave, SKILLTYPE_All, 0x009964F0, 0 },
 
-	{ "Distortion", "Generates a pulse of enegy, temporarily slowing down the movements of all enemies within the area",
+	{ "空间扭曲",	"使空间的扭曲的同时使敌人丧失能力。",
 	66, 43, 1, 130, 6,
 	{ 1, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521D90, SKILLID_Distortion, SKILLTYPE_Right, 0x009965B8, 0 },
 
-	{ "Meteorite", "Summons a meteor shower to fall from the sky, damaging all enemies within the area",
+	{ "陨石召唤",	"召唤陨石攻击附近的所有的敌人。",
 	70, 39, 1, 180, 4,
 	{ 1, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521DC0, SKILLID_Meteorite, SKILLTYPE_All, 0x00996658, 0 },
 
-	{ "Wizard's Trance", "Increase the Orb Effectiveness by concentrating in defenses but reduces attack rate. Only works when using Orb",
+	{ "巫师凝视", "专注防御降低攻击",
 	80, 54, 2, 128, -1,
 	{ 2, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521EA0, SKILLID_WizardTrance, SKILLTYPE_Right, 0x009967C0, 0 },
 
-	{ "Flame Ball", "Launches two spheres of powerful flame against a single target with increased damage and attack rating",
+	{ "火焰球", "双火球造成伤害",
 	83, 45, 2, 70, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521E70, SKILLID_StoneSkin, SKILLTYPE_All, 0x00996680, 0 },
 
-	{ "Elemental Ray", "Launch a ray that defeat the enemy",
+	{ "元素射线", "纯元素射线攻击",
 	86, 50, 2, 70, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521E90, SKILLID_RedRay, SKILLTYPE_Right, 0x00996720, 0 },
 
-	{ "Cataclysm", "Invokes the Wrath of Nature to form a series of powerful attacks",
+	{ "大灾变", "自然之力连锁伤害",
 	90, 60, 2, 180, 4,
 	{ 2, 0, 0 }, { ITEMTYPE_Wand, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00521EC0, SKILLID_Cataclysm, SKILLTYPE_Right, 0x00996838, 0 },
 
-	{ "Dark Bolt", "Hits the enemy with an almighty bolt of dark magic created with sorcery",
+	{ "黑暗闪电", "释放黑暗魔法对抗敌人。",
 	10, 8, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522070, SKILLID_DarkBolt, SKILLTYPE_All, 0x009987A0, 0 },
 
-	{ "Dark Wave", "Performs a consecutive area attack with almighty bolts of dark magic",
+	{ "黑暗波浪",			"对敌人进行连续的黑暗魔法攻击。",
 	12, 19, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522090, SKILLID_DarkWave, SKILLTYPE_All, 0x00998818, 0 },
 
-	{ "Inertia", "Throws a curse onto the enemies, slowing them down temporarily",
+	{ "诅咒雷击", "使用诅咒的力量会降低敌人的速度和攻击。",
 	14, 20, 1, 130, 6,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005220B0, SKILLID_Inertia, SKILLTYPE_Right, 0x009988E0, 0 },
 
-	{ "Inner Peace", "Through mental training, increases MP potion recovery and mana capacity permanently",
+	{ "内心平和", "通过心理训练，从而永久增加灵力。",
 	17, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005220E0, SKILLID_InnerPeace, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Spiritual Flare", "Uses powerful sorcery to deal damage to all enemies nearby in the area",
+	{ "精神咒术", "释放一种对敌人造成伤害的黑暗魔法。",
 	20, 21, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005220F0, SKILLID_SpiritualFlare, SKILLTYPE_All, 0x009989D0, 0 },
 
-	{ "Spiritual Manacle", "Binds the target's soul with sorcery that results in a stun of the target",
+	{ "灵魂枷锁", "借助鬼魂的力量，暂时束缚对手的灵魂。",
 	23, 23, 1, 114, 4,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522110, SKILLID_SpiritualManacle, SKILLTYPE_All, 0x00998A98, 0 },
 
-	{ "Chasing Hunt", "Temporarily increases your base attack power and sight, and gatherers nearby enemies close by pulling them towards you",
+	{ "追踪狩猎", "把限定范围内的怪物吸引过来。",
 	26, 27, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522140, SKILLID_ChasingHunt, SKILLTYPE_Right, 0x00998AE8, 0 },
 
-	{ "Advent Migal", "Calls forth Migal to temporarily increases attack power of yourself and your party members",
+	{ "召唤米迦勒", "临时提升队伍攻击力",
 	30, 28, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522160, SKILLID_AdventMigal, SKILLTYPE_Right, 0x00998B60, 0 },
 
-	{ "Rainmaker", "While using Phantoms, invoke the Gods of Rain to reduce received damage and increases your evasion rating temporarily",
+	{ "雨之使者", "临时降低受到伤害",
 	40, 31, 1, 128, -1,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005221A0, SKILLID_Rainmaker, SKILLTYPE_Right, 0x00998BD8, 0 },
 
-	{ "Phantom Call", "Controlling cursed ghosts, invokes them to deal massive damage to enemies in range",
+	{ "陆地灵魂", "控制被诅咒的鬼魂，召唤他们攻击敌人。",
 	43, 33, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005221C0, SKILLID_PhantomCall, SKILLTYPE_Right, 0x00998C78, 0 },
 
-	{ "Haunt", "With help of Phantom's strength, strikes a forceful blow and absorbs damage into health points",
+	{ "鬼魂重回", "在鬼魂的帮助下奋力一击，将部分伤害转化为生命。",
 	46, 35, 1, 169, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005221E0, SKILLID_Haunt, SKILLTYPE_All, 0x00998D18, 0 },
 
-	{ "Scratch", "Claw the opponent fiercely with huge damage",
+	{ "猫爪", "以灵魂为武器，猛烈地抓伤对手。",
 	50, 32, 1, 70, 3,
 	{ 0, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522200, SKILLID_Scratch, SKILLTYPE_All, 0x00998DB8, 0 },
 
-	{ "Summon Hestian", "Summons a Hestian to your aid, attacking nearby enemies",
+	{ "血色骑士", "召唤血色骑士辅助战斗。",
 	60, 41, 1, 169, 0,
 	{ 1, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522220, SKILLID_RecallHestian, SKILLTYPE_Right, 0x00998E30, 0 },
 
-	{ "Judgement", "Attacks with increased damage and critical chance, transforming the souls of enemies in a powerful energy beam",
+	{ "末日审判",			"用黑暗的光带攻击对手。",
 	63, 41, 1, 140, 2,
 	{ 1, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522260, SKILLID_Judgement, SKILLTYPE_All, 0x00998EF8, 0 },
 
-	{ "Advent Midranda", "Invokes Midranda to temporarily increase your attack speed",
+	{ "米德兰达",	"召唤米德兰达暂时提高攻击速度。",
 	66, 39, 1, 128, -1,
 	{ 1, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522280, SKILLID_AdventMidranda, SKILLTYPE_Right, 0x00998F98, 0 },
 
-	{ "Mourning Pray", "Using the sacred powers of gods, inflicts a damage to all nearby enemies",
+	{ "旭日东升",	"利用米德兰达或米加尔的力量攻击对手。",
 	70, 47, 1, 160, 2,
 	{ 1, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005222C0, SKILLID_MourningPray, SKILLTYPE_Right, 0x00999010, 0 },
 
-	{ "Creed", "Increases MP and STM of target temporarily",
+	{ "信仰", "临时提升盟友魔力",
 	80, 43, 1, 128, -1,
 	{ 2, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x005222E0, SKILLID_Creed, SKILLTYPE_Right, 0x009990B0, 0 },
 
-	{ "Press Deity", "Summons a powerful force from the darkness to damage your enemies in area",
+	{ "神罚", "黑暗力量造成范围伤害",
 	83, 45, 2, 70, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522300, SKILLID_PressDeity, SKILLTYPE_All, 0x00999150, 0 },
 
-	{ "Phantom Nail", "Calls upon ghosts to scratch your enemies with powerful dark force",
+	{ "暗影之爪", "黑暗力量抓击敌人",
 	86, 54, 2, 70, 3,
 	{ 2, 0, 0 }, { ITEMTYPE_Phantom, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522320, SKILLID_PhantomNail, SKILLTYPE_Right, 0x009991F0, 0 },
 
-	{ "Occult Life", "Harness powers of the occult increasing maximum health permanently",
+	{ "神秘生命", "永久提升生命上限",
 	90, 0, 0, 0, 0,
 	{ 2, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00522340, SKILLID_OccultLife, SKILLTYPE_Passive, 0x00000000, 0 },
 
-	{ "Force", "Increases your damage temporarily",
+	{ "力量", "临时提升攻击力",
 	0, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00000000, SKILLID_Force, SKILLTYPE_Undefined, 0x00000000, 0 },
 
-	{ "QUEST", "Hunt Monsters!",
+	{ "任务", "狩猎怪物",
 	0, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00000000, SKILLID_QUEST1, SKILLTYPE_Undefined, 0x00000000, 0 },
 
-	{ "QUEST", "Hunt Monsters!",
+	{ "任务", "狩猎怪物",
 	0, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00000000, SKILLID_QUEST2, SKILLTYPE_Undefined, 0x00000000, 0 },
 
-	{ "QUEST", "Hunt Monsters!",
+	{ "任务", "狩猎怪物",
 	0, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00000000, SKILLID_QUEST3, SKILLTYPE_Undefined, 0x00000000, 0 },
 
-	{ "QUEST", "Hunt Monsters!",
+	{ "任务", "狩猎怪物",
 	0, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00000000, SKILLID_QUEST4, SKILLTYPE_Undefined, 0x00000000, 0 },
 
-	{ "Absorption of Glory", "Increases Absorption Rating of all Clan Members by 15%",
+	{ "荣耀吸收", "提升全族成员15%吸收率",
 	0, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00000000, SKILLID_AbsorptionOfGlory, SKILLTYPE_Undefined, 0x00000000, 0 },
 
-	{ "Power Siege", "Increases Attack Power of all Clan Members by 10%",
+	{ "力量围城", "提升全族成员10%攻击力",
 	0, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00000000, SKILLID_PowerSiege, SKILLTYPE_Undefined, 0x00000000, 0 },
 
-	{ "Evasion Adaption", "Increases Evasion Rating of all Clan Members by 10%",
+	{ "闪避适应", "提升全族成员10%闪避率",
 	0, 0, 0, 0, 0,
 	{ 0, 0, 0 }, { ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None, ITEMTYPE_None },
 	0x00000000, SKILLID_EvasionAdaption, SKILLTYPE_Undefined, 0x00000000, 0 },
