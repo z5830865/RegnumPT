@@ -175,12 +175,12 @@ int CItemWindowHandler::OnUnstackPotion( ItemData * psIn, ItemData * psOut, int 
 		return TRUE;
 	}
 
-	INPUTBOX->SetTitle( "Unstack Potions" );
+	INPUTBOX->SetTitle( "Unstack药水" );
 
 	if ( iType == UNSTACKPOTION_WarehouseGet || iType == UNSTACKPOTION_TradeGet || iType == UNSTACKPOTION_FieldGet )
-		INPUTBOX->SetDescription( "How many potions would you like to take?" );
+		INPUTBOX->SetDescription( "你想要携带多少药水?" );
 	else
-		INPUTBOX->SetDescription( "How many potions would you like to put?" );
+		INPUTBOX->SetDescription( "你想要放置多少药水?" );
 
 	int iCounter = psIn->sItem.iPotionCount;
 	if ( (UNITDATA->sCharacterData.sWeight.sCur + (short)iCounter) > UNITDATA->sCharacterData.sWeight.sMax )
@@ -343,7 +343,7 @@ BOOL CItemWindowHandler::OnTradeAutoPlaceItem( ItemData * psItemData )
 
 	if ( (psItemData->sItem.bEnableEffect && !IsTradeUse( &psItemData->sItem )) || (psItemData->sItem.bLockedItemType) )
 	{
-		TITLEBOX( "This item cannot be place on trade!" );
+		TITLEBOX( "这件物品不能拿来交易!" );
 		return TRUE;
 	}
 
@@ -553,7 +553,7 @@ BOOL CItemWindowHandler::IsSellItem( ItemData * psItemData )
 	if ( bResult && ACCOUNTHANDLER->IsAccountShareDenied( ACCOUNTSHARE_DenyBuySellItems ) )
 	{
 		bResult = FALSE;
-		TITLEBOX( AY_OBFUSCATE( "You can't Buy/Sell Items, because you're logged in with the Share PW!" ) );
+		TITLEBOX( AY_OBFUSCATE( "你不能买/卖装备, 因为你登录的是共享PW!" ) );
 	}
 
 	return bResult;
@@ -701,7 +701,7 @@ BOOL CItemWindowHandler::IsUseMixNPC( Item * psItem )
 		case ITEMID_ThroneSheltom:
 			if ( !rRect.Inside( MOUSEHANDLER->GetPosition() ) )
 			{
-				TITLEBOX( "This item cannot be mixed" );
+				TITLEBOX( "这件装备不能合成" );
 				return FALSE;
 			}
 			return TRUE;
@@ -741,7 +741,7 @@ BOOL CItemWindowHandler::IsUseMixNPC( Item * psItem )
 				 psItemData->sItem.sItemID.ToItemID() == ITEMID_GreedyGauntlets || psItemData->sItem.sItemID.ToItemID() == ITEMID_ThroneRing ||
 				 psItemData->sItem.sItemID.ToItemID() == ITEMID_ThroneAmulet )
 			{
-				TITLEBOX( "This item can only be respec" );
+				TITLEBOX( "这件装备只能被替换" );
 				return FALSE;
 			}
 		}
@@ -757,7 +757,7 @@ BOOL CItemWindowHandler::IsUseMixNPC( Item * psItem )
 			if ( psItem->sItemID.ToItemID() == ITEMID_DarkGuardianSheltom )
 				return TRUE;
 
-			TITLEBOX( "Please insert an item first!" );
+			TITLEBOX( "请先放入一件装备!" );
 			return FALSE;
 		}
 		return TRUE;
@@ -765,7 +765,7 @@ BOOL CItemWindowHandler::IsUseMixNPC( Item * psItem )
 
 	if ( (psItem->sItemID.ToInt() & 0xFFFFFF00) == ITEMID_SpecStoneCode )
 	{
-		TITLEBOX( "Use craft npc to respec with this stone!" );
+		TITLEBOX( "带着这个石头去找craft npc替换!" );
 		return FALSE;
 	}
 
@@ -952,7 +952,7 @@ BOOL CItemWindowHandler::IsLockedItem( ItemData * pcItemData )
 		if ( bEquipped )
 		{
 			bRet = TRUE;
-			TITLEBOX( AY_OBFUSCATE( "You can't Grab Equipments, because you're logged in with the Share PW!" ) );
+			TITLEBOX( AY_OBFUSCATE( "你不能拿起装备,因为你登录的是共享PW!" ) );
 		}
 	}
 
@@ -1084,14 +1084,14 @@ BOOL CItemWindowHandler::OnWarehouseAutoPlaceItemBack( const Point2D * psPoint )
 	// Check iWeight
 	if ( !CHARACTERGAME->CheckInventoryWeight( psItemData ) )
 	{
-		TITLEBOX( "Weight limit exceeded" );
+		TITLEBOX( "超过重量限制" );
 		return TRUE;
 	}
 
 	// Check Space
 	if ( !CHARACTERGAME->CheckInventorySpace( psItemData ) )
 	{
-		TITLEBOX( "Not enough space in inventory" );
+		TITLEBOX( "空间不足" );
 		return TRUE;
 	}
 
@@ -1159,14 +1159,14 @@ BOOL CItemWindowHandler::OnTradeAutoPlaceItemBack( const Point2D * psPoint )
 	// Check iWeight
 	if ( !CHARACTERGAME->CheckInventoryWeight( psItemData ) )
 	{
-		TITLEBOX( "Weight limit exceeded" );
+		TITLEBOX( "超过重量限制" );
 		return TRUE;
 	}
 
 	// Check Space
 	if ( !CHARACTERGAME->CheckInventorySpace( psItemData ) )
 	{
-		TITLEBOX( "Not enough space in inventory" );
+		TITLEBOX( "空间不足" );
 		return TRUE;
 	}
 
@@ -1214,7 +1214,7 @@ BOOL CItemWindowHandler::OnMouseClick( CMouse * pcMouse )
 		// Check Locked Items
 		if ( HUDHANDLER->IsLockItems() )
 		{
-			TITLEBOX( "Items locked, click on unlock button in invetory to unlock items!" );
+			TITLEBOX( "装备已经锁定, 点击解锁按钮解锁物品!" );
 			return TRUE;
 		}
 
@@ -1657,7 +1657,7 @@ BOOL CItemWindowHandler::SetItemToNPC( ItemData * psItemData, BOOL bFlag )
 
 				if ( psaMixItemData[0].sItem.bCostumeItem )
 				{
-					TITLEBOX( AY_OBFUSCATE( "You can't respec Skin Item!" ) );
+					TITLEBOX( AY_OBFUSCATE( "你不能替换皮肤装备!" ) );
 					return FALSE;
 				}
 
@@ -1671,7 +1671,7 @@ BOOL CItemWindowHandler::SetItemToNPC( ItemData * psItemData, BOOL bFlag )
 					{
 						if ( iTempLevel < psRec[i].iLevelMin || iTempLevel > psRec[i].iLevelMax )
 						{
-							TITLEBOX( "You cannot use this respec item" );
+							TITLEBOX( "你不能使用这件替换装备" );
 							return FALSE;
 						}
 					}

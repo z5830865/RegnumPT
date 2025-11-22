@@ -682,7 +682,7 @@ BOOL ItemHandler::DropItemToMap( ItemData * pcItemData )
 		{
 			if ( (pcItemData->sItem.iPotionCount < 100) && (pcItemData->sItem.sItemID.ToItemBase() != ITEMBASE_Potion) )
 			{
-				TITLEBOX( AY_OBFUSCATE( "You can't Drop Items, because you're logged in with the Share PW!" ) );
+				TITLEBOX( AY_OBFUSCATE( "你不能丢弃装备, 因为你登录的账号是共享PW!" ) );
 
 				//Deny
 				return FALSE;
@@ -697,7 +697,7 @@ BOOL ItemHandler::DropItemToMap( ItemData * pcItemData )
 		{
 			if ( (pcItemData->sItem.iPotionCount < 100) && (pcItemData->sItem.sItemID.ToItemBase() != ITEMBASE_Potion) )
 			{
-				TITLEBOX( AY_OBFUSCATE( "You can't drop this item, because this item is locked!" ) );
+				TITLEBOX( AY_OBFUSCATE( "你不能丢掉这件装备, 因为这件装备已经锁定!" ) );
 
 				//Deny
 				return FALSE;
@@ -1842,7 +1842,7 @@ bool ItemHandler::DelayCristal()
 	{
 		if ( g_dwDelayCristal > TICKCOUNT )
 		{
-			TITLEBOX( "You are already summoning a pet monster" );
+			TITLEBOX( "你已经召唤了一个怪物宠物" );
 			return false;
 		}
 		else
@@ -2025,7 +2025,7 @@ BOOL ItemHandler::OnSkillStone( DWORD dwCode )
 		}
 
 		if ( bTrained == FALSE )
-			TITLEBOX( "Don't have skills to train!" );
+			TITLEBOX( "没有技能需要训练!" );
 	}
 	if ( dwCode == ITEMID_RubyStone )
 	{
@@ -2041,10 +2041,10 @@ BOOL ItemHandler::OnSkillStone( DWORD dwCode )
 				}
 			}
 			if ( bTrained == FALSE )
-				TITLEBOX( "Don't have skills to train!" );
+				TITLEBOX( "没有技能需要训练!" );
 		}
 		else
-			TITLEBOX( "Required level 1-95 to use this item" );
+			TITLEBOX( "这件装备需要1-95级才能使用" );
 	}
 	return bTrained;
 }
@@ -2145,7 +2145,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 		//Bellatra
 		if ( MAP_ID == MAPID_Bellatra )
 		{
-			TITLEBOX( "You can't summon a Crystal in Bellatra!" );
+			TITLEBOX( "你不能在Bellatra中召唤水晶!" );
 			return 0;
 		}
 
@@ -2161,7 +2161,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 			if ( iItemID == ITEMID_GuardianSaintCrystal )
 				return 1;
 
-			TITLEBOX( "You can only use Guardian Saint and Castle monster crystals in Bless Castle" );
+			TITLEBOX( "在祝福城堡里你只能使用守护圣徒或者城堡怪物水晶" );
 			return 0;
 		}
 
@@ -2169,13 +2169,13 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 		{
 			if ( GRANDFURYHANDLER->InsideArena( UNITDATA->sPosition.iX, UNITDATA->sPosition.iZ ) )
 			{
-				TITLEBOX( "You cannot summon a Soul Crystal inside the arena!" );
+				TITLEBOX( "你不能在竞技场使用灵魂水晶!" );
 				return 0;
 			}
 
 			if ( SKILLMANAGERHANDLER->IsActiveBuff( ITEMID_SoulCrystal ) )
 			{
-				TITLEBOX( "You have summoned a Soul Crystal already, please wait until it finishes!" );
+				TITLEBOX( "你已经召唤了一个灵魂水晶,请等待水晶时间结束!" );
 				return 0;
 			}
 		}
@@ -2186,13 +2186,13 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 	{
 		if ( iItemID == ITEMID_AtlantisCore )
 		{
-			TITLEBOX( "You can't use this Ether Core!" );
+			TITLEBOX( "你不能使用这个传送卷!" );
 			return 0;
 		}
 
 		if ( BLESSCASTLEHANDLER->InBattleZone() )
 		{
-			TITLEBOX( "You cannot use ether cores inside the battle zone!" );
+			TITLEBOX( "你不能在战场里使用传送卷!" );
 			return 0;
 		}
 
@@ -2200,7 +2200,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 		{
 			if ( GRANDFURYHANDLER->InsideArena( UNITDATA->sPosition.iX, UNITDATA->sPosition.iZ ) )
 			{
-				TITLEBOX( "You cannot use ether cores inside the arena!" );
+				TITLEBOX( "你不能在竞技场使用传送卷!" );
 				return 0;
 			}
 
@@ -2210,13 +2210,13 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 		if ( (MAP_ID == MAPID_QuestArena) || (MAP_ID == MAPID_T5QuestArena) || (MAP_ID == MAPID_Bellatra) ||
 			 (MAP_ID == MAPID_GhostCastle) || (MAP_ID == MAPID_ForestDungeon) )
 		{
-			TITLEBOX( "You cannot use ether cores inside the arena!" );
+			TITLEBOX( "你不能在竞技场里使用传送卷!" );
 			return 0;
 		}
 
 		if ( BATTLEROYALEHANDLER->InWaiting() || BATTLEROYALEHANDLER->InBattle() )
 		{
-			TITLEBOX( "You cannot use ether cores inside the Battle Royale!" );
+			TITLEBOX( "你不能在祝福城堡里使用传送卷!" );
 			return 0;
 		}
 
@@ -2236,7 +2236,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 				case ITEMID_AtlantisCore:
 				case ITEMID_PillaiCore:
 				case ITEMID_UnionCore:
-					TITLEBOX( "You can't use Normal Cores while in a mount!" );
+					TITLEBOX( "你不能在骑行时使用普通传送卷!" );
 					return 0;
 					break;
 			}
@@ -2248,19 +2248,19 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 	{
 		if ( BLESSCASTLEHANDLER->InBattleZone() )
 		{
-			TITLEBOX( "You cannot use ether cores inside the battle zone!" );
+			TITLEBOX( "你不能在战场里使用传送卷轴!" );
 			return 0;
 		}
 
 		if ( (MAP_ID == MAPID_T5QuestArena) || (MAP_ID == MAPID_Bellatra) || (MAP_ID == MAPID_GhostCastle) || (MAP_ID == MAPID_ForestDungeon) )
 		{
-			TITLEBOX( "You cannot use ether cores inside the arena!" );
+			TITLEBOX( "你不能在竞技场里使用传送卷轴!" );
 			return 0;
 		}
 
 		if ( BATTLEROYALEHANDLER->InWaiting() || BATTLEROYALEHANDLER->InBattle() )
 		{
-			TITLEBOX( "You cannot use ether cores inside the Battle Royale!" );
+			TITLEBOX( "你不能在祝福城堡里使用传送卷轴!" );
 			return 0;
 		}
 
@@ -2274,19 +2274,19 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 	{
 		if (BLESSCASTLEHANDLER->InBattleZone())
 		{
-			TITLEBOX("You cannot use ether cores inside the battle zone!");
+			TITLEBOX("你不能在战场里使用传送卷轴!");
 			return 0;
 		}
 
 		if ((MAP_ID == MAPID_T5QuestArena) || (MAP_ID == MAPID_Bellatra) || (MAP_ID == MAPID_GhostCastle) || (MAP_ID == MAPID_ForestDungeon))
 		{
-			TITLEBOX("You cannot use ether cores inside the arena!");
+			TITLEBOX("你不能在竞技场里使用传送卷轴!");
 			return 0;
 		}
 
 		if (BATTLEROYALEHANDLER->InWaiting() || BATTLEROYALEHANDLER->InBattle())
 		{
-			TITLEBOX("You cannot use ether cores inside the Battle Royale!");
+			TITLEBOX("你不能在祝福城堡里使用传送卷轴!");
 			return 0;
 		}
 
@@ -2336,7 +2336,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 			{
 				iRet = 0;
 
-				TITLEBOX( "Can not use Hair Tint Potion while Big Head is active!" );
+				TITLEBOX( "不能在大头药水生效时使用染发剂!" );
 			}
 
 			if ( iRet == 2 )
@@ -2494,7 +2494,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 			}
 			else
 			{
-				TITLEBOX( "Don't have items to mature!" );
+				TITLEBOX( "没有成熟的装备!" );
 				iRet = 1;
 			}
 			break;
@@ -2574,11 +2574,11 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 			// Check iWeight
 			if ( (UNITDATA->sCharacterData.sWeight.sCur + 200) > UNITDATA->sCharacterData.sWeight.sMax )
 			{
-				TITLEBOX( "Weight limit exceeded" );
+				TITLEBOX( "超过重量限制" );
 			}
 			else if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_BrazilianSoccer ) ) )
 			{
-				TITLEBOX( "Not enough space in inventory" );
+				TITLEBOX( "没有足够的空间" );
 			}
 			else
 			{
@@ -2588,7 +2588,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 
 					//bSpecialItem = TRUE;
 
-					TITLEBOX( "Halloween Event ended!" );
+					TITLEBOX( "万圣节活动结束!" );
 				}
 				else
 				{
@@ -2603,19 +2603,19 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 		case ITEMID_DOUBLETALE:
 			if ( ACCOUNTHANDLER->GetCoinAmount() > 1700000000 )
 			{
-				TITLEBOX( "You cannot bet because you have more than 1.7B TALE!" );
+				TITLEBOX( "你不能下注因为你超过了17亿金币!" );
 			}
 			else if ( ACCOUNTHANDLER->GetCoinAmount() < 100000000 )
 			{
-				TITLEBOX( "You need 100M TALE to bet!" );
+				TITLEBOX( "你需要1亿金币下注!" );
 			}
 			else if ( ( UNITDATA->sCharacterData.sWeight.sCur + 150 ) > UNITDATA->sCharacterData.sWeight.sMax )
 			{
-				TITLEBOX( "Weight limit exceeded!" );
+				TITLEBOX( "超过重量限制!" );
 			}
 			else if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_HighlanderArmor ) ) )
 			{
-				TITLEBOX( "Not enough space in inventory!" );
+				TITLEBOX( "没有足够的空间!" );
 			}
 			else
 			{
@@ -2629,19 +2629,19 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 		case ITEMID_TRIPLETALE:
 			if ( ACCOUNTHANDLER->GetCoinAmount() > 1600000000 )
 			{
-				TITLEBOX( "You cannot bet because you have more than 1.6B TALE!" );
+				TITLEBOX( "你不能下注因为你超过了16亿金币!" );
 			}
 			else if ( ACCOUNTHANDLER->GetCoinAmount() < 100000000 )
 			{
-				TITLEBOX( "You need 100M TALE to bet!" );
+				TITLEBOX( "你需要1亿金币下注!" );
 			}
 			else if ( ( UNITDATA->sCharacterData.sWeight.sCur + 150 ) > UNITDATA->sCharacterData.sWeight.sMax )
 			{
-				TITLEBOX( "Weight limit exceeded!" );
+				TITLEBOX( "超过重量限制!" );
 			}
 			else if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_HighlanderArmor ) ) )
 			{
-				TITLEBOX( "Not enough space in inventory!" );
+				TITLEBOX( "空间不足!" );
 			}
 			else
 			{
@@ -2655,19 +2655,19 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 		case ITEMID_TIMESTENTALE:
 			if ( ACCOUNTHANDLER->GetCoinAmount() > 1000000000 )
 			{
-				TITLEBOX( "You cannot bet because you have more than 1B TALE!" );
+				TITLEBOX( "你不能下注因为你超过了10亿金币!" );
 			}
 			else if ( ACCOUNTHANDLER->GetCoinAmount() < 100000000 )
 			{
-				TITLEBOX( "You need 100M TALE to bet!" );
+				TITLEBOX( "你需要1亿金币下注!" );
 			}
 			else if ( ( UNITDATA->sCharacterData.sWeight.sCur + 150 ) > UNITDATA->sCharacterData.sWeight.sMax )
 			{
-				TITLEBOX( "Weight limit exceeded!" );
+				TITLEBOX( "超过重量限制!" );
 			}
 			else if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_HighlanderArmor ) ) )
 			{
-				TITLEBOX( "Not enough space in inventory!" );
+				TITLEBOX( "空间不足!" );
 			}
 			else
 			{
@@ -2683,14 +2683,14 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 			{
 				iRet = 0;
 
-				TITLEBOX( "Xmas Event ended!" );
+				TITLEBOX( "圣诞活动结束!" );
 			}
 			else if ( (MAP_ID == MAPID_QuestArena) || (MAP_ID == MAPID_T5QuestArena) || (MAP_ID == MAPID_BlessCastle) || 
 				(MAP_ID == MAPID_Bellatra) || GRANDFURYHANDLER->InsideArena( UNITDATA->sPosition.iX, UNITDATA->sPosition.iZ ) )
 			{
 				iRet = 0;
 
-				TITLEBOX( "You can't spawn a Xmas Tree in this area!" );
+				TITLEBOX( "你不能在这个区域种下圣诞树!" );
 			}
 			else
 			{
@@ -2706,7 +2706,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 				{
 					iRet = 0;
 
-					TITLEBOX( "You can't spawn a Xmas Tree at this place!" );
+					TITLEBOX( "你不能在这个地方种下圣诞树!" );
 				}
 			}
 			break;
@@ -2734,7 +2734,7 @@ int ItemHandler::OnUseItem( ItemData * pcItemData )
 				{
 					iRet = 0;
 
-					TITLEBOX( "You can't summon a caravan in this area!" );
+					TITLEBOX( "你不能在这个地区召唤大篷车!" );
 				}
 				else
 				{
@@ -3229,12 +3229,12 @@ BOOL ItemHandler::BuyItemShop( ItemData * pcItemData, int iItemCount )
 
 	if ( (UNITDATA->sCharacterData.sWeight.sCur + pcItemData->sItem.iWeight) > UNITDATA->sCharacterData.sWeight.sMax )
 	{
-		TITLEBOX( "Weight limit exceeded" );
+		TITLEBOX( "超过重量限制" );
 		bRes = FALSE;
 	}
 	else if ( !CHARACTERGAME->CheckInventorySpace( pcItemData ) )
 	{
-		TITLEBOX( "Not enough space in inventory" );
+		TITLEBOX( "没有足够的空间" );
 		bRes = FALSE;
 	}
 	else
@@ -3254,7 +3254,7 @@ BOOL ItemHandler::BuyItemShop( ItemData * pcItemData, int iItemCount )
 
 		if ( bResPrice == FALSE )
 		{
-			TITLEBOX( "Not enough gold" );
+			TITLEBOX( "没有足够的金币" );
 			bResPrice = FALSE;
 			bRes = FALSE;
 		}

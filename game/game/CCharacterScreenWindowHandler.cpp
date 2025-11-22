@@ -436,7 +436,7 @@ void CCharacterScreenWindowHandler::OnButtonNewCharacterClick( UIEventArgs eArgs
 	}
 	else
 	{
-		TITLEBOX( AY_OBFUSCATE( "You've reached the maximum number of Characters you can create" ) );
+		TITLEBOX( AY_OBFUSCATE( "你已达到可创建字符的最大数量" ) );
 	}
 }
 
@@ -530,8 +530,8 @@ void CCharacterScreenWindowHandler::OnButtonDeleteClick( UIEventArgs eArgs )
 	if ( GetCharacterScreen()->GetModel()->CanDeleteSelectedCharacter() )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Are You Sure" );
-		MESSAGEBOX->SetDescription( FormatString( "Do you want to delete this character?" ) );
+		MESSAGEBOX->SetTitle( "确定" );
+		MESSAGEBOX->SetDescription( FormatString( "你想要删除这个角色吗?" ) );
 		MESSAGEBOX->SetEvent( std::bind( &CCharacterScreenWindowHandler::OnDeleteButtonConfirm, this ) );
 		MESSAGEBOX->SetAutoClose( 10 );
 		MESSAGEBOX->Show();
@@ -541,7 +541,7 @@ void CCharacterScreenWindowHandler::OnButtonDeleteClick( UIEventArgs eArgs )
 	}
 	else
 	{
-		TITLEBOX( "You must leave the clan before deleting this character" );
+		TITLEBOX( "你必须先退出公会才能删除这个角色" );
 	}
 }
 

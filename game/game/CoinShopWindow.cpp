@@ -64,7 +64,7 @@ BOOL CCoinShopWindow::CheckSlots()
 
 	if ( pItemBox && pItemBox->GetItems().size() > 0 )
 	{
-		TITLEBOX( "Remove item of Perfectize slot first!" );
+		TITLEBOX( "先移除完美槽的物品!" );
 		return FALSE;
 	}
 
@@ -72,7 +72,7 @@ BOOL CCoinShopWindow::CheckSlots()
 
 	if ( pItemBox && pItemBox->GetItems().size() > 0 )
 	{
-		TITLEBOX( "Remove item of Item Swap slot first!" );
+		TITLEBOX( "先移除物品交换槽的物品!" );
 		return FALSE;
 	}
 
@@ -84,8 +84,8 @@ void CCoinShopWindow::OnBuyCredits( UIEventArgs eArgs )
 	if ( MESSAGEBOX->GetType() )
 	{
 		ShellExecute( 0, 0, "https://user.regnum.world/userpanel/", 0, 0, SW_SHOW );
-		TITLEBOX( "Click on \"Donation\" after login on user panel!" );
-		ChatGame::AddChatBoxText( "> Click on \"Donation\" after login on user panel!" );
+		TITLEBOX( "点击 \"Donation\" 用户面板!" );
+		ChatGame::AddChatBoxText( "> 点击 \"Donation\" 用户面板!" );
 	}
 
 	pWindow1->Show();
@@ -100,14 +100,14 @@ void CCoinShopWindow::OnBuyAgingRecovery( int iPrice, UIEventArgs eArgs )
 			// Check iWeight
 			if ( (UNITDATA->sCharacterData.sWeight.sCur + 200) > UNITDATA->sCharacterData.sWeight.sMax )
 			{
-				TITLEBOX( "Weight limit exceeded" );
+				TITLEBOX( "超过重量限制" );
 				return;
 			}
 
 			// Check Space
 			if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_BrazilianSoccer ) ) )
 			{
-				TITLEBOX( "Not enough space in inventory" );
+				TITLEBOX( "库存空间不足" );
 				return;
 			}
 
@@ -118,15 +118,15 @@ void CCoinShopWindow::OnBuyAgingRecovery( int iPrice, UIEventArgs eArgs )
 		}
 		else
 		{
-			TITLEBOX( "Not enough credits" );
-			ChatGame::AddChatBoxText( "> Not enough credits!", CHATCOLOR_Global );
+			TITLEBOX( "没有足够的积分" );
+			ChatGame::AddChatBoxText( "> 没有足够的积分!", CHATCOLOR_Global );
 		}
 	}
 }
 
 void CCoinShopWindow::OnItemNotAllowedPerfectize( UIEventArgs eArgs )
 {
-	TITLEBOX( "This item cannot be Perfect!" );
+	TITLEBOX( "这件装备无法完美!" );
 }
 
 void CCoinShopWindow::OnItemNotAllowedSwapper( UIEventArgs eArgs )
@@ -145,9 +145,9 @@ void CCoinShopWindow::OnItemNotAllowedSwapper( UIEventArgs eArgs )
 			if ( pcItemData )
 			{
 				if ( pcItemData->sItem.bPerfectItem == FALSE )
-					TITLEBOX( "Item must be Perfect!" );
+					TITLEBOX( "装备必须完美!" );
 				else
-					TITLEBOX( "This item is not allowed!" );
+					TITLEBOX( "这件装备是不允许的!" );
 			}
 		}
 	}
@@ -611,8 +611,8 @@ void CCoinShopWindow::SetItemStatus( struct DefinitionItem * psItemDefinition, c
 void CCoinShopWindow::OnCreditsButtonClick( UIEventArgs eArgs )
 {
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_OkCancel );
-	MESSAGEBOX->SetTitle( "Page Redirect" );
-	MESSAGEBOX->SetDescription( "You will be redirected to the donation page" );
+	MESSAGEBOX->SetTitle( "页面重定向" );
+	MESSAGEBOX->SetDescription( "您将被重定向到捐赠页面" );
 	MESSAGEBOX->SetEvent( std::bind( &CCoinShopWindow::OnBuyCredits, this, std::placeholders::_1 ) );
 	MESSAGEBOX->Show();
 	
@@ -701,7 +701,7 @@ void CCoinShopWindow::OnAgingRecoveryItemButtonClick( int iID, int iPrice , UIEv
 
 				MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
 				MESSAGEBOX->SetTitle( pTextName->GetText() );
-				MESSAGEBOX->SetDescription( FormatString( "Do you want to recovery this item?\nCredits: %d", iPrice ) );
+				MESSAGEBOX->SetDescription( FormatString( "你想收回这个物品吗?\n积分: %d", iPrice ) );
 				MESSAGEBOX->SetEvent( std::bind( &CCoinShopWindow::OnBuyAgingRecovery, this, iPrice, std::placeholders::_1 ) );
 				MESSAGEBOX->Show();
 			}
@@ -854,7 +854,7 @@ void CCoinShopWindow::OnBuyButtonClick( class CCoinShopItem * pcItem, UIEventArg
 		}
 	}
 	else
-		TITLEBOX( "You are buying process!" );
+		TITLEBOX( "你正在购买...!" );
 }
 
 void CCoinShopWindow::OnBuyServiceButtonClick( int iType, UIEventArgs eArgs )
@@ -896,14 +896,14 @@ void CCoinShopWindow::OnBuyServiceButtonClick( int iType, UIEventArgs eArgs )
 					// Check iWeight
 					if ( !CHARACTERGAME->CheckInventoryWeight( pItemBox->GetItems()[0] ) )
 					{
-						TITLEBOX( "Weight limit exceeded" );
+						TITLEBOX( "超过重量限制" );
 						return;
 					}
 
 					// Check Space
 					if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_BrazilianSoccer ) ) )
 					{
-						TITLEBOX( "Not enough space in inventory" );
+						TITLEBOX( "没有足够的空间" );
 						return;
 					}
 
@@ -934,21 +934,21 @@ void CCoinShopWindow::OnBuyServiceButtonClick( int iType, UIEventArgs eArgs )
 				{
 					if ( pItemBox->GetItems()[0]->sItem.sItemID.ToItemType() == iSelectedSwap )
 					{
-						TITLEBOX( "Cannot swap same item type!" );
+						TITLEBOX( "不能交换相同的物品类型!" );
 						return;
 					}
 
 					//Check Weight
 					if ( !CHARACTERGAME->CheckInventoryWeight( pItemBox->GetItems()[0] ) )
 					{
-						TITLEBOX( "Weight limit exceeded" );
+						TITLEBOX( "超过重量限制" );
 						return;
 					}
 
 					//Check Space
 					if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_BrazilianSoccer ) ) )
 					{
-						TITLEBOX( "Not enough space in inventory" );
+						TITLEBOX( "空间不足" );
 						return;
 					}
 
@@ -990,18 +990,18 @@ void CCoinShopWindow::OnBuyServiceButtonClick( int iType, UIEventArgs eArgs )
 							}
 							else
 							{
-								TITLEBOX( "Nick is too long!" );
+								TITLEBOX( "昵称太长了!" );
 								break;
 							}
 						}
 						else
 						{
-							TITLEBOX( "You are using this nick, please choose other!" );
+							TITLEBOX( "你正在使用这个昵称, 请选择其他!" );
 							break;
 						}
 					}
 					else
-						TITLEBOX( "You need to select a new nick" );
+						TITLEBOX( "你需要选择一个新昵称" );
 				}
 				break;
 
@@ -1020,7 +1020,7 @@ void CCoinShopWindow::OnBuyServiceButtonClick( int iType, UIEventArgs eArgs )
 							if ( pInput->GetText().length() <= 15 )
 								STRINGCOPY( sPacket.ChangeClass.szNewCharacterName, pInput->GetText().c_str() );
 							else
-								TITLEBOX( "Nick is too long!" );
+								TITLEBOX( "昵称太长!" );
 						}
 					}
 				}
@@ -1033,7 +1033,7 @@ void CCoinShopWindow::OnBuyServiceButtonClick( int iType, UIEventArgs eArgs )
 
 						if ( UNITDATA->sCharacterData.iClass == sPacket.ChangeClass.iClass )
 						{
-							TITLEBOX( "You need to choose a new class!" );
+							TITLEBOX( "你需要选择一个新昵称!" );
 							break;
 						}
 
@@ -1044,7 +1044,7 @@ void CCoinShopWindow::OnBuyServiceButtonClick( int iType, UIEventArgs eArgs )
 					}
 					else
 					{
-						TITLEBOX( "You need to choose a new class!" );
+						TITLEBOX( "你需要选择一个新昵称!" );
 						break;
 					}
 				}
@@ -1331,7 +1331,7 @@ void CCoinShopWindow::BuildWindow1()
 		pTextCredits->SetMultiLine( TRUE );
 		pTextCredits->SetWordWrap( TRUE );
 		pTextCredits->SetFont( "Arial", 14, 6, FALSE, FALSE, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
-		pTextCredits->SetText( "Welcome\nYou have 0 Credits" );
+		pTextCredits->SetText( "欢迎\n你拥有 0 积分" );
 		pWindow1->AddElement( pTextCredits );
 	}
 
@@ -1567,7 +1567,7 @@ void CCoinShopWindow::BuildItemNormal( class CCoinShopItem * pcItem, BOOL bSpec,
 
 						UI::CheckBox_ptr pCheckBoxPreview = std::make_shared<UI::CheckBox>( Rectangle2D( 30, 225, 13, 13 ) );
 						pCheckBoxPreview->SetFont( "Arial", 16, 6, FALSE, FALSE, -1 );
-						pCheckBoxPreview->SetText( "Preview Costume" );
+						pCheckBoxPreview->SetText( "预览服装" );
 						pCheckBoxPreview->SetEvent( UI::Event::Build( std::bind( &CCoinShopWindow::OnCheckPreviewCostume, this, pCheckBoxPreview ) ) );
 						pCheckBoxPreview->SetImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox.png" ), UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox_.png" ) );
 						pWindowItem->AddElement( pCheckBoxPreview );
@@ -1586,7 +1586,7 @@ void CCoinShopWindow::BuildItemNormal( class CCoinShopItem * pcItem, BOOL bSpec,
 				{
 					// Spec Quantity
 					UI::Text_ptr pItemDescCount = std::make_shared<UI::Text>( Rectangle2D( 32, 204, 240, 16 ) );
-					pItemDescCount->SetText( "Quantity:" );
+					pItemDescCount->SetText( "数量:" );
 					pItemDescCount->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 					pWindowItem->AddElement( pItemDescCount );
 
@@ -1609,7 +1609,7 @@ void CCoinShopWindow::BuildItemNormal( class CCoinShopItem * pcItem, BOOL bSpec,
 
 				// Price Description
 				UI::Text_ptr pItemDescPrice = std::make_shared<UI::Text>( Rectangle2D( 30, 256, 240, 18 ) );
-				pItemDescPrice->SetText( "PRICE:" );
+				pItemDescPrice->SetText( "价格:" );
 				pItemDescPrice->SetFont( "Arial", 18, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescPrice );
 
@@ -1627,7 +1627,7 @@ void CCoinShopWindow::BuildItemNormal( class CCoinShopItem * pcItem, BOOL bSpec,
 					pItemDiscount->SetID( LABELID_DiscountBulk );
 					pItemDiscount->SetText( "" );
 					if ( pcItem->GetDiscount() )
-						pItemDiscount->SetText( FormatString( "Discount: %d", pcItem->GetDiscount() ) );
+						pItemDiscount->SetText( FormatString( "折扣: %d", pcItem->GetDiscount() ) );
 					pItemDiscount->SetFont( "Arial", 12, 0, FALSE, FALSE, -1 );
 					pWindowItem->AddElement( pItemDiscount );
 				}
@@ -1637,12 +1637,12 @@ void CCoinShopWindow::BuildItemNormal( class CCoinShopItem * pcItem, BOOL bSpec,
 				{
 					// Spec Label
 					UI::Text_ptr pItemDescSpec = std::make_shared<UI::Text>( Rectangle2D( 32, 128, 240, 14 ) );
-					pItemDescSpec->SetText( "Spec Item:" );
+					pItemDescSpec->SetText( "特殊装备:" );
 					pItemDescSpec->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 					pWindowItem->AddElement( pItemDescSpec );
 
 					UI::ComboBox_ptr pComboBox = std::make_shared<UI::ComboBox>( Rectangle2D( 32, 146, 110, 26 ) );
-					pComboBox->SetDefaultText( "Select" );
+					pComboBox->SetDefaultText( "选择" );
 					pComboBox->SetID( COMBOBOX_Spec );
 					pComboBox->SetBackgroundImage( UI::ImageLoader::LoadActiveImage( "game\\images\\UI\\combobox\\drop.png", "game\\images\\UI\\combobox\\dropon.png" ) );
 					pComboBox->SetBackgroundSelectedImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\combobox\\drop_.png" ) );
@@ -1801,7 +1801,7 @@ void CCoinShopWindow::BuildPerfectize( BOOL bSpec )
 
 				// Price Description
 				UI::Text_ptr pItemDescPrice = std::make_shared<UI::Text>( Rectangle2D( 30, 256, 240, 18 ) );
-				pItemDescPrice->SetText( "PRICE:" );
+				pItemDescPrice->SetText( "价格:" );
 				pItemDescPrice->SetFont( "Arial", 18, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescPrice );
 
@@ -1884,12 +1884,12 @@ void CCoinShopWindow::BuildSwapper( BOOL bSpec )
 
 				// Swap Label
 				UI::Text_ptr pItemDescSwap = std::make_shared<UI::Text>( Rectangle2D( 32 + 180, 128, 240, 14 ) );
-				pItemDescSwap->SetText( "Swap Item:" );
+				pItemDescSwap->SetText( "交换装备:" );
 				pItemDescSwap->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescSwap );
 
 				UI::ComboBox_ptr pComboBoxSwap = std::make_shared<UI::ComboBox>( Rectangle2D( 32 + 180, 146, 110, 26 ) );
-				pComboBoxSwap->SetDefaultText( "Select" );
+				pComboBoxSwap->SetDefaultText( "选择" );
 				pComboBoxSwap->SetID( COMBOBOX_Swap );
 				pComboBoxSwap->SetBackgroundImage( UI::ImageLoader::LoadActiveImage( "game\\images\\UI\\combobox\\drop.png", "game\\images\\UI\\combobox\\dropon.png" ) );
 				pComboBoxSwap->SetBackgroundSelectedImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\combobox\\drop_.png" ) );
@@ -1929,7 +1929,7 @@ void CCoinShopWindow::BuildSwapper( BOOL bSpec )
 
 				// Price Description
 				UI::Text_ptr pItemDescPrice = std::make_shared<UI::Text>( Rectangle2D( 30, 256, 240, 18 ) );
-				pItemDescPrice->SetText( "PRICE:" );
+				pItemDescPrice->SetText( "价格:" );
 				pItemDescPrice->SetFont( "Arial", 18, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescPrice );
 
@@ -1971,9 +1971,9 @@ void CCoinShopWindow::BuildLevelUP()
 
 				UI::Text_ptr pItemDesc = std::make_shared<UI::Text>( Rectangle2D( 160, 28, 240, 34 ) );
 				if ( Base::Coin::CanLevelUP( UNITDATA->sCharacterData.iLevel ) )
-					pItemDesc->SetText( "Level UP your Character!" );
+					pItemDesc->SetText( "提升你角色的等级!" );
 				else
-					pItemDesc->SetText( "You have already reached \nthe Level UP limit!" );
+					pItemDesc->SetText( "您已达到升级级别限制 \n!" );
 
 				pItemDesc->SetMultiLine( TRUE );
 				pItemDesc->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
@@ -1984,7 +1984,7 @@ void CCoinShopWindow::BuildLevelUP()
 			if ( Base::Coin::CanLevelUP( UNITDATA->sCharacterData.iLevel ) )
 			{
 				UI::Text_ptr pItemDescCount = std::make_shared<UI::Text>( Rectangle2D( 32, 204, 240, 16 ) );
-				pItemDescCount->SetText( "Level:" );
+				pItemDescCount->SetText( "等级:" );
 				pItemDescCount->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescCount );
 
@@ -2009,7 +2009,7 @@ void CCoinShopWindow::BuildLevelUP()
 
 				// Price Description
 				UI::Text_ptr pItemDescPrice = std::make_shared<UI::Text>( Rectangle2D( 30, 256, 240, 18 ) );
-				pItemDescPrice->SetText( "PRICE:" );
+				pItemDescPrice->SetText( "价格:" );
 				pItemDescPrice->SetFont( "Arial", 18, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescPrice );
 
@@ -2050,7 +2050,7 @@ void CCoinShopWindow::BuildChangeNick( int iPrice )
 				pWindowItem->AddElement( pItemImageBox );
 
 				UI::Text_ptr pItemDesc = std::make_shared<UI::Text>( Rectangle2D( 160, 28, 240, 34 ) );
-				pItemDesc->SetText( "Change Character Name\nYou must relog after buying" );
+				pItemDesc->SetText( "更改角色名称\n购买后必须重新登录" );
 				pItemDesc->SetMultiLine( TRUE );
 				pItemDesc->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
 				pWindowItem->AddElement( pItemDesc );
@@ -2067,7 +2067,7 @@ void CCoinShopWindow::BuildChangeNick( int iPrice )
 
 				// Swap Label
 				UI::Text_ptr pItemDescSwap = std::make_shared<UI::Text>( Rectangle2D( 32, 128, 240, 14 ) );
-				pItemDescSwap->SetText( "Change Nick:" );
+				pItemDescSwap->SetText( "更改昵称:" );
 				pItemDescSwap->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescSwap );
 
@@ -2089,7 +2089,7 @@ void CCoinShopWindow::BuildChangeNick( int iPrice )
 
 				// Price Description
 				UI::Text_ptr pItemDescPrice = std::make_shared<UI::Text>( Rectangle2D( 30, 256, 240, 18 ) );
-				pItemDescPrice->SetText( "PRICE:" );
+				pItemDescPrice->SetText( "价格:" );
 				pItemDescPrice->SetFont( "Arial", 18, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescPrice );
 
@@ -2169,7 +2169,7 @@ void CCoinShopWindow::BuildPreviewCostume( UI::Window_ptr pcWindowItem )
 
 		UI::Text_ptr pTextLabel = std::make_shared<UI::Text>( Rectangle2D( 0, 0, 0, 0 ) );
 		pTextLabel->SetFont( "Arial", 15, 0, FALSE, TRUE, D3DCOLOR_ARGB( 255, 236, 236, 236 ) );
-		pTextLabel->SetText( "Preview:" );
+		pTextLabel->SetText( "预览:" );
 		pTextLabel->SetNoClip( TRUE );
 		pWindowPreview->AddElement( pTextLabel );
 
@@ -2213,7 +2213,7 @@ void CCoinShopWindow::BuildPreviewHead( UI::Window_ptr pcWindowItem )
 
 		UI::Text_ptr pTextLabel = std::make_shared<UI::Text>( Rectangle2D( 0, 41, 0, 0 ) );
 		pTextLabel->SetFont( "Arial", 15, 0, FALSE, TRUE, D3DCOLOR_ARGB( 255, 236, 236, 236 ) );
-		pTextLabel->SetText( "Preview:" );
+		pTextLabel->SetText( "预览:" );
 		pTextLabel->SetNoClip( TRUE );
 		pWindowPreview->AddElement( pTextLabel );
 
@@ -2271,7 +2271,7 @@ void CCoinShopWindow::BuildChangeClass( int iPrice )
 				pWindowItem->AddElement( pItemImageBox );
 
 				UI::Text_ptr pItemDesc = std::make_shared<UI::Text>( Rectangle2D( 160, 28, 240, 34 ) );
-				pItemDesc->SetText( "Change Character Class\nYou must relog after buying" );
+				pItemDesc->SetText( "改变角色类别\n购买后你必须重新登录" );
 				pItemDesc->SetMultiLine( TRUE );
 				pItemDesc->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
 				pWindowItem->AddElement( pItemDesc );
@@ -2288,7 +2288,7 @@ void CCoinShopWindow::BuildChangeClass( int iPrice )
 
 				// Swap Label
 				UI::Text_ptr pItemDescNick = std::make_shared<UI::Text>( Rectangle2D( 32, 128, 240, 14 ) );
-				pItemDescNick->SetText( "Change Nick:" );
+				pItemDescNick->SetText( "更改昵称:" );
 				pItemDescNick->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescNick );
 
@@ -2310,12 +2310,12 @@ void CCoinShopWindow::BuildChangeClass( int iPrice )
 
 				// Swap Label
 				UI::Text_ptr pItemDescClass = std::make_shared<UI::Text>( Rectangle2D( 32 + 180, 128, 240, 14 ) );
-				pItemDescClass->SetText( "Change Class:" );
+				pItemDescClass->SetText( "更改类别:" );
 				pItemDescClass->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescClass );
 
 				UI::ComboBox_ptr pComboBoxClass = std::make_shared<UI::ComboBox>( Rectangle2D( 32 + 180, 146, 110, 26 ) );
-				pComboBoxClass->SetDefaultText( "Select" );
+				pComboBoxClass->SetDefaultText( "选择" );
 				pComboBoxClass->SetID( COMBOBOX_ClassChange );
 				pComboBoxClass->SetBackgroundImage( UI::ImageLoader::LoadActiveImage( "game\\images\\UI\\combobox\\drop.png", "game\\images\\UI\\combobox\\dropon.png" ) );
 				pComboBoxClass->SetBackgroundSelectedImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\combobox\\drop_.png" ) );
@@ -2350,7 +2350,7 @@ void CCoinShopWindow::BuildChangeClass( int iPrice )
 
 				// Price Description
 				UI::Text_ptr pItemDescPrice = std::make_shared<UI::Text>( Rectangle2D( 30, 256, 240, 18 ) );
-				pItemDescPrice->SetText( "PRICE:" );
+				pItemDescPrice->SetText( "价格:" );
 				pItemDescPrice->SetFont( "Arial", 18, 0, FALSE, TRUE, -1 );
 				pWindowItem->AddElement( pItemDescPrice );
 
@@ -2389,7 +2389,7 @@ void CCoinShopWindow::HandleItemService( PacketCoinServiceBuy * psPacket, ItemDa
 						pItemBox->ClearItems();
 						ITEMHANDLER->BackItemToInventory( pcItemData, ITEMCHECKINVENTORY_Requirements );
 						ITEMHANDLER->ResetInventoryItemChecksum();
-						TITLEBOX( "Perfectize Item Sucessful!" );
+						TITLEBOX( "装备完美化成功!" );
 					}
 					//Unblock Item Box
 					pItemBox->EnableMouse();
@@ -2409,7 +2409,7 @@ void CCoinShopWindow::HandleItemService( PacketCoinServiceBuy * psPacket, ItemDa
 							pItemBox->ClearItems();
 							ITEMHANDLER->BackItemToInventory( &sItemData, ITEMCHECKINVENTORY_Requirements );
 							ITEMHANDLER->ResetInventoryItemChecksum();
-							TITLEBOX( "Swap Item Sucessful!" );
+							TITLEBOX( "转换装备成功" );
 						}
 					}
 
@@ -2427,7 +2427,7 @@ void CCoinShopWindow::HandleItemService( PacketCoinServiceBuy * psPacket, ItemDa
 						ITEMHANDLER->BackItemToInventory( &sItemData, ITEMCHECKINVENTORY_Requirements );
 						ITEMHANDLER->ResetInventoryItemChecksum();
 						DeleteAgingRecoveryItem( psPacket->AgingRecovery.iID );
-						TITLEBOX( "Recovery Item Sucessful!" );
+						TITLEBOX( "恢复装备成功!" );
 					}
 				}
 				break;
@@ -2437,7 +2437,7 @@ void CCoinShopWindow::HandleItemService( PacketCoinServiceBuy * psPacket, ItemDa
 				{
 					if ( psPacket->iRetCode == 1 )
 					{
-						TITLEBOX( "Nick change successful! Relog now to see your new nick!" );
+						TITLEBOX( "昵称更换成功!现在去看看你的新昵称吧!" );
 					}
 				}
 				break;
@@ -2447,7 +2447,7 @@ void CCoinShopWindow::HandleItemService( PacketCoinServiceBuy * psPacket, ItemDa
 				{
 					if ( psPacket->iRetCode == 1 )
 					{
-						TITLEBOX( "Class change successful! Relog now to see your new character!" );
+						TITLEBOX( "Class更改成功! 现在去看看你的新角色吧!" );
 					}
 				}
 				break;
@@ -2457,7 +2457,7 @@ void CCoinShopWindow::HandleItemService( PacketCoinServiceBuy * psPacket, ItemDa
 				{
 					if ( psPacket->iRetCode == 1 )
 					{
-						TITLEBOX( "Level UP successful!" );
+						TITLEBOX( "等级提升成功!" );
 					}
 				}
 				break;
@@ -2471,7 +2471,7 @@ void CCoinShopWindow::HandleItemService( PacketCoinServiceBuy * psPacket, ItemDa
 void CCoinShopWindow::SetCoinAmount( int iValue, BOOL bCoins )
 {
 	auto pText = pWindow1->GetElement<UI::Text>( TEXTID_Credits );
-	pText->SetTextEx( "Welcome %s!\nYou have %d %s", UNIT->GetName(), iValue, bCoins ? "Credits" : "Time pts" );
+	pText->SetTextEx( "欢迎 %s!\n你拥有 %d %s", UNIT->GetName(), iValue, bCoins ? "积分" : "时间分" );
 }
 
 void CCoinShopWindow::OnCheckPreviewCostume( UI::CheckBox_ptr p )

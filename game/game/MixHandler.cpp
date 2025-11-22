@@ -60,7 +60,7 @@ BOOL MixHandler::CanUseSheltomSlot( int iItemID )
 {
 	if ( (iItemID & 0xFFFFFF00) == ITEMID_SpecStoneCode )
 	{
-		TITLEBOX( "Use craft npc to respec with this stone!" );
+		TITLEBOX( "带着这块石头去找craft npc替换!" );
 		return FALSE;
 	}
 
@@ -458,7 +458,7 @@ BOOL MixHandler::SetItemMix( ItemData * psItemData, BOOL bFlag )
 				//Force
 				if ( ((*(BOOL*)0x0368033C) == FALSE) && MIXWINDOW_OPEN )
 				{
-					TITLEBOX( "Please insert an item first!" );
+					TITLEBOX( "请先放入一件装备!" );
 					// Cannot use
 					ITEMWINDOWHANDLER->SetTradeItemColorBox( ETradeColorBox::TRADECOLORBOX_NotSetItem );
 					(*(DWORD*)0x036EFCA4) = 0;

@@ -38,7 +38,7 @@ void HUDController::OnSelectTargetMenu()
 {
 	if ( BATTLEROYALEHANDLER->InWaiting() || BATTLEROYALEHANDLER->InBattle() )
 	{
-		TITLEBOX( "You cannot use the menu in Battle Royale!" );
+		TITLEBOX( "你不能在Battle Royale中使用菜单!" );
 		return;
 	}
 
@@ -49,7 +49,7 @@ void HUDController::OnSelectTargetMenu()
 		if( iMenuID == 1 )		//Request Trade
 		{
 			CALL_WITH_ARG2( 0x000628290, TARGET_UNITDATA->sCharacterData.iID, 0 );
-			CHATGAMEHANDLER->AddChatBoxTextEx( CHATCOLOR_Error, "> Sent Trade Request to %s", TARGET_UNITDATA->sCharacterData.szName );
+			CHATGAMEHANDLER->AddChatBoxTextEx( CHATCOLOR_Error, "> 发送交易请求给%s", TARGET_UNITDATA->sCharacterData.szName );
 		}
 		else if( iMenuID == 2 )	//Add Friend
 		{
@@ -320,7 +320,7 @@ BOOL HUDController::UpdateTargetInfo( UnitData * pcUnitData )
 	{
 		char * pszCharacterName = pcUnitData->sCharacterData.szName;
 		if ( BATTLEROYALEHANDLER->InWaiting() || BATTLEROYALEHANDLER->InBattle() )
-			pszCharacterName = "[Battle Royale Hidden Name]";
+			pszCharacterName = "[Battle Royale 隐藏姓名]";
 
 		pTextName->SetText( pszCharacterName );
 	}
@@ -446,14 +446,14 @@ void HUDController::UpdateBattleInfo( Unit * pcUnit )
         auto pTextBattlePoints = pWindowTarget->GetElement<UI::Text>( TEXTID_BattlePoints );
         if ( pTextBattlePoints )
         {
-            pTextBattlePoints->SetTextEx( "%d Battle Points", pcUnit->iPvPKills );
+            pTextBattlePoints->SetTextEx( "%d 战斗点数", pcUnit->iPvPKills );
             pTextBattlePoints->Show();
         }
 
         auto pTextBattleEXP = pWindowTarget->GetElement<UI::Text>( TEXTID_BattleEXP );
         if ( pTextBattleEXP )
         {
-            pTextBattleEXP->SetTextEx( "%d Battle EXP", pcUnit->iPvPExperience );
+            pTextBattleEXP->SetTextEx( "%d 战斗经验值", pcUnit->iPvPExperience );
             pTextBattleEXP->Show();
         }
     }
@@ -780,13 +780,13 @@ void HUDController::BuildDiceRollRankingWindow1()
 		pWindowRollDiceRanking->AddElement( pTextID );
 
 		UI::Text_ptr pTextCharacterNick = std::make_shared<UI::Text>( Rectangle2D( 33 + (192 * i), 24, 0, 0 ) );
-		pTextCharacterNick->SetText( "Character Name" );
+		pTextCharacterNick->SetText( "角色名" );
 		pTextCharacterNick->SetFont( "Arial", 13, 0, FALSE, TRUE, -1 );
 		pTextCharacterNick->SetNoClip( TRUE );
 		pWindowRollDiceRanking->AddElement( pTextCharacterNick );
 
 		UI::Text_ptr pTextNumber = std::make_shared<UI::Text>( Rectangle2D( 134 + (192 * i), 24, 0, 0 ) );
-		pTextNumber->SetText( "Number" );
+		pTextNumber->SetText( "数字" );
 		pTextNumber->SetFont( "Arial", 13, 0, FALSE, TRUE, -1 );
 		pTextNumber->SetNoClip( TRUE );
 		pWindowRollDiceRanking->AddElement( pTextNumber );

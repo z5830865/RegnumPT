@@ -6,7 +6,7 @@ void CQuestGame::HandleFinish( QuestData * pcQuestData )
 {
 	if ( pcQuestData )
 	{
-		TITLEBOX( "%s completed!", pcQuestData->GetName() );
+		TITLEBOX( "%s 完成!", pcQuestData->GetName() );
 		PacketQuestUpdateData s;
 		s.iLength = sizeof( PacketQuestUpdateData );
 		s.iHeader = PKTHDR_QuestUpdateData;
@@ -24,7 +24,7 @@ void CQuestGame::HandleFinish( QuestData * pcQuestData )
 
 void CQuestGame::HandleTimeOver( QuestData * pcQuestData )
 {
-	TITLEBOX( "%s time is over!", pcQuestData->GetName() );
+	TITLEBOX( "%s 时间结束了!", pcQuestData->GetName() );
 
 	TIMERSKILLHANDLER->KillTimerQuest( pcQuestData->IsTimeQuest() ? 0x096B0003 : 0x096A0003, pcQuestData->GetID() );
 }
@@ -82,8 +82,8 @@ void CQuestGame::HandleAlertOnQuestDone( int iQuestID )
 
 	if ( iPointsSkills > 0 )
 	{
-		STRINGFORMAT( szTextTitle, "You won %d Regnum Skill Point%s!", iPointsSkills, iPointsSkills > 1 ? "s" : "" );
-		STRINGFORMAT( szTextChat, "> You won %d Regnum Skill Point%s!", iPointsSkills, iPointsSkills > 1 ? "s" : "" );
+		STRINGFORMAT( szTextTitle, "你获得了 %d Regnum 技能点%s!", iPointsSkills, iPointsSkills > 1 ? "s" : "" );
+		STRINGFORMAT( szTextChat, "> 你获得了 %d Regnum 技能点%s!", iPointsSkills, iPointsSkills > 1 ? "s" : "" );
 	}
 
 	if ( szTextTitle[0] != 0 )
@@ -415,7 +415,7 @@ void CQuestGame::HandlePacket( PacketDynamicQuestOpen * psPacket )
 		if ( CQUESTGAME->GetQuestInstance()->IsActiveQuest( psPacket->saQuestData[i].iQuestID ) )
 		{
 			GetWindow()->ClearDynamicQuest();
-			TITLEBOX( "You have an active quest!" );
+			TITLEBOX( "你有一个已激活的任务!" );
 			return;
 		}
 
@@ -498,12 +498,12 @@ void CQuestGame::HandleCancelQuest( int iTimerID, int iQuestID )
 			{
 				if ( MAP_ID == MAPID_T5QuestArena )
 				{
-					TITLEBOX( "You can't cancel this quest now!" );
+					TITLEBOX( "你现在不能取消这个任务!" );
 					return;
 				}
 			}
 
-			ChatGame::AddChatBoxTextEx( CHATCOLOR_Error, "> %s cancelled!", pc->GetName() );
+			ChatGame::AddChatBoxTextEx( CHATCOLOR_Error, "> %s 取消了!", pc->GetName() );
 			HandleDeleteItem( iQuestID, FALSE );
 			CQUESTGAME->ProcessQuestCancel( iQuestID );
 			CQUESTGAME->GetQuestInstance()->DeleteQuest( iQuestID );
@@ -618,8 +618,8 @@ BOOL CQuestGame::OnQuestT5OpenProgress()
 				{
 					//Message Box Rankup
 					MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-					MESSAGEBOX->SetTitle( "Rank Up" );
-					MESSAGEBOX->SetDescription( "Do you wanna rank up?" );
+					MESSAGEBOX->SetTitle( "排名上升" );
+					MESSAGEBOX->SetDescription( "你想要提升排名吗?" );
 					MESSAGEBOX->SetEvent( std::bind( &CQuestGame::OnMessageBoxT5Click, this, std::placeholders::_1 ) );
 					MESSAGEBOX->Show();
 				}
@@ -631,8 +631,8 @@ BOOL CQuestGame::OnQuestT5OpenProgress()
 		{
 			//Message Box Rankup
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "Teleport" );
-			MESSAGEBOX->SetDescription( "Do you want to teleport?" );
+			MESSAGEBOX->SetTitle( "传送" );
+			MESSAGEBOX->SetDescription( "你想要传送吗?" );
 			MESSAGEBOX->SetEvent( std::bind( &CQuestGame::OnMessageBoxT5TeleportClick, this, std::placeholders::_1 ) );
 			MESSAGEBOX->Show();
 		}
@@ -660,7 +660,7 @@ void CQuestGame::OnQuestT5Start()
 	}
 	else
 	{
-		TITLEBOX( AY_OBFUSCATE("You must be Lv.80 or higher to get this quest!") );
+		TITLEBOX( AY_OBFUSCATE("你必须达到Lv.80或者更高等级才能接取这个任务!") );
 	}
 }
 

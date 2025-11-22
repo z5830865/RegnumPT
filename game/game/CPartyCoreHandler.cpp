@@ -64,7 +64,7 @@ void CPartyCoreHandler::Open( ItemData * pcItemData )
 		pWindow->Show();
 	}
 	else
-		TITLEBOX( AY_OBFUSCATE( "You must be in party to use this core!" ) );
+		TITLEBOX( AY_OBFUSCATE( "你必须在一个队伍里面才能使用这个核心!" ) );
 }
 
 void CPartyCoreHandler::Close()

@@ -41,7 +41,7 @@ void CChristmasTreeWindowHandler::Render()
 
 void CChristmasTreeWindowHandler::Open( const char * pszCharacterName )
 {
-	pWindow->GetElement<UI::Text>( TEXT_Information )->SetTextEx( "This Xmas Tree belongs to %s.\nYou can give any item using the gift box below.", pszCharacterName );
+	pWindow->GetElement<UI::Text>( TEXT_Information )->SetTextEx( "这颗圣诞树属于 %s.\n你可以使用下面的礼品盒赠送任何物品.", pszCharacterName );
 	if ( pWindow->IsOpen() == FALSE )
 	{
 		pWindow->GetElement<UI::ItemBox>( ITEMBOX_Items )->ClearItems();
@@ -109,7 +109,7 @@ void CChristmasTreeWindowHandler::BuildWindow()
 	UI::Text_ptr pInformationText = std::make_shared<UI::Text>( Rectangle2D( 30, 40, 300, 80 ) );
 	pInformationText->SetID( TEXT_Information );
 	pInformationText->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pInformationText->SetText( "This Xmas Tree belongs to GM-Prog.\nYou can give any item using the gift box below." );
+	pInformationText->SetText( "这颗圣诞树属于GM-Prog.\n您可以使用下面的礼品盒赠送任何物品." );
 	pInformationText->SetMultiLine( TRUE );
 	pWindow->AddElement( pInformationText );
 
@@ -166,31 +166,31 @@ void CChristmasTreeWindowHandler::OnButtonGiftClick( UIEventArgs eArgs )
 		if ( pWindow->GetElement<UI::ItemBox>( ITEMBOX_Items )->GetItems().size() > 0 )
 		{
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "Send Gift" );
-			MESSAGEBOX->SetDescription( "Do you want to send the gift?" );
+			MESSAGEBOX->SetTitle( "赠送礼物" );
+			MESSAGEBOX->SetDescription( "你确定要赠送这个礼物吗?" );
 			MESSAGEBOX->SetEvent( std::bind( &CChristmasTreeWindowHandler::OnAcceptSendGift, this, std::placeholders::_1 ) );
 			MESSAGEBOX->SetAutoClose( 10 );
 			MESSAGEBOX->Show();
 		}
 		else
-			TITLEBOX( "You need to put an item on gift item box!" );
+			TITLEBOX( "你需要将装备放进装备礼物箱子!" );
 	}
 	else
-		TITLEBOX( "Still in progress..." );
+		TITLEBOX( "进行中..." );
 }
 
 void CChristmasTreeWindowHandler::OnButtonCloseClick( UIEventArgs eArgs )
 {
 	if ( pWindow->GetElement<UI::ItemBox>( ITEMBOX_Items )->GetItems().size() > 0 )
 	{
-		TITLEBOX( "Remove items from the window first!" );
+		TITLEBOX( "先把窗口里的东西拿掉!" );
 		return;
 	}
 
 	if ( (dwUpdateTimeClose + MAX_TIMEXMAS_WAITRESPONSE) < TICKCOUNT )
 		Close();
 	else
-		TITLEBOX( "Still in progress..." );
+		TITLEBOX( "进行中..." );
 }
 
 void CChristmasTreeWindowHandler::OnAcceptSendGift( UIEventArgs eArgs )

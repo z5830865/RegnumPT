@@ -79,28 +79,28 @@ void CMixGuildWindow::BuildWindow1()
 
 	{
 		UI::Text_ptr pItemMixGuide = std::make_shared<UI::Text>(Rectangle2D(335, 15, 240, 14));
-		pItemMixGuide->SetText("Mix Guide");
+		pItemMixGuide->SetText("合成指南");
 		pItemMixGuide->SetFont("Arial", 18, 0, FALSE, TRUE, D3DCOLOR_ARGB(150, 170, 150, 120));
 		pWindow1->AddElement(pItemMixGuide);
 
-		UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(20, 55, 240, 14));
-		pItemMixName->SetText("Mix Name");
-		pItemMixName->SetFont("Arial", 16, 0, FALSE, TRUE, D3DCOLOR_ARGB(255, 210, 195, 180));
-		pWindow1->AddElement(pItemMixName);
+        UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(20, 55, 240, 14));
+        pItemMixName->SetText("合成名称");
+        pItemMixName->SetFont("Arial", 16, 0, FALSE, TRUE, D3DCOLOR_ARGB(255, 210, 195, 180));
+        pWindow1->AddElement(pItemMixName);
 
 		UI::Text_ptr pItemSheltoms = std::make_shared<UI::Text>(Rectangle2D(228, 55, 240, 14));
-		pItemSheltoms->SetText("Sheltoms");
+		pItemSheltoms->SetText("冶炼");
 		pItemSheltoms->SetFont("Arial", 16, 0, FALSE, TRUE, D3DCOLOR_ARGB(255, 210, 195, 180));
 		pWindow1->AddElement(pItemSheltoms);
 
 		UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(428, 55, 240, 14));
-		pItemDesc->SetText("Description");
+		pItemDesc->SetText("描述");
 		pItemDesc->SetFont("Arial", 16, 0, FALSE, TRUE, D3DCOLOR_ARGB(255, 210, 195, 180));
 		pWindow1->AddElement(pItemDesc);
 
 		// ComboBox
 		UI::ComboBox_ptr pComboBox = std::make_shared<UI::ComboBox>(Rectangle2D(620, 55, 110, 26));
-		pComboBox->SetDefaultText("Select");
+		pComboBox->SetDefaultText("选择");
 		pComboBox->SetID(COMBOBOX_DESC);
 		pComboBox->SetBackgroundImage(UI::ImageLoader::LoadActiveImage("game\\images\\UI\\combobox\\drop.png", "game\\images\\UI\\combobox\\dropon.png"));
 		pComboBox->SetBackgroundSelectedImage(UI::ImageLoader::LoadImage("game\\images\\UI\\combobox\\drop_.png"));
@@ -144,7 +144,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Mix Devine");
+                pItemMixName->SetText("合成Devine");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -215,7 +215,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 */
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+7) MaxAP(+8) Atk-R(+35) Crit(+2) MP(+10)");
+                pItemDesc->SetText("最小攻击(+7) 最大攻击(+8) 攻击距离(+35) Crit(+2) 魔法(+10)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -225,7 +225,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Mix Celesto");
+                pItemMixName->SetText("合成Celesto");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -295,7 +295,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 */
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+8) MaxAP(+9) Atk-R(+40) Crit(+3) MP(+15)");
+                pItemDesc->SetText("最小攻击(+8) 最大攻击(+9) 攻击距离(+40) 暴击(+3) 魔法(+15)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -305,7 +305,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Mirage");
+                pItemMixName->SetText("合成Mirage");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -355,7 +355,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+9) MaxAP(+11) Atk-R(+45) Crit(+3) MP(+20)");
+                pItemDesc->SetText("最小攻击(+9) 最大攻击(+11) 攻击距离(+45) 暴击(+3) 魔法(+20)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -365,7 +365,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Inferna");
+                pItemMixName->SetText("合成Inferna");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -415,7 +415,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 */
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+13) MaxAP(+15) Atk-R(+50) Crit(+4) MP(+25)");
+                pItemDesc->SetText("最小攻击(+13) 最大攻击(+15) Atk-R(+50) 暴击(+4) 魔法(+25)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -425,7 +425,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Enigma");
+                pItemMixName->SetText("合成Enigma");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -475,7 +475,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+15) MaxAP(+19) Atk-R(+55) Crit(+4) MP(+30)");
+                pItemDesc->SetText("最小攻击(+15) 最大攻击(+19) Atk-R(+55) 暴击(+4) 魔法(+30)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -486,7 +486,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -537,7 +537,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -547,7 +547,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -597,7 +597,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -607,7 +607,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText("Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -657,7 +657,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) 生命(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -667,7 +667,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -717,7 +717,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) Evasión(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -727,7 +727,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText("Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -788,7 +788,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -839,7 +839,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -849,7 +849,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -899,7 +899,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -909,7 +909,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText("Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -959,7 +959,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) 生命(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -969,7 +969,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1019,7 +1019,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) 闪避(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1029,7 +1029,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText(" Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1079,7 +1079,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("Daño Crítico(+5%)");
+                pItemDesc->SetText("临界损伤(+5%)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1090,7 +1090,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1141,7 +1141,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1151,7 +1151,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1201,7 +1201,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1211,7 +1211,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText(" Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1261,7 +1261,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) 生命(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1271,7 +1271,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1321,7 +1321,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) 闪避(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1331,7 +1331,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText("Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1381,7 +1381,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("Daño Crítico(+5%)");
+                pItemDesc->SetText("临界损伤(+5%)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1392,7 +1392,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1443,7 +1443,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1453,7 +1453,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1503,7 +1503,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1513,7 +1513,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText("Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1563,7 +1563,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) 生命(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1573,7 +1573,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1623,7 +1623,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) 闪避(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1633,7 +1633,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText("Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1683,7 +1683,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("Daño Crítico(+5%)");
+                pItemDesc->SetText("临界损伤(+5%)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1694,7 +1694,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1745,7 +1745,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1755,7 +1755,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1805,7 +1805,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1815,7 +1815,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText("Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1865,7 +1865,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) 生命(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1875,7 +1875,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1925,7 +1925,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) 闪避(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1935,7 +1935,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText("Mix Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -1985,7 +1985,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("Daño Crítico(+5%)");
+                pItemDesc->SetText("临界损伤(+5%)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -1996,7 +1996,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2047,7 +2047,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2057,7 +2057,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2107,7 +2107,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2117,7 +2117,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText("Mix Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2167,7 +2167,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) 生命(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2177,7 +2177,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Mix Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2227,7 +2227,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) 闪避(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2237,7 +2237,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText("Mix Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2287,7 +2287,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("Daño Crítico(+5%)");
+                pItemDesc->SetText("临界损伤(+5%)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2298,7 +2298,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2349,7 +2349,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2359,7 +2359,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2409,7 +2409,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2419,7 +2419,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText("Mix Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2469,7 +2469,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) 生命(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2479,7 +2479,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Mix Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2529,7 +2529,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) 闪避(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2539,7 +2539,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText("Mix Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2589,7 +2589,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("Daño Crítico(+5%)");
+                pItemDesc->SetText("临界损伤(+5%)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2600,7 +2600,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2651,7 +2651,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2661,7 +2661,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2711,7 +2711,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4)暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2721,7 +2721,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText("Mix Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2771,7 +2771,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) HP(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2781,7 +2781,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Mix Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2831,7 +2831,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) 闪避(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2841,7 +2841,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText("Mix Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2891,7 +2891,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("Daño Crítico(+5%)");
+                pItemDesc->SetText("临界损伤(+5%)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2902,7 +2902,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
             { // MIX 1 - Con 6 sheltoms en horizontal
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, 65, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -2953,7 +2953,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 暴击(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -2963,7 +2963,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix2StartY, 240, 14));
-                pItemMixName->SetText("Transparo Critical Mix");
+                pItemMixName->SetText("Transparo Critical 合成");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -3013,7 +3013,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("MinAP(+3) MaxAP(+4) Crit(+1)");
+                pItemDesc->SetText("最小攻击(+3) 最大攻击(+4) 爆率(+1)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -3023,7 +3023,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix3StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 3");
+                pItemMixName->SetText("Mix Especial 合成3");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -3073,7 +3073,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("Defensa(+5) HP(+50)");
+                pItemDesc->SetText("防御(+5) 生命(+50)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -3083,7 +3083,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix4StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 4");
+                pItemMixName->SetText("Mix Especial 合成4");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -3133,7 +3133,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("Velocidad(+2) Evasión(+3)");
+                pItemDesc->SetText("速度(+2) 闪避(+3)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -3143,7 +3143,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 // NAME MIX
                 UI::Text_ptr pItemMixName = std::make_shared<UI::Text>(Rectangle2D(0, mix5StartY, 240, 14));
-                pItemMixName->SetText("Mix Especial 5");
+                pItemMixName->SetText("Mix Especial 合成5");
                 pItemMixName->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemMixName);
 
@@ -3193,7 +3193,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("Daño Crítico(+5%)");
+                pItemDesc->SetText("临界损伤(+5%)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }

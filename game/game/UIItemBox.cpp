@@ -782,7 +782,7 @@ BOOL ItemBox::GetItem( Point2D * psPosition, int iX, int iY, BOOL bAutomatic )
 						// Check Space
 						if ( !CHARACTERGAME->CheckInventorySpace( pc ) )
 						{
-							TITLEBOX( "Not enough space in inventory" );
+							TITLEBOX( "±³°ü¿Õ¼ä²»×ã" );
 							return TRUE;
 						}
 

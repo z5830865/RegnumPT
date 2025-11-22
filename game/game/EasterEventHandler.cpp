@@ -21,8 +21,8 @@ void CEasterEventHandler::OnClickOKNPC()
 		(ITEMHANDLER->GetItemAmountByCode( ITEMID_GreenEasterEgg ) >= 1) && (ITEMHANDLER->GetItemAmountByCode( ITEMID_PinkEasterEgg ) >= 1) )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Are you sure?" );
-		MESSAGEBOX->SetDescription( "Do you like to exchange the eggs?" );
+		MESSAGEBOX->SetTitle( "你确定吗?" );
+		MESSAGEBOX->SetDescription( "你想要交换这些蛋吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CEasterEventHandler::OnOKBoxClick, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}

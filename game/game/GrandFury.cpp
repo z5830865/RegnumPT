@@ -35,7 +35,7 @@ void CGrandFury::Init()
 
 	pTextTime = std::make_shared<UI::Text>( Rectangle2D( (RESOLUTION_WIDTH >> 1) - (208 >> 1), 42, 208, 20 ) );
 	pTextTime->SetHorizontalAlign( ALIGN_Center );
-	pTextTime->SetText( "Time Left: 00:00:00" );
+	pTextTime->SetText( "时间剩余: 00:00:00" );
 	pTextTime->SetFont( "Arial", 14, 0, FALSE, FALSE, D3DCOLOR_ARGB( 255, 220, 135, 135 ) );
 
 	pTextBossHP = std::make_shared<UI::Text>( Rectangle2D( (RESOLUTION_WIDTH >> 1) - (208 >> 1), 67, 208, 20 ) );
@@ -152,7 +152,7 @@ void CGrandFury::Render()
 		//Render Time Left
 		UI::ImageRender::Render( pcTimeBG, (RESOLUTION_WIDTH >> 1) - (208 >> 1), 100, 208, 20, 0, 0, -1 );
 		pTextTime->SetBox( Rectangle2D( (RESOLUTION_WIDTH >> 1) - (208 >> 1), 103, 208, 20 ) );
-		pTextTime->SetTextEx( "Time Left: %02d:%02d:%02d", iHour, iMinute, iSecond );
+		pTextTime->SetTextEx( "时间剩余: %02d:%02d:%02d", iHour, iMinute, iSecond );
 
 		//Render HP Bar Boss
 		if( bStarted )
@@ -167,7 +167,7 @@ void CGrandFury::Render()
 			pTextBossHP->SetTextEx( "%d/%d", iCurrentHP, iMaxHP );
 			pTextBossHP->Render( 0, 0, RESOLUTION_WIDTH, RESOLUTION_HEIGHT, 0, 0 );
 
-			pTextTime->SetTextEx( "Time: %02d:%02d:%02d", iHour, iMinute, iSecond );
+			pTextTime->SetTextEx( "时间: %02d:%02d:%02d", iHour, iMinute, iSecond );
 		}
 
 		pTextTime->Render( 0, 0, RESOLUTION_WIDTH, RESOLUTION_HEIGHT, 0, 0 );

@@ -406,7 +406,7 @@ void CMountHandler::Update( float fTime )
 			{
 				RemoveMount( UNITDATA );
 
-				TITLEBOX( AY_OBFUSCATE( "You can't mount at this place!" ) );
+				TITLEBOX( AY_OBFUSCATE( "你不能在这里骑上坐骑!" ) );
 			}
 		}
 	}
@@ -482,18 +482,18 @@ void CMountHandler::ShowMessage( EMountMessage iMessage )
 	switch ( iMessage )
 	{
 		case MOUNTMESSAGE_ErrorEnterNPC:
-			TITLEBOX( AY_OBFUSCATE( "You can't enter while on a Mount!" ) );
-			CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> You can't enter while on a Mount!" ), CHATCOLOR_Global );
+			TITLEBOX( AY_OBFUSCATE( "你不能骑着坐骑进入!" ) );
+			CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> 你不能骑着坐骑进入!" ), CHATCOLOR_Global );
 			break;
 
 		case MOUNTMESSAGE_ErrorWalk:
-			TITLEBOX( AY_OBFUSCATE( "You can't walk while on a Mount!" ) );
-			CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> You can't walk while on a Mount!" ), CHATCOLOR_Error );
+			TITLEBOX( AY_OBFUSCATE( "在坐骑上时无法行走!" ) );
+			CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> 在坐骑上时无法行走!" ), CHATCOLOR_Error );
 			break;
 
 		case MOUNTMESSAGE_ErrorBC:
-			TITLEBOX( AY_OBFUSCATE( "You can't ride while at Bless Castle!" ) );
-			CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> You can't ride while at Bless Castle!" ), CHATCOLOR_Error );
+			TITLEBOX( AY_OBFUSCATE( "祝福城堡不能骑行坐骑!" ) );
+			CHATGAMEHANDLER->AddChatBoxText( AY_OBFUSCATE( "> 祝福城堡不能骑行坐骑!" ), CHATCOLOR_Error );
 			break;
 
 		default:
@@ -709,7 +709,7 @@ void CMountHandler::Mount()
 			if ( CanMount( UNITDATA ) )
 				AddMount( UNITDATA, GetWindow()->GetMountType() );
 			else
-				TITLEBOX( AY_OBFUSCATE( "You can't mount at this place!" ) );
+				TITLEBOX( AY_OBFUSCATE( "这里不允许骑行!" ) );
 		}
 	}
 	else

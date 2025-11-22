@@ -318,15 +318,15 @@ void CCharacterScreenNewHandler::ProcessCreateCharacter()
 
 	if ( pInputName->GetText().length() == 0 )
 	{
-		TITLEBOX( "Please enter a Character Name" );
+		TITLEBOX( "请输入角色名" );
 		CSound::PlaySoundID( ACTIONSOUND_Back );
 		SOUNDHANDLER->UpdateVolume();
 		return;
 	}
 
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "New Character" );
-	MESSAGEBOX->SetDescription( "Do you want to create a new character?" );
+	MESSAGEBOX->SetTitle( "新角色名" );
+	MESSAGEBOX->SetDescription( "你想要创建一个新角色吗?" );
 	MESSAGEBOX->SetEvent( std::bind( &CCharacterScreenNewHandler::OnCallbackProcessCreateCharacter, this ) );
 	MESSAGEBOX->SetAutoClose( 10 );
 	MESSAGEBOX->Show();
@@ -449,7 +449,7 @@ void CCharacterScreenNewHandler::OnCallbackProcessCreateCharacter()
 
 		if ( pInputName->GetText().length() == 0 )
 		{
-			TITLEBOX( "Please enter a Character Name" );
+			TITLEBOX( "请输入角色名" );
 			CSound::PlaySoundID( ACTIONSOUND_Back );
 			SOUNDHANDLER->UpdateVolume();
 			return;

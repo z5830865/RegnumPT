@@ -55,8 +55,8 @@ void CQuestWindow::OnButtonOKClick( UIEventArgs e )
 		if ( pcQuestData == NULL )
 		{
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "Quest" );
-			MESSAGEBOX->SetDescription( FormatString("Do you want accept the %s quest?", szName) );
+			MESSAGEBOX->SetTitle( "任务" );
+			MESSAGEBOX->SetDescription( FormatString("你想接受 %s 任务吗?", szName) );
 			MESSAGEBOX->SetEvent( std::bind( &CQuestWindow::OnButtonAcceptClick, this, std::placeholders::_1 ) );
 			MESSAGEBOX->Show();
 		}
@@ -66,7 +66,7 @@ void CQuestWindow::OnButtonOKClick( UIEventArgs e )
 			{
 				if ( pcQuestData->CanFinishQuestWaitTime() == FALSE )
 				{
-					TITLEBOX( "You need to wait a time to finish this quest!" );
+					TITLEBOX( "你需要等待一段时间去完成这个任务!" );
 				}
 				else
 				{
@@ -81,7 +81,7 @@ void CQuestWindow::OnButtonOKClick( UIEventArgs e )
 		}
 	}
 	else
-		TITLEBOX( "You are in finishing quest process!" );
+		TITLEBOX( "您正在完成任务过程!" );
 }
 
 void CQuestWindow::OnButtonOKMineClick( UIEventArgs e )
@@ -90,14 +90,14 @@ void CQuestWindow::OnButtonOKMineClick( UIEventArgs e )
 	if ( pcQuestData == NULL )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Quest" );
-		MESSAGEBOX->SetDescription( FormatString("Do you want accept the %s quest?", szName) );
+		MESSAGEBOX->SetTitle( "任务" );
+		MESSAGEBOX->SetDescription( FormatString("你想要接受 %s 任务吗?", szName) );
 		MESSAGEBOX->SetEvent( std::bind( &CQuestWindow::OnButtonAcceptClick, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
 	else
 	{
-		TITLEBOX( "You are doing this quest!" );
+		TITLEBOX( "你正在进行这个任务!" );
 	}
 }
 
@@ -110,8 +110,8 @@ void CQuestWindow::OnButtonOKT5QuestClick( UIEventArgs e )
 	else
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Rank Up" );
-		MESSAGEBOX->SetDescription( "Do you wanna get the quest?" );
+		MESSAGEBOX->SetTitle( "排名上升" );
+		MESSAGEBOX->SetDescription( "你想要接取这个任务吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CQuestWindow::OnMessageBoxT5QuestStartClick, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
@@ -123,7 +123,7 @@ void CQuestWindow::OnMessageBoxT5QuestStartClick( UIEventArgs e )
 	{
 		BOOL bContinue = FALSE;
 		if ( PARTYHANDLER->GetPartyData().iMembersCount > 0 )
-			TITLEBOX( "You cannot start this quest in party!" );
+			TITLEBOX( "你不能在队伍中开始这个任务!" );
 		else
 			bContinue = TRUE;
 
@@ -221,28 +221,28 @@ void CQuestWindow::OnButtonDifficultyClick( int iID, UIEventArgs e )
 
 	if ( iID == BUTTONID_IM1_Easy )
 	{
-		pTextDifficulty->SetText( "Easy" );
-		pTextRW->SetTextEx( "%s EXP", FormatNumber( 12000000000 ) );
+		pTextDifficulty->SetText( "简单" );
+		pTextRW->SetTextEx( "%s 经验值", FormatNumber( 12000000000 ) );
 		iCurrentID = QUESTID_MinersFearsEasy;
-		STRINGCOPY( szName, "Fear's Embrace(Easy)" );
+		STRINGCOPY( szName, "恐惧的怀抱(简单)" );
 
 		pTextAbout->SetParam( "{kill_count}", "100" );
 	}
 	else if ( iID == BUTTONID_IM1_Medium )
 	{
-		pTextDifficulty->SetText( "Medium" );
-		pTextRW->SetTextEx( "%s EXP", FormatNumber( 16000000000 ) );
+		pTextDifficulty->SetText( "中等" );
+		pTextRW->SetTextEx( "%s 经验值", FormatNumber( 16000000000 ) );
 		iCurrentID = QUESTID_MinersFearsMedium;
-		STRINGCOPY( szName, "Fear's Embrace(Medium)" );
+		STRINGCOPY( szName, "恐惧的怀抱(中等)" );
 
 		pTextAbout->SetParam( "{kill_count}", "140" );
 	}
 	else if ( iID == BUTTONID_IM1_Hard )
 	{
-		pTextDifficulty->SetText( "Hard" );
-		pTextRW->SetTextEx( "%s EXP", FormatNumber( 20000000000 ) );
+		pTextDifficulty->SetText( "困难" );
+		pTextRW->SetTextEx( "%s 经验值", FormatNumber( 20000000000 ) );
 		iCurrentID = QUESTID_MinersFearsHard;
-		STRINGCOPY( szName, "Fear's Embrace(Hard)" );
+		STRINGCOPY( szName, "恐惧的怀抱(困难)" );
 
 		pTextAbout->SetParam( "{kill_count}", "180" );
 	}
@@ -262,7 +262,7 @@ void CQuestWindow::OnButtonOpenQuestWindow( int iID, UIEventArgs e )
 	{
 		GetWindowTullaMenace()->Show();
 		iCurrentID = QUESTID_TullaMenace;
-		STRINGCOPY( szName, "The Tulla Menace" );
+		STRINGCOPY( szName, "图拉的威胁" );
 	}
 	if ( iID == WINDOWID_IM1_MineAlone )
 	{
@@ -270,11 +270,11 @@ void CQuestWindow::OnButtonOpenQuestWindow( int iID, UIEventArgs e )
 		{
 			GetWindowMineAlone()->Show();
 			iCurrentID = QUESTID_MineAlone;
-			STRINGCOPY( szName, "Mine Alone" );
+			STRINGCOPY( szName, "个人任务" );
 		}
 		else
 		{
-			TITLEBOX( "You must be level 120-129!" );
+			TITLEBOX( "你必须达到level 120-129级!" );
 			GetWindowMain()->Show();
 		}
 	}
@@ -328,13 +328,13 @@ void CQuestWindow::BuildWindowDQTullaMenace( UI::List_ptr pList )
 		//Reward Label Text
 		UI::Text_ptr pTextRWLabel = std::make_shared<UI::Text>( Rectangle2D( 36, 276, 100, 16 ) );
 		pTextRWLabel->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-		pTextRWLabel->SetText( "Reward:" );
+		pTextRWLabel->SetText( "奖励:" );
 		pWindowMain->AddElement( pTextRWLabel );
 
 		//Reward Text
 		UI::Text_ptr pTextRW = std::make_shared<UI::Text>( Rectangle2D( 100, 278, 100, 16 ) );
 		pTextRW->SetFont( "Arial", 14, 0, FALSE, FALSE, D3DCOLOR_RGBA( 230, 245, 230, 255 ) );
-		pTextRW->SetText( "30,000,000,000 EXP" );
+		pTextRW->SetText( "30,000,000,000 经验值" );
 		pWindowMain->AddElement( pTextRW );
 
 		pWindowMain->Hide();
@@ -365,13 +365,13 @@ void CQuestWindow::BuildWindowDQTheMinersFear( UI::List_ptr pList )
 		//Choose Text
 		UI::Text_ptr pTextChoose = std::make_shared<UI::Text>( Rectangle2D( 10, 165, 100, 16 ) );
 		pTextChoose->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-		pTextChoose->SetText( "Choose the difficulty:" );
+		pTextChoose->SetText( "选择难度:" );
 		pWindowMain->AddElement( pTextChoose );
 
 		//Difficulty Label
 		UI::Text_ptr pTextDifficultyLabel = std::make_shared<UI::Text>( Rectangle2D( 10, 240, 100, 16 ) );
 		pTextDifficultyLabel->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-		pTextDifficultyLabel->SetText( "Difficulty:" );
+		pTextDifficultyLabel->SetText( "困难:" );
 		pWindowMain->AddElement( pTextDifficultyLabel );
 
 		//Difficulty Value
@@ -389,7 +389,7 @@ void CQuestWindow::BuildWindowDQTheMinersFear( UI::List_ptr pList )
 		//Reward Label Text
 		UI::Text_ptr pTextRWLabel = std::make_shared<UI::Text>( Rectangle2D( 36, 276, 100, 16 ) );
 		pTextRWLabel->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-		pTextRWLabel->SetText( "Reward:" );
+		pTextRWLabel->SetText( "奖励:" );
 		pWindowMain->AddElement( pTextRWLabel );
 
 		//Reward Text
@@ -410,7 +410,7 @@ void CQuestWindow::BuildWindowDQTheMinersFear( UI::List_ptr pList )
 
 		UI::Text_ptr pTextEasy = std::make_shared<UI::Text>( Rectangle2D( 14, 219, 34, 34 ) );
 		pTextEasy->SetFont( "Tahoma", 12, 0, FALSE, TRUE, -1 );
-		pTextEasy->SetText( "Easy" );
+		pTextEasy->SetText( "简单" );
 		pWindowMain->AddElement( pTextEasy );
 
 		//Medium
@@ -424,7 +424,7 @@ void CQuestWindow::BuildWindowDQTheMinersFear( UI::List_ptr pList )
 
 		UI::Text_ptr pTextMedium = std::make_shared<UI::Text>( Rectangle2D( 48, 219, 34, 34 ) );
 		pTextMedium->SetFont( "Tahoma", 12, 0, FALSE, TRUE, -1 );
-		pTextMedium->SetText( "Medium" );
+		pTextMedium->SetText( "中等" );
 		pWindowMain->AddElement( pTextMedium );
 
 		//Hard
@@ -438,7 +438,7 @@ void CQuestWindow::BuildWindowDQTheMinersFear( UI::List_ptr pList )
 
 		UI::Text_ptr pTextHard = std::make_shared<UI::Text>( Rectangle2D( 96, 219, 34, 34 ) );
 		pTextHard->SetFont( "Tahoma", 12, 0, FALSE, TRUE, -1 );
-		pTextHard->SetText( "Hard" );
+		pTextHard->SetText( "困难" );
 		pWindowMain->AddElement( pTextHard );
 
 		//Start Button
@@ -483,13 +483,13 @@ void CQuestWindow::BuildWindowSQMineAlone( UI::List_ptr pList )
 		//Reward Label Text
 		UI::Text_ptr pTextRWLabel = std::make_shared<UI::Text>( Rectangle2D( 36, 276, 100, 16 ) );
 		pTextRWLabel->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-		pTextRWLabel->SetText( "Reward:" );
+		pTextRWLabel->SetText( "奖励:" );
 		pWindowMain->AddElement( pTextRWLabel );
 
 		//Reward Text
 		UI::Text_ptr pTextRW = std::make_shared<UI::Text>( Rectangle2D( 100, 278, 100, 16 ) );
 		pTextRW->SetFont( "Arial", 14, 0, FALSE, FALSE, D3DCOLOR_RGBA( 230, 245, 230, 255 ) );
-		pTextRW->SetText( "15,000,000,000 EXP" );
+		pTextRW->SetText( "15,000,000,000 经验值" );
 		pWindowMain->AddElement( pTextRW );
 
 		pWindowMain->Hide();
@@ -915,9 +915,9 @@ void CQuestWindow::AddDynamicQuestMainMenu( PacketDynamicQuestOpen::QuestData * 
 		if ( (ps->sRequiredLevel.iMin > 0) || (ps->sRequiredLevel.iMax > 0) )
 		{
 			if ( ps->sRequiredLevel.iMax > 0 )
-				pTextMenu->SetTextEx( "%s (Req. Level: %d-%d)", ps->szQuestName, ps->sRequiredLevel.iMin, ps->sRequiredLevel.iMax );
+				pTextMenu->SetTextEx( "%s (需要等级: %d-%d)", ps->szQuestName, ps->sRequiredLevel.iMin, ps->sRequiredLevel.iMax );
 			else
-				pTextMenu->SetTextEx( "%s (Req. Level: %d)", ps->szQuestName, ps->sRequiredLevel.iMin );
+				pTextMenu->SetTextEx( "%s (需要等级: %d)", ps->szQuestName, ps->sRequiredLevel.iMin );
 		}
 		else
 			pTextMenu->SetText( ps->szQuestName );

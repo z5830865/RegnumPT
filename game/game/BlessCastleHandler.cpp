@@ -319,11 +319,11 @@ void CBlessCastleHandler::Render()
 
 				auto pTimeLeftText = pWindowSiegeWarInfo->GetElement<UI::Text>( TEXTID_TimeLeft );
 				if( pTimeLeftText )
-					pTimeLeftText->SetTextEx( "Time Left: %02d:%02d:%02d", iaTimeLeft[2], iaTimeLeft[1], iaTimeLeft[0] );
+					pTimeLeftText->SetTextEx( "时间剩余: %02d:%02d:%02d", iaTimeLeft[2], iaTimeLeft[1], iaTimeLeft[0] );
 
 				auto pPhaseText = pWindowSiegeWarInfo->GetElement<UI::Text>( TEXTID_Phase );
 				if( pPhaseText )
-					pPhaseText->SetTextEx( iPhaseID == 5 ? "Final Phase" : "Phase %d", iPhaseID );
+					pPhaseText->SetTextEx( iPhaseID == 5 ? "最后阶段" : "阶段 %d", iPhaseID );
 
 				for( size_t i = 0; i < 6; i++ )
 				{

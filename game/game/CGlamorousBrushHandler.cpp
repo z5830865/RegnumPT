@@ -55,7 +55,7 @@ BOOL CGlamorousBrushHandler::OnMouseClick( CMouse * pcMouse )
                         {
                             MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
                             MESSAGEBOX->SetTitle( "Glamorize Item" );
-                            MESSAGEBOX->SetDescription( "Do you want to turn the item into a skin?" );
+                            MESSAGEBOX->SetDescription( "你想要把这件装备转变成皮肤吗?" );
                             MESSAGEBOX->SetEvent( std::bind( &CGlamorousBrushHandler::OnAcceptItem, this, pcItemData ) );
                             MESSAGEBOX->SetAutoClose( 10 );
                             MESSAGEBOX->Show();
@@ -65,7 +65,7 @@ BOOL CGlamorousBrushHandler::OnMouseClick( CMouse * pcMouse )
                             return TRUE;
                         }
                         else
-                            TITLEBOX( AY_OBFUSCATE( "This Item can't be turned into a Skin!" ) );
+                            TITLEBOX( AY_OBFUSCATE( "这件装备无法转变成皮肤!" ) );
                     }
                 }
 
@@ -124,7 +124,7 @@ void CGlamorousBrushHandler::HandlePacket( PacketGlamorousBrush * psPacket )
         {
             ITEMHANDLER->BackItemToInventory( &sItemData, ITEMCHECKINVENTORY_Requirements );
             ITEMHANDLER->ResetInventoryItemChecksum();
-            TITLEBOX( "Glamorous Item Sucessful!" );
+            TITLEBOX( "魅力时装成功!" );
 
             fTimeAnimation = 1000.0f;
 
@@ -228,21 +228,21 @@ bool CGlamorousBrushHandler::IsValidItem( ItemData * pcItemData, bool bMessage )
                     if ( (pcItemData->sItem.sItemID.ToItemType() == ITEMTYPE_Armor) || (pcItemData->sItem.sItemID.ToItemType() == ITEMTYPE_Robe) )
                         bRet = true;
                     else if ( bMessage )
-                        TITLEBOX( AY_OBFUSCATE( "Incorrect Item type! This Brush can turn into Skin only Armors and Robes!" ) );
+                        TITLEBOX( AY_OBFUSCATE( "错误的装备类型! 只能将盔甲和法袍转化成皮肤!" ) );
                     break;
                 case ITEMID_GlamorousArmamentVarnish:
                     if ( (pcItemData->sItem.sItemID.ToItemBase() == ITEMBASE_Weapon) || (pcItemData->sItem.sItemID.ToItemType() == ITEMTYPE_Shield) )
                         bRet = true;
                     else if ( bMessage )
-                        TITLEBOX( AY_OBFUSCATE( "Incorrect Item type! This Brush can turn into Skin only Weapons and Shields!" ) );
+                        TITLEBOX( AY_OBFUSCATE( "错误的装备类型! 只能将武器和盾牌转化成皮肤!" ) );
                     break;
             }
         }
         else if ( bMessage )
-            TITLEBOX( AY_OBFUSCATE( "You can't turn equipped items into a Skin!" ) );
+            TITLEBOX( AY_OBFUSCATE( "你不能把装备的物品变成皮肤!" ) );
     }
     else if ( bMessage )
-        TITLEBOX( AY_OBFUSCATE( "This Item is already a Skin!" ) );
+        TITLEBOX( AY_OBFUSCATE( "这个装备已经是一个皮肤!" ) );
 
     return bRet;
 }

@@ -103,7 +103,7 @@ void CActionFieldChestWindow::BuildWindow()
 	//Text Slot
 	UI::Text_ptr pTextDescription = std::make_shared<UI::Text>( Rectangle2D( 30, 30, 280, 50 ) );
 	pTextDescription->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextDescription->SetText( "Hello,\nHere you can exchange your chest boxes and get rewards! ^^" );
+	pTextDescription->SetText( "你好,\n在这里你可以交换你的箱子并获得奖励! ^^" );
 	pTextDescription->SetMultiLine( TRUE );
 	pTextDescription->SetWordWrap( TRUE );
 	pWindow->AddElement( pTextDescription );
@@ -111,7 +111,7 @@ void CActionFieldChestWindow::BuildWindow()
 	//Text Slot
 	UI::Text_ptr pText1 = std::make_shared<UI::Text>( Rectangle2D( 60, 120, 68, 20 ) );
 	pText1->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pText1->SetText( "Chest Box:" );
+	pText1->SetText( "盒子:" );
 	pWindow->AddElement( pText1 );
 
 	//Slot Chest
@@ -134,7 +134,7 @@ void CActionFieldChestWindow::BuildWindow()
 	//Text Slot
 	UI::Text_ptr pText2 = std::make_shared<UI::Text>( Rectangle2D( 238, 120, 68, 20 ) );
 	pText2->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
-	pText2->SetText( "Key Box:" );
+	pText2->SetText( "钥匙箱子:" );
 	pWindow->AddElement( pText2 );
 
 	//Slot Key
@@ -200,7 +200,7 @@ void CActionFieldChestWindow::OnButtonCloseClick( UIEventArgs eArgs )
 	if ( (pItemBox1->GetItems().size() == 0) && (pItemBox2->GetItems().size() == 0) )
 		Close();
 	else
-		TITLEBOX( "Please, remove items from slot!" );
+		TITLEBOX( "请从槽中取出物品!" );
 }
 
 void CActionFieldChestWindow::OnButtonExchangeClick( UIEventArgs eArgs )
@@ -242,9 +242,9 @@ void CActionFieldChestWindow::OnButtonExchangeClick( UIEventArgs eArgs )
 				dwTimeSend = TICKCOUNT + 2000;
 			}
 			else
-				TITLEBOX( "You need to put some Chest Keys!" );
+				TITLEBOX( "你需要放入箱子钥匙!" );
 		}
 		else
-			TITLEBOX( "You need to put a Chest Box!" );
+			TITLEBOX( "请放入箱子!" );
 	}
 }

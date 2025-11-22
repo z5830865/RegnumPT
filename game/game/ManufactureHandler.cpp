@@ -35,7 +35,7 @@ void CManufactureHandler::SetManufactureAreaCheck( class ItemData * pcItem )
 
 	if ( pcItem->sItem.bCostumeItem )
 	{
-		TITLEBOX( AY_OBFUSCATE( "This Item can't be used on Master Shalon!" ) );
+		TITLEBOX( AY_OBFUSCATE( "这件装备Master Shalon不能使用!" ) );
 		ITEMWINDOWHANDLER->SetTradeItemColorBox( TRADECOLORBOX_NotSetItem );
 		return;
 	}
@@ -68,7 +68,7 @@ void CManufactureHandler::SetManufactureAreaCheck( class ItemData * pcItem )
 
 			if ( (int)READDWORD( 0x036EFD24 ) > UNITDATA->sCharacterData.iGold )
 			{
-				TITLEBOX( "Not enough gold" );
+				TITLEBOX( "金币不足" );
 				ITEMWINDOWHANDLER->SetTradeItemColorBox( TRADECOLORBOX_NotSetItem );
 				return;
 			}
@@ -86,7 +86,7 @@ void CManufactureHandler::SetManufactureAreaCheck( class ItemData * pcItem )
 				// Check iWeight
 				if ( ( UNITDATA->sCharacterData.sWeight.sCur + 200 ) > UNITDATA->sCharacterData.sWeight.sMax )
 				{
-					TITLEBOX( "Check your inventory weight!" );
+					TITLEBOX( "检查你的背包重量!" );
 					ITEMWINDOWHANDLER->SetTradeItemColorBox( TRADECOLORBOX_NotSetItem );
 					return;
 				}
@@ -94,7 +94,7 @@ void CManufactureHandler::SetManufactureAreaCheck( class ItemData * pcItem )
 				// Check Space
 				if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_BrazilianSoccer ) ) )
 				{
-					TITLEBOX( "Check your inventory space!" );
+					TITLEBOX( "检查你的背包空间!" );
 					ITEMWINDOWHANDLER->SetTradeItemColorBox( TRADECOLORBOX_NotSetItem );
 					return;
 				}
@@ -555,7 +555,7 @@ BOOL CManufactureHandler::OnClickItemSlotPut( class ItemData * pcItem )
 
 		if ( (int)READDWORD( 0x036EFD24 ) > UNITDATA->sCharacterData.iGold )
 		{
-			TITLEBOX( "Not enough gold" );
+			TITLEBOX( "金币不足" );
 			return TRUE;
 		}
 
@@ -680,7 +680,7 @@ BOOL CManufactureHandler::OnClickItemSlotPut( class ItemData * pcItem )
 			case ITEMID_GoldenHopyCostumeMaleTime:
 			case ITEMID_GoldenHopyCostumeFemaleTime:
 
-				TITLEBOX( AY_OBFUSCATE( "This item is not allowed" ) );
+				TITLEBOX( AY_OBFUSCATE( "这件装备是不被允许的" ) );
 				return TRUE;
 				break;
 			default:
@@ -694,7 +694,7 @@ BOOL CManufactureHandler::OnClickItemSlotPut( class ItemData * pcItem )
 			// Check iWeight
 			if ( ( UNITDATA->sCharacterData.sWeight.sCur + 200 ) > UNITDATA->sCharacterData.sWeight.sMax )
 			{
-				TITLEBOX( "Check your inventory weight!" );
+				TITLEBOX( "检查你的背包重量!" );
 				ITEMWINDOWHANDLER->SetTradeItemColorBox( TRADECOLORBOX_NotSetItem );
 				return TRUE;
 			}
@@ -702,7 +702,7 @@ BOOL CManufactureHandler::OnClickItemSlotPut( class ItemData * pcItem )
 			// Check Space
 			if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_BrazilianSoccer ) ) )
 			{
-				TITLEBOX( "Check your inventory space!" );
+				TITLEBOX( "检查你的背包空间!" );
 				ITEMWINDOWHANDLER->SetTradeItemColorBox( TRADECOLORBOX_NotSetItem );
 				return TRUE;
 			}
@@ -748,7 +748,7 @@ void CManufactureHandler::Update()
 
 		if ( !CHARACTERGAME->CheckInventorySpace( &psaManufactureData->sItemData[0] ) )
 		{
-			TITLEBOX( "Not enough space in inventory" );
+			TITLEBOX( "背包没有足够的空间" );
 			CRAFTPROCCESS_START = FALSE;
 		}
 
@@ -758,13 +758,13 @@ void CManufactureHandler::Update()
 		{
 			if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_BrazilianSoccer ) ) )
 			{
-				TITLEBOX( "Not enough space in inventory" );
+				TITLEBOX( "背包没有足够的空间" );
 				CRAFTPROCCESS_START = FALSE;
 			}
 
 			if ( (UNITDATA->sCharacterData.sWeight.sCur + 200) > UNITDATA->sCharacterData.sWeight.sMax )
 			{
-				TITLEBOX( "Weight limit exceeded" );
+				TITLEBOX( "超过重量限制" );
 				CRAFTPROCCESS_START = FALSE;
 			}
 		}

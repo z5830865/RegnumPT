@@ -111,14 +111,14 @@ void CEventGirlHandler::Init()
 
 	//Value Text
 	UI::Text_ptr pTextValue = std::make_shared<UI::Text>( Rectangle2D( 145, 233, 180, 50 ) );
-	pTextValue->SetText( "Total Price:" );
+	pTextValue->SetText( "总价格:" );
 	pTextValue->SetFont( "Arial", 16, 0, FALSE, TRUE, -1 );
 	pWindow->AddElement( pTextValue );
 
 	//Value Text
 	UI::Text_ptr pTextValueGP = std::make_shared<UI::Text>( Rectangle2D( 147, 254, 180, 50 ) );
 	pTextValueGP->SetID( TEXTID_StatusValue );
-	pTextValueGP->SetText( "0 gp" );
+	pTextValueGP->SetText( "0 金币" );
 	pTextValueGP->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
 	pWindow->AddElement( pTextValueGP );
 
@@ -147,8 +147,8 @@ void CEventGirlHandler::OnAllStatsClick( UIEventArgs e )
 
 	// Show Box to accept the reset
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Event Girl" );
-	MESSAGEBOX->SetDescription( FormatString( "Do you want to Reset All your Stats?\nPrice: %s gp", FormatNumber( iGold ) ) );
+	MESSAGEBOX->SetTitle( "活动女孩" );
+	MESSAGEBOX->SetDescription( FormatString( "你想要重置所有属性点吗?\n价格: %s 金币", FormatNumber( iGold ) ) );
 	MESSAGEBOX->SetEvent( std::bind( &CEventGirlHandler::OnAcceptAllStats, this, std::placeholders::_1 ) );
 	MESSAGEBOX->Show();
 }
@@ -162,8 +162,8 @@ void CEventGirlHandler::OnAllSkillsClick( UIEventArgs e )
 
 	// Show Box to accept the reset
 	MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-	MESSAGEBOX->SetTitle( "Event Girl" );
-	MESSAGEBOX->SetDescription( FormatString( "Do you want to Reset All your Skills?\nPrice: %s gp", FormatNumber( iGold ) ) );
+	MESSAGEBOX->SetTitle( "活动女孩" );
+	MESSAGEBOX->SetDescription( FormatString( "你想要重置所有技能点吗?\n价格: %s 金币", FormatNumber( iGold ) ) );
 	MESSAGEBOX->SetEvent( std::bind( &CEventGirlHandler::OnAcceptAllSkills, this, std::placeholders::_1 ) );
 	MESSAGEBOX->Show();
 
@@ -174,13 +174,13 @@ void CEventGirlHandler::OnResetButtonClick( UIEventArgs e )
 	if( (iResetPrice > 0) || IsFreeGold() )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Event Girl" );
-		MESSAGEBOX->SetDescription( FormatString( "Do you want to Reset these stats?\nPrice: %s gp", FormatNumber( iResetPrice ) ) );
+		MESSAGEBOX->SetTitle( "活动女孩" );
+		MESSAGEBOX->SetDescription( FormatString( "你想要重置这些属性点吗?\n价格: %s 金币", FormatNumber( iResetPrice ) ) );
 		MESSAGEBOX->SetEvent( std::bind( &CEventGirlHandler::OnAcceptResetStats, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
 	else
-		TITLEBOX( "Before proceeding, select a stat to be reseted" );
+		TITLEBOX( "在重置之前, 选择一项属性" );
 }
 void CEventGirlHandler::OnCloseButtonClick( UIEventArgs e )
 {
@@ -206,7 +206,7 @@ void CEventGirlHandler::OnAcceptAllSkills(UIEventArgs e )
 
 				PLAYMINISOUND( 18 );
 
-				TITLEBOX( "All skills resetted!" );
+				TITLEBOX( "所有技能点已经重置!" );
 
 				Close();
 				HIDERIGHTNPCBOX;
@@ -215,7 +215,7 @@ void CEventGirlHandler::OnAcceptAllSkills(UIEventArgs e )
 			}
 		}
 		else
-			TITLEBOX( "Not enough gold" );
+			TITLEBOX( "金币不足" );
 	}
 }
 
@@ -237,7 +237,7 @@ void CEventGirlHandler::OnAcceptAllStats( UIEventArgs e )
 
 			PLAYMINISOUND( 18 );
 
-			TITLEBOX( "All stats resetted!" );
+			TITLEBOX( "所有属性点已经重置!" );
 
 			Close();
 			HIDERIGHTNPCBOX;
@@ -245,7 +245,7 @@ void CEventGirlHandler::OnAcceptAllStats( UIEventArgs e )
 			return;
 		}
 		else
-			TITLEBOX( "Not enough gold" );
+			TITLEBOX( "金币不足" );
 	}
 }
 
@@ -310,7 +310,7 @@ void CEventGirlHandler::OnAcceptResetStats( UIEventArgs e )
 
 			ResetCheckBox();
 
-			TITLEBOX( "Stats resetted!" );
+			TITLEBOX( "属性点重置!" );
 
 			Close();
 			HIDERIGHTNPCBOX;
@@ -318,7 +318,7 @@ void CEventGirlHandler::OnAcceptResetStats( UIEventArgs e )
 			return;
 		}
 		else
-			TITLEBOX( "Not enough gold" );
+			TITLEBOX( "金币不足" );
 	}
 }
 
@@ -403,7 +403,7 @@ void CEventGirlHandler::Render()
 			iGold = 0;
 
 		UI::Text_ptr pText = pWindow->GetElement<UI::Text>( TEXTID_StatusValue );
-		pText->SetTextEx( "%s gp", FormatNumber( iGold ) );
+		pText->SetTextEx( "%s 金币", FormatNumber( iGold ) );
 
 		iResetPrice = iGold;
 	}

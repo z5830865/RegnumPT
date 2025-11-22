@@ -68,13 +68,13 @@ void CItemBoxHandler::HandlePacket( PacketNPCItemBoxSendResponse * psPacket )
 		GetWindow()->RemoveItem( psPacket->iaItemID[i], psPacket->iaChk1[i], psPacket->iaChk2[i] );
 
 	if ( psPacket->iResult == -1 )
-		TITLEBOX( "Character item box is full" );
+		TITLEBOX( "角色装备盒子已经满了" );
 	else if ( psPacket->iResult == -2 )
-		TITLEBOX( "You cannot send items to yourself" );
+		TITLEBOX( "你不能把装备赠送给自己" );
 	else if ( psPacket->iResult == -3 )
-		TITLEBOX( "Character name does not exists" );
+		TITLEBOX( "角色名不存在" );
 	else if ( psPacket->iResult == 1 )
-		TITLEBOX( "Items have been sent successfully" );
+		TITLEBOX( "装备赠送成功" );
 
 	GetWindow()->ItemBoxSendBlock( FALSE );
 

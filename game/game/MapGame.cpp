@@ -1702,13 +1702,13 @@ void MapGame::TeleportMapPosition( EMapID eMapID, int iX, int iZ )
     {
         MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
         MESSAGEBOX->SetTitle( MAPNAME( eMapID ) );
-        MESSAGEBOX->SetDescription( FormatString( "Do you want to teleport?" ) );
+        MESSAGEBOX->SetDescription( FormatString( "你想要传送吗?" ) );
         MESSAGEBOX->SetEvent( std::bind( &MapGame::TeleportMapPositionHandle, MAPGAME, eMapID, iX, iZ ) );
         MESSAGEBOX->SetAutoClose( 10 );
         MESSAGEBOX->Show();
     }
     else
-        TITLEBOX( "You must be level %d to teleport", MAPLEVEL( eMapID ) );
+        TITLEBOX( "你必须达到level %d级才能传送", MAPLEVEL( eMapID ) );
 }
 
 void MapGame::TeleportMapPositionHandle( EMapID eMapID, int iX, int iZ )

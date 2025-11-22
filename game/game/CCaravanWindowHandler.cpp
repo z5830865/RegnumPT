@@ -169,7 +169,7 @@ void CCaravanWindowHandler::BuildWindow()
 	//Text
 	UI::Text_ptr pTextName = std::make_shared<UI::Text>( Rectangle2D( 30, 290, 38, 18 ) );
 	pTextName->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pTextName->SetText( "Name:" );
+	pTextName->SetText( "姓名:" );
 	pWindow->AddElement( pTextName );
 
 	//Input Image
@@ -190,7 +190,7 @@ void CCaravanWindowHandler::BuildWindow()
 	//Text
 	UI::Text_ptr pTextRename = std::make_shared<UI::Text>( Rectangle2D( 74, 310, 100, 18 ) );
 	pTextRename->SetFont( "Arial", 14, 0, FALSE, FALSE, -1 );
-	pTextRename->SetText( "(Max. 20 characters)" );
+	pTextRename->SetText( "(最多 20 玩家)" );
 	pWindow->AddElement( pTextRename );
 
 
@@ -201,7 +201,7 @@ void CCaravanWindowHandler::BuildWindow()
 	UI::CheckBox_ptr pCheckBoxFollow = std::make_shared<UI::CheckBox>( Rectangle2D( 236, 290, 13, 13 ) );
 	pCheckBoxFollow->SetID( CHECKBOX_Follow );
 	pCheckBoxFollow->SetFont( "Arial", 16, 0, FALSE, FALSE, -1 );
-	pCheckBoxFollow->SetText( "Follow me!" );
+	pCheckBoxFollow->SetText( "跟我来!" );
 	pCheckBoxFollow->SetImage( UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox.png" ), UI::ImageLoader::LoadImage( "game\\images\\UI\\checkbox_.png" ) );
 	pWindow->AddElement( pCheckBoxFollow );
 
@@ -210,7 +210,7 @@ void CCaravanWindowHandler::BuildWindow()
 	pTooltipFollow->SetFollowMouse( FALSE );
 	pTooltipFollow->SetPosition( TOOLTIPPOSITION_Top );
 	pTooltipFollow->SetFont( "Arial", 14, -1 );
-	pTooltipFollow->SetText( "Choose if caravan should follow you!" );
+	pTooltipFollow->SetText( "选择是否让商队跟着你!" );
 	pTooltipFollow->SetLinkObject( pImageBlank );
 	pWindow->AddElement( pTooltipFollow );
 

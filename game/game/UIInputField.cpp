@@ -531,14 +531,6 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 			}
 			else if( strText.length() > 0 && uCurrPosition > 0 && (UINT)uCurrPosition <= strText.length() )
 			{
-				//É¾³ýÎÄ×Ö
-				if (strText[uCurrPosition - 1] < 0 || strText[uCurrPosition - 1] > 127)
-				{
-					strText.erase(uCurrPosition - 1, 1);
-					uCurrPosition--;
-					strText.erase(uCurrPosition - 1, 1);
-					uCurrPosition--;
-				}
 				strText.erase( uCurrPosition - 1, 1 );
 				uCurrPosition--;
 			}
@@ -619,28 +611,15 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 			{
 				std::stringstream ss;
 				std::string s;
-				auto c = pcKeyboard->GetWChar();
+				auto c = pcKeyboard->GetChar();
 
-				if (c < 0x80)
-				{
+				if ( c < 256 )
 					ss << (char)c;
-					ss >> s;
-				}
 				else
-				{
-					char buf[8];
-					int len = ::WideCharToMultiByte(
-						CP_UTF8,
-						0,
-						&c,
-						1,
-						buf,
-						static_cast<int>(sizeof(buf)),
-						nullptr,
-						nullptr
-					);
-					s = std::string(buf, len);
-				}
+					ss << c;
+				ss >> s;
+
+
 
 				int iNumOld = atoi( strText.c_str() );
 

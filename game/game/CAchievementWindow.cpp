@@ -321,7 +321,7 @@ void CAchievementWindow::BuildWindowHover()
 	UI::Text_ptr pTextName = std::make_shared<UI::Text>( Rectangle2D( 90, 40, 200, 36 ) );
 	pTextName->SetID( TEXTID_NameAchievement );
 	pTextName->SetFont( "Frutiger LT 55 Roman", 24, 0, FALSE, TRUE, -1 );
-	pTextName->SetText( "Legacy Member" );
+	pTextName->SetText( "遗留的成员" );
 	pTextName->SetDropdownShadow( TRUE );
 	pTextName->SetDropdownColor( D3DCOLOR_ARGB( 200, 0, 0, 0 ) );
 	pWindowHover->AddElement( pTextName );
@@ -329,7 +329,7 @@ void CAchievementWindow::BuildWindowHover()
 	UI::Text_ptr pTextDescription = std::make_shared<UI::Text>( Rectangle2D( 20, 90, 280, 36 ) );
 	pTextDescription->SetID( TEXTID_DescriptionAchievement );
 	pTextDescription->SetFont( "Frutiger LT 55 Roman", 14, 0, FALSE, FALSE, -1 );
-	pTextDescription->SetText( "Legacy Member description achievement. BLA BLA BLA BLA BLA" );
+	pTextDescription->SetText( "遗留成员描述成就. BLA BLA BLA BLA BLA" );
 	pTextDescription->SetMultiLine( TRUE );
 	pTextDescription->SetWordWrap( TRUE );
 	pWindowHover->AddElement( pTextDescription );

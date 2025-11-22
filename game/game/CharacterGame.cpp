@@ -33,7 +33,7 @@ void CharacterGame::OnCharacterUpdateData()
 {
 	//T5
 	SetFSP( 0 );
-	//if ( CQUESTGAME->GetQuestInstance()->IsDoneQuest( QUESTID_T5QuestArena ) )
+	if ( CQUESTGAME->GetQuestInstance()->IsDoneQuest( QUESTID_T5QuestArena ) )
 	{
 		int iPoints = 0;
 
@@ -1234,7 +1234,7 @@ BOOL CharacterGame::PHTeleport( struct PacketTeleportEvent * psPacket )
 			if ( UNITDATA->sCharacterData.iLevel >= MAPLEVEL( iMapTeleportID ) )
 				MAPGAME->SetMessageBoxMap( iMapTeleportID );
 			else
-				TITLEBOX( "You must be level %d to teleport", MAPLEVEL( iMapTeleportID ) );
+				TITLEBOX( "你必须升到 %d 级才能传送", MAPLEVEL( iMapTeleportID ) );
 
 			bRet = TRUE;
 		} break;
@@ -1250,7 +1250,7 @@ BOOL CharacterGame::PHTeleport( struct PacketTeleportEvent * psPacket )
             if ( UNITDATA->sCharacterData.iLevel >= MAPLEVEL( MAPID_BattleTown ) )
                 MAPGAME->SetMessageBoxMap( MAPID_BattleTown );
             else
-                TITLEBOX( "You must be level %d to teleport", MAPLEVEL( MAPID_BattleTown ) );
+                TITLEBOX( "你必须升到 %d 级才能传送", MAPLEVEL( MAPID_BattleTown ) );
             bRet = TRUE;
             break;
         case 1003:

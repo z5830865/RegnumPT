@@ -425,7 +425,7 @@ BOOL __cdecl OpenPlaySkill( struct Skill * psSkill )
 	//	if ( (UNITDATA->pcAttackTarget && (UNITDATA->pcAttackTarget->sCharacterData.iType == CHARACTERTYPE_Monster)) || (UNITDATA->pcAttackTarget == nullptr) )
 	//		return FALSE;
 	//}
-	// 判断攻击对象是否为空
+
 	if ( psSkill && psSkill->UseSkillFlag )
 	{
 		if ( UNITDATA->pcAttackTarget == NULL )
@@ -570,7 +570,7 @@ BOOL __cdecl IsUseMix( ItemData * pcItemData )
 	{
 		if ( (pcItemData->sItem.sItemID.ToInt() & 0xFFFFFF00) == ITEMID_SpecStoneCode )
 		{
-			TITLEBOX( "Use craft npc to respec with this stone!" );
+			TITLEBOX( "带着这块石头去找craft npc去替换!" );
 			return FALSE;
 		}
 		return TRUE;
@@ -1020,8 +1020,8 @@ BOOL ShowTradeRequest( int iTargetID, char * pszCharacterName )
 	if ( PERSONALSHOPHANDLER->GetWindow()->IsOpen() == FALSE )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Trade Request" );
-		MESSAGEBOX->SetDescription( FormatString( "Do you want to accept %s's Trade Request?", pszCharacterName ) );
+		MESSAGEBOX->SetTitle( "交易请求" );
+		MESSAGEBOX->SetDescription( FormatString( "你想要接受 %s's 的交易请求吗?", pszCharacterName ) );
 		MESSAGEBOX->SetEvent( std::bind( &HUDController::OnAcceptTradeRequest, HUDHANDLER, iTargetID ) );
 		MESSAGEBOX->SetAutoClose( 10 );
 		MESSAGEBOX->Show();

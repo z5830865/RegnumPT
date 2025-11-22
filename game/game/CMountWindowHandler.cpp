@@ -309,7 +309,7 @@ void CMountWindowHandler::OnButtonMountClick( int iID, EMountType eMountType, UI
         if ( fSeconds < 0.1f )
             fSeconds = 0.1f;
 
-        TITLEBOX( AY_OBFUSCATE("You must wait %.1f seconds"), fSeconds );
+        TITLEBOX( AY_OBFUSCATE("ÇëµÈ´ý %.1f Ãë"), fSeconds );
     }
 }
 

@@ -1276,7 +1276,7 @@ BOOL CActionBarHandler::OnKeyDown( CKeyboard * pcKeyboard )
                         if ( slot.iQuantity > 0 )
                             ITEMHANDLER->RightClickSimulate( slot.sItemData.sBaseItemID.ToItemID() );
                         else
-                            TITLEBOX( "There is no Item found on this action shortcut!" );
+                            TITLEBOX( "活动的快捷方式上找不到该装备!" );
                     }
                     else if ( slot.iSkillID > 0 )
                     {

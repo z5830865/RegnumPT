@@ -96,14 +96,14 @@ void CGrandFuryWindow::BuildWindow1()
 
 	// Time Countdown
 	UI::Text_ptr pTextTime = std::make_shared<UI::Text>( Rectangle2D( 30, 39, 100, 20 ) );
-	pTextTime->SetText( "Countdown Time: 00:00:00" );
+	pTextTime->SetText( "倒计时: 00:00:00" );
 	pTextTime->SetID( TEXTID_Countdown );
 	pTextTime->SetFont( "Arial", 14, 0, TRUE, FALSE, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
 	pWindow1->AddElement( pTextTime );
 
 	// Read More
 	UI::Text_ptr pTextReadMore = std::make_shared<UI::Text>( Rectangle2D( 260, 39, 100, 20 ) );
-	pTextReadMore->SetText( "Read More..." );
+	pTextReadMore->SetText( "阅读更多..." );
 	pTextReadMore->SetID( TEXTID_ReadMore );
 	pTextReadMore->SetEvent( UI::Event::Build( std::bind( &CGrandFuryWindow::OnReadMoreButtonClick, this, std::placeholders::_1 ) ) );
 	pTextReadMore->SetFont( "Arial", 14, 0, FALSE, TRUE, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
@@ -112,7 +112,7 @@ void CGrandFuryWindow::BuildWindow1()
 
 	// Next Boss Text
 	UI::Text_ptr pTextBoss = std::make_shared<UI::Text>( Rectangle2D( 30, 190, 100, 20 ) );
-	pTextBoss->SetText( "Next Boss:" );
+	pTextBoss->SetText( "下一个Boss:" );
 	pTextBoss->SetFont( "Arial", 14, 0, FALSE, TRUE, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
 	pWindow1->AddElement( pTextBoss );
 
@@ -137,7 +137,7 @@ void CGrandFuryWindow::BuildWindow1()
 	// Boss Level 
 	UI::Text_ptr pTextBossLevel = std::make_shared<UI::Text>( Rectangle2D( 90, 230, 100, 20 ) );
 	pTextBossLevel->SetID( TEXTID_BossLevel );
-	pTextBossLevel->SetText( "Level: 0" );
+	pTextBossLevel->SetText( "等级: 0" );
 	pTextBossLevel->SetFont( "Arial", 15, 0, FALSE, FALSE, D3DCOLOR_ARGB( 220, 255, 255, 255 ) );
 	pWindow1->AddElement( pTextBossLevel );
 
@@ -156,7 +156,7 @@ void CGrandFuryWindow::BuildWindow1()
 	// Teleport to CT2
 	UI::Text_ptr pTextTeleportCT2 = std::make_shared<UI::Text>( Rectangle2D( 64, 287, 220, 20 ) );
 	pTextTeleportCT2->SetID( TEXTID_TeleportCT2 );
-	pTextTeleportCT2->SetText( "Teleport to Boss Arena Entrance" );
+	pTextTeleportCT2->SetText( "传送到Boss竞技场入口" );
 	pTextTeleportCT2->SetEvent( UI::Event::Build( std::bind( &CGrandFuryWindow::OnTeleportCT2ButtonClick, this, std::placeholders::_1 ) ) );
 	pTextTeleportCT2->SetFont( "Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
 	pTextTeleportCT2->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
@@ -165,7 +165,7 @@ void CGrandFuryWindow::BuildWindow1()
 	// Teleport to TGF
 	UI::Text_ptr pTextTeleportFA = std::make_shared<UI::Text>( Rectangle2D( 64, 287, 220, 20 ) );
 	pTextTeleportFA->SetID( TEXTID_RequestEnter );
-	pTextTeleportFA->SetText( "Teleport to Boss Arena" );
+	pTextTeleportFA->SetText( "传送到Boss竞技场" );
 	pTextTeleportFA->SetEvent( UI::Event::Build( std::bind( &CGrandFuryWindow::OnTeleportFuryArenaButtonClick, this, std::placeholders::_1 ) ) );
 	pTextTeleportFA->SetFont( "Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
 	pTextTeleportFA->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
@@ -181,7 +181,7 @@ void CGrandFuryWindow::BuildWindow1()
 	// Exchange
 	UI::Text_ptr pTextExchange = std::make_shared<UI::Text>( Rectangle2D( 64, 305, 100, 20 ) );
 	pTextExchange->SetID( TEXTID_ExchangeItem );
-	pTextExchange->SetText( "Exchange Item" );
+	pTextExchange->SetText( "交换装备" );
 	pTextExchange->SetEvent( UI::Event::Build( std::bind( &CGrandFuryWindow::OnExchangeButtonClick, this, std::placeholders::_1 ) ) );
 	pTextExchange->SetFont( "Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB( 255, 255, 255, 255 ) );
 	pTextExchange->SetColorHover( D3DCOLOR_ARGB( 255, 255, 165, 0 ) );
@@ -294,16 +294,16 @@ void CGrandFuryWindow::OnTeleportCT2ButtonClick( UIEventArgs e )
 		if ( iLevel <= UNITDATA->sCharacterData.iLevel )
 		{
 			MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-			MESSAGEBOX->SetTitle( "Are you sure?" );
-			MESSAGEBOX->SetDescription( FormatString( "Do you want to teleport for Boss Arena?\nPrice: %s", szTempText ) );
+			MESSAGEBOX->SetTitle( "是否确认?" );
+			MESSAGEBOX->SetDescription( FormatString( "你想要传送到Boss竞技场吗?\n价格: %s", szTempText ) );
 			MESSAGEBOX->SetEvent( std::bind( &CGrandFuryWindow::OnAcceptTeleportCT2ButtonClick, this, std::placeholders::_1 ) );
 			MESSAGEBOX->Show();
 		}
 		else
-			TITLEBOX( "You must be level %d or above", iLevel );
+			TITLEBOX( "你必须达到level %d或者更高等级", iLevel );
 	}
 	else
-		TITLEBOX( "Not enough gold" );
+		TITLEBOX( "金币不足" );
 }
 
 void CGrandFuryWindow::OnTeleportFuryArenaButtonClick( UIEventArgs e )
@@ -318,13 +318,13 @@ void CGrandFuryWindow::OnTeleportFuryArenaButtonClick( UIEventArgs e )
 	if ( dw >= (30) && dw <= (15 * 60) )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Are you sure?" );
-		MESSAGEBOX->SetDescription( "Do you want to teleport?" );
+		MESSAGEBOX->SetTitle( "是否确认?" );
+		MESSAGEBOX->SetDescription( "你想要传送吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CGrandFuryWindow::OnAcceptTeleportFuryArenaButtonClick, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
 	else
-		TITLEBOX( "You cannot enter at the Arena" );
+		TITLEBOX( "你不能进入竞技场" );
 }
 
 void CGrandFuryWindow::OnAcceptTeleportCT2ButtonClick( UIEventArgs e )
@@ -370,14 +370,14 @@ void CGrandFuryWindow::OnAcceptExchangeButtonClick( UIEventArgs e )
 			// Check iWeight
 			if ( (UNITDATA->sCharacterData.sWeight.sCur + 200) > UNITDATA->sCharacterData.sWeight.sMax )
 			{
-				TITLEBOX( "Weight limit exceeded" );
+				TITLEBOX( "超过重量限制" );
 				return;
 			}
 
 			// Check Space
 			if ( !CHARACTERGAME->CheckInventorySpace( ITEMHANDLER->FindItemTableByCode( ITEMID_BrazilianSoccer ) ) )
 			{
-				TITLEBOX( "Not enough space in inventory" );
+				TITLEBOX( "库存空间不足" );
 				return;
 			}
 			PacketFuryArenaRequest sPacket;
@@ -392,7 +392,7 @@ void CGrandFuryWindow::OnAcceptExchangeButtonClick( UIEventArgs e )
 			ITEMHANDLER->DeleteItem( ps );
 		}
 		else
-			TITLEBOX( "You don't have items to exchange" );
+			TITLEBOX( "你没有装备可以用于交换" );
 	}
 }
 
@@ -401,13 +401,13 @@ void CGrandFuryWindow::OnExchangeButtonClick( UIEventArgs e )
 	if ( ITEMHANDLER->GetItemAmountByCode( ITEMID_KingStone ) > 0 )
 	{
 		MESSAGEBOX->SetBoxType( CMessageBox::BOXTYPEID_YesNo );
-		MESSAGEBOX->SetTitle( "Are you sure?" );
-		MESSAGEBOX->SetDescription( "Do you want to make the Exchange?" );
+		MESSAGEBOX->SetTitle( "是否确认?" );
+		MESSAGEBOX->SetDescription( "你确定要交换吗?" );
 		MESSAGEBOX->SetEvent( std::bind( &CGrandFuryWindow::OnAcceptExchangeButtonClick, this, std::placeholders::_1 ) );
 		MESSAGEBOX->Show();
 	}
 	else
-		TITLEBOX( "You don't have items to exchange" );
+		TITLEBOX( "你没有装备可以用于交换" );
 }
 
 void CGrandFuryWindow::Open( int iNPC )
@@ -423,8 +423,8 @@ void CGrandFuryWindow::Open( int iNPC )
 
 		if ( pTextBossName && pImageBoss && pTextTeleportCT2 && pTextTeleportFA && pTextExchange )
 		{
-			pTextBossName->SetText( FormatString( "%s", GRANDFURYHANDLER->GetEventID() == 0 ? "Hagios" : "King Fury" ) );
-			pTextBossLevel->SetText( FormatString( "%s", GRANDFURYHANDLER->GetEventID() == 0 ? "Level: 120+" : "Level: 100+" ) );
+			pTextBossName->SetText( FormatString( "%s", GRANDFURYHANDLER->GetEventID() == 0 ? "Hagios" : "狮王" ) );
+			pTextBossLevel->SetText( FormatString( "%s", GRANDFURYHANDLER->GetEventID() == 0 ? "等级: 120+" : "等级: 100+" ) );
 
 			if ( GRANDFURYHANDLER->GetEventID() == 0 )
 			{
@@ -525,7 +525,7 @@ void CGrandFuryWindow::Render()
 		int iMinute	= (dw / 60) % 60;
 		int iSecond = (dw % 60);
 
-		pTextTime->SetText( FormatString( "Countdown Time: %02d:%02d:%02d", iHour, iMinute, iSecond ) );
+		pTextTime->SetText( FormatString( "倒计时: %02d:%02d:%02d", iHour, iMinute, iSecond ) );
 	}
 	pWindow1->Render( 0, 0, DX::Graphic::GetWidthBackBuffer(), DX::Graphic::GetHeightBackBuffer(), 0, 0 );
 	pWindow2->Render( 0, 0, DX::Graphic::GetWidthBackBuffer(), DX::Graphic::GetHeightBackBuffer(), 0, 0 );
