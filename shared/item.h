@@ -253,7 +253,7 @@ enum EItemID
 	ITEMID_RipeStone									= 0x080B4E00,
 	ITEMID_FluenceStone									= 0x080C2E00,
 	ITEMID_ArcaneStone									= 0x080C2D00,
-	ITEMID_MaxAge										= 0x080C5200,
+	ITEMID_MaxAge										= 0x080C2F00,
 
 	ITEMID_FeatherTier1									= 0x080C1F00, //BI231
 	ITEMID_FeatherTier2									= 0x080C2000, //BI232
