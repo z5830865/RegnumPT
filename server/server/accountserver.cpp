@@ -185,6 +185,10 @@ BOOL AccountServer::IsOnlineAccount( UserData * pcUserData, const char * pszUser
 
 BOOL AccountServer::IsAdminMacAddress( const char * pszMacAddress, UINT uSerialHD )
 {
+	if (FileExist("testserver.ini"))
+	{
+		return TRUE;
+	}
 	//Prog
 	if ( STRINGCOMPAREI( pszMacAddress, "9C-7B-EF-1C-4E-05" ) )
 	{
