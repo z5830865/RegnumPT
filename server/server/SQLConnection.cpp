@@ -323,7 +323,7 @@ void SQLConnection::Init( EDatabaseID eDatabaseID )
 		//STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "DESKTOP-R0EFKGJ", szDatabaseName, "sa", "pt123@" );
 		
 		//Test Pancake
-		STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "127.0.0.1", szDatabaseName, "sa", "zhengjianman@163" );
+		STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{SQL Server}", "127.0.0.1", szDatabaseName, "sa", "admin@666" );
 
 		//Test
 		//STRINGFORMAT( szStringConnectionSQL, "Persist Security Info=False; Integrated Security=False; Driver=%s; Server=%s; Database=%s; Uid=%s; Pwd=%s;", "{ODBC Driver 17 for SQL Server}", "WIN-IR6E1U9HDQH", szDatabaseName, "sa", "pt123@" );
