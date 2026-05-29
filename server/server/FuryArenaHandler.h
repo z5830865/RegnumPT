@@ -8,12 +8,12 @@
 #define _Z_LEAVEFURYARENA	-10776389
 
 
-#define _BOSS_FURYARENA					"Hagios"
-#define _BOSS_FURYARENALOW				"King Fury"
-#define _MINION_FURYARENA				"Fury Worm"
-#define _MINION_FURYARENALOW			"B-Machine"
-#define _MONSTEREVENT_FURYARENA			"Wanted Wolf"
-#define _MONSTEREVENT_FURYARENALOW		"Wanted Wolf"
+#define _BOSS_FURYARENA					"圣者"
+#define _BOSS_FURYARENALOW				"狮面魔王"
+#define _MINION_FURYARENA				"火烈树"
+#define _MINION_FURYARENALOW			"霸天蛛"
+#define _MONSTEREVENT_FURYARENA			"莫利狼奶奶"
+#define _MONSTEREVENT_FURYARENALOW		"莫利狼奶奶"
 #define _MINION_FURYARENA_CNT 6
 
 // Minions Position
