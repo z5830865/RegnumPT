@@ -2297,13 +2297,13 @@ namespace UI
 			break;
 			//T5
 		case SKILLID_SurvivalInstinct:
-			AddString(0, "Add HP Regen:", D3DCOLOR_XRGB(243, 237, 216));
+			AddString(0, "生命再生:", D3DCOLOR_XRGB(243, 237, 216));
 			AddString(1, FormatString("%.1f", faFighterT51AddHPRegen[uSkillLevel]), D3DCOLOR_XRGB(238, 210, 151));
 
-			AddString(0, "Boost HP Potion Recovery:", D3DCOLOR_XRGB(243, 237, 216));
+			AddString(0, "生命药水恢复效率:", D3DCOLOR_XRGB(243, 237, 216));
 			AddString(1, FormatString("%d%%", sSkillTable.iaFighterT51BoostHPPotionRecovery[uSkillLevel]), D3DCOLOR_XRGB(238, 210, 151));
 
-			AddString(0, "Boost HP Capacity:", D3DCOLOR_XRGB(243, 237, 216));
+			AddString(0, "生命上限:", D3DCOLOR_XRGB(243, 237, 216));
 			AddString(1, FormatString("%d%%", sSkillTable.iaFighterT51BoostHPCapacity[uSkillLevel]), D3DCOLOR_XRGB(238, 210, 151));
 
 			if ((cSkillWrapper.iLevel > 0) && (cSkillWrapper.iLevel < 10))
