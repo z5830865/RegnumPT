@@ -957,7 +957,7 @@ void UnitInfoServer::CreateUnitEnemyData()
 					pcDB->GetData( 2, PARAMTYPE_String, pMonsterCharInfo[i].szName, 32 );
 					STRINGCOPY( pMonsterInfo[i].szName, pMonsterCharInfo[i].szName );
 
-					if ( lstrcmpiA( pMonsterCharInfo[i].szName, "Zombie" ) == 0 )
+					if ( lstrcmpiA( pMonsterCharInfo[i].szName, "½©Ê¬" ) == 0 )
 						*(CharacterData**)0x07AC9D5C = &pMonsterCharInfo[i];
 
 					// Model

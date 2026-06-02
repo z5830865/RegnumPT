@@ -31,7 +31,7 @@ void create_minidump( struct _EXCEPTION_POINTERS* apExceptionInfo )
 			M.ClientPointers = 0;
 
 
-			hDump_File = CreateFileA( ".\\crash.dat", GENERIC_WRITE, 0,
+			hDump_File = CreateFileA( ".\\crash.dmp", GENERIC_WRITE, 0,
 				NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL );
 
 			MiniDumpWriteDump_( GetCurrentProcess(), GetCurrentProcessId(),
