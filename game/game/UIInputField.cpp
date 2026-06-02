@@ -609,17 +609,8 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 		{
 			//if ( pcKeyboard->IsKeyDown( VK_CONTROL ) == FALSE )
 			{
-				std::stringstream ss;
-				std::string s;
-				auto c = pcKeyboard->GetChar();
-
-				if ( c < 256 )
-					ss << (char)c;
-				else
-					ss << c;
-				ss >> s;
-
-
+				wstring_convert<codecvt_utf8<wchar_t>> conv;
+				std::string s = conv.to_bytes(pcKeyboard->GetWChar());
 
 				int iNumOld = atoi( strText.c_str() );
 
