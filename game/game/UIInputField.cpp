@@ -531,7 +531,14 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 			}
 			else if( strText.length() > 0 && uCurrPosition > 0 && (UINT)uCurrPosition <= strText.length() )
 			{
-				strText.erase( uCurrPosition - 1, 1 );
+				if (strText[uCurrPosition - 1] < 0 || strText[uCurrPosition - 1] > 127)
+				{
+					strText.erase(uCurrPosition - 1, 1);
+					uCurrPosition--;
+					strText.erase(uCurrPosition - 1, 1);
+					uCurrPosition--;
+				}
+				strText.erase(uCurrPosition - 1, 1);
 				uCurrPosition--;
 			}
 
