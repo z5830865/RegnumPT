@@ -172,7 +172,7 @@ void MessageBalloon::Init()
 	pcaBellatraCrown[2]										= ImageLoader::LoadImage( "StartImage\\MessageBox\\BellaBox\\Bella_03.tga" );
 
 	pTextMessage = std::make_shared<Text>( Rectangle2D( rRect ), FALSE, -1 );
-	pTextMessage->SetMaxTextWidth( 200 );
+	pTextMessage->SetMaxTextWidth( 240 );
 	pTextMessage->SetNoClip( TRUE );
 	pTextMessage->SetMultiLine( TRUE );
 	pTextMessage->SetFont( FONTNAME_DEFAULT, 16, 6, FALSE, FALSE, -1 );
