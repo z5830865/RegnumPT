@@ -214,11 +214,14 @@ std::string GetClipboardText()
 		return "";
 	}
 
-	using convert_typeX = std::codecvt_utf8<wchar_t>;
-	std::wstring_convert<convert_typeX, wchar_t> converterX;
+	/*using convert_typeX = std::codecvt_utf8<wchar_t>;
+	std::wstring_convert<convert_typeX, wchar_t> converterX;*/
+
+	char mb[256] = { 0 };
+	WideCharToMultiByte(CP_ACP, 0, pszText, -1, mb, sizeof(mb), NULL, NULL);
 
 	// Save text in a string class instance
-	std::string text( converterX.to_bytes( pszText ) );
+	std::string text(mb);
 
 	// Release the lock
 	GlobalUnlock( hData );

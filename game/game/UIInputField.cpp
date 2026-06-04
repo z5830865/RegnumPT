@@ -535,8 +535,6 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 				{
 					strText.erase(uCurrPosition - 1, 1);
 					uCurrPosition--;
-					strText.erase(uCurrPosition - 1, 1);
-					uCurrPosition--;
 				}
 				strText.erase(uCurrPosition - 1, 1);
 				uCurrPosition--;
@@ -559,7 +557,7 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 
 			return TRUE;
 		}
-		else if( pcKeyboard->GetChar() == VK_TAB )
+		else if( pcKeyboard->GetWChar() == VK_TAB )
 		{
 			return TRUE;
 		}
@@ -616,8 +614,21 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 		{
 			//if ( pcKeyboard->IsKeyDown( VK_CONTROL ) == FALSE )
 			{
-				wstring_convert<codecvt_utf8<wchar_t>> conv;
-				std::string s = conv.to_bytes(pcKeyboard->GetWChar());
+				std::stringstream ss;
+				std::string s; 
+				auto c = pcKeyboard->GetWChar();
+
+				if (c > 0 && c < 128)
+					ss << (char)c;
+				else
+				{
+					wchar_t wc[2] = { c, 0 };
+					char mb[4] = { 0 };
+					int iResult = WideCharToMultiByte( CP_ACP, 0, wc, -1, mb, sizeof( mb ), NULL, NULL );
+					if ( iResult > 0 )
+						ss << mb;
+				}
+				ss >> s;
 
 				int iNumOld = atoi( strText.c_str() );
 
