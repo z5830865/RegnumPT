@@ -58,39 +58,45 @@ void Text::UpdateText()
 	{
 		int iTextWidth = 0;
 		const char * pszText = strText.c_str();
+		size_t size = MultiByteToWideChar(CP_UTF8, 0, pszText, -1, NULL, 0);
+		wchar_t wc[256];
+		MultiByteToWideChar(CP_UTF8, 0, pszText, -1, wc, size);
 
-		for( UINT i = 0; i < strText.size(); i++ )
+		for( UINT i = 0; i < size; i++ )
 		{
-			char c[5] = {0};
+			//char c[5] = {0};
 
-			// 判断并复制一个字符（支持中文UTF-8和英文）
-			if ((unsigned char)pszText[i] >= 0x80) // 中文或其他多字节字符
-			{
-				// 以UTF-8为例，中文一般为3字节
-				int charLen = 0;
-				unsigned char lead = (unsigned char)pszText[i];
-				if ((lead & 0xF8) == 0xF0) charLen = 4;      // 4字节UTF-8字符
-				else if ((lead & 0xF0) == 0xE0) charLen = 3; // 3字节UTF-8字符
-				else if ((lead & 0xE0) == 0xC0) charLen = 2; // 2字节UTF-8字符
-				else charLen = 1;                            // 非法或单字节
+			//// 判断并复制一个字符（支持中文UTF-8和英文）
+			//if ((unsigned char)pszText[i] >= 0x80) // 中文或其他多字节字符
+			//{
+			//	// 以UTF-8为例，中文一般为3字节
+			//	int charLen = 0;
+			//	unsigned char lead = (unsigned char)pszText[i];
+			//	if ((lead & 0xF8) == 0xF0) charLen = 4;      // 4字节UTF-8字符
+			//	else if ((lead & 0xF0) == 0xE0) charLen = 3; // 3字节UTF-8字符
+			//	else if ((lead & 0xE0) == 0xC0) charLen = 2; // 2字节UTF-8字符
+			//	else charLen = 1;                            // 非法或单字节
 
-				c[4] = {0}; // 最多4字节+1结尾
-				for (int k = 0; k < charLen && (i + k) < strText.size(); ++k)
-					c[k] = pszText[i + k];
+			//	c[4] = {0}; // 最多4字节+1结尾
+			//	for (int k = 0; k < charLen && (i + k) < strText.size(); ++k)
+			//		c[k] = pszText[i + k];
 
-				// ...后续处理c...
+			//	// ...后续处理c...
 
-				i += charLen - 1; // 跳过多字节
-			}
-			else // 英文或单字节
-			{
-				c[0] = {pszText[i]};
-				c[1] = 0;
-			}
+			//	i += charLen - 1; // 跳过多字节
+			//}
+			//else // 英文或单字节
+			//{
+			//	c[0] = {pszText[i]};
+			//	c[1] = 0;
+			//}
 
-			int iWidth = pFont->Calc( c, BuildFormat() );
+			wstring_convert<codecvt_utf8<wchar_t>> conv;
+			std::string s = conv.to_bytes(wc[i]);
 
-			if ( iWidth == 0 )
+			int iWidth = pFont->Calc(s, BuildFormat() );
+
+			/*if ( iWidth == 0 )
 			{
 				if ( IsSpaceLambda( c[0] ) )
 				{
@@ -103,7 +109,7 @@ void Text::UpdateText()
 
 					iWidth -= pFont->Calc( c2, BuildFormat() ) * 2;
 				}
-			}
+			}*/
 			
 			iTextWidth += iWidth;
 

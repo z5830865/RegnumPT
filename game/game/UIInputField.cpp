@@ -531,7 +531,14 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 			}
 			else if( strText.length() > 0 && uCurrPosition > 0 && (UINT)uCurrPosition <= strText.length() )
 			{
-				strText.erase( uCurrPosition - 1, 1 );
+				if (strText[uCurrPosition - 1] < 0 || strText[uCurrPosition - 1] > 127)
+				{
+					strText.erase(uCurrPosition - 1, 1);
+					uCurrPosition--;
+					strText.erase(uCurrPosition - 1, 1);
+					uCurrPosition--;
+				}
+				strText.erase(uCurrPosition - 1, 1);
 				uCurrPosition--;
 			}
 
@@ -609,17 +616,8 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 		{
 			//if ( pcKeyboard->IsKeyDown( VK_CONTROL ) == FALSE )
 			{
-				std::stringstream ss;
-				std::string s;
-				auto c = pcKeyboard->GetChar();
-
-				if ( c < 256 )
-					ss << (char)c;
-				else
-					ss << c;
-				ss >> s;
-
-
+				wstring_convert<codecvt_utf8<wchar_t>> conv;
+				std::string s = conv.to_bytes(pcKeyboard->GetWChar());
 
 				int iNumOld = atoi( strText.c_str() );
 
