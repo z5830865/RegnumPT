@@ -568,8 +568,8 @@ BOOL CQuestArenaHandler::OnUnitKilled( UserData * pcUserData, UnitData * pcUnitD
 
 				CHARACTERSERVER->SetPositionWarp( pcUser->pcUserData, QUESTT5ARENA_X_LEAVE, QUESTT5ARENA_Z_LEAVE, MAPID_RicartenTown );
 
-				CHATSERVER->SendChatMessageBox( pcUser, "第5层任务失败!" );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 第5层任务失败!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "五转任务失败!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 五转任务失败!" );
 
 
 				KillUnitsUserT5Quest( pcUser );
@@ -596,8 +596,8 @@ BOOL CQuestArenaHandler::OnUnitKilled( UnitData * pcUnitData )
 
 			CHARACTERSERVER->SetPositionWarp( pcUser->pcUserData, QUESTT5ARENA_X_LEAVE, QUESTT5ARENA_Z_LEAVE, MAPID_RicartenTown );
 
-			CHATSERVER->SendChatMessageBox( pcUser, "第5层任务失败!" );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 第5层任务失败!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "五转任务失败!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 五转任务失败!" );
 
 			//Process
 			PacketQuestArenaTier5 s1;

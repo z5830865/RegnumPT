@@ -514,7 +514,7 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 {
 	if ( bSelect )
 	{		
-		if( pcKeyboard->GetChar() == VK_BACK )
+		if( pcKeyboard->GetWChar() == VK_BACK )
 		{
 			if( iSelectedTextLength > 0 && strText.length() > 0 && (UINT)iSelectedTextLength <= strText.length() )
 			{
@@ -605,7 +605,7 @@ BOOL InputField::OnKeyChar( class CKeyboard * pcKeyboard )
 			uCurrPosition = 0;
 			return TRUE;
 		}
-		else if( pcKeyboard->GetChar() == VK_SPACE )
+		else if( pcKeyboard->GetWChar() == VK_SPACE )
 		{
 			AddInput( " " );
 			return TRUE;

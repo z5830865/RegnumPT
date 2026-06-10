@@ -1,4 +1,4 @@
-/*
+﻿/*
 *	STR MIX GUILD 2019
 *	gabrielcarlos91@hotmail.com
 */
@@ -108,16 +108,16 @@ void CMixGuildWindow::BuildWindow1()
 		pComboBox->SetHoverColor(D3DCOLOR_ARGB(150, 170, 150, 120));
 		//Options
 		{
-			pComboBox->AddOption(pComboBox->MakeOption("Weapons", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Amors/Robes", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Bracelet", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Gauntlet", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Boot", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Shield", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Orb", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Ring", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Amulet", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
-			pComboBox->AddOption(pComboBox->MakeOption("Sheltom", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("武器", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("护甲/长袍", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("手镯", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("护手", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("靴子", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("盾牌", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("法球", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("戒指", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("护身符", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
+			pComboBox->AddOption(pComboBox->MakeOption("冶炼", Rectangle2D(0, 0, 110, 16), FALSE, D3DCOLOR_ARGB(255, 210, 195, 180)));
 		}
 		pComboBox->SetChangeEvent(UI::Event::Build(std::bind(&CMixGuildWindow::OnChangeMixSelect, this, std::placeholders::_1)));
 		pWindow1->AddElement(pComboBox);
@@ -215,7 +215,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 */
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, startY, 240, 14));
-                pItemDesc->SetText("最小攻击(+7) 最大攻击(+8) 攻击距离(+35) Crit(+2) 魔法(+10)");
+                pItemDesc->SetText("攻击(7-8) 攻击距离(+35) 暴击(+2) 魔法(+10)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -295,7 +295,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 */
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix2StartY, 240, 14));
-                pItemDesc->SetText("最小攻击(+8) 最大攻击(+9) 攻击距离(+40) 暴击(+3) 魔法(+15)");
+                pItemDesc->SetText("攻击(8-9) 攻击距离(+40) 暴击(+3) 魔法(+15)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -355,7 +355,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix3StartY, 240, 14));
-                pItemDesc->SetText("最小攻击(+9) 最大攻击(+11) 攻击距离(+45) 暴击(+3) 魔法(+20)");
+                pItemDesc->SetText("攻击(9-11) 攻击距离(+45) 暴击(+3) 魔法(+20)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -415,7 +415,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 */
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix4StartY, 240, 14));
-                pItemDesc->SetText("最小攻击(+13) 最大攻击(+15) Atk-R(+50) 暴击(+4) 魔法(+25)");
+                pItemDesc->SetText("攻击(13-15) 攻击距离(+50) 暴击(+4) 魔法(+25)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
@@ -475,7 +475,7 @@ void CMixGuildWindow::OnMixLoad(int MixID)
 
                 //DESC MIX
                 UI::Text_ptr pItemDesc = std::make_shared<UI::Text>(Rectangle2D(410, mix5StartY, 240, 14));
-                pItemDesc->SetText("最小攻击(+15) 最大攻击(+19) Atk-R(+55) 暴击(+4) 魔法(+30)");
+                pItemDesc->SetText("攻击(15-19) 攻击距离(+55) 暴击(+4) 魔法(+30)");
                 pItemDesc->SetFont("Arial", 16, 0, FALSE, FALSE, D3DCOLOR_ARGB(255, 236, 236, 236));
                 pWindowItem->AddElement(pItemDesc);
             }
