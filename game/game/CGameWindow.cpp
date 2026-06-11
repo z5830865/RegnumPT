@@ -348,8 +348,8 @@ LRESULT CGameWindow::WndProc( UINT uMsg, WPARAM wParam, LPARAM lParam )
 
 
 		case WM_KILLFOCUS:
-			SetFocus( hWnd );
-			return TRUE;
+			//SetFocus( hWnd );
+			return DefWindowProcW(hWnd, uMsg, wParam, lParam);
 
 		case WM_CLOSE:
 			CALL( 0x0045C35A );
@@ -529,7 +529,7 @@ LRESULT CGameWindow::WndProc( UINT uMsg, WPARAM wParam, LPARAM lParam )
 			break;
 
 		case WM_IME_SETCONTEXT:
-			return DefWindowProcW( hWnd, uMsg, wParam, 0 );
+			return DefWindowProcW( hWnd, uMsg, wParam, lParam);
 			break;
 
 		case WM_IME_CHAR:
@@ -603,9 +603,6 @@ LRESULT CGameWindow::WndProc( UINT uMsg, WPARAM wParam, LPARAM lParam )
 				KEYBOARDHANDLER->OnKeyPress( wParam, (uMsg == WM_SYSKEYDOWN) );
 				return 0;
 			}
-
-			if ( wParam == VK_MENU )
-				return 0;
 
 			return DefWindowProcW( hWnd, uMsg, wParam, lParam );
 			break;

@@ -291,7 +291,7 @@ void CQuestArenaHandler::SpawnUnitCrystalT5Quest( User * pcUser )
 	sPosition.iY = (8 << 8);
 	sPosition.iZ = QUESTT5ARENA_Z_;
 
-    UnitData * pcUnitData = MAPSERVER->SpawnMonster( "Crystal Tower", MAPID_T5QuestArena, Point3D( sPosition.iX, sPosition.iY, sPosition.iZ + 1 ), pcUser );
+    UnitData * pcUnitData = MAPSERVER->SpawnMonster( "水晶塔", MAPID_T5QuestArena, Point3D( sPosition.iX, sPosition.iY, sPosition.iZ + 1 ), pcUser );
     if ( pcUnitData )
     {
         pcUnitData->sCharacterData.iMinDamage       = 0;
@@ -568,8 +568,8 @@ BOOL CQuestArenaHandler::OnUnitKilled( UserData * pcUserData, UnitData * pcUnitD
 
 				CHARACTERSERVER->SetPositionWarp( pcUser->pcUserData, QUESTT5ARENA_X_LEAVE, QUESTT5ARENA_Z_LEAVE, MAPID_RicartenTown );
 
-				CHATSERVER->SendChatMessageBox( pcUser, "第5层任务失败!" );
-				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 第5层任务失败!" );
+				CHATSERVER->SendChatMessageBox( pcUser, "五转任务失败!" );
+				CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 五转任务失败!" );
 
 
 				KillUnitsUserT5Quest( pcUser );
@@ -596,8 +596,8 @@ BOOL CQuestArenaHandler::OnUnitKilled( UnitData * pcUnitData )
 
 			CHARACTERSERVER->SetPositionWarp( pcUser->pcUserData, QUESTT5ARENA_X_LEAVE, QUESTT5ARENA_Z_LEAVE, MAPID_RicartenTown );
 
-			CHATSERVER->SendChatMessageBox( pcUser, "第5层任务失败!" );
-			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 第5层任务失败!" );
+			CHATSERVER->SendChatMessageBox( pcUser, "五转任务失败!" );
+			CHATSERVER->SendChat( pcUser, CHATCOLOR_Global, "> 五转任务失败!" );
 
 			//Process
 			PacketQuestArenaTier5 s1;

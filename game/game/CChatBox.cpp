@@ -160,7 +160,7 @@ void CChatBox::AddMessage( std::string strMessage, EChatColor eChatColor, ItemDa
 				pTextMessage->SetDropdownShadow( TRUE );
 				pTextMessage->SetDropdownColor( UI::Color( 150, 0, 0, 0 ).Get() );
 				pTextMessage->SetMultiLine( TRUE );
-				pTextMessage->SetMaxTextWidth( 275 );
+				pTextMessage->SetMaxTextWidth( 240 );
 				pTextMessage->SetText( strMessage );
 				pTextMessage->SetNoClip( TRUE );
 				pBaseWindow->SetBox( Rectangle2D( 5, 0, 275, pTextMessage->GetHeightText() ) );

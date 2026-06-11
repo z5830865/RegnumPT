@@ -1042,8 +1042,8 @@ BOOL QuestServer::SQLStartQuest( User * pcUser, int iQuestID, char * pszMonster,
 
 	v = pszItemCounter;
 	uCount = std::count( v.begin(), v.end(), ',' ) + 1;
-	if ( IsNull( pszItemCounter ) )
-		uCount = 0;
+	/*if ( IsNull( pszItemCounter ) )
+		uCount = 0;*/
 
 	for ( UINT u = 0; u < uCount; u++ )
 	{

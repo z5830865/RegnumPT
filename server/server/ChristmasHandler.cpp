@@ -185,12 +185,12 @@ void CChristmasHandler::OnSayTime( UnitData * pcUnitData )
 			{
 				const char * pszaSkeletonXMASPhrase[6] =
 				{
-					"I Kidnaped Santa Claus and smashed him with a stick, hahaha",
-					"You will be killed this XMas! muahahahaha",
-						"See you in the next life (:",
-						"I know that I'm a computed data turned into a monster!",
-						"GM-Prog's PC can't handle me! buggy pc",
-						"Merry XMas in hell ((:",
+					"我绑架了圣诞老人，用棍子把他打碎了，哈哈哈",
+					"你这个圣诞节会被杀了！哈哈哈",
+						"下辈子见(:",
+						"我知道自己是由计算数据变成的怪物!",
+						"GM-Prog的电脑无法运行我！电脑出问题了",
+						"圣诞快乐，地狱见 ((:",
 				};
 				int iRand = rand() % 6;
 				pcUnitData->dwMessageEndTime = TICKCOUNT + 60000;
@@ -204,11 +204,11 @@ void CChristmasHandler::OnSayTime( UnitData * pcUnitData )
 				const char * pszaSantaGoblinPhrase[6] =
 				{
 						"",
-						"I'm your father! Merry XMas (;",
-						"Turn back on musics of XMas, have something for you! HEHEHE",
-						"Do you like Christmas? I like to kill you!",
-						"Are you a good boy? hehehehe 666",
-						"Your parents are liers, Santa Claus doesn't exist!",
+						"我是圣诞老人(;",
+						"重新开启圣诞音乐，为你准备了点心 呵呵",
+						"你喜欢圣诞节吗？我喜欢杀死你!",
+						"你是个好孩子吗？哈哈哈",
+						"你的父母是骗子，圣诞老人不存在!",
 				};
 				int iRand = rand() % 6;
 				pcUnitData->dwMessageEndTime = TICKCOUNT + 60000;
