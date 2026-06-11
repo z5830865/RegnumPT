@@ -3099,7 +3099,7 @@ BOOL SkillManager::OnRankUPButtonClick( int iX, int iY )
 
 							CHARACTERGAME->ResetHead( TRUE );
 
-							TITLEBOX( "你的排名上升了!" );
+							TITLEBOX( "你已成功转职!" );
 						}
 						else if ( UNITDATA->sCharacterData.iRank == CHARACTERRANK_Rank4 )
 						{

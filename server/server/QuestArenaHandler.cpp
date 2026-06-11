@@ -291,7 +291,7 @@ void CQuestArenaHandler::SpawnUnitCrystalT5Quest( User * pcUser )
 	sPosition.iY = (8 << 8);
 	sPosition.iZ = QUESTT5ARENA_Z_;
 
-    UnitData * pcUnitData = MAPSERVER->SpawnMonster( "Crystal Tower", MAPID_T5QuestArena, Point3D( sPosition.iX, sPosition.iY, sPosition.iZ + 1 ), pcUser );
+    UnitData * pcUnitData = MAPSERVER->SpawnMonster( "Ë®¾§Ëþ", MAPID_T5QuestArena, Point3D( sPosition.iX, sPosition.iY, sPosition.iZ + 1 ), pcUser );
     if ( pcUnitData )
     {
         pcUnitData->sCharacterData.iMinDamage       = 0;
