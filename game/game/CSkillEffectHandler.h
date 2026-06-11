@@ -27,6 +27,7 @@
 #include "CKissViperHandler.h"
 #include "CFlameBallHandler.h"
 
+#include "CRuthlessofZecramHandler.h"//ÎäÊ¿5-2
 
 //Skill IDs
 #define PARTICLEID_MAGNETIC_DISCHARGE		4000
@@ -51,6 +52,7 @@
 
 //Fighter T5
 #define	SESMICIMPACTHANDLER		(SKILLEFFECTHANDLER->GetSesmicImpact())
+#define	RuthlessofZecram        (SKILLEFFECTHANDLER->GetRuthlessofZecram())
 
 //Mechanician T5
 #define IMPULSIONHANDLER		(SKILLEFFECTHANDLER->GetImpulsion())
@@ -104,6 +106,7 @@ public:
 
 	//Fighter T5
 	CSesmicImpactHandler		* GetSesmicImpact() { return pcSesmicImpact; }
+	CRuthlessofZecramHandler    * GetRuthlessofZecram() { return pcRuthlessofZecram; }
 
 	//Pikeman T5
 	CRingsOfSpearsHandler		* GetRingOfSpears(){ return pcRingOfSpears; }
@@ -160,7 +163,8 @@ protected:
 
 	//Fighter T5
 	CSesmicImpactHandler		* pcSesmicImpact;
-
+	CRuthlessofZecramHandler    * pcRuthlessofZecram;
+	
 	//Pikeman T5
 	CRingsOfSpearsHandler		* pcRingOfSpears;
 	CLastBreathHandler			* pcLastBreath;

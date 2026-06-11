@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "CSesmicImpactHandler.h"
 
-
 CSesmicImpactHandler::CSesmicImpactHandler()
 {
 }
-
 
 CSesmicImpactHandler::~CSesmicImpactHandler()
 {

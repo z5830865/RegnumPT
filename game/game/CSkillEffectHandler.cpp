@@ -15,6 +15,7 @@ CSkillEffectHandler::CSkillEffectHandler()
 
 	//Fighter T5
 	pcSesmicImpact			= new CSesmicImpactHandler();
+	pcRuthlessofZecram      = new CRuthlessofZecramHandler();
 
 	//Pikeman T5
 	pcRingOfSpears			= new CRingsOfSpearsHandler();
@@ -68,6 +69,7 @@ CSkillEffectHandler::~CSkillEffectHandler()
 
 	//Fighter T5
 	DELET( pcSesmicImpact );
+	DELET( pcRuthlessofZecram );
 
 	//Pikeman T5
 	DELET( pcRingOfSpears );

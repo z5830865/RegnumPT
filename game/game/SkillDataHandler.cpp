@@ -204,13 +204,13 @@ BOOL CSkillDataHandler::IsSkillLocked( int iID )
 		}
 	}
 
-	switch( iID )
+	switch( iID )//技能锁定
 	{
 		case SKILLID_ParasitShot:
 		case SKILLID_HardeningShield:
-		//case SKILLID_SeismicImpact:
-		case SKILLID_RuthlessofZecram:
-		case SKILLID_WhirlwindFS01:
+		case SKILLID_SeismicImpact://武士5-2
+		case SKILLID_RuthlessofZecram://武士5-3
+		case SKILLID_WhirlwindFS01://武士5 - 4
 		//case SKILLID_KissViper:
 		case SKILLID_ViolentStub:
 		case SKILLID_ShadowStorm:

@@ -448,6 +448,9 @@ bool SkillManager::SkillPlay( struct Skill * psSkill, UnitData * pcUnitData )
 				case SKILLID_SeismicImpact:
 					return SESMICIMPACTHANDLER->OnCastAnimationStart( psSkill, pcUnitData );
 					break;
+				case SKILLID_RuthlessofZecram:
+					return RuthlessofZecram->OnCastAnimationStart(psSkill, pcUnitData);
+					break;
 			}
 			break;
 
@@ -875,11 +878,13 @@ BOOL SkillManager::EventSkill( UnitData * pcUnitData )
 			switch ( pcUnitData->sActiveSkill.cSkillTinyID )
 			{
 				case SKILLPLAYID_T51:
-					return SESMICIMPACTHANDLER->OnEvent( pcUnitData );
+					
 					break;
 				case SKILLPLAYID_T52:
+					return SESMICIMPACTHANDLER->OnEvent(pcUnitData);//原版怎么写的5-1去了
 					break;
 				case SKILLPLAYID_T53:
+					return RuthlessofZecram->OnEvent(pcUnitData);
 					break;
 				case SKILLPLAYID_T54:
 
@@ -2320,7 +2325,10 @@ void SkillManager::LoadParticles()
 {
 	SKILLEFFECTHANDLER->GetLethalSight()->LoadParticle();
 	SKILLEFFECTHANDLER->GetFierceWind()->LoadParticle();
+
 	SKILLEFFECTHANDLER->GetSesmicImpact()->LoadParticle();
+	SKILLEFFECTHANDLER->GetRuthlessofZecram()->LoadParticle();
+
 	SKILLEFFECTHANDLER->GetStoneSkin()->LoadParticle();
 	SKILLEFFECTHANDLER->GetHolyConviction()->LoadParticle();
 	SKILLEFFECTHANDLER->GetRupture()->LoadParticle();

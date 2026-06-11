@@ -2256,6 +2256,9 @@
     <ClInclude Include="AutoGameHandler.h">
       <Filter>Header Files\Game\Controller\AutoGame</Filter>
     </ClInclude>
+    <ClInclude Include="CRuthlessofZecramHandler.h">
+      <Filter>Header Files\Game\Controller\Skill\Character\Fighter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinDump.cpp">
@@ -3434,6 +3437,9 @@
     </ClCompile>
     <ClCompile Include="AutoGameHandler.cpp">
       <Filter>Source Files\Game\Controller\AutoGame</Filter>
+    </ClCompile>
+    <ClCompile Include="CRuthlessofZecramHandler.cpp">
+      <Filter>Source Files\Game\Controller\Skill\Character\Fighter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
