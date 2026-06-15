@@ -498,7 +498,7 @@ enum EItemID
 	ITEMID_MysteriousBookRecipe							= 0x0A026004, //DR214
 	ITEMID_SecretRecipe									= 0x0A026005, //DR215
 
-	ITEMID_PurpleDiamond								= 0x03090100,
+	ITEMID_PurpleDiamond								= 0x03090100, //PR201
 	ITEMID_SilverDiamond								= 0x03090200,
 	ITEMID_GoldDiamond									= 0x03090300,
 

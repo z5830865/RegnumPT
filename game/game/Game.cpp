@@ -2,6 +2,10 @@
 #include "Game.h"
 #include "CSound.h"
 #include "Controller.h"
+#include <string>
+#include <vector>
+#include <cctype>
+#include <cstdio>
 
 char Game::szHardwareID[40];
 char Game::szNewHardwareID[40];
@@ -228,7 +232,107 @@ BOOL Game::Initialize()
 
 HINTERNET WINAPI Game::InternetOpenUrlClan( HINTERNET hInternet, LPCTSTR lpszUrl, LPCTSTR lpszHeaders, DWORD dwHeadersLength, DWORD dwFlags, DWORD_PTR dwContext )
 {
-	return InternetOpenUrlA( hInternet, lpszUrl, "Accept: */*\r\n\r\n", lstrlenA( "Accept: */*\r\n\r\n" ), INTERNET_FLAG_DONT_CACHE, NULL );
+    // Encode Chinese (and other non-unreserved) characters in query parameter values.
+	if ( lpszUrl == nullptr )
+		return InternetOpenUrlA( hInternet, lpszUrl, "Accept: */*\r\n\r\n", lstrlenA( "Accept: */*\r\n\r\n" ), INTERNET_FLAG_DONT_CACHE, NULL );
+
+	std::string url( lpszUrl );
+
+    auto urlEncodeValue = []( const std::string & value ) -> std::string {
+		// Convert from ANSI (current code page) to UTF-8, then percent-encode bytes
+		if ( value.empty() )
+			return std::string();
+
+		// Wide char buffer
+		int wlen = MultiByteToWideChar( CP_ACP, 0, value.c_str(), (int)value.size(), NULL, 0 );
+		std::wstring wstr;
+		if ( wlen > 0 )
+		{
+			wstr.resize( wlen );
+			MultiByteToWideChar( CP_ACP, 0, value.c_str(), (int)value.size(), &wstr[0], wlen );
+		}
+		else
+		{
+			// Fallback: operate on raw bytes
+			wstr.clear();
+		}
+
+		// Convert wide to UTF-8
+		std::string utf8;
+		if ( !wstr.empty() )
+		{
+			int ulen = WideCharToMultiByte( CP_UTF8, 0, wstr.c_str(), (int)wstr.size(), NULL, 0, NULL, NULL );
+			if ( ulen > 0 )
+			{
+				utf8.resize( ulen );
+				WideCharToMultiByte( CP_UTF8, 0, wstr.c_str(), (int)wstr.size(), &utf8[0], ulen, NULL, NULL );
+			}
+		}
+		else
+		{
+			// If conversion failed, fall back to original bytes
+			utf8 = value;
+		}
+
+		auto is_unreserved = []( unsigned char c )->bool {
+			return ( std::isalnum( c ) || c == '-' || c == '.' || c == '_' || c == '~' );
+		};
+
+		std::string out;
+		char buf[4];
+		for ( unsigned char c : utf8 )
+		{
+			if ( is_unreserved( c ) )
+			{
+				out.push_back( (char)c );
+			}
+			else
+			{
+				std::snprintf( buf, sizeof(buf), "%%%02X", c );
+				out.append( buf );
+			}
+		}
+		return out;
+	};
+
+	size_t qpos = url.find( '?' );
+	if ( qpos != std::string::npos && qpos + 1 < url.size() )
+	{
+		std::string base = url.substr( 0, qpos + 1 ); // include '?'
+		std::string query = url.substr( qpos + 1 );
+		std::vector<std::string> parts;
+		size_t start = 0;
+		while ( start <= query.size() )
+		{
+			size_t amp = query.find( '&', start );
+			if ( amp == std::string::npos ) amp = query.size();
+			std::string pair = query.substr( start, amp - start );
+			size_t eq = pair.find( '=' );
+			if ( eq != std::string::npos )
+			{
+				std::string key = pair.substr( 0, eq );
+				std::string val = pair.substr( eq + 1 );
+				val = urlEncodeValue( val );
+				parts.push_back( key + "=" + val );
+			}
+			else
+			{
+				// no value, keep as is
+				parts.push_back( pair );
+			}
+			if ( amp == query.size() ) break;
+			start = amp + 1;
+		}
+		std::string newQuery;
+		for ( size_t i = 0; i < parts.size(); ++i )
+		{
+			if ( i ) newQuery.push_back( '&' );
+			newQuery.append( parts[i] );
+		}
+		url = base + newQuery;
+	}
+
+	return InternetOpenUrlA( hInternet, url.c_str(), "Accept: */*\r\n\r\n", lstrlenA( "Accept: */*\r\n\r\n" ), INTERNET_FLAG_DONT_CACHE, NULL );
 }
 
 void Game::OnSetRGBATimer()
