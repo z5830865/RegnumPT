@@ -208,8 +208,8 @@ BOOL CSkillDataHandler::IsSkillLocked( int iID )
 	{
 		case SKILLID_ParasitShot:
 		case SKILLID_HardeningShield:
-		case SKILLID_SeismicImpact://武士5-2
-		case SKILLID_RuthlessofZecram://武士5-3
+		//case SKILLID_SeismicImpact://武士5-2
+		//case SKILLID_RuthlessofZecram://武士5-3
 		case SKILLID_WhirlwindFS01://武士5 - 4
 		//case SKILLID_KissViper:
 		case SKILLID_ViolentStub:
